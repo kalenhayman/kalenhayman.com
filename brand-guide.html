@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AVA Brand Guide — Avatar Design Studio</title>
+<title>AVA Brand Guide — Kalen Hayman</title>
 <meta name="description" content="The AVA brand guide: fashion, fitness, athletic. Owned IP, built once, deployed everywhere.">
-<link rel="canonical" href="https://www.avadesign.studio/brand-guide">
+<link rel="canonical" href="https://www.kalenhayman.com/brand-guide">
 <meta name="theme-color" content="#000000">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="AVA">
-<meta property="og:title" content="AVA Brand Guide — Avatar Design Studio">
+<meta property="og:site_name" content="Kalen Hayman">
+<meta property="og:title" content="AVA Brand Guide — Kalen Hayman">
 <meta property="og:description" content="The AVA brand guide: fashion, fitness, athletic. Owned IP, built once, deployed everywhere.">
-<meta property="og:url" content="https://www.avadesign.studio/brand-guide">
-<meta property="og:image" content="https://www.avadesign.studio/assets/og/ava-brand-guide.jpg">
+<meta property="og:url" content="https://www.kalenhayman.com/brand-guide">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/og/ava-brand-guide.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AVA Brand Guide — Avatar Design Studio">
+<meta name="twitter:title" content="AVA Brand Guide — Kalen Hayman">
 <meta name="twitter:description" content="The AVA brand guide: fashion, fitness, athletic. Owned IP, built once, deployed everywhere.">
-<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/ava-brand-guide.jpg">
+<meta name="twitter:image" content="https://www.kalenhayman.com/assets/og/ava-brand-guide.jpg">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -36,27 +36,27 @@
 .mag-stage { position: relative; max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 18px; }
 .mag { position: relative; perspective: 2600px; flex: 0 1 auto; width: min(100%, 1120px); aspect-ratio: 2.826; }
 .mag.single { aspect-ratio: 1.413; }
-.mag-book { position: relative; width: 100%; height: 100%; display: flex; background: var(--ink); border: 1px solid rgba(235,235,234,.12); }
-.mag-page { position: relative; width: 50%; height: 100%; background: #070707; overflow: hidden; }
+.mag-book { position: relative; width: 100%; height: 100%; display: flex; background: var(--ink); border: 1px solid rgba(var(--bone-rgb),.12); }
+.mag-page { position: relative; width: 50%; height: 100%; background: var(--panel); overflow: hidden; }
 .mag.single .mag-page { width: 100%; }
 .mag-page img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.mag-page--empty { background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px); }
+.mag-page--empty { background-image: repeating-linear-gradient(135deg, var(--panel) 0 2px, transparent 2px 14px); }
 .mag-book::after { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 40px; transform: translateX(-50%); pointer-events: none; z-index: 4; background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%); }
 .mag.single .mag-book::after { display: none; }
 .mag-leaf { position: absolute; top: 0; width: 50%; height: 100%; z-index: 5; transform-style: preserve-3d; transition: transform 720ms cubic-bezier(0.42, 0, 0.28, 1); }
 .mag-leaf--fwd { left: 50%; transform-origin: left center; }
 .mag-leaf--back { left: 0; transform-origin: right center; }
-.mag-leaf .mag-face { position: absolute; inset: 0; backface-visibility: hidden; background: #070707; overflow: hidden; }
+.mag-leaf .mag-face { position: absolute; inset: 0; backface-visibility: hidden; background: var(--panel); overflow: hidden; }
 .mag-leaf .mag-face img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .mag-leaf .mag-face--b { transform: rotateY(180deg); }
-.mag-arrow { flex: 0 0 auto; width: 52px; height: 52px; background: transparent; border: 1px solid #2a2a2a; color: var(--bone); cursor: pointer; font-family: var(--mono); font-size: 16px; line-height: 1; transition: color .3s, border-color .3s, opacity .3s; }
-.mag-arrow:hover:not(:disabled) { border-color: var(--neon); color: var(--neon); }
+.mag-arrow { flex: 0 0 auto; width: 52px; height: 52px; background: transparent; border: 1px solid var(--hair); color: var(--bone); cursor: pointer; font-family: var(--mono); font-size: 16px; line-height: 1; transition: color .3s, border-color .3s, opacity .3s; }
+.mag-arrow:hover:not(:disabled) { border-color: var(--neon-text); color: var(--neon-text); }
 .mag-arrow:disabled { opacity: .25; cursor: default; }
 .mag-bar { max-width: 1240px; margin: 22px auto 0; display: flex; align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap; }
-.mag-btn { background: transparent; border: 1px solid #2a2a2a; color: var(--sand); cursor: pointer; font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; padding: 12px 16px; transition: color .3s, border-color .3s; }
-.mag-btn:hover { border-color: var(--neon); color: var(--neon); }
+.mag-btn { background: transparent; border: 1px solid var(--hair); color: var(--sand); cursor: pointer; font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; padding: 12px 16px; transition: color .3s, border-color .3s; }
+.mag-btn:hover { border-color: var(--neon-text); color: var(--neon-text); }
 .mag-count { font-family: var(--mono); font-size: 12px; letter-spacing: .22em; color: var(--sand); }
-.mag-count b { color: var(--neon); font-weight: 400; }
+.mag-count b { color: var(--neon-text); font-weight: 400; }
 .mag:fullscreen { width: 100vw; height: 100vh; aspect-ratio: auto; padding: 3vh 4vw; background: var(--ink); display: flex; align-items: center; justify-content: center; }
 .mag:fullscreen .mag-book { width: min(96vw, 188vh); height: auto; aspect-ratio: 2.826; }
 .mag.single:fullscreen .mag-book { aspect-ratio: 1.413; width: min(96vw, 94vh * 1.413); }
@@ -67,7 +67,7 @@
 <body>
 
 <nav class="nav" aria-label="Site">
-  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <a class="nav-mark" href="/" aria-label="Kalen Hayman — home"><span class="k-mark" aria-hidden="true">K</span></a>
   <div class="nav-links">
     <a href="/work">Work</a>
     <a href="/services">Services</a>
@@ -90,14 +90,14 @@
   </ul>
   <div class="menu-foot">
     <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
-    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <a class="mono" href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
     <span class="mono">Vancouver · Worldwide</span>
   </div>
 </div>
 
 <main>
   <section class="bg">
-    <div class="bg-head mono"><span class="dot">Brand guide · Avatar Design Studio</span><span>v1.0 · 2026</span></div>
+    <div class="bg-head mono"><span class="dot">Brand guide · Designed by Kalen Hayman</span><span>v1.0 · 2026</span></div>
     <h1 class="bg-title display">The AVA Brand Guide</h1>
     <div class="mag-stage">
       <button class="mag-arrow" id="magPrev" type="button" aria-label="Previous page">←</button>
@@ -113,16 +113,16 @@
   </section>
 
   <section class="band">
-    <h2 class="h2 display">Work with us.</h2>
+    <h2 class="h2 display">Work with me.</h2>
     <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
   </section>
 </main>
 
 <footer class="foot mono">
   <div class="foot-l">
-    <span>AVA · A design studio.</span>
+    <span>Kalen Hayman · Director, producer, designer.</span>
     <span>Vancouver · Worldwide</span>
-    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <a href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
   </div>
   <span>© 2026 Kalen Hayman</span>
 </footer>

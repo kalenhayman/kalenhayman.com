@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Production Brief · AVA</title>
+<title>Production Brief · Kalen Hayman</title>
 <meta name="description" content="Ten questions about your brand. Three minutes. Then we talk.">
-<link rel="canonical" href="https://www.avadesign.studio/brief/production">
+<link rel="canonical" href="https://www.kalenhayman.com/brief/production">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.avadesign.studio/brief/production">
-<meta property="og:title" content="Production Brief · AVA">
+<meta property="og:url" content="https://www.kalenhayman.com/brief/production">
+<meta property="og:title" content="Production Brief · Kalen Hayman">
 <meta property="og:description" content="Ten questions about your brand. Three minutes. Then we talk.">
-<meta property="og:image" content="https://www.avadesign.studio/assets/og/production-brief.jpg">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/og/production-brief.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,15 +20,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#EBEBEA">
+<meta name="theme-color" content="#FFFFFF">
 </head>
 <body class="is-light">
 
 <div class="stage is-light" id="stage">
   <div class="prog"><i id="progBar"></i></div>
   <header class="brief-head">
-    <a class="brief-brand" href="/" aria-label="AVA home">
-      <img src="/assets/badge-nav.png" alt="AVA" width="34" height="34">
+    <a class="brief-brand" href="/" aria-label="Kalen Hayman — home">
+      <span class="k-mark" aria-hidden="true">K</span>
     </a>
     <nav class="brief-nav" aria-label="Site">
       <a href="/work">Work</a>
@@ -61,8 +61,8 @@ window.BRIEF = {
   draftKey: 'ava_pb_draft_v2',
   eventPrefix: 'pb_',
   endpoint: '/api/brief',
-  theme: 'light',   /* AVA bone (#EBEBEA) on every screen */
-  emailTo: 'hello@avadesign.studio',
+  theme: 'light',   /* light on every screen */
+  emailTo: 'info@kalenhayman.com',
   /* Plain-text reply emailed to the lead when they finish the brief. */
   autoReply: function (p) {
     var first = String(p.contact.name || '').trim().split(/\s+/)[0] || 'there';
@@ -70,7 +70,7 @@ window.BRIEF = {
       'Thank you — your brief for ' + (p.brand.name || 'your brand') + ' is in.\n\n' +
       'Let\'s talk it through on a call. Book it here:\nhttps://v2.stan.store/avastudio/p/talk-through-your-next-campaign\n\n' +
       'Or just reply to this email.\n\n' +
-      'AVA\navadesign.studio';
+      'Kalen Hayman\nkalenhayman.com';
   },
 
   /* BOOKING LINK: the call, booked through Stan. Opens in a new tab. */
@@ -96,7 +96,7 @@ window.BRIEF = {
   screens: [
     {
       id: 'welcome', hash: 'start', type: 'welcome',
-      eyebrow: 'AVA · A design studio',
+      eyebrow: 'Kalen Hayman · Director, producer, designer',
       q: 'Get the plan<br>before the work.',
       help: 'Ten questions. Three minutes. No pitch attached.',
       cta: 'Start the brief →',
@@ -169,8 +169,8 @@ window.BRIEF = {
       q: "Who's on camera?",
       options: [
         { slug: 'own_people', label: 'Your own people', note: '— team, founders, customers' },
-        { slug: 'cast_talent', label: 'Talent we cast', note: '— from our roster or a search' },
-        { slug: 'designed_face', label: 'A face we design', note: '— a custom AVA avatar' },
+        { slug: 'cast_talent', label: 'Talent I cast', note: '— from my roster or a search' },
+        { slug: 'designed_face', label: 'A face I design', note: '— a custom avatar' },
         { slug: 'no_people', label: 'No one', note: '— product, design and type only' },
         { slug: 'other', label: 'Other', other: true }
       ]
@@ -181,9 +181,9 @@ window.BRIEF = {
       q: 'How much strategy<br>do you need?',
       options: [
         { slug: 'plan_exists', label: 'The plan exists', note: '— just make it' },
-        { slug: 'shape_it', label: 'Shape it with us', note: '— refine what you have' },
+        { slug: 'shape_it', label: 'Shape it with me', note: '— refine what you have' },
         { slug: 'from_scratch', label: 'Build it from scratch', note: '— positioning, plan, then production' },
-        { slug: 'audit', label: 'Audit first', note: '— tell us what is working' },
+        { slug: 'audit', label: 'Audit first', note: '— tell me what is working' },
         { slug: 'other', label: 'Other', other: true }
       ]
     },
@@ -199,7 +199,7 @@ window.BRIEF = {
         { slug: 'print_retail', label: 'Print &amp; retail', note: '— OOH, in-store, packaging' },
         { slug: 'other', label: 'Other', other: true }
       ],
-      microlabel: 'This sets the delivery schedule. We put it in writing before any work starts.',
+      microlabel: 'This sets the delivery schedule. I put it in writing before any work starts.',
       cta: 'OK →'
     },
     {
@@ -229,8 +229,8 @@ window.BRIEF = {
     {
       id: 'contact', hash: 'delivery', type: 'fields', store: 'contact', capture: true,
       eyebrow: 'Last one &nbsp;·&nbsp; Almost done',
-      q: 'Who are we<br>talking to?',
-      help: 'We read every answer, then we talk.',
+      q: 'Who am I<br>talking to?',
+      help: 'I read every answer, then we talk.',
       fields: [
         { name: 'name', label: 'Name', placeholder: 'First and last', required: true },
         { name: 'email', label: 'Work email', placeholder: 'you@brand.com', type: 'email', required: true },
@@ -238,7 +238,7 @@ window.BRIEF = {
         { name: 'name', store: 'brand', label: 'Brand', placeholder: 'Brand name', required: true },
         { name: 'url', store: 'brand', label: 'Site — optional', placeholder: 'brand.com or @brand' }
       ],
-      microlabel: "Work email, please — it's how we know which brand you're writing about.",
+      microlabel: "Work email, please — it's how I know which brand you're writing about.",
       cta: 'Send the brief →'
     },
     { id: 'end', hash: 'done', type: 'end' }

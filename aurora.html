@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Aurora × Kyle Kuzma — AVA</title>
-<meta name="description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by AVA.">
-<meta property="og:title" content="Aurora × Kyle Kuzma — AVA">
-<meta property="og:description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by AVA.">
+<title>Aurora × Kyle Kuzma — Kalen Hayman</title>
+<meta name="description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by Kalen Hayman.">
+<meta property="og:title" content="Aurora × Kyle Kuzma — Kalen Hayman">
+<meta property="og:description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by Kalen Hayman.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.avadesign.studio/aurora">
-<meta property="og:image" content="https://www.avadesign.studio/assets/og/aurora.jpg">
+<meta property="og:url" content="https://www.kalenhayman.com/aurora">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/og/aurora.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Aurora × Kyle Kuzma — AVA">
+<meta property="og:image:alt" content="Aurora × Kyle Kuzma — Kalen Hayman">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Aurora × Kyle Kuzma — AVA">
-<meta name="twitter:description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by AVA.">
-<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/aurora.jpg">
+<meta name="twitter:title" content="Aurora × Kyle Kuzma — Kalen Hayman">
+<meta name="twitter:description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by Kalen Hayman.">
+<meta name="twitter:image" content="https://www.kalenhayman.com/assets/og/aurora.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,8 +27,7 @@
 <link rel="stylesheet" href="/assets/site/site.css">
 <style>
 :root {
-  --neon: #D8FE00; --ink: #000000; --bone: #EBEBEA; --sand: #7A7A78; --paper: #FFFFFF;
-  --hairline: #141414; --hairline-light: #c9c9c7;
+  --hairline: var(--hair); --hairline-light: #c9c9c7;
   --font-display: 'Archivo Black', sans-serif;
   --font-strip: 'Archivo Narrow', sans-serif;
   --font-body: Archivo, sans-serif;
@@ -37,13 +36,13 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; padding-top: var(--nav-h); min-height: 100vh; background: var(--ink); color: var(--bone); font-family: var(--font-body); overflow-x: clip; }
-a { color: var(--neon); text-decoration: none; }
+a { color: var(--neon-text); text-decoration: none; }
 a:hover { color: var(--bone); }
 h1, h2, h3, p, figure { margin: 0; }
 button { font: inherit; }
 ::selection { background: var(--neon); color: var(--ink); }
 .mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sand); }
-.blink { color: var(--neon); animation: avaBlink 1.6s steps(1) infinite; }
+.blink { color: var(--neon-text); animation: avaBlink 1.6s steps(1) infinite; }
 @keyframes avaBlink { 0%, 60% { opacity: 1 } 61%, 100% { opacity: 0.15 } }
 
 
@@ -69,94 +68,94 @@ button { font: inherit; }
 }
 .film-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em; color: var(--sand); text-transform: uppercase; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .film-title { font-family: var(--font-display); font-size: clamp(54px, 9vw, 150px); line-height: 0.86; letter-spacing: -0.04em; color: var(--bone); text-transform: uppercase; }
-.film-title .accent { color: var(--neon); }
+.film-title .accent { color: var(--neon-text); }
 .film-sub { max-width: 52ch; font-size: clamp(14px, 1.2vw, 17px); line-height: 1.55; color: var(--bone); text-wrap: pretty; }
-.film-sub b { color: var(--neon); font-weight: 600; }
+.film-sub b { color: var(--neon-text); font-weight: 600; }
 .film-strip { position: absolute; z-index: 2; bottom: 34px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 40px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase; transition: opacity 700ms ease-out; }
 .film-controls { position: absolute; z-index: 3; right: 40px; bottom: 76px; display: flex; align-items: center; gap: 8px; }
 .film-controls[hidden] { display: none; }
-.film-ctl { background: rgba(0,0,0,0.6); color: var(--bone); border: 1px solid #2a2a2a; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 14px; cursor: pointer; backdrop-filter: blur(6px); transition: color 300ms ease-out, border-color 300ms ease-out; }
-.film-ctl:hover { color: var(--neon); border-color: var(--neon); }
+.film-ctl { background: rgba(0,0,0,0.6); color: var(--bone); border: 1px solid var(--hair); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 14px; cursor: pointer; backdrop-filter: blur(6px); transition: color 300ms ease-out, border-color 300ms ease-out; }
+.film-ctl:hover { color: var(--neon-text); border-color: var(--neon-text); }
 .film-ctl--icon { width: 38px; padding: 10px 0; text-align: center; font-size: 12px; }
-.film-ctl[aria-pressed="true"] { color: var(--neon); border-color: var(--neon); }
+.film-ctl[aria-pressed="true"] { color: var(--neon-text); border-color: var(--neon-text); }
 .film.is-cinema .film-scrim { opacity: 0.22; }
 .film.is-cinema .film-inner, .film.is-cinema .film-strip { opacity: 0; pointer-events: none; }
-.film-fallback { position: absolute; z-index: 1; left: 40px; top: 90px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand); border: 1px dashed #2a2a2a; padding: 8px 12px; }
+.film-fallback { position: absolute; z-index: 1; left: 40px; top: 90px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand); border: 1px dashed var(--hair); padding: 8px 12px; }
 
 /* ---------- 02 · credits comp card (mirrors the roster profile) ---------- */
-.profile { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+.profile { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
 /* the key frame sits behind the credits; a dark shade keeps every line legible */
-.portrait { position: relative; min-height: calc(100vh - 74px); background: #0a0a0a; overflow: hidden; }
+.portrait { position: relative; min-height: calc(100vh - 74px); background: var(--panel); overflow: hidden; }
 .portrait-img { position: absolute; inset: 0; background-size: cover; background-position: center 20%; filter: grayscale(1) contrast(1.05); }
-.portrait-img.is-pending { background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px); filter: none; }
+.portrait-img.is-pending { background-image: repeating-linear-gradient(135deg, var(--panel) 0 2px, transparent 2px 14px); filter: none; }
 .portrait-shade { position: absolute; inset: 0; background:
   linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.62) 100%),
   linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0) 40%); }
-.portrait-pending { position: absolute; right: 26px; bottom: 26px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sand); border: 1px dashed #2a2a2a; padding: 10px 14px; white-space: nowrap; }
+.portrait-pending { position: absolute; right: 26px; bottom: 26px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sand); border: 1px dashed var(--hair); padding: 10px 14px; white-space: nowrap; }
 .portrait-content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 26px; padding: 26px 34px 40px; max-width: 760px; }
-.portrait-chip { align-self: flex-start; background: var(--ink); padding: 7px 11px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--neon); }
+.portrait-chip { align-self: flex-start; background: var(--ink); padding: 7px 11px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--neon-text); }
 .portrait-name { margin-top: 18px; }
 .portrait-name h2 { font-family: var(--font-display); font-size: clamp(56px, 7.4vw, 128px); line-height: 0.84; letter-spacing: -0.04em; color: var(--bone); text-transform: uppercase; }
-.portrait-role { margin-top: 12px; font-family: var(--font-strip); font-weight: 600; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon); }
+.portrait-role { margin-top: 12px; font-family: var(--font-strip); font-weight: 600; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon-text); }
 .credits-label { margin-top: 10px; color: #a9a9a6; }
 .claim { border-left: 3px solid var(--neon); padding: 4px 0 4px 20px; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; color: var(--bone); text-wrap: pretty; text-shadow: 0 1px 12px rgba(0,0,0,0.6); }
-.claim b { color: var(--neon); font-weight: 600; }
+.claim b { color: var(--neon-text); font-weight: 600; }
 .claim small { display: block; margin-top: 12px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #a9a9a6; line-height: 1.7; }
 .spec-rows { display: flex; flex-direction: column; }
-.spec-row { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid rgba(235,235,234,0.14); align-items: baseline; }
+.spec-row { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid rgba(var(--bone-rgb),0.14); align-items: baseline; }
 .spec-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: #a9a9a6; text-transform: uppercase; }
 .spec-v { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; color: var(--bone); line-height: 1.5; }
 .spec-v em { font-style: normal; color: #a9a9a6; }
-.spec-v a { color: var(--neon); }
-.spec-end { border-top: 1px solid rgba(235,235,234,0.14); }
+.spec-v a { color: var(--neon-text); }
+.spec-end { border-top: 1px solid rgba(var(--bone-rgb),0.14); }
 .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #c9c9c6; border: 1px solid rgba(235,235,234,0.22); background: rgba(0,0,0,0.35); padding: 6px 10px; }
+.tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #c9c9c6; border: 1px solid rgba(var(--bone-rgb),0.22); background: rgba(0,0,0,0.35); padding: 6px 10px; }
 .credit-ctas { display: flex; flex-direction: column; gap: 14px; }
 .book { display: block; background: var(--neon); color: var(--ink); font-family: var(--font-strip); font-weight: 700; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding: 16px 0; text-align: center; }
 .book:hover { background: var(--bone); color: var(--ink); }
-.book.is-pending { background: transparent; color: var(--sand); border: 1px dashed #2a2a2a; pointer-events: none; }
+.book.is-pending { background: transparent; color: var(--sand); border: 1px dashed var(--hair); pointer-events: none; }
 .book-alt { text-align: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
 /* right column: the X post */
-.social { border-left: 1px solid var(--hairline); background: #050505; }
+.social { border-left: 1px solid var(--hair); background: var(--panel); }
 .social-inner { position: sticky; top: 74px; padding: 26px 30px 40px; display: flex; flex-direction: column; gap: 22px; }
 .tweet { width: 100%; max-width: 550px; margin: 0 auto; }
 .tweet .twitter-tweet { margin: 0 auto !important; }
 /* before (or without) the X script, the quote still reads as a post */
-.tweet blockquote.twitter-tweet { border: 1px solid #2a2a2a; background: #0b0b0b; padding: 22px 22px 18px; margin: 0; color: var(--sand); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; }
+.tweet blockquote.twitter-tweet { border: 1px solid var(--hair); background: var(--ink); padding: 22px 22px 18px; margin: 0; color: var(--sand); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; }
 .tweet blockquote.twitter-tweet p { font-family: var(--font-body); font-size: 20px; line-height: 1.4; letter-spacing: 0; color: var(--bone); margin: 0 0 14px; }
 
 /* ---------- 03 · original designs — 16:9 slider ---------- */
-.section { padding: 84px 32px 64px; border-bottom: 1px solid var(--hairline); }
+.section { padding: 84px 32px 64px; border-bottom: 1px solid var(--hair); }
 #designs { padding-top: 56px; padding-bottom: 48px; }
 .wrap { max-width: 1320px; margin: 0 auto; }
 .sec-head { display: grid; grid-template-columns: 1fr auto; gap: 24px 40px; align-items: end; margin-bottom: 28px; }
 .sec-title { font-family: var(--font-display); font-size: clamp(30px, 4vw, 62px); line-height: 0.96; letter-spacing: -0.03em; text-transform: uppercase; color: var(--bone); margin-top: 16px; }
-.sec-title .accent { color: var(--neon); }
+.sec-title .accent { color: var(--neon-text); }
 .brief { padding-top: 72px; padding-bottom: 64px; }
 .brief-kicker { color: var(--sand); }
 .brief-title { max-width: 26ch; font-size: clamp(32px, 4.6vw, 72px); margin-top: 22px; }
 .brief .sec-lede { font-size: clamp(16px, 1.4vw, 19px); max-width: 60ch; margin-top: 24px; }
 .sec-lede { max-width: 56ch; font-size: 16px; line-height: 1.6; color: var(--sand); margin-top: 16px; text-wrap: pretty; }
 .navigator { display: flex; align-items: center; gap: 12px; }
-.nav-btn { background: transparent; border: 1px solid #2a2a2a; color: var(--bone); font-family: var(--font-mono); font-size: 14px; line-height: 1; width: 48px; height: 42px; cursor: pointer; transition: color 300ms ease-out, border-color 300ms ease-out; }
-.nav-btn:hover { border-color: var(--neon); color: var(--neon); }
+.nav-btn { background: transparent; border: 1px solid var(--hair); color: var(--bone); font-family: var(--font-mono); font-size: 14px; line-height: 1; width: 48px; height: 42px; cursor: pointer; transition: color 300ms ease-out, border-color 300ms ease-out; }
+.nav-btn:hover { border-color: var(--neon-text); color: var(--neon-text); }
 .nav-count { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em; color: var(--sand); min-width: 78px; text-align: center; }
-.nav-count b { color: var(--neon); font-weight: 400; }
-.stage { position: relative; aspect-ratio: 16 / 9; width: 100%; background: #0a0a0a; border: 1px solid var(--hairline); overflow: hidden; }
+.nav-count b { color: var(--neon-text); font-weight: 400; }
+.stage { position: relative; aspect-ratio: 16 / 9; width: 100%; background: var(--panel); border: 1px solid var(--hair); overflow: hidden; }
 .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 320ms ease-out, visibility 320ms ease-out; display: flex; align-items: center; justify-content: center; }
 .slide[data-on="true"] { opacity: 1; visibility: visible; }
 .slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.slide.is-pending { background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px); }
-.slide-pending { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sand); border: 1px dashed #2a2a2a; padding: 10px 14px; }
+.slide.is-pending { background-image: repeating-linear-gradient(135deg, var(--panel) 0 2px, transparent 2px 14px); }
+.slide-pending { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sand); border: 1px dashed var(--hair); padding: 10px 14px; }
 .stage-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: linear-gradient(to top, rgba(0,0,0,0.94) 30%, rgba(0,0,0,0)); }
 .stage-caption { font-family: var(--font-strip); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .stage-dots { display: flex; gap: 4px; margin-left: auto; flex: 0 0 auto; }
-.stage-dot { width: 18px; height: 3px; background: #2a2a2a; border: none; padding: 0; cursor: pointer; transition: background 300ms ease-out; }
+.stage-dot { width: 18px; height: 3px; background: var(--hair); border: none; padding: 0; cursor: pointer; transition: background 300ms ease-out; }
 .stage-dot:hover { background: var(--sand); }
 .stage-dot[aria-current="true"] { background: var(--neon); }
 
 /* ---------- 04 · outtakes — chained player ---------- */
-.player { position: relative; aspect-ratio: 16 / 9; width: 100%; background: #0a0a0a; border: 1px solid var(--hairline); overflow: hidden; }
+.player { position: relative; aspect-ratio: 16 / 9; width: 100%; background: var(--panel); border: 1px solid var(--hair); overflow: hidden; }
 .player video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
 .player-idle { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.35)); }
 .player.is-playing .player-idle { display: none; }
@@ -164,12 +163,12 @@ button { font: inherit; }
 .player-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: none; align-items: center; gap: 12px; padding: 14px 18px; background: linear-gradient(to top, rgba(0,0,0,0.94) 30%, rgba(0,0,0,0)); }
 .player.is-playing .player-bar { display: flex; }
 .now { font-family: var(--font-strip); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.now b { color: var(--neon); font-weight: 600; }
+.now b { color: var(--neon-text); font-weight: 600; }
 .player-ctls { margin-left: auto; display: flex; gap: 8px; }
 .clips { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 14px; margin-top: 18px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
-.clip { position: relative; aspect-ratio: 16 / 9; background: #0a0a0a; border: 1px solid var(--hairline); background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px); cursor: pointer; text-align: left; padding: 0; color: inherit; transition: border-color 300ms ease-out; }
-.clip:hover { border-color: var(--neon); }
-.clip[aria-current="true"] { border-color: var(--neon); }
+.clip { position: relative; aspect-ratio: 16 / 9; background: var(--panel); border: 1px solid var(--hair); background-image: repeating-linear-gradient(135deg, var(--panel) 0 2px, transparent 2px 14px); cursor: pointer; text-align: left; padding: 0; color: inherit; transition: border-color 300ms ease-out; }
+.clip:hover { border-color: var(--neon-text); }
+.clip[aria-current="true"] { border-color: var(--neon-text); }
 .clip:hover img, .clip[aria-current="true"] img { filter: grayscale(0); }
 .clip.is-unavailable { opacity: .45; }
 .clip video, .clip img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
@@ -179,7 +178,7 @@ button { font: inherit; }
 .clip-kind { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--sand); text-transform: uppercase; margin-top: 4px; }
 
 /* ---------- cta ---------- */
-.cta { padding: clamp(40px,6vw,64px) 32px clamp(56px,8vw,88px); border-top: 1px solid var(--hairline); }
+.cta { padding: clamp(40px,6vw,64px) 32px clamp(56px,8vw,88px); border-top: 1px solid var(--hair); }
 .cta-inner { display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center; }
 .btn--big { height: auto; min-height: 64px; justify-content: center; font-size: clamp(12px, 1.2vw, 14px); padding: 0 clamp(28px, 4vw, 56px); }
 @media (max-width: 760px) { .cta { padding-left: 20px; padding-right: 20px; } .btn--big { width: 100%; } }
@@ -199,7 +198,7 @@ button { font: inherit; }
   .portrait { min-height: 0; }
   .portrait-content { padding: 22px 20px 36px; }
   .spec-row { grid-template-columns: 120px 1fr; }
-  .social { border-left: none; border-top: 1px solid var(--hairline); }
+  .social { border-left: none; border-top: 1px solid var(--hair); }
   .social-inner { position: static; padding: 28px 16px 36px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -212,7 +211,7 @@ button { font: inherit; }
 <body>
 
 <nav class="nav" aria-label="Site">
-  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <a class="nav-mark" href="/" aria-label="Kalen Hayman — home"><span class="k-mark" aria-hidden="true">K</span></a>
   <div class="nav-links">
     <a href="/work">Work</a>
     <a href="/services">Services</a>
@@ -235,7 +234,7 @@ button { font: inherit; }
   </ul>
   <div class="menu-foot">
     <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
-    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <a class="mono" href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
     <span class="mono">Vancouver · Worldwide</span>
   </div>
 </div>
@@ -265,7 +264,7 @@ button { font: inherit; }
   </div>
   <div class="film-strip">
     <span>Aurora &times; Kyle Kuzma</span>
-    <span>AVA &middot; 2026</span>
+    <span>Kalen Hayman &middot; 2026</span>
   </div>
 </section>
 
@@ -280,7 +279,7 @@ button { font: inherit; }
 
 <!-- 02 · CREDITS COMP CARD -->
 <section class="profile" id="credits" data-screen-label="02 Credits">
-  <div class="portrait">
+  <div class="portrait dark">
     <div class="portrait-img is-pending" id="keyFrame"></div>
     <div class="portrait-shade"></div>
     <div class="portrait-content">
@@ -302,7 +301,7 @@ button { font: inherit; }
     <div class="social-inner">
       <div class="mono">&#9679; On X &middot; @kylekuzma</div>
       <div class="tweet">
-        <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-align="center"><p lang="en" dir="ltr">This is the future <a href="https://t.co/dw9LEbFG18">https://t.co/dw9LEbFG18</a></p>&mdash; kuz (@kylekuzma) <a href="https://x.com/kylekuzma/status/2102738373211558244?ref_src=twsrc%5Etfw">September 23, 2026</a></blockquote>
+        <blockquote class="twitter-tweet" data-theme="light" data-dnt="true" data-align="center"><p lang="en" dir="ltr">This is the future <a href="https://t.co/dw9LEbFG18">https://t.co/dw9LEbFG18</a></p>&mdash; kuz (@kylekuzma) <a href="https://x.com/kylekuzma/status/2102738373211558244?ref_src=twsrc%5Etfw">September 23, 2026</a></blockquote>
       </div>
     </div>
   </aside>
@@ -353,7 +352,7 @@ button { font: inherit; }
         <button class="nav-btn" id="slNext" type="button" aria-label="Next frame">&rarr;</button>
       </div>
     </div>
-    <div class="stage" id="stage" aria-roledescription="carousel" aria-label="Original designs"></div>
+    <div class="stage dark" id="stage" aria-roledescription="carousel" aria-label="Original designs"></div>
   </div>
 </section>
 
@@ -366,9 +365,9 @@ button { font: inherit; }
 
 <footer class="foot mono">
   <div class="foot-l">
-    <span>AVA · A design studio.</span>
+    <span>Kalen Hayman · Director, producer, designer.</span>
     <span>Vancouver · Worldwide</span>
-    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <a href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
   </div>
   <span>© 2026 Kalen Hayman</span>
 </footer>
@@ -398,7 +397,6 @@ var LIVE_SITE_URL = 'https://joinaurora.co/';
 var CREDITS = [
   ['Client', 'Aurora <em>— lifestyle concierge · tech start-up</em>'],
   ['Talent', 'Kyle Kuzma <em>— NBA athlete &amp; businessman</em>'],
-  ['Studio', 'AVA Design Studio'],
   ['Designed by', 'Kalen Hayman'],
   ['Producer &amp; Motion Graphics', 'Mathew Badiali'],
   ['Editor', 'Mike Folo'],

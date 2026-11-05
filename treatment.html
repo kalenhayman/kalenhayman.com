@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AVA — Treatment</title>
+<title>Kalen Hayman — Treatment</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="A content treatment prepared by AVA.">
+<meta name="description" content="A content treatment prepared by Kalen Hayman.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Archivo+Narrow:wght@500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <meta name="theme-color" content="#000000">
@@ -47,6 +47,8 @@ p { margin: 0; }
 }
 .nav-brand { display: flex; align-items: center; gap: 12px; }
 .nav-brand img { height: 34px; width: 34px; display: block; }
+.k-mark { position: relative; z-index: 0; display: inline-block; font-family: 'Anton', Impact, sans-serif; font-size: 30px; line-height: 1; text-transform: uppercase; color: var(--bone); padding: 0 4px; }
+.k-mark::before { content: ""; position: absolute; z-index: -1; left: -6px; right: -6px; top: 46%; height: 30%; background: var(--neon); transform: skewX(-14deg) rotate(-8deg); }
 .mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sand); }
 .nav-back { font-family: var(--font-strip); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); }
 .nav-back:hover { color: var(--neon); }
@@ -155,10 +157,10 @@ p { margin: 0; }
 
 <nav class="nav">
   <a class="nav-brand" href="/">
-    <img src="/assets/badge-nav.png" alt="AVA">
-    <span class="mono">Content design studio</span>
+    <span class="k-mark" aria-hidden="true">K</span>
+    <span class="mono">Director, producer, designer</span>
   </a>
-  <a class="nav-back" href="/">avadesign.studio →</a>
+  <a class="nav-back" href="/">kalenhayman.com →</a>
 </nav>
 
 <main id="doc" aria-live="polite"></main>
@@ -209,7 +211,7 @@ var SAMPLE = {
 
 var PHASES = [
   { no: '01', name: 'Direction', does: 'I agree what your content looks and sounds like — reference, palette, tone, the world it lives in.', gets: 'a content treatment you could hand to anyone.' },
-  { no: '02', name: 'Casting', does: 'I choose the face. From AVA Originals, or built for you.', gets: 'the cast locked — look, voice, and how they carry the brand.' },
+  { no: '02', name: 'Casting', does: 'I choose the face. From Originals, or built for you.', gets: 'the cast locked — look, voice, and how they carry the brand.' },
   { no: '03', name: 'Production', does: 'I make the work. Hero film, stills, cutdowns.', gets: 'the campaign, finished.' },
   { no: '04', name: 'Delivery', does: 'I cut it for the places it actually goes.', gets: 'every format your channels need, ready to post.' }
 ];
@@ -244,7 +246,7 @@ function render(d) {
       '<p class="phase-gets"><b>You get:</b> ' + p.gets + '</p></div>';
   }).join('');
 
-  document.title = 'AVA — ' + docLabel + ' · ' + (d.brand || '');
+  document.title = 'Kalen Hayman — ' + docLabel + ' · ' + (d.brand || '');
 
   document.getElementById('doc').innerHTML =
   '<section class="section">' +
@@ -301,18 +303,18 @@ function render(d) {
       '<h2 class="h2" style="margin-top:18px;color:var(--bone)">Let’s make it.</h2>' +
       '<p class="lede" style="color:var(--sand);margin-top:18px">This is a starting point built from your brief — not a fixed quote. Twenty minutes on the call and I’ll turn it into a real plan.</p>' +
       '<div class="btn-row">' +
-        '<a class="btn" href="mailto:hello@avadesign.studio?subject=' + encodeURIComponent(docLabel + ' — ' + (d.brand || '')) + '">Book 20 minutes</a>' +
-        '<a class="btn btn--ghost" href="mailto:hello@avadesign.studio">Reply with questions</a>' +
+        '<a class="btn" href="mailto:info@kalenhayman.com?subject=' + encodeURIComponent(docLabel + ' — ' + (d.brand || '')) + '">Book 20 minutes</a>' +
+        '<a class="btn btn--ghost" href="mailto:info@kalenhayman.com">Reply with questions</a>' +
       '</div>' +
-      '<p class="fineprint">Prepared by AVA for ' + esc(d.brand) + '. Shared privately — please don’t forward.</p>' +
+      '<p class="fineprint">Prepared by Kalen Hayman for ' + esc(d.brand) + '. Shared privately — please don’t forward.</p>' +
     '</div>' +
   '</section>' +
 
   '<footer class="footer">' +
-    '<span>AVA</span>' +
+    '<span>Kalen Hayman</span>' +
     '<span>Content design · Casting · Motion · Editorial</span>' +
     '<span>© 2026</span>' +
-    '<span class="footer-credit">AVA · A design studio. © 2026 Kalen Hayman</span>' +
+    '<span class="footer-credit">Director, producer, designer. © 2026 Kalen Hayman</span>' +
   '</footer>';
 }
 

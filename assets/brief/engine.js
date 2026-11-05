@@ -595,7 +595,7 @@
   /* --- end --- */
   function viewEnd(view) {
     var v = ENDINGS[endVariant()];
-    view.appendChild(el('div', 'wordmark-wrap', '<span class="wordmark">AVA</span>'));
+    view.appendChild(el('div', 'wordmark-wrap', '<span class="wordmark">K</span>'));
     view.appendChild(el('h1', 'q q--sm', v.q));
     view.appendChild(el('p', 'help', v.help));
 

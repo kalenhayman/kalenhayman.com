@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AVA: 🎬 Your AI Native Content Design &amp; Production Partner.</title>
-<meta name="description" content="AVA is a content production and design studio.">
-<link rel="canonical" href="https://www.avadesign.studio/">
+<title>Kalen Hayman: 🎬 Your AI Native Content Design &amp; Production Partner.</title>
+<meta name="description" content="I’m Kalen Hayman. I design, direct and produce content — AI-native, start to finish.">
+<link rel="canonical" href="https://www.kalenhayman.com/">
 <meta name="theme-color" content="#000000">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="AVA">
-<meta property="og:title" content="AVA: 🎬 Your AI Native Content Design &amp; Production Partner.">
-<meta property="og:description" content="AVA is a content production and design studio.">
-<meta property="og:url" content="https://www.avadesign.studio/">
-<meta property="og:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<meta property="og:site_name" content="Kalen Hayman">
+<meta property="og:title" content="Kalen Hayman: 🎬 Your AI Native Content Design &amp; Production Partner.">
+<meta property="og:description" content="I’m Kalen Hayman. I design, direct and produce content — AI-native, start to finish.">
+<meta property="og:url" content="https://www.kalenhayman.com/">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/og/home.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AVA: 🎬 Your AI Native Content Design &amp; Production Partner.">
-<meta name="twitter:description" content="AVA is a content production and design studio.">
-<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<meta name="twitter:title" content="Kalen Hayman: 🎬 Your AI Native Content Design &amp; Production Partner.">
+<meta name="twitter:description" content="I’m Kalen Hayman. I design, direct and produce content — AI-native, start to finish.">
+<meta name="twitter:image" content="https://www.kalenhayman.com/assets/og/home.jpg">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -37,14 +37,14 @@
 .slide.is-on img, .slide.is-on video { transform: scale(1); }
 /* a 16:9 film on a phone with no vertical cut: the whole frame, over a blurred wash of its cover */
 .slide.is-whole { background: #000; overflow: hidden; }
-.slide.is-whole::before { content: ""; position: absolute; inset: -40px; background: var(--wash, #111) center / cover no-repeat; filter: blur(28px) brightness(.5); }
+.slide.is-whole::before { content: ""; position: absolute; inset: -40px; background: var(--wash, var(--panel)) center / cover no-repeat; filter: blur(28px) brightness(.5); }
 .slide.is-whole video { position: relative; object-fit: contain; transform: none; }
 .segs[hidden], .hero-nav[hidden] { display: none !important; }
 .hero.is-single .hero-bottom { justify-content: flex-start; gap: 10px; }   /* desktop: Play and Watch now side by side */
 .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.38) 0, transparent 22%, transparent 48%, rgba(0,0,0,.72) 100%); pointer-events: none; }
 
 .hero-top { position: absolute; z-index: 3; top: 22px; left: var(--gutter); right: var(--gutter); display: flex; justify-content: space-between; align-items: center; gap: 20px; pointer-events: none; }
-.slide-count { color: var(--neon); }
+.slide-count { color: var(--neon-text); }
 .slide-title { position: absolute; z-index: 3; left: var(--gutter); right: var(--gutter); bottom: 64px; color: var(--bone); pointer-events: none; }
 .slide-title .t { display: block; overflow: hidden; }
 .slide-title .t > span { display: block; animation: rise .6s var(--ease) both; }
@@ -55,15 +55,15 @@
 
 .hero-bottom { position: absolute; z-index: 3; left: var(--gutter); right: var(--gutter); bottom: 22px; display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
 .segs { display: flex; gap: 6px; width: min(36vw, 320px); }
-.seg { flex: 1; height: 2px; background: rgba(235,235,234,.3); position: relative; overflow: hidden; }
+.seg { flex: 1; height: 2px; background: rgba(var(--bone-rgb),.3); position: relative; overflow: hidden; }
 .seg i { position: absolute; inset: 0; background: var(--neon); transform: scaleX(0); transform-origin: left; }
 .seg.is-done i { transform: scaleX(1); }
 .seg.is-on i { animation: fill var(--slide-ms, 3000ms) linear forwards; }
 @keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .hero-nav { display: flex; gap: 6px; }
-.hero-nav button { width: 44px; height: 44px; border: 1px solid rgba(235,235,234,.35); color: var(--bone); font-family: var(--body); font-size: 18px; display: inline-flex; align-items: center; justify-content: center; transition: background .25s, color .25s; }
+.hero-nav button { width: 44px; height: 44px; border: 1px solid rgba(var(--bone-rgb),.35); color: var(--bone); font-family: var(--body); font-size: 18px; display: inline-flex; align-items: center; justify-content: center; transition: background .25s, color .25s; }
 .hero-nav button:hover { background: var(--bone); color: var(--ink); }
-.hero-full { display: inline-flex; height: 46px; padding: 0 20px; gap: 10px; align-items: center; border: 1px solid rgba(235,235,234,.6); background: rgba(0,0,0,.45); color: var(--bone); font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease); }
+.hero-full { display: inline-flex; height: 46px; padding: 0 20px; gap: 10px; align-items: center; border: 1px solid rgba(var(--bone-rgb),.6); background: rgba(0,0,0,.45); color: var(--bone); font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease); }
 .hero-full:hover { background: var(--bone); color: var(--ink); }
 .hero-full[hidden] { display: none; }
 .slide video:fullscreen { object-fit: contain; transform: none; background: #000; }
@@ -71,7 +71,7 @@
 .hero-play { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; background: var(--neon); color: var(--ink); border: 1px solid var(--neon); font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease); }
 .hero-play .ic { font-size: 12px; letter-spacing: 0; }
 .hero-play:hover { background: var(--paper); border-color: var(--paper); }
-.hero-play.is-on { background: rgba(0,0,0,.45); color: var(--bone); border-color: rgba(235,235,234,.6); }
+.hero-play.is-on { background: rgba(0,0,0,.45); color: var(--bone); border-color: rgba(var(--bone-rgb),.6); }
 .hero-play.is-on:hover { background: var(--bone); color: var(--ink); }
 .hero-play[hidden] { display: none; }
 /* one film: the title sits clear above the Play button, and "Video" goes — the button says it */
@@ -79,10 +79,10 @@
 .hero.is-single .slide-title .kind { display: none; }
 
 /* ---------- the headline ---------- */
-.lede { padding: clamp(36px, 5vw, 72px) var(--gutter) clamp(56px, 7vw, 104px); display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 52px); border-bottom: 1px solid rgba(235,235,234,.12); }
+.lede { padding: clamp(36px, 5vw, 72px) var(--gutter) clamp(56px, 7vw, 104px); display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 52px); border-bottom: 1px solid rgba(var(--bone-rgb),.12); }
 .h1 { font-size: clamp(30px, 6.1vw, 98px); margin: 0; white-space: nowrap; }
 .h1.is-fit { font-size: var(--fit); }
-.h1 .rotor { position: relative; display: inline-block; vertical-align: top; height: 1.04em; margin-bottom: -.1em; line-height: 1; overflow: hidden; color: var(--neon); white-space: nowrap; }
+.h1 .rotor { position: relative; display: inline-block; vertical-align: top; height: 1.04em; margin-bottom: -.1em; line-height: 1; overflow: hidden; color: var(--neon-text); white-space: nowrap; }
 .h1 .measure { position: absolute; visibility: hidden; white-space: nowrap; pointer-events: none; }
 .h1 .rw { position: absolute; left: 0; top: -.05em; line-height: 1; white-space: nowrap; will-change: transform; animation: wordIn .55s var(--ease) both; }
 .h1 .rw.is-out { animation: wordOut .45s var(--ease) both; }
@@ -130,7 +130,7 @@
 <body>
 
 <nav class="nav" aria-label="Site">
-  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <a class="nav-mark" href="/" aria-label="Kalen Hayman — home"><span class="k-mark" aria-hidden="true">K</span></a>
   <div class="nav-links">
     <a href="/work">Work</a>
     <a href="/services">Services</a>
@@ -153,14 +153,14 @@
   </ul>
   <div class="menu-foot">
     <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
-    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <a class="mono" href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
     <span class="mono">Vancouver · Worldwide</span>
   </div>
 </div>
 
 <main>
   <!-- ---------- hero slider ---------- -->
-  <section class="hero" aria-roledescription="carousel" aria-label="AVA demo reel">
+  <section class="hero" aria-roledescription="carousel" aria-label="Demo reel">
     <div class="slides" id="slides"></div>
     <div class="hero-top">
       <span class="mono slide-count" id="slideCount"></span>
@@ -179,9 +179,9 @@
 
   <!-- ---------- one headline ---------- -->
   <section class="lede">
-    <h1 class="h1 display" id="h1"><span class="st">We design</span> <span class="rotor" id="rotor"><span class="rw">Brands.</span></span><span class="neon-line" aria-hidden="true"></span></h1>
+    <h1 class="h1 display" id="h1"><span class="st">I design</span> <span class="rotor" id="rotor"><span class="rw">Brands.</span></span><span class="neon-line" aria-hidden="true"></span></h1>
     <div class="lede-row">
-      <span class="mono dot">AVA · A design studio</span>
+      <span class="mono dot">Kalen Hayman · Vancouver</span>
       <div class="lede-cta">
         <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
         <a class="btn btn--ghost" href="/work">View Work <span class="arr">→</span></a>
@@ -200,16 +200,16 @@
 
   <!-- ---------- start intake ---------- -->
   <section class="band">
-    <h2 class="h2 display">Work with us.</h2>
+    <h2 class="h2 display">Work with me.</h2>
     <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
   </section>
 </main>
 
 <footer class="foot mono">
   <div class="foot-l">
-    <span>AVA · A design studio.</span>
+    <span>Kalen Hayman · Director, producer, designer.</span>
     <span>Vancouver · Worldwide</span>
-    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <a href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
   </div>
   <span>© 2026 Kalen Hayman</span>
 </footer>

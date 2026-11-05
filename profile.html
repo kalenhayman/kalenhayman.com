@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AVA Originals — AVA</title>
-<meta name="description" content="AVA Originals. Profile deck: editorial and portfolio.">
+<title>Originals — Kalen Hayman</title>
+<meta name="description" content="Originals. Profile deck: editorial and portfolio.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="AVA">
-<meta property="og:title" content="AVA Originals — AVA">
-<meta property="og:description" content="AVA Originals. Profile deck: editorial and portfolio.">
-<meta property="og:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<meta property="og:site_name" content="Kalen Hayman">
+<meta property="og:title" content="Originals — Kalen Hayman">
+<meta property="og:description" content="Originals. Profile deck: editorial and portfolio.">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/og/home.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<meta name="twitter:image" content="https://www.kalenhayman.com/assets/og/home.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Archivo+Narrow:wght@500;600;700&amp;family=Archivo:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -24,11 +24,7 @@
 <link rel="stylesheet" href="/assets/site/site.css">
 <style>
 :root {
-  --neon: #D8FE00;
-  --ink: #000000;
-  --bone: #EBEBEA;
-  --sand: #7A7A78;
-  --hairline: #1a1a1a;
+  --hairline: var(--hair);
   --font-display: 'Archivo Black', sans-serif;
   --font-strip: 'Archivo Narrow', sans-serif;
   --font-body: Archivo, sans-serif;
@@ -40,7 +36,7 @@ body { padding-top: var(--nav-h);
   margin: 0; min-height: 100vh; background: var(--ink); color: var(--bone);
   font-family: var(--font-body);
 }
-a { color: var(--neon); text-decoration: none; }
+a { color: var(--neon-text); text-decoration: none; }
 a:hover { color: var(--bone); }
 h1 { margin: 0; }
 p { margin: 0; }
@@ -49,31 +45,31 @@ p { margin: 0; }
 
 /* nav */
 .tab {
-  background: transparent; color: var(--sand); border: 1px solid #2a2a2a;
+  background: transparent; color: var(--sand); border: 1px solid var(--hair);
   font-family: var(--font-strip); font-weight: 700; font-size: 11px;
   letter-spacing: 0.2em; text-transform: uppercase; padding: 9px 13px;
   cursor: pointer; white-space: nowrap;
 }
-.tab:hover { border-color: var(--neon); }
-.tab[aria-current="true"] { background: var(--neon); color: var(--ink); border-color: var(--neon); }
+.tab:hover { border-color: var(--neon-text); }
+.tab[aria-current="true"] { background: var(--neon); color: var(--ink); border-color: var(--neon-text); }
 
 /* mobile menu */
 
 /* hero + spec */
 .profile {
   display: grid; grid-template-columns: 1fr;
-  border-bottom: 1px solid #141414;
+  border-bottom: 1px solid var(--hair);
 }
 .portrait {
   position: sticky; top: 74px; align-self: start; height: calc(100vh - 74px);
-  min-height: 420px; background: #0a0a0a; overflow: hidden;
+  min-height: 420px; background: var(--panel); overflow: hidden;
 }
 .portrait-img { position: absolute; inset: 0; background-size: cover; filter: grayscale(1) contrast(1.05); }
 .portrait-scrim-b { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0) 55%); }
 .portrait-scrim-t { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.72), rgba(0,0,0,0) 28%); }
 .portrait-chip {
   position: absolute; top: 26px; left: 26px; background: var(--ink); padding: 7px 11px;
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--neon);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--neon-text);
 }
 .portrait-name { position: absolute; left: 26px; right: 26px; bottom: 26px; }
 .portrait-name h1 {
@@ -82,22 +78,22 @@ p { margin: 0; }
 }
 .portrait-role {
   margin-top: 12px; font-family: var(--font-strip); font-weight: 600; font-size: 14px;
-  letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon);
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon-text);
 }
-.spec { border-left: 1px solid #141414; padding: 92px 34px 40px; display: flex; flex-direction: column; gap: 28px; }
+.spec { border-left: 1px solid var(--hair); padding: 92px 34px 40px; display: flex; flex-direction: column; gap: 28px; }
 .spec-bio { font-size: 17px; line-height: 1.6; color: var(--bone); text-wrap: pretty; }
 .spec-rows { display: flex; flex-direction: column; }
 .spec-row {
   display: grid; grid-template-columns: 128px 1fr; gap: 16px; padding: 13px 0;
-  border-top: 1px solid var(--hairline); align-items: baseline;
+  border-top: 1px solid var(--hair); align-items: baseline;
 }
 .spec-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase; }
 .spec-v { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; color: var(--bone); }
-.spec-end { border-top: 1px solid var(--hairline); }
+.spec-end { border-top: 1px solid var(--hair); }
 .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--sand); border: 1px solid #2a2a2a; padding: 6px 10px;
+  color: var(--sand); border: 1px solid var(--hair); padding: 6px 10px;
 }
 .book {
   margin-top: auto; background: var(--neon); color: var(--ink); font-family: var(--font-strip);
@@ -107,7 +103,7 @@ p { margin: 0; }
 .book:hover { background: var(--bone); color: var(--ink); }
 
 /* magazine — two-page spread with a page turn */
-.mag-section { padding: 96px 32px 100px; border-bottom: 1px solid #141414; }
+.mag-section { padding: 96px 32px 100px; border-bottom: 1px solid var(--hair); }
 .mag-head {
   max-width: 1240px; margin: 0 auto 26px; display: flex;
   justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px;
@@ -122,13 +118,13 @@ p { margin: 0; }
 }
 .mag-book {
   position: relative; width: 100%; height: 100%; display: flex;
-  background: var(--ink); border: 1px solid var(--hairline);
+  background: var(--ink); border: 1px solid var(--hair);
 }
-.mag-page { position: relative; width: 50%; height: 100%; background: #070707; overflow: hidden; }
+.mag-page { position: relative; width: 50%; height: 100%; background: var(--panel); overflow: hidden; }
 .mag-page img { width: 100%; height: 100%; object-fit: contain; display: block; }
 /* a blank facing page, so a single-page view reads as paper rather than a gap */
 .mag-page--empty {
-  background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px);
+  background-image: repeating-linear-gradient(135deg, var(--panel) 0 2px, transparent 2px 14px);
 }
 .mag-book::after {
   content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 40px;
@@ -142,40 +138,40 @@ p { margin: 0; }
 .mag-leaf--fwd { left: 50%; transform-origin: left center; }
 .mag-leaf--back { left: 0; transform-origin: right center; }
 .mag-leaf .mag-face {
-  position: absolute; inset: 0; backface-visibility: hidden; background: #070707; overflow: hidden;
+  position: absolute; inset: 0; backface-visibility: hidden; background: var(--panel); overflow: hidden;
 }
 .mag-leaf .mag-face img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .mag-leaf .mag-face--b { transform: rotateY(180deg); }
 .mag-arrow {
   flex: 0 0 auto; width: 52px; height: 52px; background: transparent;
-  border: 1px solid #2a2a2a; color: var(--bone); cursor: pointer;
+  border: 1px solid var(--hair); color: var(--bone); cursor: pointer;
   font-family: var(--font-mono); font-size: 16px; line-height: 1;
   transition: color 300ms ease-out, border-color 300ms ease-out, opacity 300ms ease-out;
 }
-.mag-arrow:hover:not(:disabled) { border-color: var(--neon); color: var(--neon); }
+.mag-arrow:hover:not(:disabled) { border-color: var(--neon-text); color: var(--neon-text); }
 .mag-arrow:disabled { opacity: 0.25; cursor: default; }
 .mag-bar {
   max-width: 1240px; margin: 22px auto 0; display: flex;
   align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap;
 }
 .mag-btn {
-  background: transparent; border: 1px solid #2a2a2a; color: var(--sand); cursor: pointer;
+  background: transparent; border: 1px solid var(--hair); color: var(--sand); cursor: pointer;
   font-family: var(--font-strip); font-weight: 600; font-size: 11px;
   letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 16px;
   transition: color 300ms ease-out, border-color 300ms ease-out;
 }
-.mag-btn:hover { border-color: var(--neon); color: var(--neon); }
+.mag-btn:hover { border-color: var(--neon-text); color: var(--neon-text); }
 .mag-count {
   font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em; color: var(--sand);
 }
-.mag-count b { color: var(--neon); font-weight: 400; }
+.mag-count b { color: var(--neon-text); font-weight: 400; }
 .mag:fullscreen { width: 100vw; height: 100vh; aspect-ratio: auto; padding: 3vh 4vw; background: var(--ink); }
 .mag:fullscreen .mag-book { max-width: 96vw; max-height: 94vh; margin: 0 auto; aspect-ratio: 1.414; height: auto; }
 
 /* portfolio filmstrip */
 .folio { position: relative; height: 100vh; }
 .folio-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
-.vf-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon); border: 1px solid var(--neon); padding: 10px 14px; white-space: nowrap; transition: background .25s, color .25s; }
+.vf-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon-text); border: 1px solid var(--neon); padding: 10px 14px; white-space: nowrap; transition: background .25s, color .25s; }
 .vf-link:hover { background: var(--neon); color: var(--ink); }
 .vf-link[hidden] { display: none; }
 .folio-head {
@@ -189,13 +185,13 @@ p { margin: 0; }
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
 }
 .filter:hover { color: var(--bone); }
-.filter[aria-pressed="true"] { color: var(--neon); }
+.filter[aria-pressed="true"] { color: var(--neon-text); }
 .folio-viewport { flex: 1; overflow: hidden; display: flex; align-items: center; }
 .folio-track { display: flex; align-items: center; gap: 20px; padding: 0 32px; will-change: transform; }
 .work {
   position: relative; margin: 0; flex: 0 0 auto; height: min(58vh, 560px);
-  min-width: 220px; background: #0a0a0a; border: 1px solid var(--hairline);
-  background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px);
+  min-width: 220px; background: var(--panel); border: 1px solid var(--hair);
+  background-image: repeating-linear-gradient(135deg, var(--panel) 0 2px, transparent 2px 14px);
 }
 .work--real { background-image: none; }
 .work-img {
@@ -221,12 +217,12 @@ p { margin: 0; }
   letter-spacing: 0.16em; text-transform: uppercase; color: var(--bone);
 }
 .work-kind { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--sand); text-transform: uppercase; }
-.folio-progress { margin: 0 32px 36px; height: 2px; background: var(--hairline); }
+.folio-progress { margin: 0 32px 36px; height: 2px; background: var(--hair); }
 .folio-progress > div { height: 100%; width: 0%; background: var(--neon); }
 
 /* rights */
 .rights-section { padding: 0 32px 100px; }
-.rights-grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding-top: 34px; border-top: 1px solid var(--hairline); }
+.rights-grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding-top: 34px; border-top: 1px solid var(--hair); }
 .rights-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 32px; }
 .right-card { display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--neon); padding-top: 14px; }
 .right-title { font-family: var(--font-display); font-size: 20px; letter-spacing: -0.02em; color: var(--bone); }
@@ -261,7 +257,7 @@ p { margin: 0; }
 <body>
 
 <nav class="nav" aria-label="Site">
-  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <a class="nav-mark" href="/" aria-label="Kalen Hayman — home"><span class="k-mark" aria-hidden="true">K</span></a>
   <div class="nav-links">
     <a href="/work">Work</a>
     <a href="/services">Services</a>
@@ -284,7 +280,7 @@ p { margin: 0; }
   </ul>
   <div class="menu-foot">
     <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
-    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <a class="mono" href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
     <span class="mono">Vancouver · Worldwide</span>
   </div>
 </div>
@@ -294,7 +290,7 @@ p { margin: 0; }
     <div class="portrait-img" id="portraitImg"></div>
     <div class="portrait-scrim-b"></div>
     <div class="portrait-scrim-t"></div>
-    <div class="portrait-chip" id="rosterChip">● 01 · AVA ORIGINALS</div>
+    <div class="portrait-chip" id="rosterChip">● 01 · ORIGINALS</div>
     <div class="portrait-name">
       <h1 id="modelName">KIA</h1>
       <div class="portrait-role" id="modelRole">Fitness Model</div>
@@ -338,9 +334,9 @@ p { margin: 0; }
 
 <footer class="foot mono">
   <div class="foot-l">
-    <span>AVA · A design studio.</span>
+    <span>Kalen Hayman · Director, producer, designer.</span>
     <span>Vancouver · Worldwide</span>
-    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <a href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
   </div>
   <span>© 2026 Kalen Hayman</span>
 </footer>
@@ -553,11 +549,11 @@ function renderTabs() {
 
 function renderProfile() {
   var m = MODELS[idx];
-  document.title = m.name + ' — AVA';
+  document.title = m.name + ' — Kalen Hayman';
   var img = el('portraitImg');
   img.style.backgroundImage = 'url("' + m.img + '")';
   img.style.backgroundPosition = m.pos || 'center 20%';
-  el('rosterChip').textContent = '● ' + m.no + ' · AVA ORIGINALS';
+  el('rosterChip').textContent = '● ' + m.no + ' · ORIGINALS';
   el('modelName').textContent = m.name;
   el('modelRole').textContent = m.role;
   el('folioLabel').textContent = '● Portfolio · ' + m.name;

@@ -31,7 +31,7 @@ body {
   background: var(--ink);
   transition: background 320ms ease-out, color 320ms ease-out;
 }
-.stage.is-light { background: var(--bone); color: var(--ink); }
+.stage.is-light { background: #FFFFFF; color: var(--ink); }
 
 .prog { position: relative; height: 4px; background: rgba(235,235,234,.12); flex: none; overflow: hidden; }
 .stage.is-light .prog { background: rgba(0,0,0,.14); }
@@ -61,6 +61,9 @@ body {
   color: inherit;
 }
 .brief-brand img { display: block; height: 34px; width: 34px; }
+.k-mark { position: relative; z-index: 0; display: inline-block; font-family: var(--display); font-size: 30px; line-height: 1; text-transform: uppercase; color: var(--bone); padding: 0 4px; }
+.k-mark::before { content: ""; position: absolute; z-index: -1; left: -6px; right: -6px; top: 46%; height: 30%; background: var(--neon); transform: skewX(-14deg) rotate(-8deg); }
+.stage.is-light .k-mark { color: var(--ink); }
 .brief-brand .wm {
   font-family: var(--mono);
   font-size: 14px;
@@ -360,7 +363,7 @@ a.sub:hover { color: var(--bone); }
    the progress stripe, highlights): as text on bone it doesn't read, so the
    primary button follows the site's on-light treatment, ink with neon type,
    and errors sit as ink on a neon highlight. */
-body.is-light { background: var(--bone); color: var(--ink); }
+body.is-light { background: #FFFFFF; color: var(--ink); }
 body.is-light .back { color: #6a6a68; }
 body.is-light .back:hover { color: var(--ink); }
 .stage.is-light .count em { color: var(--ink); }

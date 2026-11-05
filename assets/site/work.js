@@ -61,7 +61,7 @@
       src: KUZ + 'KUZ%20IMAGE/kyle_landing_page_1.png',
       more: [KUZ + 'KUZ%20IMAGE/kyle_landing_page_2.png', KUZ + 'KUZ%20IMAGE/aurora_landing_page_1_LPM%20environment.png', KUZ + 'KUZ%20IMAGE/kyle_LPM_night_landing_page.png'] },
     /* the home page hero: the demo reel, from its own title card (startAt 0) */
-    { id: 'demo-reel', title: 'AVA Demo Reel', types: ['Video'], w: 16, h: 9, startAt: 0,
+    { id: 'demo-reel', title: 'Demo Reel', types: ['Video'], w: 16, h: 9, startAt: 0,
       poster: '/assets/img/demo-reel-cover.jpg',
       video: '/assets/video/ava-demo-reel.mp4' },   /* faststart copy of DEMO REELS/AVA DEMO REEL 11_2026 */
     { id: 'dupixent', title: 'Dupixent', types: ['Video'], w: 16, h: 9,
@@ -113,7 +113,7 @@
       src: 'assets/globalist-editorial/globalist-01.jpg',
       more: ['assets/globalist-editorial/globalist-02.jpg', 'assets/globalist-editorial/globalist-03.jpg', 'assets/globalist-editorial/globalist-04.jpg', 'assets/globalist-editorial/globalist-05.jpg', 'assets/globalist-editorial/globalist-06.jpg'] },
 
-    /* AVA Originals — the casting view */
+    /* Originals — the casting view */
     { id: 'virtual-affair', title: 'The Virtual Affair', sub: 'Danny & Laura', types: ['Casting'], w: 1200, h: 630, src: 'assets/og/the-virtual-affair.jpg', href: '/the-virtual-affair' },
     { id: 'kia', title: 'KIA', sub: 'Fitness · Performance', types: ['Casting'], w: 1792, h: 2400, src: 'assets/model-kia.png', deck: '/model?m=kia' },
     { id: 'raven', title: 'RAVEN', sub: 'Music · Culture', types: ['Casting'], w: 1792, h: 2194, src: 'assets/model-raven.jpg', deck: '/model?m=raven' },
@@ -170,12 +170,12 @@
     { id: 'kia-campaigns', name: 'KIA', kind: 'Fitness campaign', types: ['Image'], media: mediaOf(['kia-aqua', 'kia-strength']) },
     { id: 'danny-air-jordan', name: 'Danny × Air Jordan', kind: 'Spec ad', types: ['Image'], media: mediaOf(['danny-air-jordan']) },
 
-    /* AVA Originals — the faces, under Casting */
-    { id: 'face-kia', name: 'KIA', kind: 'AVA Original · Fitness', types: ['Casting'], face: true, href: '/model?m=kia' },
-    { id: 'face-raven', name: 'RAVEN', kind: 'AVA Original · Music', types: ['Casting'], face: true, href: '/model?m=raven' },
-    { id: 'face-globalist', name: 'GLOBALIST', kind: 'AVA Original · Editorial', types: ['Casting'], face: true, href: '/model?m=globalist' },
-    { id: 'face-danny', name: 'DANNY', kind: 'AVA Original · Men’s fashion', types: ['Casting'], face: true, href: '/model?m=danny' },
-    { id: 'face-laura', name: 'LAURA', kind: 'AVA Original · Luxury', types: ['Casting'], face: true, href: '/model?m=laura' }
+    /* Originals — the faces, under Casting */
+    { id: 'face-kia', name: 'KIA', kind: 'Original · Fitness', types: ['Casting'], face: true, href: '/model?m=kia' },
+    { id: 'face-raven', name: 'RAVEN', kind: 'Original · Music', types: ['Casting'], face: true, href: '/model?m=raven' },
+    { id: 'face-globalist', name: 'GLOBALIST', kind: 'Original · Editorial', types: ['Casting'], face: true, href: '/model?m=globalist' },
+    { id: 'face-danny', name: 'DANNY', kind: 'Original · Men’s fashion', types: ['Casting'], face: true, href: '/model?m=danny' },
+    { id: 'face-laura', name: 'LAURA', kind: 'Original · Luxury', types: ['Casting'], face: true, href: '/model?m=laura' }
   ];
   PROJECTS.forEach(function (p) { p.thumb = '/assets/projects/' + p.id + '.jpg'; });
 
@@ -322,7 +322,7 @@
       /* Build Your Own — the sixth casting card */
       var c = el('a', 'card card--cta');
       c.href = INTAKE; c._ratio = 0.8;
-      c.appendChild(el('span', 'card-types mono dot', 'AVA Originals'));
+      c.appendChild(el('span', 'card-types mono dot', 'Originals'));
       c.appendChild(el('span', 'card-title', 'Build<br>your own'));
       c.appendChild(el('span', 'btn', 'Start Intake <span class="arr">→</span>'));
       gridEl.appendChild(c);
@@ -405,7 +405,7 @@
       cta.appendChild(m);
       var cap = el('div', 'card-cap');
       cap.appendChild(el('span', 'card-title', 'Your face. Your IP.'));
-      cap.appendChild(el('span', 'card-types mono', '<span>AVA Original · Custom</span><span class="card-meta">Start Intake →</span>'));
+      cap.appendChild(el('span', 'card-types mono', '<span>Original · Custom</span><span class="card-meta">Start Intake →</span>'));
       cta.appendChild(cap);
       gridEl.appendChild(cta);
     }

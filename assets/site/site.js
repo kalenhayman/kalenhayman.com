@@ -21,12 +21,14 @@
     if (on) a.setAttribute('aria-current', 'page');
   });
 
-  /* AVA's chat agent (ElevenLabs): a floating widget on every page, loaded once the
-     page is idle so it never competes with the films. On a phone it is the tiny bubble at bottom centre. */
+  /* Chat agent (ElevenLabs): a floating widget on every page, loaded once the
+     page is idle so it never competes with the films. On a phone it is the tiny bubble at bottom centre.
+     Off until this site has its own agent: put its agent id in AGENT_ID to switch it on. */
+  var AGENT_ID = '';
   function loadAgent() {
-    if (document.querySelector('elevenlabs-convai')) return;
+    if (!AGENT_ID || document.querySelector('elevenlabs-convai')) return;
     var w = document.createElement('elevenlabs-convai');
-    w.setAttribute('agent-id', 'agent_2401kxsxcckvercb1kxzf8zam209');
+    w.setAttribute('agent-id', AGENT_ID);
     var phone = window.matchMedia('(max-width: 900px)').matches;
     w.setAttribute('placement', phone ? 'bottom' : 'bottom-right');
     /* the full pill (avatar, call button, chat, "powered by") covers a third of a phone screen; a phone gets the tiny bubble */

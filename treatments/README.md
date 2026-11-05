@@ -2,7 +2,7 @@
 
 Each approved lead gets one JSON file here, addressed by an unguessable token:
 
-    /treatments/<token>.json   →   avadesign.studio/treatment/#<token>
+    /treatments/<token>.json   →   kalenhayman.com/treatment/#<token>
 
 `treatment.html` fetches that file and renders it over the fixed brand
 template (method, growth cycle, framing). No token, or a missing file, falls
