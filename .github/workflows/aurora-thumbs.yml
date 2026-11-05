@@ -1,0 +1,27 @@
+name: Aurora outtake thumbnails
+
+# On demand: pulls each outtake from Blob, extracts a poster frame, commits
+# the JPEGs to assets/aurora/thumbs/. Public URLs only — no token needed.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  thumbs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - run: node scripts/aurora-thumbs.mjs
+      - name: Commit thumbnails
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/aurora/thumbs
+          git diff --cached --quiet || (git commit -m "Aurora: outtake poster frames" && git pull --rebase origin main && git push)

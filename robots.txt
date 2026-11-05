@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /treatment
+
+Sitemap: https://www.avadesign.studio/sitemap.xml

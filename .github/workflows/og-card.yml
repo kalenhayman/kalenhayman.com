@@ -1,0 +1,50 @@
+name: Share card
+
+# On demand: fetches an image from Blob, fits it to a 1200×630 share card
+# on ink, compresses it well under the 300 KB that messaging apps accept,
+# and commits it to assets/og/<name>.jpg.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Source image URL
+        required: true
+      name:
+        description: Card name (assets/og/<name>.jpg)
+        required: true
+      mode:
+        description: fit (whole image on ink), cover (fill, crop centred), top (fill, crop from the top) or yNN (fill, crop NN% of the way down)
+        default: fit
+
+permissions:
+  contents: write
+
+jobs:
+  card:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick >/dev/null
+      - name: Build the card
+        run: |
+          curl -sSL -o /tmp/src "${{ github.event.inputs.url }}"
+          mkdir -p assets/og
+          if [ "${{ github.event.inputs.mode }}" = "top" ]; then
+            convert /tmp/src -resize 1200x630^ -gravity north -extent 1200x630 -strip -quality 82 "assets/og/${{ github.event.inputs.name }}.jpg"
+          elif echo "${{ github.event.inputs.mode }}" | grep -qE '^y[0-9]+$'; then
+            PCT=$(echo "${{ github.event.inputs.mode }}" | tr -d y)
+            H=$(convert /tmp/src -resize 1200x630^ -format %h info:)
+            OFF=$(( (H - 630) * PCT / 100 ))
+            convert /tmp/src -resize 1200x630^ -crop "1200x630+0+${OFF}" +repage -strip -quality 82 "assets/og/${{ github.event.inputs.name }}.jpg"
+          elif [ "${{ github.event.inputs.mode }}" = "cover" ]; then
+            convert /tmp/src -resize 1200x630^ -gravity center -extent 1200x630 -strip -quality 82 "assets/og/${{ github.event.inputs.name }}.jpg"
+          else
+            convert /tmp/src -resize 1200x630 -background black -gravity center -extent 1200x630 -strip -quality 82 "assets/og/${{ github.event.inputs.name }}.jpg"
+          fi
+          ls -la "assets/og/${{ github.event.inputs.name }}.jpg"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/og
+          git diff --cached --quiet || (git commit -m "Share card: ${{ github.event.inputs.name }}" && git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME})

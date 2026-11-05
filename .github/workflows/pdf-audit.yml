@@ -1,0 +1,45 @@
+name: PDF audit
+
+# On demand: fetches a PDF from Blob, reports its page count, page size and
+# file size, renders every page to a small JPEG under assets/docs/<name>/ so
+# the pages can be reviewed, and (when under 25 MB) keeps the PDF itself at
+# assets/docs/<name>.pdf so the site serves it from its own origin.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Source PDF URL
+        required: true
+      width:
+        description: Page render width in pixels
+        default: "900"
+      name:
+        description: Output name (assets/docs/<name>.pdf and assets/docs/<name>/p-NN.jpg)
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils >/dev/null
+      - name: Fetch and render
+        run: |
+          curl -sSL -o /tmp/src.pdf "${{ github.event.inputs.url }}"
+          ls -la /tmp/src.pdf
+          pdfinfo /tmp/src.pdf
+          pdffonts /tmp/src.pdf | head -20 || true
+          pdftotext -layout /tmp/src.pdf - | head -120
+          mkdir -p "assets/docs/${{ github.event.inputs.name }}"
+          pdftoppm -jpeg -jpegopt quality=70 -scale-to-x ${{ github.event.inputs.width }} -scale-to-y -1 /tmp/src.pdf "assets/docs/${{ github.event.inputs.name }}/p"
+          ls "assets/docs/${{ github.event.inputs.name }}" | wc -l
+          if [ $(stat -c %s /tmp/src.pdf) -lt 26214400 ]; then cp /tmp/src.pdf "assets/docs/${{ github.event.inputs.name }}.pdf"; fi
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/docs
+          git diff --cached --quiet || (git commit -m "PDF audit: ${{ github.event.inputs.name }}" && git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME})

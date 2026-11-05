@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Production Brief · AVA</title>
+<meta name="description" content="Ten questions about your brand. Three minutes. Then we talk.">
+<link rel="canonical" href="https://www.avadesign.studio/brief/production">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.avadesign.studio/brief/production">
+<meta property="og:title" content="Production Brief · AVA">
+<meta property="og:description" content="Ten questions about your brand. Three minutes. Then we talk.">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/production-brief.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/brief/brief.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#EBEBEA">
+</head>
+<body class="is-light">
+
+<div class="stage is-light" id="stage">
+  <div class="prog"><i id="progBar"></i></div>
+  <header class="brief-head">
+    <a class="brief-brand" href="/" aria-label="AVA home">
+      <img src="/assets/badge-nav.png" alt="AVA" width="34" height="34">
+    </a>
+    <nav class="brief-nav" aria-label="Site">
+      <a href="/work">Work</a>
+      <a href="/services">Services</a>
+      <a href="/the-studio">Series</a>
+      <a href="/work?view=Casting">Casting</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+  <main class="body" id="body" aria-live="polite"></main>
+</div>
+<button class="back" id="back" type="button" hidden>← Back</button>
+
+<script>
+/* =============================================================================
+   PRODUCTION BRIEF — configuration only.
+
+   Production leads; casting follows. This is the primary intake: it asks what
+   needs making, and leads to a call. The avatar work appears
+   as an option near the end, never as the pitch.
+
+   The flow engine is shared with the casting brief and lives in
+   /assets/brief/engine.js. Everything below is copy and branching; changing a
+   label here never touches logic. Slugs are the contract with Make — reword a
+   label freely, never rename a slug.
+   ========================================================================== */
+window.BRIEF = {
+  form: 'production',
+  draftKey: 'ava_pb_draft_v2',
+  eventPrefix: 'pb_',
+  endpoint: '/api/brief',
+  theme: 'light',   /* AVA bone (#EBEBEA) on every screen */
+  emailTo: 'hello@avadesign.studio',
+  /* Plain-text reply emailed to the lead when they finish the brief. */
+  autoReply: function (p) {
+    var first = String(p.contact.name || '').trim().split(/\s+/)[0] || 'there';
+    return 'Hi ' + first + ',\n\n' +
+      'Thank you — your brief for ' + (p.brand.name || 'your brand') + ' is in.\n\n' +
+      'Let\'s talk it through on a call. Book it here:\nhttps://v2.stan.store/avastudio/p/talk-through-your-next-campaign\n\n' +
+      'Or just reply to this email.\n\n' +
+      'AVA\navadesign.studio';
+  },
+
+  /* BOOKING LINK: the call, booked through Stan. Opens in a new tab. */
+  calendarUrl: 'https://v2.stan.store/avastudio/p/talk-through-your-next-campaign',
+  rosterUrl: '/work?view=Casting',
+
+  /* The payload's answers contract. Order is the wire order. An option marked
+     `other` may carry a few words, which travel as <key>Other. */
+  answerKeys: ['needs', 'needsOther', 'moment', 'momentOther', 'audience',
+               'aesthetic', 'aestheticOther', 'format', 'formatOther',
+               'casting', 'castingOther', 'strategy', 'strategyOther',
+               'channels', 'channelsOther', 'volume', 'volumeOther',
+               'timing', 'timingOther'],
+
+  errors: {
+    required: 'Needs an answer before you can move on.',
+    email: "That email won't reach you. Check it.",
+    send: "Didn't send. Try once more — your answers are saved."
+  },
+
+  /* Ten questions, four options and Other on each. Casting and strategy are
+     questions of their own, since either can sit inside any kind of work. */
+  screens: [
+    {
+      id: 'welcome', hash: 'start', type: 'welcome',
+      eyebrow: 'AVA · A design studio',
+      q: 'Get the plan<br>before the work.',
+      help: 'Ten questions. Three minutes. No pitch attached.',
+      cta: 'Start the brief →',
+      hint: 'Takes about 3 minutes'
+    },
+    {
+      id: 'p1_need', hash: 'p1', type: 'multi', key: 'needs',
+      eyebrow: '01 <em>/</em> 10 &nbsp;·&nbsp; The work',
+      q: 'What do you<br>need?',
+      help: 'Select everything that applies.',
+      options: [
+        { slug: 'branding', label: 'Branding &amp; identity', note: '— the system everything hangs off' },
+        { slug: 'web', label: 'Web design', note: '— where it all lands' },
+        { slug: 'social', label: 'Social media', note: '— the feed that never stops' },
+        { slug: 'production', label: 'Image &amp; video production', note: '— campaigns, e-comm, film' },
+        { slug: 'other', label: 'Other', other: true }
+      ],
+      cta: 'OK →'
+    },
+    {
+      id: 'p2_moment', hash: 'p2', type: 'choice', key: 'moment',
+      eyebrow: '02 <em>/</em> 10 &nbsp;·&nbsp; The moment',
+      q: "What's driving<br>it right now?",
+      options: [
+        { slug: 'launch', label: 'A launch', note: '— something new goes out' },
+        { slug: 'rebrand', label: 'A rebrand', note: '— the old look stopped working' },
+        { slug: 'growth', label: 'Growing the feed', note: '— more, more often' },
+        { slug: 'testing', label: 'Testing the water', note: '— proving it before committing' },
+        { slug: 'other', label: 'Other', other: true }
+      ]
+    },
+    {
+      id: 'p3_audience', hash: 'p3', type: 'text', key: 'audience', required: true,
+      eyebrow: '03 <em>/</em> 10 &nbsp;·&nbsp; Audience',
+      q: 'Who is it for?',
+      help: 'One line is plenty.',
+      placeholder: 'e.g. Women 25–34 in the US who train four times a week and buy on their phone.',
+      maxlength: 200,
+      microlabel: 'The more specific you are, the better.',
+      cta: 'OK →'
+    },
+    {
+      id: 'p4_look', hash: 'p4', type: 'choice', key: 'aesthetic',
+      eyebrow: '04 <em>/</em> 10 &nbsp;·&nbsp; Direction',
+      q: 'Which direction<br>feels closest?',
+      options: [
+        { slug: 'editorial', label: 'Editorial', note: '— controlled, cold, high contrast' },
+        { slug: 'bold', label: 'Bold', note: '— loud colour, energy, culture' },
+        { slug: 'luxe', label: 'Luxe', note: '— quiet money, texture, restraint' },
+        { slug: 'minimal', label: 'Minimal', note: '— clean, clinical, calm' },
+        { slug: 'other', label: 'Other', other: true }
+      ],
+      microlabel: 'Nothing binding. It sets where we start.'
+    },
+    {
+      id: 'p5_format', hash: 'p5', type: 'choice', key: 'format',
+      eyebrow: '05 <em>/</em> 10 &nbsp;·&nbsp; Format',
+      q: 'What formats<br>do you need?',
+      options: [
+        { slug: 'stills', label: 'Stills', note: '— campaign imagery, e-comm, print' },
+        { slug: 'video', label: 'Video', note: '— ads, social, film' },
+        { slug: 'graphic', label: 'Graphic design', note: '— identity, layouts, type' },
+        { slug: 'all', label: 'All', note: '— the full set' },
+        { slug: 'other', label: 'Other', other: true }
+      ]
+    },
+    {
+      id: 'p6_casting', hash: 'p6', type: 'choice', key: 'casting',
+      eyebrow: '06 <em>/</em> 10 &nbsp;·&nbsp; Casting',
+      q: "Who's on camera?",
+      options: [
+        { slug: 'own_people', label: 'Your own people', note: '— team, founders, customers' },
+        { slug: 'cast_talent', label: 'Talent we cast', note: '— from our roster or a search' },
+        { slug: 'designed_face', label: 'A face we design', note: '— a custom AVA avatar' },
+        { slug: 'no_people', label: 'No one', note: '— product, design and type only' },
+        { slug: 'other', label: 'Other', other: true }
+      ]
+    },
+    {
+      id: 'p7_strategy', hash: 'p7', type: 'choice', key: 'strategy',
+      eyebrow: '07 <em>/</em> 10 &nbsp;·&nbsp; Strategy',
+      q: 'How much strategy<br>do you need?',
+      options: [
+        { slug: 'plan_exists', label: 'The plan exists', note: '— just make it' },
+        { slug: 'shape_it', label: 'Shape it with us', note: '— refine what you have' },
+        { slug: 'from_scratch', label: 'Build it from scratch', note: '— positioning, plan, then production' },
+        { slug: 'audit', label: 'Audit first', note: '— tell us what is working' },
+        { slug: 'other', label: 'Other', other: true }
+      ]
+    },
+    {
+      id: 'p8_channels', hash: 'p8', type: 'multi', key: 'channels',
+      eyebrow: '08 <em>/</em> 10 &nbsp;·&nbsp; Channels',
+      q: 'Where does it<br>need to run?',
+      help: 'Select everything that applies.',
+      options: [
+        { slug: 'social', label: 'Social', note: '— IG, TikTok, YouTube' },
+        { slug: 'web', label: 'Website', note: '— site, e-comm, landing pages' },
+        { slug: 'paid', label: 'Paid ads', note: '— social &amp; digital' },
+        { slug: 'print_retail', label: 'Print &amp; retail', note: '— OOH, in-store, packaging' },
+        { slug: 'other', label: 'Other', other: true }
+      ],
+      microlabel: 'This sets the delivery schedule. We put it in writing before any work starts.',
+      cta: 'OK →'
+    },
+    {
+      id: 'p9_volume', hash: 'p9', type: 'choice', key: 'volume',
+      eyebrow: '09 <em>/</em> 10 &nbsp;·&nbsp; Scale',
+      q: 'One project,<br>or ongoing?',
+      options: [
+        { slug: 'one_project', label: 'One project', note: '— a fixed set, delivered once' },
+        { slug: 'monthly', label: 'Ongoing, monthly', note: '— a steady drip' },
+        { slug: 'weekly', label: 'Ongoing, weekly', note: '— volume, all the time' },
+        { slug: 'unsure', label: 'Not sure yet' },
+        { slug: 'other', label: 'Other', other: true }
+      ]
+    },
+    {
+      id: 'p10_timing', hash: 'p10', type: 'choice', key: 'timing',
+      eyebrow: '10 <em>/</em> 10 &nbsp;·&nbsp; Timing',
+      q: 'When does it<br>need to be live?',
+      options: [
+        { slug: 'weeks', label: 'Weeks', note: "— there's a date on a calendar" },
+        { slug: 'this_quarter', label: 'This quarter', note: '— planning it now' },
+        { slug: 'next_quarter', label: 'Next quarter or later' },
+        { slug: 'no_date', label: 'No date yet', note: '— building the case' },
+        { slug: 'other', label: 'Other', other: true }
+      ]
+    },
+    {
+      id: 'contact', hash: 'delivery', type: 'fields', store: 'contact', capture: true,
+      eyebrow: 'Last one &nbsp;·&nbsp; Almost done',
+      q: 'Who are we<br>talking to?',
+      help: 'We read every answer, then we talk.',
+      fields: [
+        { name: 'name', label: 'Name', placeholder: 'First and last', required: true },
+        { name: 'email', label: 'Work email', placeholder: 'you@brand.com', type: 'email', required: true },
+        { name: 'role', label: 'Role — optional', placeholder: 'e.g. Brand Director' },
+        { name: 'name', store: 'brand', label: 'Brand', placeholder: 'Brand name', required: true },
+        { name: 'url', store: 'brand', label: 'Site — optional', placeholder: 'brand.com or @brand' }
+      ],
+      microlabel: "Work email, please — it's how we know which brand you're writing about.",
+      cta: 'Send the brief →'
+    },
+    { id: 'end', hash: 'done', type: 'end' }
+  ],
+
+  endings: {
+    'default': {
+      q: 'Thank you.',
+      help: 'Your answers are in. Next, the call.',
+      cta: 'Book the call →', ctaTarget: 'calendar', ctaEvent: 'calendar_click'
+    }
+  }
+};
+</script>
+<script src="/assets/brief/engine.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

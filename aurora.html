@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aurora × Kyle Kuzma — AVA</title>
+<meta name="description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by AVA.">
+<meta property="og:title" content="Aurora × Kyle Kuzma — AVA">
+<meta property="og:description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by AVA.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.avadesign.studio/aurora">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/aurora.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aurora × Kyle Kuzma — AVA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aurora × Kyle Kuzma — AVA">
+<meta name="twitter:description" content="Aurora × Kyle Kuzma. Brand film, 2026. Designed by AVA.">
+<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/aurora.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+:root {
+  --neon: #D8FE00; --ink: #000000; --bone: #EBEBEA; --sand: #7A7A78; --paper: #FFFFFF;
+  --hairline: #141414; --hairline-light: #c9c9c7;
+  --font-display: 'Archivo Black', sans-serif;
+  --font-strip: 'Archivo Narrow', sans-serif;
+  --font-body: Archivo, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding-top: var(--nav-h); min-height: 100vh; background: var(--ink); color: var(--bone); font-family: var(--font-body); overflow-x: clip; }
+a { color: var(--neon); text-decoration: none; }
+a:hover { color: var(--bone); }
+h1, h2, h3, p, figure { margin: 0; }
+button { font: inherit; }
+::selection { background: var(--neon); color: var(--ink); }
+.mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sand); }
+.blink { color: var(--neon); animation: avaBlink 1.6s steps(1) infinite; }
+@keyframes avaBlink { 0%, 60% { opacity: 1 } 61%, 100% { opacity: 0.15 } }
+
+
+/* ---------- buttons: the site's own (site.css), so the nav and page CTAs match ---------- */
+.btn { cursor: pointer; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- 01 · film hero (mirrors the homepage video hero) ---------- */
+.film { position: relative; height: calc(100svh - var(--nav-h)); min-height: 560px; display: flex; flex-direction: column; justify-content: flex-end; background: var(--ink); overflow: hidden; }
+.film-grid { position: absolute; inset: 0; z-index: 0; opacity: 0.9; background-image: linear-gradient(#0d0d0d 1px, transparent 1px), linear-gradient(90deg, #0d0d0d 1px, transparent 1px); background-size: 80px 80px; }
+.film-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0; transition: opacity 800ms ease-out; background: #000; }
+.film-video.is-ready { opacity: 1; }
+/* weighted to the left so the copy always sits on the darkest part of the frame */
+.film-scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none; transition: opacity 700ms ease-out;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.26) 56%, rgba(0,0,0,0) 74%),
+    linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 22%);
+}
+.film-inner {
+  position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: clamp(10px, 1.8vh, 20px);
+  width: 100%; max-width: 1320px; margin: 0 auto; padding: 90px 40px 118px; transition: opacity 700ms ease-out;
+}
+.film-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em; color: var(--sand); text-transform: uppercase; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.film-title { font-family: var(--font-display); font-size: clamp(54px, 9vw, 150px); line-height: 0.86; letter-spacing: -0.04em; color: var(--bone); text-transform: uppercase; }
+.film-title .accent { color: var(--neon); }
+.film-sub { max-width: 52ch; font-size: clamp(14px, 1.2vw, 17px); line-height: 1.55; color: var(--bone); text-wrap: pretty; }
+.film-sub b { color: var(--neon); font-weight: 600; }
+.film-strip { position: absolute; z-index: 2; bottom: 34px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 40px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase; transition: opacity 700ms ease-out; }
+.film-controls { position: absolute; z-index: 3; right: 40px; bottom: 76px; display: flex; align-items: center; gap: 8px; }
+.film-controls[hidden] { display: none; }
+.film-ctl { background: rgba(0,0,0,0.6); color: var(--bone); border: 1px solid #2a2a2a; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 14px; cursor: pointer; backdrop-filter: blur(6px); transition: color 300ms ease-out, border-color 300ms ease-out; }
+.film-ctl:hover { color: var(--neon); border-color: var(--neon); }
+.film-ctl--icon { width: 38px; padding: 10px 0; text-align: center; font-size: 12px; }
+.film-ctl[aria-pressed="true"] { color: var(--neon); border-color: var(--neon); }
+.film.is-cinema .film-scrim { opacity: 0.22; }
+.film.is-cinema .film-inner, .film.is-cinema .film-strip { opacity: 0; pointer-events: none; }
+.film-fallback { position: absolute; z-index: 1; left: 40px; top: 90px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand); border: 1px dashed #2a2a2a; padding: 8px 12px; }
+
+/* ---------- 02 · credits comp card (mirrors the roster profile) ---------- */
+.profile { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+/* the key frame sits behind the credits; a dark shade keeps every line legible */
+.portrait { position: relative; min-height: calc(100vh - 74px); background: #0a0a0a; overflow: hidden; }
+.portrait-img { position: absolute; inset: 0; background-size: cover; background-position: center 20%; filter: grayscale(1) contrast(1.05); }
+.portrait-img.is-pending { background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px); filter: none; }
+.portrait-shade { position: absolute; inset: 0; background:
+  linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.62) 100%),
+  linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0) 40%); }
+.portrait-pending { position: absolute; right: 26px; bottom: 26px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sand); border: 1px dashed #2a2a2a; padding: 10px 14px; white-space: nowrap; }
+.portrait-content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 26px; padding: 26px 34px 40px; max-width: 760px; }
+.portrait-chip { align-self: flex-start; background: var(--ink); padding: 7px 11px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--neon); }
+.portrait-name { margin-top: 18px; }
+.portrait-name h2 { font-family: var(--font-display); font-size: clamp(56px, 7.4vw, 128px); line-height: 0.84; letter-spacing: -0.04em; color: var(--bone); text-transform: uppercase; }
+.portrait-role { margin-top: 12px; font-family: var(--font-strip); font-weight: 600; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon); }
+.credits-label { margin-top: 10px; color: #a9a9a6; }
+.claim { border-left: 3px solid var(--neon); padding: 4px 0 4px 20px; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; color: var(--bone); text-wrap: pretty; text-shadow: 0 1px 12px rgba(0,0,0,0.6); }
+.claim b { color: var(--neon); font-weight: 600; }
+.claim small { display: block; margin-top: 12px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #a9a9a6; line-height: 1.7; }
+.spec-rows { display: flex; flex-direction: column; }
+.spec-row { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid rgba(235,235,234,0.14); align-items: baseline; }
+.spec-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: #a9a9a6; text-transform: uppercase; }
+.spec-v { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; color: var(--bone); line-height: 1.5; }
+.spec-v em { font-style: normal; color: #a9a9a6; }
+.spec-v a { color: var(--neon); }
+.spec-end { border-top: 1px solid rgba(235,235,234,0.14); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #c9c9c6; border: 1px solid rgba(235,235,234,0.22); background: rgba(0,0,0,0.35); padding: 6px 10px; }
+.credit-ctas { display: flex; flex-direction: column; gap: 14px; }
+.book { display: block; background: var(--neon); color: var(--ink); font-family: var(--font-strip); font-weight: 700; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding: 16px 0; text-align: center; }
+.book:hover { background: var(--bone); color: var(--ink); }
+.book.is-pending { background: transparent; color: var(--sand); border: 1px dashed #2a2a2a; pointer-events: none; }
+.book-alt { text-align: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+/* right column: the X post */
+.social { border-left: 1px solid var(--hairline); background: #050505; }
+.social-inner { position: sticky; top: 74px; padding: 26px 30px 40px; display: flex; flex-direction: column; gap: 22px; }
+.tweet { width: 100%; max-width: 550px; margin: 0 auto; }
+.tweet .twitter-tweet { margin: 0 auto !important; }
+/* before (or without) the X script, the quote still reads as a post */
+.tweet blockquote.twitter-tweet { border: 1px solid #2a2a2a; background: #0b0b0b; padding: 22px 22px 18px; margin: 0; color: var(--sand); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; }
+.tweet blockquote.twitter-tweet p { font-family: var(--font-body); font-size: 20px; line-height: 1.4; letter-spacing: 0; color: var(--bone); margin: 0 0 14px; }
+
+/* ---------- 03 · original designs — 16:9 slider ---------- */
+.section { padding: 84px 32px 64px; border-bottom: 1px solid var(--hairline); }
+#designs { padding-top: 56px; padding-bottom: 48px; }
+.wrap { max-width: 1320px; margin: 0 auto; }
+.sec-head { display: grid; grid-template-columns: 1fr auto; gap: 24px 40px; align-items: end; margin-bottom: 28px; }
+.sec-title { font-family: var(--font-display); font-size: clamp(30px, 4vw, 62px); line-height: 0.96; letter-spacing: -0.03em; text-transform: uppercase; color: var(--bone); margin-top: 16px; }
+.sec-title .accent { color: var(--neon); }
+.brief { padding-top: 72px; padding-bottom: 64px; }
+.brief-kicker { color: var(--sand); }
+.brief-title { max-width: 26ch; font-size: clamp(32px, 4.6vw, 72px); margin-top: 22px; }
+.brief .sec-lede { font-size: clamp(16px, 1.4vw, 19px); max-width: 60ch; margin-top: 24px; }
+.sec-lede { max-width: 56ch; font-size: 16px; line-height: 1.6; color: var(--sand); margin-top: 16px; text-wrap: pretty; }
+.navigator { display: flex; align-items: center; gap: 12px; }
+.nav-btn { background: transparent; border: 1px solid #2a2a2a; color: var(--bone); font-family: var(--font-mono); font-size: 14px; line-height: 1; width: 48px; height: 42px; cursor: pointer; transition: color 300ms ease-out, border-color 300ms ease-out; }
+.nav-btn:hover { border-color: var(--neon); color: var(--neon); }
+.nav-count { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em; color: var(--sand); min-width: 78px; text-align: center; }
+.nav-count b { color: var(--neon); font-weight: 400; }
+.stage { position: relative; aspect-ratio: 16 / 9; width: 100%; background: #0a0a0a; border: 1px solid var(--hairline); overflow: hidden; }
+.slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 320ms ease-out, visibility 320ms ease-out; display: flex; align-items: center; justify-content: center; }
+.slide[data-on="true"] { opacity: 1; visibility: visible; }
+.slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.slide.is-pending { background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px); }
+.slide-pending { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sand); border: 1px dashed #2a2a2a; padding: 10px 14px; }
+.stage-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: linear-gradient(to top, rgba(0,0,0,0.94) 30%, rgba(0,0,0,0)); }
+.stage-caption { font-family: var(--font-strip); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stage-dots { display: flex; gap: 4px; margin-left: auto; flex: 0 0 auto; }
+.stage-dot { width: 18px; height: 3px; background: #2a2a2a; border: none; padding: 0; cursor: pointer; transition: background 300ms ease-out; }
+.stage-dot:hover { background: var(--sand); }
+.stage-dot[aria-current="true"] { background: var(--neon); }
+
+/* ---------- 04 · outtakes — chained player ---------- */
+.player { position: relative; aspect-ratio: 16 / 9; width: 100%; background: #0a0a0a; border: 1px solid var(--hairline); overflow: hidden; }
+.player video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.player-idle { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.35)); }
+.player.is-playing .player-idle { display: none; }
+.player-idle .mono { color: var(--bone); }
+.player-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: none; align-items: center; gap: 12px; padding: 14px 18px; background: linear-gradient(to top, rgba(0,0,0,0.94) 30%, rgba(0,0,0,0)); }
+.player.is-playing .player-bar { display: flex; }
+.now { font-family: var(--font-strip); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.now b { color: var(--neon); font-weight: 600; }
+.player-ctls { margin-left: auto; display: flex; gap: 8px; }
+.clips { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 14px; margin-top: 18px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
+.clip { position: relative; aspect-ratio: 16 / 9; background: #0a0a0a; border: 1px solid var(--hairline); background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px); cursor: pointer; text-align: left; padding: 0; color: inherit; transition: border-color 300ms ease-out; }
+.clip:hover { border-color: var(--neon); }
+.clip[aria-current="true"] { border-color: var(--neon); }
+.clip:hover img, .clip[aria-current="true"] img { filter: grayscale(0); }
+.clip.is-unavailable { opacity: .45; }
+.clip video, .clip img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
+.clip-inner { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 12px; background: linear-gradient(to top, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0) 60%); }
+.clip-top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase; }
+.clip-title { font-family: var(--font-strip); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bone); }
+.clip-kind { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--sand); text-transform: uppercase; margin-top: 4px; }
+
+/* ---------- cta ---------- */
+.cta { padding: clamp(40px,6vw,64px) 32px clamp(56px,8vw,88px); border-top: 1px solid var(--hairline); }
+.cta-inner { display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center; }
+.btn--big { height: auto; min-height: 64px; justify-content: center; font-size: clamp(12px, 1.2vw, 14px); padding: 0 clamp(28px, 4vw, 56px); }
+@media (max-width: 760px) { .cta { padding-left: 20px; padding-right: 20px; } .btn--big { width: 100%; } }
+
+/* ---------- footer ---------- */
+
+@media (max-width: 900px) {
+  .film-inner { padding: 80px 22px 110px; }
+  .film-strip { padding: 0 22px; }
+  .film-controls { right: 22px; bottom: 64px; }
+  .film-fallback { left: 22px; }
+  .profile { grid-template-columns: 1fr; }
+  .section { padding: 52px 20px 44px; }
+  #designs { padding-top: 36px; padding-bottom: 32px; }
+  .sec-head { grid-template-columns: 1fr; }
+  .foot { padding: 20px; }
+  .portrait { min-height: 0; }
+  .portrait-content { padding: 22px 20px 36px; }
+  .spec-row { grid-template-columns: 120px 1fr; }
+  .social { border-left: none; border-top: 1px solid var(--hairline); }
+  .social-inner { position: static; padding: 28px 16px 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .slide, .film-scrim, .film-inner, .film-video { transition: none; }
+  .blink { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<!-- 01 · THE FILM -->
+<section class="film" id="film" data-screen-label="01 Film Hero">
+  <div class="film-grid"></div>
+  <video class="film-video" id="filmVideo" autoplay muted loop playsinline preload="auto" aria-label="Aurora × Kyle Kuzma — brand film"></video>
+  <div class="film-scrim"></div>
+  <div class="film-fallback" id="filmFallback" hidden>Film · loading from Vercel Blob</div>
+  <div class="film-controls" id="filmControls" hidden>
+    <button class="film-ctl film-ctl--icon" id="filmPlay" type="button" aria-label="Pause film">&#10074;&#10074;</button>
+    <button class="film-ctl" id="filmSound" type="button" aria-pressed="true">Sound on</button>
+    <button class="film-ctl film-ctl--icon" id="filmFull" type="button" aria-label="Play film fullscreen">&#8663;</button>
+    <button class="film-ctl" id="filmExit" type="button">✕ Exit</button>
+  </div>
+  <div class="film-inner" id="filmInner">
+    <div class="film-kicker">
+      <span class="blink">●</span>
+      <span>Brand film &middot; 2026</span>
+    </div>
+    <h1 class="film-title">Aurora<br><span class="accent">&times; Kyle Kuzma</span></h1>
+    <div class="btn-row" style="margin-top:6px">
+      <button class="btn" id="watchNow" type="button">Watch now &rarr;</button>
+      <a class="btn btn--ghost" href="/start-intake">Start Intake &rarr;</a>
+    </div>
+  </div>
+  <div class="film-strip">
+    <span>Aurora &times; Kyle Kuzma</span>
+    <span>AVA &middot; 2026</span>
+  </div>
+</section>
+
+<!-- 01b · WHAT THIS IS -->
+<section class="section brief" data-screen-label="01b Brief">
+  <div class="wrap">
+    <div class="mono brief-kicker">&#9679; Client project &middot; 2026</div>
+    <h2 class="sec-title brief-title">A pro athlete, <span class="accent">brought to life</span> in a digital film &mdash; no traditional production.</h2>
+    <p class="sec-lede">A client project for Aurora, the tech company Kyle Kuzma invested in as both a user and a stakeholder. Every frame is original, designed by Kalen Hayman.</p>
+  </div>
+</section>
+
+<!-- 02 · CREDITS COMP CARD -->
+<section class="profile" id="credits" data-screen-label="02 Credits">
+  <div class="portrait">
+    <div class="portrait-img is-pending" id="keyFrame"></div>
+    <div class="portrait-shade"></div>
+    <div class="portrait-content">
+      <div class="portrait-chip">&#9679; CASE STUDY &middot; 01</div>
+      <div class="portrait-name">
+        <h2>Aurora</h2>
+        <div class="portrait-role">Brand film &middot; Kyle Kuzma</div>
+      </div>
+      <div class="mono credits-label">Credits</div>
+      <div class="spec-rows" id="specRows"></div>
+      <div class="tag-row" id="tagRow"></div>
+      <div class="credit-ctas">
+        <a class="book" id="liveSite" href="#">Visit the live site &rarr;</a>
+        <a class="book-alt" href="/start-intake">Start Intake &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <aside class="social">
+    <div class="social-inner">
+      <div class="mono">&#9679; On X &middot; @kylekuzma</div>
+      <div class="tweet">
+        <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-align="center"><p lang="en" dir="ltr">This is the future <a href="https://t.co/dw9LEbFG18">https://t.co/dw9LEbFG18</a></p>&mdash; kuz (@kylekuzma) <a href="https://x.com/kylekuzma/status/2102738373211558244?ref_src=twsrc%5Etfw">September 23, 2026</a></blockquote>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- 03 · OUTTAKES · CHAINED PLAYER -->
+<section class="section" id="outtakes" data-screen-label="04 Outtakes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mono">&#9679; 02 &middot; Outtakes</div>
+        <h2 class="sec-title">Outtakes.</h2>
+      </div>
+      <div class="navigator">
+        <div class="nav-count" id="clipCount"><b>&mdash;</b> / 05</div>
+        <button class="btn" id="clipsWatch" type="button">Watch with sound &rarr;</button>
+      </div>
+    </div>
+    <div class="player" id="player">
+      <video id="clipVideo" muted playsinline preload="metadata"></video>
+      <div class="player-idle">
+        <span class="mono" id="clipsIdle">&#9679; outtakes &middot; plays through</span>
+      </div>
+      <div class="player-bar">
+        <span class="now" id="nowPlaying"></span>
+        <div class="player-ctls">
+          <button class="film-ctl film-ctl--icon" id="clipPause" type="button" aria-label="Pause">&#10074;&#10074;</button>
+          <button class="film-ctl" id="clipSound" type="button" aria-pressed="false">Sound off</button>
+          <button class="film-ctl" id="clipNext" type="button">Next &rarr;</button>
+        </div>
+      </div>
+    </div>
+    <div class="clips" id="clips"></div>
+  </div>
+</section>
+
+<!-- 04 · ORIGINAL DESIGNS · 16:9 SLIDER -->
+<section class="section" id="designs" data-screen-label="03 Original Designs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="mono">&#9679; 03 &middot; Frames</div>
+        <h2 class="sec-title">Frames.</h2>
+      </div>
+      <div class="navigator" aria-label="Slider controls">
+        <button class="nav-btn" id="slPrev" type="button" aria-label="Previous frame">&larr;</button>
+        <div class="nav-count" id="slCount"><b>01</b> / 06</div>
+        <button class="nav-btn" id="slNext" type="button" aria-label="Next frame">&rarr;</button>
+      </div>
+    </div>
+    <div class="stage" id="stage" aria-roledescription="carousel" aria-label="Original designs"></div>
+  </div>
+</section>
+
+<!-- 05 · CTA -->
+<section class="cta" data-screen-label="05 CTA">
+  <div class="wrap cta-inner">
+    <a class="btn btn--big" href="/start-intake">Start Intake &rarr;</a>
+  </div>
+</section>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>AVA · A design studio.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script>
+/* ---------------------------------------------------------------------------
+   Aurora × Kyle Kuzma — case study page.
+   All media is data below. Swap placeholder entries for public Vercel Blob
+   URLs as they land; the layout never changes.
+   --------------------------------------------------------------------------- */
+
+/* The film. Public blob URL — a signed/private URL carries an expiring token.
+   window.AVA_FILM_SRC lets a preview harness point the hero at a local file. */
+var FILM_SRC = window.AVA_FILM_SRC || 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/An%20Aurora%20Original%20x%2024%20Hours%20w%20KUZ%20by%20AVA%20Studios%20-%201920x1080.mp4';
+
+/* Vertical cut of the film for portrait screens — chosen once at load from
+   the viewport orientation, so phones get the 9:16 edit instead of a cropped
+   widescreen frame. */
+var FILM_SRC_PORTRAIT = 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/An%20Aurora%20Original%20x%20KUZ%2024%20Hours%20by%20AVA%20Studios%20-%20vertical.mp4';
+
+/* Key frame behind the credits card. Empty = pending placeholder. */
+var KEY_FRAME = 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/KYLE%20AURORA%20HERO%20PAGE%201.png';
+
+/* Live client site. Empty = "coming soon" until the URL exists. */
+var LIVE_SITE_URL = 'https://joinaurora.co/';
+
+var CREDITS = [
+  ['Client', 'Aurora <em>— lifestyle concierge · tech start-up</em>'],
+  ['Talent', 'Kyle Kuzma <em>— NBA athlete &amp; businessman</em>'],
+  ['Studio', 'AVA Design Studio'],
+  ['Designed by', 'Kalen Hayman'],
+  ['Producer &amp; Motion Graphics', 'Mathew Badiali'],
+  ['Editor', 'Mike Folo'],
+  ['Runtime', '2:23'],
+  ['Year', '2026'],
+  ['Live site', '<em id="liveSiteRow">coming soon</em>']
+];
+var TAGS = ['Brand film', 'Motion', 'Launch'];
+
+/* Original designs — 16:9 frames. { src, caption }. src '' = placeholder. */
+var SLIDES = [
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/Kyle%20Walk-Out%201.png', caption: 'Walk-Out' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/KUZ%20Court%20Training%202.png', caption: 'Court Training 2' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/Villa%20Environment.png', caption: 'Villa Environment' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/KUZ%20Ice%20Plunge.png', caption: 'Ice Plunge' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/kyle_ice_bath.png', caption: 'Ice Bath' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/kyle_ice_bath_2.png', caption: 'Ice Bath 2' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/villa_ice_bath_environment.png', caption: 'Villa Ice Bath Environment' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/Kyle%20look-back.png', caption: 'Look-Back' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/paris_fashion_week.png', caption: 'Paris Fashion Week' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/aurora_landing_page_1_LPM%20environment.png', caption: 'Aurora Landing Page · Environment' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/kyle_landing_page_1.png', caption: 'Landing Page 1' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/kyle_landing_page_2.png', caption: 'Landing Page 2' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/kyle_LPM_night_landing_page.png', caption: 'Night Landing Page' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/kyle_landing_page_video_SOF_pulled_over.png', caption: 'Landing Page Video · Pulled Over' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/kyle_winnie_afterparty_paris_landing_page_grab.png', caption: 'Winnie After-Party · Paris' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/kyle_walk_out_finale.png', caption: 'Walk-Out Finale' }
+];
+
+/* Outtakes — short clips that chain. { src, title, kind }. src '' = placeholder. */
+var CLIPS = [
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/LPM%20Sequence%201%20-%20establishing%20shots_COMPRESSED.mp4', thumb: '/assets/aurora/thumbs/01-establishing-shots.jpg', title: 'Establishing Shots', kind: 'Opening' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/private%20jet%20flying.mp4', thumb: '/assets/aurora/thumbs/02-private-jet.jpg', title: 'Private Jet', kind: 'Transit' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/car%20arrival.mp4', thumb: '/assets/aurora/thumbs/03-car-arrival.jpg', title: 'Car Arrival', kind: 'Transit' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/car_arrival_2.mp4', thumb: '/assets/aurora/thumbs/04-car-arrival-2.jpg', title: 'Car Arrival 2', kind: 'Transit' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/4k%20MERCEDES%20MAYBAC%20DOOR%20OPEN.mp4', thumb: '/assets/aurora/thumbs/05-maybach-door-open.jpg', title: 'Maybach · Door Open', kind: 'Transit' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/2%20TRANSIT%20KYLE%20ARRIVES%20EXTITS%20CAR.mp4', thumb: '/assets/aurora/thumbs/06-kyle-arrives.jpg', title: 'Kyle Arrives', kind: 'Transit' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/1%20TRAINING%20ALT%20JUMP%20SHOT%20CROSS-OVER.mp4', thumb: '/assets/aurora/thumbs/07-jump-shot-cross-over.jpg', title: 'Jump Shot · Cross-Over', kind: 'Training' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/1_Training_gym_alt_shot_w_coach.mp4', thumb: '/assets/aurora/thumbs/08-gym-with-coach.jpg', title: 'Gym · With Coach', kind: 'Training' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/1%20TRAINING%20KYLE%20NEW%20SHOES%20AUGUST%2011%20REIVISION%20by%20KALEN%204K.mp4', thumb: '/assets/aurora/thumbs/09-new-shoes.jpg', title: 'New Shoes', kind: 'Training' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/KYLE%20BENCH%20PRESS.mp4', thumb: '/assets/aurora/thumbs/10-bench-press.jpg', title: 'Bench Press', kind: 'Training' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/4%20TRAINING%20KYLE%20TO%20PHONE.mp4', thumb: '/assets/aurora/thumbs/11-training-to-phone.jpg', title: 'Training · To Phone', kind: 'Training' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/3%20SPORT%20BEACH%20VX%20-%20July%2024%20_compressed.mp4', thumb: '/assets/aurora/thumbs/12-beach.jpg', title: 'Beach', kind: 'Sport' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/3%20DINNER%20July%2025%20-%20Kalen%20Edit_trimmed_compressed.mp4', thumb: '/assets/aurora/thumbs/13-dinner.jpg', title: 'Dinner', kind: 'Dinner' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/KYLE%20CRACKING%20A%20JOKE%20AT%20DINNER.mp4', thumb: '/assets/aurora/thumbs/14-cracking-a-joke.jpg', title: 'Cracking a Joke', kind: 'Dinner' },
+  { src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/kyle_LMP_dinner_talk_outtake.mp4', thumb: '/assets/aurora/thumbs/15-dinner-talk-outtake.jpg', title: 'Dinner Talk · Outtake', kind: 'Dinner' }
+];
+
+var el = function (id) { return document.getElementById(id); };
+var pad = function (n) { return String(n).padStart(2, '0'); };
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- 01 · film hero ---------- */
+(function () {
+  var video = el('filmVideo'), section = el('film'), controls = el('filmControls');
+  var playBtn = el('filmPlay'), soundBtn = el('filmSound'), fullBtn = el('filmFull'), exitBtn = el('filmExit');
+  var watch = el('watchNow'), fallback = el('filmFallback');
+  var cinema = false;
+  if (!video || !FILM_SRC) return;
+
+  // iOS only autoplays inline when muted is set on the element itself, and
+  // wants an explicit load() after a late src assignment
+  video.muted = true; video.defaultMuted = true; video.setAttribute('muted', '');
+  video.setAttribute('webkit-playsinline', '');
+  var portrait = window.matchMedia('(orientation: portrait)').matches;
+  video.src = (portrait && FILM_SRC_PORTRAIT && !window.AVA_FILM_SRC) ? FILM_SRC_PORTRAIT : FILM_SRC;
+  video.preload = 'auto';
+  /* A poster means the hero is never black — on phones that refuse autoplay
+     (Low Power Mode, Low Data Mode) the key frame holds the screen until
+     Watch now, which is a user gesture and is always allowed to play. */
+  if (KEY_FRAME) { video.poster = KEY_FRAME; video.classList.add('is-ready'); }
+  video.load();
+  var ready = function () { video.classList.add('is-ready'); fallback.hidden = true; };
+  ['loadedmetadata', 'loadeddata', 'canplay', 'playing'].forEach(function (ev) { video.addEventListener(ev, ready); });
+  video.addEventListener('error', function () { fallback.hidden = false; fallback.textContent = 'Film · could not load'; });
+  /* Ambient autoplay. iOS refuses script-started playback in some states
+     (Low Power Mode, Low Data Mode), so: try now, try again as the media
+     loads, and if still refused, start on the first touch or scroll anywhere —
+     which to the viewer reads as autoplay. */
+  var ambient = function () {
+    if (cinema || !video.paused) return;
+    var p = video.play(); if (p && p.catch) p.catch(function () {});
+  };
+  ambient();
+  ['loadedmetadata', 'canplay'].forEach(function (ev) { video.addEventListener(ev, ambient); });
+  var unlock = function () {
+    ambient();
+    ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) { window.removeEventListener(ev, unlock); });
+  };
+  ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) { window.addEventListener(ev, unlock, { passive: true }); });
+
+  var setPaused = function (paused) {
+    playBtn.innerHTML = paused ? '&#9654;' : '&#10074;&#10074;';
+    playBtn.setAttribute('aria-label', paused ? 'Play film' : 'Pause film');
+  };
+  var setSound = function (on) {
+    video.muted = !on;
+    soundBtn.setAttribute('aria-pressed', String(on));
+    soundBtn.textContent = on ? 'Sound on' : 'Sound off';
+  };
+  /* Cinema: the film restarts from the top with sound, the copy and scrim
+     step back, and when it ends we settle back to the muted ambient loop. */
+  var setCinema = function (on) {
+    cinema = on;
+    section.classList.toggle('is-cinema', on);
+    controls.hidden = !on;
+    if (on) {
+      video.loop = false;
+      try { video.currentTime = 0; } catch (e) { video.addEventListener('loadedmetadata', function r() { video.removeEventListener('loadedmetadata', r); video.currentTime = 0; }); }
+      setSound(true);
+      video.play().catch(function () {});
+      setPaused(false);
+    } else {
+      video.loop = true;
+      setSound(false);
+      video.play().catch(function () {});
+    }
+  };
+  watch.addEventListener('click', function () { setCinema(true); });
+  exitBtn.addEventListener('click', function () { setCinema(false); });
+  video.addEventListener('ended', function () { if (cinema) setCinema(false); });
+  playBtn.addEventListener('click', function () {
+    if (video.paused) { video.play().catch(function () {}); setPaused(false); }
+    else { video.pause(); setPaused(true); }
+  });
+  soundBtn.addEventListener('click', function () { setSound(video.muted); });
+  fullBtn.addEventListener('click', function () {
+    if (video.requestFullscreen) video.requestFullscreen();
+    else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!cinema) return;
+    if (e.key === 'Escape') setCinema(false);
+    if (e.key === ' ' && e.target === document.body) { e.preventDefault(); playBtn.click(); }
+  });
+})();
+
+/* ---------- 02 · credits ---------- */
+(function () {
+  var rows = el('specRows');
+  CREDITS.forEach(function (c) {
+    var row = document.createElement('div'); row.className = 'spec-row';
+    var k = document.createElement('div'); k.className = 'spec-k'; k.innerHTML = c[0];
+    var v = document.createElement('div'); v.className = 'spec-v'; v.innerHTML = c[1];
+    row.appendChild(k); row.appendChild(v); rows.appendChild(row);
+  });
+  var end = document.createElement('div'); end.className = 'spec-end'; rows.appendChild(end);
+  var tagRow = el('tagRow');
+  TAGS.forEach(function (t) { var s = document.createElement('span'); s.className = 'tag'; s.textContent = t; tagRow.appendChild(s); });
+
+  var live = el('liveSite');
+  if (LIVE_SITE_URL) {
+    live.href = LIVE_SITE_URL; live.target = '_blank'; live.rel = 'noopener';
+    var r = el('liveSiteRow'); if (r) r.outerHTML = '<a href="' + LIVE_SITE_URL + '" target="_blank" rel="noopener">' + LIVE_SITE_URL.replace(/^https?:\/\//, '').replace(/\/$/, '') + '</a>';
+  } else {
+    live.classList.add('is-pending'); live.textContent = 'Live site — coming soon'; live.removeAttribute('href');
+  }
+  if (KEY_FRAME) {
+    var kf = el('keyFrame'); kf.classList.remove('is-pending'); kf.style.backgroundImage = 'url("' + KEY_FRAME + '")';
+  }
+})();
+
+/* ---------- 03 · original designs slider ---------- */
+var slIdx = 0;
+(function () {
+  var stage = el('stage'), count = el('slCount');
+  var n = SLIDES.length;
+  SLIDES.forEach(function (s, i) {
+    var slide = document.createElement('div');
+    slide.className = 'slide' + (s.src ? '' : ' is-pending');
+    slide.setAttribute('data-on', String(i === 0));
+    if (s.src) {
+      var img = document.createElement('img');
+      img.setAttribute('data-src', s.src); if (i < 2) img.src = s.src;
+      img.loading = i === 0 ? 'eager' : 'lazy'; img.decoding = 'async';
+      img.alt = 'Original design — ' + s.caption;
+      slide.appendChild(img);
+    } else {
+      var p = document.createElement('span'); p.className = 'slide-pending'; p.textContent = 'Original design ' + pad(i + 1) + ' · asset pending';
+      slide.appendChild(p);
+    }
+    stage.appendChild(slide);
+  });
+  var bar = document.createElement('div'); bar.className = 'stage-bar';
+  var cap = document.createElement('div'); cap.className = 'stage-caption';
+  var dots = document.createElement('div'); dots.className = 'stage-dots';
+  SLIDES.forEach(function (_, i) {
+    var d = document.createElement('button'); d.className = 'stage-dot'; d.type = 'button';
+    d.setAttribute('aria-label', 'Frame ' + (i + 1)); d.addEventListener('click', function () { go(i); restart(); });
+    dots.appendChild(d);
+  });
+  bar.appendChild(cap); bar.appendChild(dots); stage.appendChild(bar);
+
+  function go(k) {
+    slIdx = (k + n) % n;
+    var slides = stage.querySelectorAll('.slide'), ds = dots.querySelectorAll('.stage-dot');
+    for (var i = 0; i < slides.length; i++) {
+      var on = i === slIdx;
+      slides[i].setAttribute('data-on', String(on));
+      var img = slides[i].querySelector('img');
+      if (img && !img.src && (on || Math.abs(i - slIdx) === 1)) img.src = img.getAttribute('data-src');
+      ds[i].setAttribute('aria-current', String(on));
+    }
+    cap.textContent = SLIDES[slIdx].caption;
+    count.innerHTML = '<b>' + pad(slIdx + 1) + '</b> / ' + pad(n);
+  }
+  el('slPrev').addEventListener('click', function () { go(slIdx - 1); restart(); });
+  el('slNext').addEventListener('click', function () { go(slIdx + 1); restart(); });
+  var x0 = null;
+  stage.addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', function (e) {
+    if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) { go(slIdx + (dx < 0 ? 1 : -1)); restart(); } x0 = null;
+  }, { passive: true });
+  document.addEventListener('keydown', function (e) {
+    if (el('film').classList.contains('is-cinema')) return;
+    var t = e.target.tagName; if (t === 'INPUT' || t === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') { go(slIdx - 1); restart(); } else if (e.key === 'ArrowRight') { go(slIdx + 1); restart(); }
+  });
+
+  /* Auto-advance every 2s. Keeps running under the cursor; restarts its
+     clock after any manual move, stops when off-screen or in a hidden tab. */
+  var AUTO_MS = 2000, timer = null, inView = true;
+  function start() { if (timer || !inView) return; timer = setInterval(function () { go(slIdx + 1); }, AUTO_MS); }
+  function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { stopAuto(); start(); }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      inView = entries[0].isIntersecting;
+      if (inView) start(); else stopAuto();
+    }, { threshold: 0.25 }).observe(stage);
+  }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) stopAuto(); else start(); });
+
+  go(0);
+  start();
+})();
+
+/* ---------- 04 · outtakes — chained player ---------- */
+(function () {
+  var player = el('player'), video = el('clipVideo'), list = el('clips');
+  var now = el('nowPlaying'), count = el('clipCount');
+  var pause = el('clipPause'), sound = el('clipSound'), next = el('clipNext');
+  var n = CLIPS.length, cur = -1, cards = [], soundOn = false;
+
+  CLIPS.forEach(function (c, i) {
+    var b = document.createElement('button'); b.className = 'clip'; b.type = 'button';
+    b.setAttribute('aria-label', 'Play ' + c.title);
+    if (c.thumb) { var im = document.createElement('img'); im.src = c.thumb; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; b.appendChild(im); }
+    else if (c.src) { var v = document.createElement('video'); v.muted = true; v.preload = 'none'; v.src = c.src + '#t=0.5'; b.appendChild(v); }
+    var inner = document.createElement('div'); inner.className = 'clip-inner';
+    var top = document.createElement('div'); top.className = 'clip-top';
+    top.innerHTML = '<span>' + pad(i + 1) + '</span><span>' + (c.src ? '16:9' : 'pending') + '</span>';
+    var bottom = document.createElement('div');
+    bottom.innerHTML = '<div class="clip-title">' + c.title + '</div><div class="clip-kind">' + c.kind + (c.src ? '' : ' — asset pending') + '</div>';
+    inner.appendChild(top); inner.appendChild(bottom); b.appendChild(inner);
+    b.addEventListener('click', function () { play(i); });
+    list.appendChild(b); cards.push(b);
+  });
+
+  /* Play clip k; when it ends, the next one starts on its own, and the chain
+     loops. Sound stays off until the viewer asks for it. */
+  function play(k) {
+    if (k >= n) k = 0;
+    cur = k;
+    var c = CLIPS[k];
+    cards.forEach(function (b, i) { b.setAttribute('aria-current', String(i === k)); });
+    count.innerHTML = '<b>' + pad(k + 1) + '</b> / ' + pad(n);
+    now.innerHTML = '<b>Now playing</b> &middot; ' + pad(k + 1) + ' &middot; ' + c.title;
+    if (!c.src) {
+      /* Nothing to play yet — show the slot as current and move on after a beat
+         so the chain is visible even before clips land. */
+      player.classList.add('is-playing'); video.removeAttribute('src');
+      now.innerHTML = '<b>' + pad(k + 1) + '</b> &middot; ' + c.title + ' &middot; asset pending';
+      return;
+    }
+    player.classList.add('is-playing');
+    if (c.thumb) video.poster = c.thumb; else video.removeAttribute('poster');
+    video.src = c.src; video.muted = !soundOn; setSoundUI();
+    var pr = video.play(); if (pr && pr.catch) pr.catch(function () {});
+    pause.innerHTML = '&#10074;&#10074;';
+  }
+  function setSoundUI() {
+    sound.setAttribute('aria-pressed', String(soundOn)); sound.textContent = soundOn ? 'Sound on' : 'Sound off';
+  }
+  /* Watch with sound: unmute (and start from the top if nothing is playing). */
+  function withSound() {
+    soundOn = true; video.muted = false; setSoundUI();
+    if (cur < 0) play(0); else if (video.paused) { var pr = video.play(); if (pr && pr.catch) pr.catch(function () {}); }
+  }
+  function stop() {
+    cur = -1; player.classList.remove('is-playing'); video.pause(); video.removeAttribute('src');
+    cards.forEach(function (b) { b.setAttribute('aria-current', 'false'); });
+    count.innerHTML = '<b>&mdash;</b> / ' + pad(n);
+  }
+  video.addEventListener('ended', function () { play(cur + 1); });
+  /* A clip that won't load (moved, renamed, unsupported) is skipped, so one
+     bad file never stalls the chain. */
+  video.addEventListener('error', function () {
+    if (cur < 0 || !video.getAttribute('src')) return;
+    if (cards[cur]) cards[cur].classList.add('is-unavailable');
+    play(cur + 1);
+  });
+  next.addEventListener('click', function () { play(cur + 1); });
+  pause.addEventListener('click', function () {
+    if (video.paused) { video.play().catch(function () {}); pause.innerHTML = '&#10074;&#10074;'; }
+    else { video.pause(); pause.innerHTML = '&#9654;'; }
+  });
+  sound.addEventListener('click', function () { soundOn = !soundOn; video.muted = !soundOn; setSoundUI(); });
+  stop();
+  /* Ambient autoplay, like the hero: the chain starts muted when the player
+     scrolls into view, pauses while it's off-screen, and picks up again. If a
+     phone refuses script-started playback, the first touch or scroll starts it. */
+  var wantPlaying = false;
+  function ambientStart() { wantPlaying = true; if (cur < 0) play(0); else if (video.paused) { var pr = video.play(); if (pr && pr.catch) pr.catch(function () {}); } }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) ambientStart();
+      else if (cur >= 0 && !soundOn) { wantPlaying = false; video.pause(); }
+    }, { threshold: 0.35 }).observe(player);
+  } else { ambientStart(); }
+  var unlock = function () {
+    if (wantPlaying && video.paused) { var pr = video.play(); if (pr && pr.catch) pr.catch(function () {}); }
+    ['touchstart', 'pointerdown', 'scroll'].forEach(function (ev) { window.removeEventListener(ev, unlock); });
+  };
+  ['touchstart', 'pointerdown', 'scroll'].forEach(function (ev) { window.addEventListener(ev, unlock, { passive: true }); });
+  if (CLIPS[0] && CLIPS[0].thumb) video.poster = CLIPS[0].thumb;
+  var idle = el('clipsIdle'); if (idle) idle.innerHTML = '&#9679; ' + pad(n) + ' outtakes &middot; plays through';
+  el('clipsWatch').addEventListener('click', function () { withSound(); el('player').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }); });
+})();
+</script>
+<script src="/assets/site/site.js"></script>
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>

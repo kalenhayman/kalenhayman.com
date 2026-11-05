@@ -1,0 +1,24 @@
+name: Blob probe
+
+# On demand: checks that a few representative Blob assets are being served,
+# from somewhere that can actually reach the store. Read-only; no token.
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe Blob assets
+        run: |
+          B="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com"
+          probe () {
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 -r 0-0 "$1")
+            printf "%s  %s\n" "$code" "$2"
+          }
+          probe "$B/I%20AM%20AVA%20-%20FULL%20-%20compressed.mp4"                                                              "homepage hero film"
+          probe "$B/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/KYLE%20AURORA%20HERO%20PAGE%201.png"                                     "homepage feature still / credits key frame"
+          probe "$B/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/An%20Aurora%20Original%20x%2024%20Hours%20w%20KUZ%20by%20AVA%20Studios%20-%201920x1080.mp4" "Aurora hero (widescreen)"
+          probe "$B/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/An%20Aurora%20Original%20x%20KUZ%2024%20Hours%20by%20AVA%20Studios%20-%20vertical.mp4"       "Aurora hero (9:16)"
+          probe "$B/Aurora%20V1%20-%20KUZ/KUZ%20VIDEO/LPM%20Sequence%201%20-%20establishing%20shots_COMPRESSED.mp4"            "outtake 01"
+          probe "$B/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/Kyle%20Walk-Out%201.png"                                                 "slideshow frame 01"

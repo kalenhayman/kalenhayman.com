@@ -1,0 +1,20 @@
+name: Blob asset dimensions
+
+# On demand: ffprobes every URL in scripts/blob-urls.txt and prints
+# width, height, codec and duration, so slides can be picked by ratio.
+on:
+  workflow_dispatch:
+
+jobs:
+  dims:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Probe
+        run: |
+          while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            r=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,codec_name,pix_fmt:format=duration -of csv=p=0 "$u" 2>&1 | tr '\n' ' ')
+            echo "DIM|$u|$r"
+          done < scripts/blob-urls.txt

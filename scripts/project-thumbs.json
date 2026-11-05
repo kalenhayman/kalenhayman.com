@@ -1,0 +1,27 @@
+{
+  "_note": "One 1600x1000 (16:10) thumbnail per project. video + frames pulls stills from a film at fractions of its length. layout: cover (one image, cropped; y = % of the spare height to drop from the top), row (several images side by side, each cropped to its slot), blur (one image whole over a darkened blur of itself), region (zoom: box = x0, y0, x1, y1 as fractions of the source). Sources are site paths or full URLs.",
+  "projects": [
+    { "id": "the-studio", "layout": "cover", "y": 40, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/THE%20STUDIO%20-%20SERIES/STUDIO%20CAST%20UPDATE.png"] },
+    { "id": "aurora", "layout": "cover", "y": 40, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/KYLE%20AURORA%20HERO%20PAGE%201.png"] },
+    { "id": "virtual-affair", "layout": "cover", "y": 13, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/The%20Virtual%20Affair/DANNY%20%26%20LAURA%203.png"] },
+    { "id": "i-am-ava", "layout": "cover", "y": 50, "src": ["assets/work/i-am-ava.jpg"] },
+    { "id": "ava-brand-guide", "layout": "cover", "y": 50, "src": ["assets/docs/ava-brand-guide/p-1.jpg"] },
+    { "id": "dupixent", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20IT%20ALL%20COMES%20TOGETHER%202%20-%20ANIMATIC%20-%20NOV%202026.png"] },
+    { "id": "asics", "layout": "region", "box": [0.083, 0.496, 0.917, 0.912], "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KAI/ASICS%20SUPERBLAS%203%20SPEC%20AD%20by%20ADS%20ft.%20KAI/KAI%20AQUA%20ENERGY%206.png"] },
+    { "id": "raven-rise", "layout": "cover", "y": 15, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20RISE%20SPEC%20AD%20COVER%201.jpeg"] },
+    { "id": "raven-brand-kit", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/1%20RAVEN%20BRAND%20KIT%20COVER.png"] },
+    { "id": "raven-editorial", "layout": "row", "y": 30, "src": ["assets/raven-editorial/raven-01.jpg", "assets/raven-editorial/raven-02.jpg", "assets/raven-editorial/raven-03.jpg"] },
+    { "id": "raven-campaigns", "layout": "row", "y": 25, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/05%20_%20The%20Hero.png", "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/BATTLE%20CRY%20-%20Ni%CC%82pisi%CC%82y%20Red%20CAMPAIGN%20.jpeg", "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20FITNESS%20EDITORIAL%20TEAM%20CANADA.png"] },
+    { "id": "kia-oura", "layout": "row", "y": 35, "video": "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20OURA%20RING.mp4", "frames": [0.3, 0.55, 0.8] },
+    { "id": "kia-brand-guide", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20BRAND%20GUIDE%20COVER%20PAGE%20SCREEN%20GRAB.png"] },
+    { "id": "kia-editorial", "layout": "row", "y": 30, "src": ["assets/kia-editorial/kia-01.jpg", "assets/kia-editorial/kia-02.jpg", "assets/kia-editorial/kia-03.jpg"] },
+    { "id": "kia-campaigns", "layout": "row", "y": 30, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%203.png", "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%203.png", "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%204.png"] },
+    { "id": "danny-air-jordan", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/DANNY/PRESS%20RELEASE%201.png"] },
+    { "id": "globalist", "layout": "row", "y": 30, "src": ["assets/globalist-editorial/globalist-01.jpg", "assets/globalist-editorial/globalist-02.jpg", "assets/globalist-editorial/globalist-03.jpg"] },
+    { "id": "face-kia", "layout": "cover", "y": 22, "src": ["assets/model-kia.png"] },
+    { "id": "face-raven", "layout": "cover", "y": 28, "src": ["assets/model-raven.jpg"] },
+    { "id": "face-globalist", "layout": "cover", "y": 28, "src": ["assets/model-globalist.jpg"] },
+    { "id": "face-danny", "layout": "cover", "y": 30, "src": ["assets/model-danny.jpg"] },
+    { "id": "face-laura", "layout": "cover", "y": 30, "src": ["assets/model-laura.png"] }
+  ]
+}

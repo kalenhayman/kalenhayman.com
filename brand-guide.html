@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVA Brand Guide — Avatar Design Studio</title>
+<meta name="description" content="The AVA brand guide: fashion, fitness, athletic. Owned IP, built once, deployed everywhere.">
+<link rel="canonical" href="https://www.avadesign.studio/brand-guide">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AVA">
+<meta property="og:title" content="AVA Brand Guide — Avatar Design Studio">
+<meta property="og:description" content="The AVA brand guide: fashion, fitness, athletic. Owned IP, built once, deployed everywhere.">
+<meta property="og:url" content="https://www.avadesign.studio/brand-guide">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/ava-brand-guide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AVA Brand Guide — Avatar Design Studio">
+<meta name="twitter:description" content="The AVA brand guide: fashion, fitness, athletic. Owned IP, built once, deployed everywhere.">
+<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/ava-brand-guide.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+/* a two-page spread with a page turn; the guide's pages are landscape A4,
+   so a spread is two of them side by side (single page on a phone) */
+.bg { margin-top: var(--nav-h); padding: clamp(32px, 5vw, 72px) var(--gutter) clamp(48px, 7vw, 96px); }
+.bg-head { max-width: 1240px; margin: 0 auto 26px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; color: var(--sand); }
+.bg-title { max-width: 1240px; margin: 0 auto 28px; font-size: clamp(40px, 7vw, 104px); }
+.mag-stage { position: relative; max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.mag { position: relative; perspective: 2600px; flex: 0 1 auto; width: min(100%, 1120px); aspect-ratio: 2.826; }
+.mag.single { aspect-ratio: 1.413; }
+.mag-book { position: relative; width: 100%; height: 100%; display: flex; background: var(--ink); border: 1px solid rgba(235,235,234,.12); }
+.mag-page { position: relative; width: 50%; height: 100%; background: #070707; overflow: hidden; }
+.mag.single .mag-page { width: 100%; }
+.mag-page img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.mag-page--empty { background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px); }
+.mag-book::after { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 40px; transform: translateX(-50%); pointer-events: none; z-index: 4; background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%); }
+.mag.single .mag-book::after { display: none; }
+.mag-leaf { position: absolute; top: 0; width: 50%; height: 100%; z-index: 5; transform-style: preserve-3d; transition: transform 720ms cubic-bezier(0.42, 0, 0.28, 1); }
+.mag-leaf--fwd { left: 50%; transform-origin: left center; }
+.mag-leaf--back { left: 0; transform-origin: right center; }
+.mag-leaf .mag-face { position: absolute; inset: 0; backface-visibility: hidden; background: #070707; overflow: hidden; }
+.mag-leaf .mag-face img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.mag-leaf .mag-face--b { transform: rotateY(180deg); }
+.mag-arrow { flex: 0 0 auto; width: 52px; height: 52px; background: transparent; border: 1px solid #2a2a2a; color: var(--bone); cursor: pointer; font-family: var(--mono); font-size: 16px; line-height: 1; transition: color .3s, border-color .3s, opacity .3s; }
+.mag-arrow:hover:not(:disabled) { border-color: var(--neon); color: var(--neon); }
+.mag-arrow:disabled { opacity: .25; cursor: default; }
+.mag-bar { max-width: 1240px; margin: 22px auto 0; display: flex; align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap; }
+.mag-btn { background: transparent; border: 1px solid #2a2a2a; color: var(--sand); cursor: pointer; font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; padding: 12px 16px; transition: color .3s, border-color .3s; }
+.mag-btn:hover { border-color: var(--neon); color: var(--neon); }
+.mag-count { font-family: var(--mono); font-size: 12px; letter-spacing: .22em; color: var(--sand); }
+.mag-count b { color: var(--neon); font-weight: 400; }
+.mag:fullscreen { width: 100vw; height: 100vh; aspect-ratio: auto; padding: 3vh 4vw; background: var(--ink); display: flex; align-items: center; justify-content: center; }
+.mag:fullscreen .mag-book { width: min(96vw, 188vh); height: auto; aspect-ratio: 2.826; }
+.mag.single:fullscreen .mag-book { aspect-ratio: 1.413; width: min(96vw, 94vh * 1.413); }
+@media (max-width: 900px) { .mag-arrow { width: 40px; height: 40px; } .mag-stage { gap: 8px; } .mag { flex: 1 1 0; min-width: 0; } }
+@media (prefers-reduced-motion: reduce) { .mag-leaf { transition: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <section class="bg">
+    <div class="bg-head mono"><span class="dot">Brand guide · Avatar Design Studio</span><span>v1.0 · 2026</span></div>
+    <h1 class="bg-title display">The AVA Brand Guide</h1>
+    <div class="mag-stage">
+      <button class="mag-arrow" id="magPrev" type="button" aria-label="Previous page">←</button>
+      <div class="mag" id="mag"><div class="mag-book" id="magBook"></div></div>
+      <button class="mag-arrow" id="magNext" type="button" aria-label="Next page">→</button>
+    </div>
+    <div class="mag-bar">
+      <button class="mag-btn" id="magCover" type="button">Cover</button>
+      <span class="mag-count" id="magCount"></span>
+      <button class="mag-btn" id="magExpand" type="button">Expand</button>
+      <a class="mag-btn" href="/assets/docs/ava-brand-guide.pdf" target="_blank" rel="noopener">Open the PDF ↗</a>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2 class="h2 display">Work with us.</h2>
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>AVA · A design studio.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  var PAGES = [1, 2, 3, 4, 5, 6].map(function (n) { return '/assets/docs/ava-brand-guide/p-' + n + '.jpg'; });
+  var el = function (id) { return document.getElementById(id); };
+  var MAG = { pages: PAGES, i: 0, spread: true, busy: false };
+
+  function spreadMode() { return window.innerWidth > 900; }
+  // a view is named by the index of its left-hand page; the cover stands alone on the right
+  function faces(i) {
+    if (!MAG.spread) return [null, i];
+    if (i === 0) return [null, 0];
+    return [i, i + 1 < MAG.pages.length ? i + 1 : null];
+  }
+  function nextIdx(i) {
+    if (!MAG.spread) return i + 1 < MAG.pages.length ? i + 1 : null;
+    var n = i === 0 ? 1 : i + 2;
+    return n < MAG.pages.length ? n : null;
+  }
+  function prevIdx(i) {
+    if (!MAG.spread) return i > 0 ? i - 1 : null;
+    if (i === 0) return null;
+    return i === 1 ? 0 : i - 2;
+  }
+  function slot(idx, cls) {
+    var d = document.createElement('div');
+    d.className = 'mag-page ' + cls + (idx === null ? ' mag-page--empty' : '');
+    if (idx === null && !MAG.spread) d.style.display = 'none';
+    if (idx !== null) {
+      var img = document.createElement('img');
+      img.src = MAG.pages[idx];
+      img.alt = 'Brand guide page ' + (idx + 1) + ' of ' + MAG.pages.length;
+      img.decoding = 'async';
+      d.appendChild(img);
+    }
+    return d;
+  }
+  function face(idx, cls) {
+    var f = document.createElement('div');
+    f.className = 'mag-face ' + cls;
+    if (idx !== null) { var img = document.createElement('img'); img.src = MAG.pages[idx]; img.alt = ''; f.appendChild(img); }
+    return f;
+  }
+  function paint() {
+    el('mag').classList.toggle('single', !MAG.spread);
+    var book = el('magBook'), f = faces(MAG.i);
+    book.textContent = '';
+    if (MAG.spread) book.appendChild(slot(f[0], 'mag-page--left'));
+    book.appendChild(slot(f[1], 'mag-page--right'));
+    var n = MAG.pages.length, label;
+    if (!MAG.spread || f[0] === null || f[1] === null) label = String((f[0] === null ? f[1] : f[0]) + 1).padStart(2, '0');
+    else label = String(f[0] + 1).padStart(2, '0') + '–' + String(f[1] + 1).padStart(2, '0');
+    el('magCount').innerHTML = '<b>' + label + '</b> / ' + String(n).padStart(2, '0');
+    el('magPrev').disabled = prevIdx(MAG.i) === null;
+    el('magNext').disabled = nextIdx(MAG.i) === null;
+  }
+  function turn(dir) {
+    if (MAG.busy) return;
+    var target = dir > 0 ? nextIdx(MAG.i) : prevIdx(MAG.i);
+    if (target === null) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!MAG.spread || reduce) { MAG.i = target; paint(); return; }
+    var book = el('magBook'), cur = faces(MAG.i), nxt = faces(target);
+    book.textContent = '';
+    book.appendChild(slot(dir > 0 ? cur[0] : nxt[0], 'mag-page--left'));
+    book.appendChild(slot(dir > 0 ? nxt[1] : cur[1], 'mag-page--right'));
+    var leaf = document.createElement('div');
+    leaf.className = 'mag-leaf ' + (dir > 0 ? 'mag-leaf--fwd' : 'mag-leaf--back');
+    leaf.appendChild(face(dir > 0 ? cur[1] : cur[0], 'mag-face--a'));
+    leaf.appendChild(face(dir > 0 ? nxt[0] : nxt[1], 'mag-face--b'));
+    book.appendChild(leaf);
+    MAG.busy = true;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(' + (dir > 0 ? -180 : 180) + 'deg)'; }); });
+    var done = function () { leaf.removeEventListener('transitionend', done); MAG.i = target; MAG.busy = false; paint(); };
+    leaf.addEventListener('transitionend', done);
+    setTimeout(function () { if (MAG.busy) done(); }, 900);
+  }
+
+  MAG.spread = spreadMode();
+  paint();
+  // warm the rest of the guide once the cover has settled
+  window.addEventListener('load', function () { MAG.pages.slice(1).forEach(function (s) { new Image().src = s; }); });
+
+  el('magPrev').addEventListener('click', function () { turn(-1); });
+  el('magNext').addEventListener('click', function () { turn(1); });
+  el('magCover').addEventListener('click', function () { if (!MAG.busy) { MAG.i = 0; paint(); } });
+  el('magExpand').addEventListener('click', function () {
+    var node = el('mag');
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (node.requestFullscreen) node.requestFullscreen();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') turn(-1); else if (e.key === 'ArrowRight') turn(1);
+  });
+  var x0 = null;
+  el('mag').addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+  el('mag').addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) turn(dx < 0 ? 1 : -1);
+    x0 = null;
+  }, { passive: true });
+  window.addEventListener('resize', function () {
+    var want = spreadMode();
+    if (want === MAG.spread) return;
+    var shown = faces(MAG.i), page = shown[0] === null ? shown[1] : shown[0];
+    MAG.spread = want;
+    MAG.i = want ? (page === 0 ? 0 : (page % 2 === 1 ? page : page - 1)) : page;
+    paint();
+  });
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

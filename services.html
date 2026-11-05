@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — AVA</title>
+<meta name="description" content="Branding, web, decks, image, video and casting. AVA, a design studio.">
+<link rel="canonical" href="https://www.avadesign.studio/services">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AVA">
+<meta property="og:title" content="Services — AVA">
+<meta property="og:description" content="Branding, web, decks, image, video and casting. AVA, a design studio.">
+<meta property="og:url" content="https://www.avadesign.studio/services">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services — AVA">
+<meta name="twitter:description" content="Branding, web, decks, image, video and casting. AVA, a design studio.">
+<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+.svc { position: relative; min-height: 100svh; padding: calc(var(--nav-h) + clamp(24px, 4vw, 56px)) var(--gutter) clamp(48px, 6vw, 96px); display: flex; align-items: center; overflow: hidden; --fg: var(--bone); --fg2: var(--sand); --rule: rgba(235,235,234,.14); background: var(--ink); color: var(--fg); }
+.svc-inner { position: relative; z-index: 1; width: 100%; }
+.svc-list { list-style: none; margin: 0; padding: 0; }
+.svc-list li { border-top: 1px solid var(--rule); }
+.svc-list li:last-child { border-bottom: 1px solid var(--rule); }
+/* The row you're on fills with one brand colour; its type flips to keep contrast. */
+.svc-list a { display: grid; grid-template-columns: 56px 1fr; align-items: baseline; gap: 20px; padding: clamp(6px, 1vw, 14px) 18px; margin: 0 -18px; color: var(--fg); transition: color .3s var(--ease), background-color .3s var(--ease), padding-left .4s var(--ease); }
+.svc-list a:hover, .svc-list a:focus-visible { padding-left: 34px; }
+.svc-list a[data-tone="neon"]:hover, .svc-list a[data-tone="neon"]:focus-visible { background: var(--neon); color: var(--ink); }
+.svc-list a[data-tone="bone"]:hover, .svc-list a[data-tone="bone"]:focus-visible { background: var(--bone); color: var(--ink); }
+.svc-list a[data-tone="sand"]:hover, .svc-list a[data-tone="sand"]:focus-visible { background: var(--sand); color: var(--ink); }
+.svc-list a[data-tone="paper"]:hover, .svc-list a[data-tone="paper"]:focus-visible { background: var(--paper); color: var(--ink); }
+.svc-list a[data-tone="ink"]:hover, .svc-list a[data-tone="ink"]:focus-visible { background: var(--ink); color: var(--neon); }
+.svc-list .n { color: var(--fg2); }
+.svc-list a:hover .n, .svc-list a:focus-visible .n { color: inherit; }
+.svc-list .w { font-size: clamp(56px, 12.5vw, 184px); line-height: .96; display: block; }
+.svc-cta { margin-top: clamp(28px, 4vw, 56px); }
+@media (max-width: 900px) { .svc-list a { grid-template-columns: 36px 1fr; gap: 12px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <section class="svc" id="services">
+    <div class="svc-inner">
+      <div class="eyebrow mono"><span class="dot">Services</span><span id="svcHint"></span></div>
+      <ol class="svc-list" id="svcList">
+        <li><a href="/work?view=Branding" data-view="Branding" data-tone="neon"><span class="n mono">01</span><span class="w display">Branding</span></a></li>
+        <li><a href="/work?view=Deck" data-view="Deck" data-tone="bone"><span class="n mono">02</span><span class="w display">Deck</span></a></li>
+        <li><a href="/work?view=Image" data-view="Image" data-tone="sand"><span class="n mono">03</span><span class="w display">Image</span></a></li>
+        <li><a href="/work?view=Video" data-view="Video" data-tone="paper"><span class="n mono">04</span><span class="w display">Video</span></a></li>
+        <li><a href="/work?view=Casting" data-view="Casting" data-tone="ink"><span class="n mono">05</span><span class="w display">Casting</span></a></li>
+      </ol>
+      <div class="svc-cta"><a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>AVA · A design studio.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  /* Hovering a service counts its projects; the row's colour is CSS. */
+  var hint = document.getElementById('svcHint');
+  Array.prototype.forEach.call(document.querySelectorAll('.svc-list a'), function (a) {
+    var v = a.getAttribute('data-view');
+    var on = function () {
+      var n = AVA.count(v);
+      hint.textContent = n >= 2 ? (n < 10 ? '0' : '') + n + ' projects' : '';
+    };
+    var off = function () { hint.textContent = ''; };
+    a.addEventListener('mouseenter', on); a.addEventListener('focus', on);
+    a.addEventListener('mouseleave', off); a.addEventListener('blur', off);
+  });
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

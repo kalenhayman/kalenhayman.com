@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVA Originals — AVA</title>
+<meta name="description" content="AVA Originals. Profile deck: editorial and portfolio.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AVA">
+<meta property="og:title" content="AVA Originals — AVA">
+<meta property="og:description" content="AVA Originals. Profile deck: editorial and portfolio.">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Archivo+Narrow:wght@500;600;700&amp;family=Archivo:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+:root {
+  --neon: #D8FE00;
+  --ink: #000000;
+  --bone: #EBEBEA;
+  --sand: #7A7A78;
+  --hairline: #1a1a1a;
+  --font-display: 'Archivo Black', sans-serif;
+  --font-strip: 'Archivo Narrow', sans-serif;
+  --font-body: Archivo, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { padding-top: var(--nav-h);
+  margin: 0; min-height: 100vh; background: var(--ink); color: var(--bone);
+  font-family: var(--font-body);
+}
+a { color: var(--neon); text-decoration: none; }
+a:hover { color: var(--bone); }
+h1 { margin: 0; }
+p { margin: 0; }
+::selection { background: var(--neon); color: var(--ink); }
+.mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sand); }
+
+/* nav */
+.tab {
+  background: transparent; color: var(--sand); border: 1px solid #2a2a2a;
+  font-family: var(--font-strip); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 9px 13px;
+  cursor: pointer; white-space: nowrap;
+}
+.tab:hover { border-color: var(--neon); }
+.tab[aria-current="true"] { background: var(--neon); color: var(--ink); border-color: var(--neon); }
+
+/* mobile menu */
+
+/* hero + spec */
+.profile {
+  display: grid; grid-template-columns: 1fr;
+  border-bottom: 1px solid #141414;
+}
+.portrait {
+  position: sticky; top: 74px; align-self: start; height: calc(100vh - 74px);
+  min-height: 420px; background: #0a0a0a; overflow: hidden;
+}
+.portrait-img { position: absolute; inset: 0; background-size: cover; filter: grayscale(1) contrast(1.05); }
+.portrait-scrim-b { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0) 55%); }
+.portrait-scrim-t { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.72), rgba(0,0,0,0) 28%); }
+.portrait-chip {
+  position: absolute; top: 26px; left: 26px; background: var(--ink); padding: 7px 11px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--neon);
+}
+.portrait-name { position: absolute; left: 26px; right: 26px; bottom: 26px; }
+.portrait-name h1 {
+  font-family: var(--font-display); font-size: clamp(56px, 8vw, 140px);
+  line-height: 0.84; letter-spacing: -0.04em; color: var(--bone);
+}
+.portrait-role {
+  margin-top: 12px; font-family: var(--font-strip); font-weight: 600; font-size: 14px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon);
+}
+.spec { border-left: 1px solid #141414; padding: 92px 34px 40px; display: flex; flex-direction: column; gap: 28px; }
+.spec-bio { font-size: 17px; line-height: 1.6; color: var(--bone); text-wrap: pretty; }
+.spec-rows { display: flex; flex-direction: column; }
+.spec-row {
+  display: grid; grid-template-columns: 128px 1fr; gap: 16px; padding: 13px 0;
+  border-top: 1px solid var(--hairline); align-items: baseline;
+}
+.spec-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase; }
+.spec-v { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; color: var(--bone); }
+.spec-end { border-top: 1px solid var(--hairline); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sand); border: 1px solid #2a2a2a; padding: 6px 10px;
+}
+.book {
+  margin-top: auto; background: var(--neon); color: var(--ink); font-family: var(--font-strip);
+  font-weight: 700; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 16px 0; text-align: center;
+}
+.book:hover { background: var(--bone); color: var(--ink); }
+
+/* magazine — two-page spread with a page turn */
+.mag-section { padding: 96px 32px 100px; border-bottom: 1px solid #141414; }
+.mag-head {
+  max-width: 1240px; margin: 0 auto 26px; display: flex;
+  justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px;
+}
+.mag-stage {
+  position: relative; max-width: 1240px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center; gap: 18px;
+}
+.mag {
+  position: relative; perspective: 2600px; flex: 0 1 auto;
+  width: min(100%, 1080px); aspect-ratio: 1.414;
+}
+.mag-book {
+  position: relative; width: 100%; height: 100%; display: flex;
+  background: var(--ink); border: 1px solid var(--hairline);
+}
+.mag-page { position: relative; width: 50%; height: 100%; background: #070707; overflow: hidden; }
+.mag-page img { width: 100%; height: 100%; object-fit: contain; display: block; }
+/* a blank facing page, so a single-page view reads as paper rather than a gap */
+.mag-page--empty {
+  background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px);
+}
+.mag-book::after {
+  content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 40px;
+  transform: translateX(-50%); pointer-events: none; z-index: 4;
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);
+}
+.mag-leaf {
+  position: absolute; top: 0; width: 50%; height: 100%; z-index: 5;
+  transform-style: preserve-3d; transition: transform 720ms cubic-bezier(0.42, 0, 0.28, 1);
+}
+.mag-leaf--fwd { left: 50%; transform-origin: left center; }
+.mag-leaf--back { left: 0; transform-origin: right center; }
+.mag-leaf .mag-face {
+  position: absolute; inset: 0; backface-visibility: hidden; background: #070707; overflow: hidden;
+}
+.mag-leaf .mag-face img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.mag-leaf .mag-face--b { transform: rotateY(180deg); }
+.mag-arrow {
+  flex: 0 0 auto; width: 52px; height: 52px; background: transparent;
+  border: 1px solid #2a2a2a; color: var(--bone); cursor: pointer;
+  font-family: var(--font-mono); font-size: 16px; line-height: 1;
+  transition: color 300ms ease-out, border-color 300ms ease-out, opacity 300ms ease-out;
+}
+.mag-arrow:hover:not(:disabled) { border-color: var(--neon); color: var(--neon); }
+.mag-arrow:disabled { opacity: 0.25; cursor: default; }
+.mag-bar {
+  max-width: 1240px; margin: 22px auto 0; display: flex;
+  align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap;
+}
+.mag-btn {
+  background: transparent; border: 1px solid #2a2a2a; color: var(--sand); cursor: pointer;
+  font-family: var(--font-strip); font-weight: 600; font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 16px;
+  transition: color 300ms ease-out, border-color 300ms ease-out;
+}
+.mag-btn:hover { border-color: var(--neon); color: var(--neon); }
+.mag-count {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em; color: var(--sand);
+}
+.mag-count b { color: var(--neon); font-weight: 400; }
+.mag:fullscreen { width: 100vw; height: 100vh; aspect-ratio: auto; padding: 3vh 4vw; background: var(--ink); }
+.mag:fullscreen .mag-book { max-width: 96vw; max-height: 94vh; margin: 0 auto; aspect-ratio: 1.414; height: auto; }
+
+/* portfolio filmstrip */
+.folio { position: relative; height: 100vh; }
+.folio-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+.vf-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--neon); border: 1px solid var(--neon); padding: 10px 14px; white-space: nowrap; transition: background .25s, color .25s; }
+.vf-link:hover { background: var(--neon); color: var(--ink); }
+.vf-link[hidden] { display: none; }
+.folio-head {
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px;
+  padding: 96px 32px 20px; font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.22em; color: var(--sand); text-transform: uppercase;
+}
+.filters { display: flex; gap: 18px; }
+.filter {
+  background: none; border: none; cursor: pointer; padding: 0; color: var(--sand);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+}
+.filter:hover { color: var(--bone); }
+.filter[aria-pressed="true"] { color: var(--neon); }
+.folio-viewport { flex: 1; overflow: hidden; display: flex; align-items: center; }
+.folio-track { display: flex; align-items: center; gap: 20px; padding: 0 32px; will-change: transform; }
+.work {
+  position: relative; margin: 0; flex: 0 0 auto; height: min(58vh, 560px);
+  min-width: 220px; background: #0a0a0a; border: 1px solid var(--hairline);
+  background-image: repeating-linear-gradient(135deg, #0e0e0e 0 2px, transparent 2px 14px);
+}
+.work--real { background-image: none; }
+.work-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.05); transition: filter 300ms ease-out;
+}
+.work--real:hover .work-img { filter: grayscale(0) contrast(1); }
+.work-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.05); transition: filter 300ms ease-out;
+}
+.work--real:hover .work-video { filter: grayscale(0) contrast(1); }
+.work-inner { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 16px; }
+.work--real .work-inner {
+  background: linear-gradient(to top, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.1) 42%, rgba(0,0,0,0) 65%);
+}
+.work-top {
+  display: flex; justify-content: space-between; font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase;
+}
+.work-title {
+  font-family: var(--font-strip); font-weight: 700; font-size: 15px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--bone);
+}
+.work-kind { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--sand); text-transform: uppercase; }
+.folio-progress { margin: 0 32px 36px; height: 2px; background: var(--hairline); }
+.folio-progress > div { height: 100%; width: 0%; background: var(--neon); }
+
+/* rights */
+.rights-section { padding: 0 32px 100px; }
+.rights-grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding-top: 34px; border-top: 1px solid var(--hairline); }
+.rights-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 32px; }
+.right-card { display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--neon); padding-top: 14px; }
+.right-title { font-family: var(--font-display); font-size: 20px; letter-spacing: -0.02em; color: var(--bone); }
+.right-body { font-size: 15px; line-height: 1.55; color: var(--sand); text-wrap: pretty; }
+
+/* footer */
+@media (max-width: 900px) {
+  /* small screens: lift body copy off grey so it stays legible */
+  .lede, .hero-sub, .contact-body, .aud-body, .cell-body, .right-body { color: var(--bone); }
+  .row-body { opacity: 0.88; }
+  .profile { grid-template-columns: 1fr; }
+  .portrait { position: relative; top: 0; height: 62vh; }
+  .spec { border-left: none; padding: 40px 20px; }
+  .mag-section { padding: 64px 20px 72px; }
+  .mag { width: min(100%, 460px); aspect-ratio: 0.707; }
+  .mag-page--left { display: none; }
+  .mag-page--right { width: 100%; }
+  .mag-book::after { display: none; }
+  .mag-stage { gap: 10px; }
+  .mag-arrow { width: 44px; height: 44px; }
+  .folio-head { padding: 76px 20px 16px; }
+  .folio-track, .folio-progress { padding: 0 20px; }
+  .rights-section { padding: 0 20px 72px; }
+  .rights-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .mag-leaf { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<section class="profile" data-screen-label="Profile Hero">
+  <div class="portrait">
+    <div class="portrait-img" id="portraitImg"></div>
+    <div class="portrait-scrim-b"></div>
+    <div class="portrait-scrim-t"></div>
+    <div class="portrait-chip" id="rosterChip">● 01 · AVA ORIGINALS</div>
+    <div class="portrait-name">
+      <h1 id="modelName">KIA</h1>
+      <div class="portrait-role" id="modelRole">Fitness Model</div>
+    </div>
+  </div>
+</section>
+
+<section class="mag-section" id="magSection" hidden data-screen-label="Editorial">
+  <div class="mag-head">
+    <span class="mono">● Editorial</span>
+    <span class="mono" id="magTitle"></span>
+  </div>
+  <div class="mag-stage">
+    <button class="mag-arrow" id="magPrev" type="button" aria-label="Previous page">←</button>
+    <div class="mag" id="mag">
+      <div class="mag-book" id="magBook"></div>
+    </div>
+    <button class="mag-arrow" id="magNext" type="button" aria-label="Next page">→</button>
+  </div>
+  <div class="mag-bar">
+    <button class="mag-btn" id="magCover" type="button">Cover</button>
+    <span class="mag-count" id="magCount"></span>
+    <button class="mag-btn" id="magExpand" type="button">Expand</button>
+  </div>
+</section>
+
+<section class="folio" id="folio" data-screen-label="Portfolio">
+  <div class="folio-stage">
+    <div class="folio-head">
+      <span id="folioLabel">● Portfolio</span>
+      <a class="vf-link" id="vfLink" href="/the-virtual-affair" hidden>The Virtual Affair →</a>
+      <div class="filters" id="filters"></div>
+    </div>
+    <div class="folio-viewport">
+      <div class="folio-track" id="folioTrack"></div>
+    </div>
+    <div class="folio-progress"><div id="folioBar"></div></div>
+  </div>
+</section>
+
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>AVA · A design studio.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script>
+var MODELS = [
+  { no: '01', name: 'KIA', slug: 'kia', pos: '33% 30%', role: 'Fitness Model', img: 'assets/model-kia.png',
+    works: [
+      { title: 'Asics · Spec Ad', kind: 'Spec ad · motion', cat: 'Motion',
+        video: '/assets/video/asics-spec-ad.mp4', poster: '/assets/img/asics-cover.jpg' },
+      { title: 'Aqua Energy 01', kind: 'Spec campaign', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%203.png' },
+      { title: 'Aqua Energy 02', kind: 'Spec campaign', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%204.png' },
+      { title: 'Oura Ring · Video', kind: 'Spec campaign · motion', cat: 'Motion',
+        video: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20OURA%20RING.mp4' },
+      { title: 'Oura · Social Cover', kind: 'Spec campaign · social', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/oura-specad-2A-1080x1920.png' },
+      { title: 'Aqua Energy · Product', kind: 'Product still', cat: 'E-comm',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%206.png' },
+      { title: 'Strength Training 01', kind: 'Still', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%203.png' },
+      { title: 'Strength Training 02', kind: 'Still', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%205.png' },
+      { title: 'Brand Guide · Cover', kind: 'Brand guide', cat: 'Editorial',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20BRAND%20GUIDE%20COVER%20PAGE%20SCREEN%20GRAB.png' }
+    ],
+    magazine: { label: 'Avatar Editorial · No.01', pages: [
+      'assets/kia-editorial/kia-01.jpg', 'assets/kia-editorial/kia-02.jpg',
+      'assets/kia-editorial/kia-03.jpg', 'assets/kia-editorial/kia-04.jpg',
+      'assets/kia-editorial/kia-05.jpg', 'assets/kia-editorial/kia-06.jpg',
+      'assets/kia-editorial/kia-07.jpg', 'assets/kia-editorial/kia-08.jpg'
+    ] },
+    bio: 'Performance-led and camera-ready. KIA carries activewear, supplement and training brands across long-form and short-form without a single studio booking.',
+    tags: ['Activewear', 'Supplements', 'Training', 'Outdoor', 'Studio'],
+    specs: [['Niche', 'Fitness · Performance'], ['Primary Use', 'Campaign · Social'], ['Wardrobe', 'Activewear · Athleisure'], ['Environments', 'Gym · Track · Studio'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
+  { no: '02', name: 'RAVEN', slug: 'raven', pos: '40% 34%', role: 'Recording Artist', img: 'assets/model-raven.jpg',
+    works: [
+      { title: 'Battle Cry · Nîpisîy Red', kind: 'Campaign', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/BATTLE%20CRY%20-%20Ni%CC%82pisi%CC%82y%20Red%20CAMPAIGN%20.jpeg' },
+      { title: 'R2', kind: 'Portrait', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/R2%20X%20copy.jpg' },
+      { title: 'Business Portrait', kind: 'Portrait', cat: 'Editorial',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20BIZ%20PORTRAIT%20copy.jpg' },
+      { title: 'Editorial', kind: 'Editorial still', cat: 'Editorial',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20EDITORIAL.jpg' },
+      { title: 'Brand Kit · Cover', kind: 'Brand kit', cat: 'Editorial',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/1%20RAVEN%20BRAND%20KIT%20COVER.png' },
+      { title: 'Brand Kit · Palette', kind: 'Brand kit', cat: 'Editorial',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/4%20RAVEN%20BRAND%20KIT%20COVER.png' },
+      { title: 'Out of Sound', kind: 'Editorial still', cat: 'Editorial',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/04%20_%20Out%20of%20Sound.png' },
+      { title: 'The Hero', kind: 'Editorial still', cat: 'Editorial',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/05%20_%20The%20Hero.png' },
+      { title: 'Raven Red × WNBA', kind: 'Spec ad · motion', cat: 'Motion',
+        video: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20RED%20x%20WNBA%20by%20KALEN%20-%20trimmed%202.mov' },
+      { title: 'Vancouver Rise FC 01', kind: 'Spec campaign', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/Vancouver%20Rise%20FC%20-%20AVA%20Spec%20Campaign-selection%20%282%29%20copy.png' },
+      { title: 'Vancouver Rise FC 02', kind: 'Spec campaign', cat: 'Stills',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/Vancouver%20Rise%20FC%20-%20AVA%20Spec%20Campaign-selection%20copy.png' },
+      { title: 'Raven Red × Vancouver Rise', kind: 'Social spec ad · motion', cat: 'Motion',
+        video: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20RED%20RISE%20by%20AVA%20Studio%20-%20September%202026.mp4' },
+      { title: 'Fitness Editorial', kind: 'Editorial still', cat: 'Editorial',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20FITNESS%20EDITORIAL%20TEAM%20CANADA.png' }
+    ],
+    magazine: { label: 'Raven Red · In Search of My Hero · Vol.01', pages: [
+      'assets/raven-editorial/raven-01.jpg', 'assets/raven-editorial/raven-02.jpg',
+      'assets/raven-editorial/raven-03.jpg', 'assets/raven-editorial/raven-04.jpg',
+      'assets/raven-editorial/raven-05.jpg', 'assets/raven-editorial/raven-06.jpg',
+      'assets/raven-editorial/raven-07.jpg'
+    ] },
+    bio: 'Built for music and culture work. RAVEN anchors release cycles, label campaigns and cross-brand collaborations with a consistent, unmistakable face.',
+    tags: ['Music', 'Culture', 'Streetwear', 'Nightlife', 'Press'],
+    specs: [['Niche', 'Music · Culture'], ['Primary Use', 'Release · Press'], ['Wardrobe', 'Streetwear · Evening'], ['Environments', 'Stage · Studio · Street'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
+  { no: '03', name: 'GLOBALIST', slug: 'globalist', pos: '50% 34%', role: 'Journalist', img: 'assets/model-globalist.jpg',
+    magazine: { label: 'The Introduction · Issue No.01', pages: [
+      'assets/globalist-editorial/globalist-01.jpg', 'assets/globalist-editorial/globalist-02.jpg',
+      'assets/globalist-editorial/globalist-03.jpg', 'assets/globalist-editorial/globalist-04.jpg',
+      'assets/globalist-editorial/globalist-05.jpg', 'assets/globalist-editorial/globalist-06.jpg'
+    ] },
+    works: [
+      { title: 'The Globalist · Brand Kit', kind: 'Brand kit · PDF', cat: 'Editorial', ar: '900 / 637',
+        src: '/assets/docs/globalist-brand-kit/p-1.jpg', href: '/assets/docs/globalist-brand-kit.pdf' },
+      { title: 'Portrait · Close-up', kind: 'Still', cat: 'Stills', ar: '1800 / 1005',
+        src: '/assets/img/globalist-p01.jpg' },
+      { title: 'Hero · Studio Portrait', kind: 'Still', cat: 'Editorial', ar: '1536 / 2048',
+        src: '/assets/img/globalist-hero.jpg' },
+      { title: 'Full Length · With Dog', kind: 'Still', cat: 'Editorial', ar: '1399 / 1800',
+        src: '/assets/img/globalist-p02.jpg' },
+      { title: 'Field Report · On Location', kind: 'Still', cat: 'Editorial', ar: '1800 / 1080',
+        src: '/assets/img/globalist-p03.jpg' },
+      { title: 'Field Report · Aftermath', kind: 'Still', cat: 'Editorial', ar: '1514 / 1800',
+        src: '/assets/img/globalist-p04.jpg' },
+      { title: 'Studio · Seated', kind: 'Still', cat: 'Editorial', ar: '1800 / 1018',
+        src: '/assets/img/globalist-p05.jpg' }
+    ],
+    bio: 'An editorial anchor. GLOBALIST fronts longform, explainer and thought-leadership formats where authority matters more than glamour.',
+    tags: ['Editorial', 'Longform', 'Explainer', 'Corporate', 'News'],
+    specs: [['Niche', 'Editorial · News'], ['Primary Use', 'Longform · Thought leadership'], ['Wardrobe', 'Tailored · Business'], ['Environments', 'Desk · Field · Studio'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
+  { no: '04', name: 'DANNY', slug: 'danny', pos: '50% 38%', role: "Men's Fashion", img: 'assets/model-danny.jpg',
+    works: [
+      { title: 'Air Jordan · Spec Ad', kind: 'Spec ad', cat: 'Stills', ar: '1786 / 1199',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/DANNY/PRESS%20RELEASE%201.png' },
+      { title: 'Air Jordan · Spec Ad 02', kind: 'Spec ad', cat: 'Stills', ar: '1787 / 1195',
+        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/DANNY/PRESS%20RELEASE%202.png' },
+      { title: 'Asics · Spec Ad', kind: 'Spec ad', cat: 'Stills', ar: '1800 / 1329',
+        src: '/assets/img/danny-01.jpg' },
+      { title: 'Shearling Aviator · Campaign', kind: 'Still', cat: 'Editorial', ar: '1344 / 1800',
+        src: '/assets/img/danny-02.jpg' },
+      { title: 'Studio Portrait', kind: 'Still', cat: 'Editorial', ar: '1152 / 1536',
+        src: '/assets/img/danny-03.jpg' },
+      { title: 'Athletic · Close-up', kind: 'Still', cat: 'Stills', ar: '1800 / 1018',
+        src: '/assets/img/danny-04.jpg' },
+      { title: 'Banana Republic · Spec Ad', kind: 'Spec ad', cat: 'Stills', ar: '848 / 1264',
+        src: '/assets/img/danny-05.jpg' },
+      { title: 'Studio · Lifestyle', kind: 'Still', cat: 'E-comm', ar: '928 / 1152',
+        src: '/assets/img/danny-06.jpg' },
+      { title: 'Knit Polo · Portrait', kind: 'Still', cat: 'E-comm', ar: '928 / 1152',
+        src: '/assets/img/danny-07.jpg' }
+    ],
+    bio: 'Campaign and e-comm workhorse. DANNY holds a seasonal look consistently across lookbook, product and paid — the same face, every SKU.',
+    tags: ['Fashion', 'E-comm', 'Lookbook', 'Paid', 'Seasonal'],
+    specs: [['Niche', "Men's Fashion"], ['Primary Use', 'Campaign · E-comm'], ['Wardrobe', 'Seasonal · Tailored · Casual'], ['Environments', 'Studio · Location'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
+  { no: '05', name: 'LAURA', slug: 'laura', pos: '52% 40%', role: "Women's Luxury", img: 'assets/model-laura.png',
+    works: [
+      { title: 'Fine Jewelry · Beauty', kind: 'Still', cat: 'Stills', ar: '1329 / 1800',
+        src: '/assets/img/laura-01.jpg' },
+      { title: 'Gold Jewelry · Poolside', kind: 'Still', cat: 'Stills', ar: '1456 / 1800',
+        src: '/assets/img/laura-02.jpg' },
+      { title: 'Outerwear · Editorial', kind: 'Still', cat: 'Editorial', ar: '1344 / 1800',
+        src: '/assets/img/laura-03.jpg' },
+      { title: 'Eyewear · Portrait', kind: 'Still', cat: 'Editorial', ar: '1344 / 1800',
+        src: '/assets/img/laura-04.jpg' },
+      { title: 'Gold Jewelry · Portrait', kind: 'Still', cat: 'Editorial', ar: '1344 / 1800',
+        src: '/assets/img/laura-05.jpg' },
+      { title: 'Beauty · Close-up', kind: 'Still', cat: 'Editorial', ar: '1429 / 1800',
+        src: '/assets/img/laura-06.jpg' }
+    ],
+    bio: 'Beauty and couture register. LAURA carries premium positioning across editorial spreads, fragrance-style motion and high-gloss product work.',
+    tags: ['Luxury', 'Beauty', 'Couture', 'Fragrance', 'Editorial'],
+    specs: [['Niche', "Women's Luxury"], ['Primary Use', 'Editorial · Beauty'], ['Wardrobe', 'Couture · Evening'], ['Environments', 'Studio · Interior · Resort'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] }
+];
+
+var WORKS = [
+  { no: 'W-01', title: 'Campaign Hero', kind: 'Still', ratio: '4:5', cat: 'Stills', ar: '4 / 5' },
+  { no: 'W-02', title: 'Lookbook Spread', kind: 'Still', ratio: '3:2', cat: 'Stills', ar: '3 / 2' },
+  { no: 'W-03', title: 'Brand Film Cutdown', kind: 'Motion', ratio: '9:16', cat: 'Motion', ar: '9 / 16' },
+  { no: 'W-04', title: 'Editorial Portrait', kind: 'Still', ratio: '4:5', cat: 'Editorial', ar: '4 / 5' },
+  { no: 'W-05', title: 'Product / E-comm Grid', kind: 'Still', ratio: '1:1', cat: 'E-comm', ar: '1 / 1' },
+  { no: 'W-06', title: 'Reel · 15s', kind: 'Motion', ratio: '9:16', cat: 'Motion', ar: '9 / 16' },
+  { no: 'W-07', title: 'Paid Social Set', kind: 'Still', ratio: '1:1', cat: 'E-comm', ar: '1 / 1' },
+  { no: 'W-08', title: 'Seasonal Refresh', kind: 'Still', ratio: '4:5', cat: 'Editorial', ar: '4 / 5' },
+  { no: 'W-09', title: 'Spokesperson Clip', kind: 'Motion', ratio: '16:9', cat: 'Motion', ar: '16 / 9' }
+];
+
+var CATS = ['All', 'Stills', 'Motion', 'Editorial', 'E-comm'];
+
+var el = function (id) { return document.getElementById(id); };
+var idx = 0, filter = 'All';
+
+(function initFromUrl() {
+  var q = (new URLSearchParams(window.location.search).get('m') || '').toLowerCase();
+  for (var i = 0; i < MODELS.length; i++) {
+    if (MODELS[i].slug === q) { idx = i; break; }
+  }
+})();
+
+function selectModel(i, slug) {
+  idx = i; filter = 'All';
+  history.replaceState(null, '', slug + '.html');
+  render();
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+function renderTabs() {
+  var wrap = el('tabs');
+  if (!wrap) return;
+  wrap.textContent = '';
+  MODELS.forEach(function (m, i) {
+    var b = document.createElement('button');
+    b.className = 'tab';
+    b.type = 'button';
+    b.textContent = m.name;
+    if (i === idx) b.setAttribute('aria-current', 'true');
+    b.addEventListener('click', function () { selectModel(i, m.slug); });
+    wrap.appendChild(b);
+  });
+
+  // the same roster, stacked, inside the mobile menu
+  var menuWrap = el('menuTabs');
+  if (!menuWrap) return;
+  menuWrap.textContent = '';
+  MODELS.forEach(function (m, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    if (i === idx) b.setAttribute('aria-current', 'true');
+    var n = document.createElement('span');
+    n.className = 'n';
+    n.textContent = m.no;
+    b.appendChild(n);
+    b.appendChild(document.createTextNode(m.name));
+    b.addEventListener('click', function () {
+      selectModel(i, m.slug);
+      if (window.closeNavMenu) window.closeNavMenu();
+    });
+    menuWrap.appendChild(b);
+  });
+}
+
+function renderProfile() {
+  var m = MODELS[idx];
+  document.title = m.name + ' — AVA';
+  var img = el('portraitImg');
+  img.style.backgroundImage = 'url("' + m.img + '")';
+  img.style.backgroundPosition = m.pos || 'center 20%';
+  el('rosterChip').textContent = '● ' + m.no + ' · AVA ORIGINALS';
+  el('modelName').textContent = m.name;
+  el('modelRole').textContent = m.role;
+  el('folioLabel').textContent = '● Portfolio · ' + m.name;
+  el('vfLink').hidden = !(m.slug === 'danny' || m.slug === 'laura');
+
+}
+
+/* ---- magazine: two-page spread with a real page turn ---- */
+var MAG = { pages: [], i: 0, spread: true, busy: false };
+
+function magSpreadMode() { return window.innerWidth > 900; }
+
+// a view is identified by the index of its left-hand page;
+// index 0 is the cover, which stands alone on the right.
+function magFaces(i) {
+  if (!MAG.spread) return [null, i];
+  if (i === 0) return [null, 0];
+  return [i, i + 1 < MAG.pages.length ? i + 1 : null];
+}
+function magNextIdx(i) {
+  if (!MAG.spread) return i + 1 < MAG.pages.length ? i + 1 : null;
+  var n = i === 0 ? 1 : i + 2;
+  return n < MAG.pages.length ? n : null;
+}
+function magPrevIdx(i) {
+  if (!MAG.spread) return i > 0 ? i - 1 : null;
+  if (i === 0) return null;
+  return i === 1 ? 0 : i - 2;
+}
+
+function magSlot(idx, cls) {
+  var d = document.createElement('div');
+  d.className = 'mag-page ' + cls + (idx === null ? ' mag-page--empty' : '');
+  if (idx !== null) {
+    var img = document.createElement('img');
+    img.src = MAG.pages[idx];
+    img.alt = 'Editorial page ' + (idx + 1) + ' of ' + MAG.pages.length;
+    img.decoding = 'async';
+    if (idx > 1) img.loading = 'lazy';
+    d.appendChild(img);
+  }
+  return d;
+}
+
+function magFace(idx, cls) {
+  var f = document.createElement('div');
+  f.className = 'mag-face ' + cls;
+  if (idx !== null) {
+    var img = document.createElement('img');
+    img.src = MAG.pages[idx];
+    img.alt = '';
+    f.appendChild(img);
+  }
+  return f;
+}
+
+function magPaint() {
+  var book = el('magBook');
+  var f = magFaces(MAG.i);
+  book.textContent = '';
+  book.appendChild(magSlot(f[0], 'mag-page--left'));
+  book.appendChild(magSlot(f[1], 'mag-page--right'));
+
+  var n = MAG.pages.length;
+  var label;
+  if (!MAG.spread || f[0] === null || f[1] === null) {
+    label = String((f[0] === null ? f[1] : f[0]) + 1).padStart(2, '0');
+  } else {
+    label = String(f[0] + 1).padStart(2, '0') + '–' + String(f[1] + 1).padStart(2, '0');
+  }
+  el('magCount').innerHTML = '<b>' + label + '</b> / ' + String(n).padStart(2, '0');
+  el('magPrev').disabled = magPrevIdx(MAG.i) === null;
+  el('magNext').disabled = magNextIdx(MAG.i) === null;
+}
+
+function magTurn(dir) {
+  if (MAG.busy) return;
+  var target = dir > 0 ? magNextIdx(MAG.i) : magPrevIdx(MAG.i);
+  if (target === null) return;
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!MAG.spread || reduce) { MAG.i = target; magPaint(); return; }
+
+  var book = el('magBook');
+  var cur = magFaces(MAG.i);
+  var nxt = magFaces(target);
+
+  // the half that stays put during the turn, with the destination page already
+  // sitting underneath the leaf
+  book.textContent = '';
+  book.appendChild(magSlot(dir > 0 ? cur[0] : nxt[0], 'mag-page--left'));
+  book.appendChild(magSlot(dir > 0 ? nxt[1] : cur[1], 'mag-page--right'));
+
+  var leaf = document.createElement('div');
+  leaf.className = 'mag-leaf ' + (dir > 0 ? 'mag-leaf--fwd' : 'mag-leaf--back');
+  leaf.appendChild(magFace(dir > 0 ? cur[1] : cur[0], 'mag-face--a'));
+  leaf.appendChild(magFace(dir > 0 ? nxt[0] : nxt[1], 'mag-face--b'));
+  book.appendChild(leaf);
+
+  MAG.busy = true;
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      leaf.style.transform = 'rotateY(' + (dir > 0 ? -180 : 180) + 'deg)';
+    });
+  });
+  var done = function () {
+    leaf.removeEventListener('transitionend', done);
+    MAG.i = target;
+    MAG.busy = false;
+    magPaint();
+  };
+  leaf.addEventListener('transitionend', done);
+  setTimeout(function () { if (MAG.busy) done(); }, 900);
+}
+
+function renderMag(m) {
+  var sec = el('magSection');
+  if (!m.magazine) { sec.hidden = true; MAG.pages = []; return; }
+  sec.hidden = false;
+  MAG.pages = m.magazine.pages;
+  MAG.spread = magSpreadMode();
+  MAG.i = 0;
+  MAG.busy = false;
+  el('magTitle').textContent = m.magazine.label;
+  magPaint();
+}
+
+(function magInit() {
+  var prev = el('magPrev'), next = el('magNext');
+  if (!prev) return;
+  prev.addEventListener('click', function () { magTurn(-1); });
+  next.addEventListener('click', function () { magTurn(1); });
+  el('magCover').addEventListener('click', function () {
+    if (MAG.busy) return;
+    MAG.i = 0; magPaint();
+  });
+  el('magExpand').addEventListener('click', function () {
+    var node = el('mag');
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (node.requestFullscreen) node.requestFullscreen();
+  });
+
+  var x0 = null;
+  el('mag').addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+  el('mag').addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) magTurn(dx < 0 ? 1 : -1);
+    x0 = null;
+  }, { passive: true });
+
+  // spread <-> single needs the current page re-seated on the right view
+  window.addEventListener('resize', function () {
+    if (!MAG.pages.length) return;
+    var want = magSpreadMode();
+    if (want === MAG.spread) return;
+    var shown = magFaces(MAG.i);
+    var page = shown[0] === null ? shown[1] : shown[0];
+    MAG.spread = want;
+    MAG.i = want ? (page === 0 ? 0 : (page % 2 === 1 ? page : page - 1)) : page;
+    magPaint();
+  });
+})();
+
+function renderFilters() {
+  var wrap = el('filters');
+  wrap.textContent = '';
+  CATS.forEach(function (c) {
+    var b = document.createElement('button');
+    b.className = 'filter';
+    b.type = 'button';
+    b.textContent = c;
+    b.setAttribute('aria-pressed', String(filter === c));
+    b.addEventListener('click', function () { filter = c; renderFilters(); renderWorks(); sizeStrip(); });
+    wrap.appendChild(b);
+  });
+}
+
+// a model's own delivered work leads the strip; the placeholder slots fill out
+// the rest, so the frame count stays constant while assets land one at a time.
+function worksFor(m) {
+  var real = m.works || [];
+  return real.concat(WORKS.slice(real.length)).map(function (w, i) {
+    return Object.assign({}, w, { no: 'W-' + String(i + 1).padStart(2, '0') });
+  });
+}
+
+function renderWorks() {
+  var track = el('folioTrack');
+  track.textContent = '';
+  var all = worksFor(MODELS[idx]);
+  var shown = filter === 'All' ? all : all.filter(function (w) { return w.cat === filter; });
+  // the delivered stills and films open in the site lightbox, and step through each other
+  var lightSeq = shown.filter(function (w) { return (w.src || w.video) && !w.href; }).map(function (w) {
+    var r = String(w.ar || '4 / 5').split('/');
+    return { id: 'work-' + w.no, title: w.title, sub: w.kind, types: [w.kind], w: parseFloat(r[0]) || 4, h: parseFloat(r[1]) || 5,
+      src: w.video ? undefined : w.src, video: w.video, poster: w.poster };
+  });
+  shown.forEach(function (w) {
+    var ratio = document.createElement('span');
+    var fig = document.createElement('figure');
+    var media = w.src || w.video;
+    fig.className = 'work' + (media ? ' work--real' : '');
+    fig.style.aspectRatio = w.ar || '4 / 5';
+    // A frame takes its printed ratio from the file once it loads — an image on
+    // `load`, a video on `loadedmetadata` — so a delivered asset never has to
+    // declare its own dimensions.
+    var measure = function (mw, mh) {
+      if (!mw || !mh) return;
+      fig.style.aspectRatio = mw + ' / ' + mh;
+      if (!w.ratio) {
+        var a = mw, b = mh, t;
+        while (b) { t = b; b = a % b; a = t; }
+        ratio.textContent = Math.round(mw / a) + ':' + Math.round(mh / a);
+      }
+      sizeStrip();
+    };
+    if (w.video) {
+      // Motion frames loop muted and inline, in step with the grayscale stills.
+      var vid = document.createElement('video');
+      vid.className = 'work-video';
+      vid.muted = true; vid.loop = true; vid.autoplay = true;
+      vid.setAttribute('muted', ''); vid.setAttribute('playsinline', '');
+      vid.setAttribute('webkit-playsinline', ''); vid.preload = 'metadata';
+      vid.setAttribute('aria-label', MODELS[idx].name + ' — ' + w.title);
+      vid.src = w.video;
+      if (!w.ar) vid.addEventListener('loadedmetadata', function () {
+        measure(vid.videoWidth, vid.videoHeight);
+      });
+      vid.addEventListener('canplay', function () { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); });
+      fig.appendChild(vid);
+    } else if (w.src) {
+      var img = document.createElement('img');
+      img.className = 'work-img';
+      img.src = w.src;
+      img.alt = MODELS[idx].name + ' — ' + w.title;
+      img.decoding = 'async';
+      if (!w.ar) img.addEventListener('load', function () {
+        measure(img.naturalWidth, img.naturalHeight);
+      });
+      fig.appendChild(img);
+    }
+    var inner = document.createElement('div'); inner.className = 'work-inner';
+    var top = document.createElement('div'); top.className = 'work-top';
+    var no = document.createElement('span'); no.textContent = w.no;
+    ratio.textContent = w.ratio || '';
+    top.appendChild(no); top.appendChild(ratio);
+    var bottom = document.createElement('div');
+    bottom.style.display = 'flex'; bottom.style.flexDirection = 'column'; bottom.style.gap = '6px';
+    var title = document.createElement('div'); title.className = 'work-title'; title.textContent = w.title;
+    var kind = document.createElement('div'); kind.className = 'work-kind';
+    kind.textContent = (w.src || w.video) ? w.kind + (w.href ? ' — open ↗' : '') : w.kind + ' — asset pending';
+    bottom.appendChild(title); bottom.appendChild(kind);
+    inner.appendChild(top); inner.appendChild(bottom);
+    fig.appendChild(inner);
+    if (w.href) {
+      // a document opens in its own tab; the frame shows its cover
+      fig.style.cursor = 'pointer';
+      fig.tabIndex = 0;
+      fig.setAttribute('role', 'link');
+      fig.setAttribute('aria-label', MODELS[idx].name + ' — ' + w.title + ' (opens the PDF)');
+      var open = function () { window.open(w.href, '_blank', 'noopener'); };
+      fig.addEventListener('click', open);
+      fig.addEventListener('keydown', function (e) { if (e.key === 'Enter') open(); });
+    } else if (media && window.AVA) {
+      var piece = lightSeq.filter(function (q) { return q.id === 'work-' + w.no; })[0];
+      fig.style.cursor = 'zoom-in';
+      fig.tabIndex = 0;
+      fig.setAttribute('role', 'button');
+      fig.setAttribute('aria-label', MODELS[idx].name + ' — ' + w.title + ' (open)');
+      var view = function () { AVA.open(piece, lightSeq); };
+      fig.addEventListener('click', view);
+      fig.addEventListener('keydown', function (e) { if (e.key === 'Enter') view(); });
+    }
+    track.appendChild(fig);
+  });
+}
+
+function sizeStrip() {
+  var wrap = el('folio'), track = el('folioTrack');
+  if (!wrap || !track) return;
+  var dist = Math.max(0, track.scrollWidth - window.innerWidth);
+  wrap.style.height = Math.round(window.innerHeight + dist * 1.35) + 'px';
+}
+
+function tick() {
+  var wrap = el('folio'), track = el('folioTrack'), bar = el('folioBar');
+  if (wrap && track) {
+    var dist0 = Math.max(0, track.scrollWidth - window.innerWidth);
+    var wantH = Math.round(window.innerHeight + dist0 * 1.35);
+    if (Math.abs(wrap.offsetHeight - wantH) > 2) wrap.style.height = wantH + 'px';
+    var rect = wrap.getBoundingClientRect();
+    var total = wrap.offsetHeight - window.innerHeight;
+    var p = Math.min(1, Math.max(0, -rect.top / (total || 1)));
+    track.style.transform = 'translate3d(' + (-p * dist0).toFixed(2) + 'px,0,0)';
+    if (bar) bar.style.width = (p * 100).toFixed(1) + '%';
+  }
+  requestAnimationFrame(tick);
+}
+
+function render() {
+  renderTabs();
+  renderProfile();
+  renderMag(MODELS[idx]);
+  renderFilters();
+  renderWorks();
+  sizeStrip();
+}
+
+(function () {
+  var toggle = el('navToggle');
+  var menu = el('navMenu');
+  if (!toggle || !menu) return;
+  var setMenu = function (open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  window.closeNavMenu = function () { setMenu(false); };
+  toggle.addEventListener('click', function () {
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900) setMenu(false);
+  });
+})();
+
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+  // the lightbox has the arrows while it is open
+  if (document.body.classList.contains('lb-open')) return;
+  // nothing should page while the mobile menu is covering it
+  if (document.body.classList.contains('menu-open')) return;
+  var t = e.target.tagName;
+  if (t === 'INPUT' || t === 'TEXTAREA') return;
+  if (MAG.pages.length) magTurn(e.key === 'ArrowLeft' ? -1 : 1);
+});
+
+render();
+window.addEventListener('resize', sizeStrip);
+setTimeout(sizeStrip, 300);
+requestAnimationFrame(tick);
+</script>
+<script src="/assets/site/site.js"></script>
+</body>
+</html>

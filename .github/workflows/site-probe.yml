@@ -1,0 +1,30 @@
+name: Site probe
+
+# On demand: follows a list of live URLs and reports status, redirects and the
+# page title, so routing can be checked from outside the build sandbox.
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: Space-separated URLs
+        default: https://www.avadesign.studio/ https://www.avadesign.studio/start-intake https://www.avadesign.studio/work
+      marker:
+        description: A string to look for in each page
+        default: og:image
+      ua:
+        description: User-Agent to send
+        default: Mozilla/5.0 (compatible; probe)
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe
+        run: |
+          for u in ${{ github.event.inputs.urls }}; do
+            printf 'PROBE %s -> ' "$u"
+            curl -sS -L -A "${{ github.event.inputs.ua }}" -o /tmp/body -w '%{http_code} final=%{url_effective} hops=%{num_redirects} ' "$u"
+            grep -o '<title>[^<]*' /tmp/body | head -1 | sed 's/<title>//' | tr -d '\n'
+            if grep -q "${{ github.event.inputs.marker }}" /tmp/body; then echo " | marker: present"; else echo " | marker: MISSING"; fi
+            grep -o 'property="og:image" content="[^"]*' /tmp/body | sed 's/.*content="/   og:image = /'
+          done

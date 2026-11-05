@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVA: 🎬 Your AI Native Content Design &amp; Production Partner.</title>
+<meta name="description" content="AVA is a content production and design studio.">
+<link rel="canonical" href="https://www.avadesign.studio/">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AVA">
+<meta property="og:title" content="AVA: 🎬 Your AI Native Content Design &amp; Production Partner.">
+<meta property="og:description" content="AVA is a content production and design studio.">
+<meta property="og:url" content="https://www.avadesign.studio/">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AVA: 🎬 Your AI Native Content Design &amp; Production Partner.">
+<meta name="twitter:description" content="AVA is a content production and design studio.">
+<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+/* ---------- hero: the work, edge to edge ---------- */
+.hero { position: relative; height: calc(78svh - var(--nav-h)); min-height: 420px; margin-top: var(--nav-h); overflow: hidden; background: var(--ink); }
+.slides { position: absolute; inset: 0; }
+.slide { position: absolute; inset: 0; display: block; opacity: 0; transition: opacity .8s var(--ease); }
+.slide.is-on { opacity: 1; z-index: 1; }
+.slide img, .slide video { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); transition: transform 3.4s linear; }
+.slide.is-on img, .slide.is-on video { transform: scale(1); }
+/* a 16:9 film on a phone with no vertical cut: the whole frame, over a blurred wash of its cover */
+.slide.is-whole { background: #000; overflow: hidden; }
+.slide.is-whole::before { content: ""; position: absolute; inset: -40px; background: var(--wash, #111) center / cover no-repeat; filter: blur(28px) brightness(.5); }
+.slide.is-whole video { position: relative; object-fit: contain; transform: none; }
+.segs[hidden], .hero-nav[hidden] { display: none !important; }
+.hero.is-single .hero-bottom { justify-content: flex-start; gap: 10px; }   /* desktop: Play and Watch now side by side */
+.slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.38) 0, transparent 22%, transparent 48%, rgba(0,0,0,.72) 100%); pointer-events: none; }
+
+.hero-top { position: absolute; z-index: 3; top: 22px; left: var(--gutter); right: var(--gutter); display: flex; justify-content: space-between; align-items: center; gap: 20px; pointer-events: none; }
+.slide-count { color: var(--neon); }
+.slide-title { position: absolute; z-index: 3; left: var(--gutter); right: var(--gutter); bottom: 64px; color: var(--bone); pointer-events: none; }
+.slide-title .t { display: block; overflow: hidden; }
+.slide-title .t > span { display: block; animation: rise .6s var(--ease) both; }
+.slide-title .big { font-size: clamp(28px, 5.8vw, 96px); white-space: nowrap; }
+.slide-title .kind { margin-top: 14px; }
+.slide-title .kind > span { animation-delay: .12s; }
+@keyframes rise { from { transform: translateY(110%); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.hero-bottom { position: absolute; z-index: 3; left: var(--gutter); right: var(--gutter); bottom: 22px; display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.segs { display: flex; gap: 6px; width: min(36vw, 320px); }
+.seg { flex: 1; height: 2px; background: rgba(235,235,234,.3); position: relative; overflow: hidden; }
+.seg i { position: absolute; inset: 0; background: var(--neon); transform: scaleX(0); transform-origin: left; }
+.seg.is-done i { transform: scaleX(1); }
+.seg.is-on i { animation: fill var(--slide-ms, 3000ms) linear forwards; }
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.hero-nav { display: flex; gap: 6px; }
+.hero-nav button { width: 44px; height: 44px; border: 1px solid rgba(235,235,234,.35); color: var(--bone); font-family: var(--body); font-size: 18px; display: inline-flex; align-items: center; justify-content: center; transition: background .25s, color .25s; }
+.hero-nav button:hover { background: var(--bone); color: var(--ink); }
+.hero-full { display: inline-flex; height: 46px; padding: 0 20px; gap: 10px; align-items: center; border: 1px solid rgba(235,235,234,.6); background: rgba(0,0,0,.45); color: var(--bone); font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease); }
+.hero-full:hover { background: var(--bone); color: var(--ink); }
+.hero-full[hidden] { display: none; }
+.slide video:fullscreen { object-fit: contain; transform: none; background: #000; }
+.slide video:-webkit-full-screen { object-fit: contain; transform: none; background: #000; }
+.hero-play { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; background: var(--neon); color: var(--ink); border: 1px solid var(--neon); font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease); }
+.hero-play .ic { font-size: 12px; letter-spacing: 0; }
+.hero-play:hover { background: var(--paper); border-color: var(--paper); }
+.hero-play.is-on { background: rgba(0,0,0,.45); color: var(--bone); border-color: rgba(235,235,234,.6); }
+.hero-play.is-on:hover { background: var(--bone); color: var(--ink); }
+.hero-play[hidden] { display: none; }
+/* one film: the title sits clear above the Play button, and "Video" goes — the button says it */
+.hero.is-single .slide-title { bottom: 92px; }
+.hero.is-single .slide-title .kind { display: none; }
+
+/* ---------- the headline ---------- */
+.lede { padding: clamp(36px, 5vw, 72px) var(--gutter) clamp(56px, 7vw, 104px); display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 52px); border-bottom: 1px solid rgba(235,235,234,.12); }
+.h1 { font-size: clamp(30px, 6.1vw, 98px); margin: 0; white-space: nowrap; }
+.h1.is-fit { font-size: var(--fit); }
+.h1 .rotor { position: relative; display: inline-block; vertical-align: top; height: 1.04em; margin-bottom: -.1em; line-height: 1; overflow: hidden; color: var(--neon); white-space: nowrap; }
+.h1 .measure { position: absolute; visibility: hidden; white-space: nowrap; pointer-events: none; }
+.h1 .rw { position: absolute; left: 0; top: -.05em; line-height: 1; white-space: nowrap; will-change: transform; animation: wordIn .55s var(--ease) both; }
+.h1 .rw.is-out { animation: wordOut .45s var(--ease) both; }
+@keyframes wordIn { from { transform: translate3d(0, 105%, 0); } to { transform: translate3d(0, 0, 0); } }
+@keyframes wordOut { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -105%, 0); } }
+.h1 .neon-line { display: block; width: clamp(80px, 12vw, 220px); height: 6px; background: var(--neon); margin: clamp(18px, 2.4vw, 34px) 0 0; transform: skewX(-18deg); }
+.lede-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
+.lede-row .mono { color: var(--sand); }
+.lede-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- selected work ---------- */
+#work .eyebrow a { color: inherit; }
+/* eight projects: two rows of four on a desktop, then the site's two and one */
+#work .grid.pgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1100px) { #work .grid.pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { #work .grid.pgrid { grid-template-columns: minmax(0, 1fr); } }
+
+@media (max-width: 900px) {
+  /* a phone sees the film and, in the same screen, the headline and both buttons, clear of the chat bubble at the bottom */
+  .hero { height: calc(56svh - var(--nav-h)); min-height: 300px; }
+  .lede { padding-top: 24px; padding-bottom: 40px; gap: 18px; }
+  .h1 .neon-line { margin-top: 14px; }
+  .lede-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .lede-cta { order: -1; flex-wrap: nowrap; gap: 8px; }
+  .lede-cta .btn { height: 40px; padding: 0 14px; gap: 8px; font-size: 10px; letter-spacing: .18em; }
+  .hero-top { top: 14px; }
+  .slide-title { bottom: 44px; }
+  .segs { width: 44vw; }
+  .hero-nav { display: none; }
+  .hero-full { height: 36px; padding: 0 12px; font-size: 10px; letter-spacing: .16em; gap: 8px; margin-left: auto; }
+  .hero-play { height: 36px; padding: 0 12px; font-size: 10px; letter-spacing: .16em; gap: 8px; }
+  .hero.is-single .slide-title { bottom: 70px; }
+  .h1 { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide { transition: none; }
+  .slide img, .slide video { transform: none; transition: none; }
+  .slide-title .t > span, .h1 .rw { animation: none; }
+  .h1 .rw.is-out { display: none; }
+  .seg.is-on i { animation: none; transform: scaleX(1); }
+  .hero-nav { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <!-- ---------- hero slider ---------- -->
+  <section class="hero" aria-roledescription="carousel" aria-label="AVA demo reel">
+    <div class="slides" id="slides"></div>
+    <div class="hero-top">
+      <span class="mono slide-count" id="slideCount"></span>
+    </div>
+    <div class="slide-title" id="slideTitle" aria-live="polite"></div>
+    <div class="hero-bottom">
+      <div class="segs" id="segs"></div>
+      <div class="hero-nav">
+        <button type="button" id="prev" aria-label="Previous">←</button>
+        <button type="button" id="next" aria-label="Next">→</button>
+      </div>
+      <button type="button" class="hero-play" id="heroPlay" aria-pressed="false" hidden><span class="ic" aria-hidden="true">▶</span><span class="lbl">Play with sound</span></button>
+      <button type="button" class="hero-full" id="heroFull" aria-label="Watch the reel full screen, with sound" hidden>Watch now <span aria-hidden="true">⤢</span></button>
+    </div>
+  </section>
+
+  <!-- ---------- one headline ---------- -->
+  <section class="lede">
+    <h1 class="h1 display" id="h1"><span class="st">We design</span> <span class="rotor" id="rotor"><span class="rw">Brands.</span></span><span class="neon-line" aria-hidden="true"></span></h1>
+    <div class="lede-row">
+      <span class="mono dot">AVA · A design studio</span>
+      <div class="lede-cta">
+        <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+        <a class="btn btn--ghost" href="/work">View Work <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- selected work ---------- -->
+  <section class="section on-bone" id="work">
+    <div class="eyebrow mono">
+      <span class="dot">01 · Selected projects</span>
+      <a href="/work">All work →</a>
+    </div>
+    <div class="grid"></div>
+  </section>
+
+  <!-- ---------- start intake ---------- -->
+  <section class="band">
+    <h2 class="h2 display">Work with us.</h2>
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>AVA · A design studio.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  /* ---------- hero slider ----------
+     Every slide is a piece from the work list: video plays silent and keeps
+     its place between passes. With a single film (the demo reel) it simply
+     plays and loops: no counter, no progress bars, no rotation. */
+  var SLIDE_MS = 3000;
+  /* Each film opens five seconds in, past its slate, the first time it plays, then picks up where it left off; at its end it loops back to that point. */
+  var START_AT = 5;
+  var soundOn = false;   /* the viewer pressed Play with sound */
+  function cue(v) {
+    if (!(v.readyState >= 1)) return;   /* no duration yet: loadedmetadata will cue it */
+    var at = v.dataset.start != null ? parseFloat(v.dataset.start) : START_AT;   /* a piece can set its own (the reel starts at 0) */
+    var t = Math.min(at, Math.max(0, (v.duration || 0) - 1));
+    if (isFinite(t) && Math.abs(v.currentTime - t) > 0.25) { try { v.currentTime = t; } catch (e) {} }
+  }
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var portrait = window.matchMedia('(orientation: portrait)').matches;
+  /* Landscape screens get the 16:9 films; portrait screens get the vertical
+     cuts. A 16:9 film with no vertical cut plays whole on a phone, over a
+     blurred wash of its own cover, so nothing in the frame is cropped. */
+  var ORDER = ['demo-reel'];
+  var byId = {};
+  AVA.WORK.forEach(function (p) { byId[p.id] = p; });
+  /* Graphics with their own type (covers, deck pages) never sit under the
+     slide title, so they drop out here even if named above. */
+  var pieces = ORDER.map(function (id) { return byId[id]; }).filter(function (p) { return p && !p.text; }).slice(0, 6);
+
+  var root = document.getElementById('slides');
+  var titleEl = document.getElementById('slideTitle');
+  var countEl = document.getElementById('slideCount');
+  var segsEl = document.getElementById('segs');
+  document.documentElement.style.setProperty('--slide-ms', SLIDE_MS + 'ms');
+
+  var slides = pieces.map(function (p, i) {
+    var a = document.createElement(p.href ? 'a' : 'button');
+    a.className = 'slide';
+    if (p.href) a.href = p.href; else { a.type = 'button'; a.addEventListener('click', function () { if (pieces.length === 1 && p.video) toggleSound(); else AVA.open(p); }); }
+    var kind = p.types[0];
+    a.setAttribute('aria-label', p.title + ' · ' + kind);
+    a.setAttribute('aria-roledescription', 'slide');
+    var media;
+    /* A piece with no vertical cut shows its poster on a portrait screen.
+       Films play regardless of Reduce Motion or data-saver — a phone with
+       either on would otherwise see nothing but frames, as the Aurora page
+       taught us. */
+    if (p.video && !(portrait && p.portraitStill)) {
+      media = document.createElement('video');
+      /* Always silent. muted is set three ways because iOS reads the attribute,
+         Chrome reads the property, and defaultMuted survives a reload. */
+      /* Same structure as the film hero on the Aurora page, which plays on
+         phones: muted set on the element itself, src assigned up front, an
+         explicit load(), play() asked for now and again as the media loads. */
+      media.muted = true; media.defaultMuted = true; media.loop = false; media.playsInline = true;
+      media.setAttribute('muted', ''); media.setAttribute('playsinline', ''); media.setAttribute('webkit-playsinline', '');
+      if (i === 0) media.setAttribute('autoplay', '');   /* the film loading ahead stays parked until its turn */
+      media.disablePictureInPicture = true; media.disableRemotePlayback = true;
+      media.addEventListener('volumechange', function () { if (!media.muted && !soundOn) media.muted = true; });
+      var poster = (portrait && p.posterPortrait) || p.poster;
+      if (poster) media.poster = poster;
+      if (p.startAt != null) media.dataset.start = p.startAt;
+      if (portrait && !p.videoPortrait && p.w > p.h) {
+        a.classList.add('is-whole');
+        if (poster) a.style.setProperty('--wash', 'url("' + poster + '")');
+      }
+      /* Only the first film starts downloading at once; the others wait their
+         turn (one slide ahead), so a phone's bandwidth goes to what is on screen. */
+      media.dataset.src = (portrait && p.videoPortrait) ? p.videoPortrait : p.video;
+      if (i === 0) { media.src = media.dataset.src; media.preload = 'auto'; media.load(); }
+      else media.preload = 'none';
+      var nudge = function () { if (slides[cur] && slides[cur].media === media && media.paused) { var pr = media.play(); if (pr && pr.catch) pr.catch(function () {}); } };
+      media.addEventListener('loadedmetadata', function () { cue(media); });
+      media.addEventListener('ended', function () { cue(media); var pr = media.play(); if (pr && pr.catch) pr.catch(function () {}); });
+      ['loadedmetadata', 'loadeddata', 'canplay'].forEach(function (ev) { media.addEventListener(ev, nudge); });
+    } else {
+      media = document.createElement('img');
+      media.src = p.poster || p.src; media.alt = '';
+      if (i) media.loading = 'lazy';
+    }
+    a.appendChild(media);
+    root.appendChild(a);
+    var seg = document.createElement('span'); seg.className = 'seg'; seg.appendChild(document.createElement('i'));
+    segsEl.appendChild(seg);
+    return { p: p, el: a, media: media, seg: seg, kind: kind };
+  });
+
+  if (slides.length < 2) { segsEl.hidden = true; document.querySelector('.hero-nav').hidden = true; document.querySelector('.hero').classList.add('is-single'); }   /* one film: nothing to step through */
+  var cur = -1, timer, fsHeld = false;
+  var fsBtn = document.getElementById('heroFull');
+  /* Play with sound: the one film on the hero restarts from its first frame
+     with sound; pressed again (or once it scrolls out of view) it goes quiet
+     and keeps playing. */
+  var playBtn = document.getElementById('heroPlay');
+  function setSound(on) {
+    var s = slides[cur]; if (!s || s.media.tagName !== 'VIDEO') return;
+    var v = s.media;
+    soundOn = on;
+    if (on) {
+      try { v.currentTime = parseFloat(v.dataset.start || 0) || 0; } catch (e) {}
+      v.muted = false; v.volume = 1;
+      var q = v.play(); if (q && q.catch) q.catch(function () { setSound(false); });
+    } else v.muted = true;
+    playBtn.classList.toggle('is-on', on);
+    playBtn.setAttribute('aria-pressed', String(on));
+    playBtn.querySelector('.ic').textContent = on ? '■' : '▶';
+    playBtn.querySelector('.lbl').textContent = on ? 'Mute' : 'Play with sound';
+  }
+  function toggleSound() { setSound(!soundOn); }
+  playBtn.hidden = !(slides.length === 1 && slides[0].media.tagName === 'VIDEO');
+  playBtn.addEventListener('click', toggleSound);
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
+    if (soundOn && !es[0].isIntersecting) setSound(false);
+  }, { threshold: 0.2 }).observe(document.querySelector('.hero'));
+  /* Watch now plays the film on screen full screen, from the top, with sound.
+     The deck holds still while it is up; closing it goes quiet again. */
+  function fsRelease() { if (!fsHeld) return; fsHeld = false; if (soundOn) setSound(false); ambient(); arm(); }
+  fsBtn.addEventListener('click', function () {
+    var s = slides[cur]; if (!s || s.media.tagName !== 'VIDEO') return;
+    var v = s.media; fsHeld = true; clearTimeout(timer);
+    setSound(true);   /* Watch now: from the top, with sound */
+    var go = v.requestFullscreen || v.webkitRequestFullscreen;
+    if (go) { var r = go.call(v); if (r && r.catch) r.catch(function () { fsRelease(); }); }
+    else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+    else { fsRelease(); return; }
+    var q = v.play(); if (q && q.catch) q.catch(function () {});
+  });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) fsRelease(); });
+  document.addEventListener('webkitfullscreenchange', function () { if (!document.webkitFullscreenElement) fsRelease(); });
+  slides.forEach(function (x) { if (x.media.tagName === 'VIDEO') x.media.addEventListener('webkitendfullscreen', fsRelease); });
+  function loadVideo(s) {
+    var v = s.media;
+    if (v.tagName !== 'VIDEO' || v.src) return;
+    v.src = v.dataset.src; v.preload = 'auto'; v.load();
+  }
+  function show(i) {
+    if (cur === i) return;
+    var prev = slides[cur];
+    cur = (i + slides.length) % slides.length;
+    var s = slides[cur];
+    if (prev) {
+      prev.el.classList.remove('is-on');
+      if (prev.media.tagName === 'VIDEO') prev.media.pause();
+    }
+    s.el.classList.add('is-on');
+    if (s.media.tagName === 'VIDEO') {
+      loadVideo(s);
+      s.media.muted = true;
+      var pr = s.media.play(); if (pr && pr.catch) pr.catch(function () {});
+    }
+    loadVideo(slides[(cur + 1) % slides.length]);
+    slides.forEach(function (x, k) {
+      x.seg.classList.toggle('is-done', k < cur);
+      x.seg.classList.remove('is-on');
+    });
+    void s.seg.offsetWidth; /* restart the fill */
+    s.seg.classList.add('is-on');
+    fsBtn.hidden = s.media.tagName !== 'VIDEO';
+    countEl.textContent = slides.length > 1 ? pad(cur + 1) + ' / ' + pad(slides.length) : '';
+    titleEl.innerHTML = '<span class="t big display"><span>' + esc(s.p.title) + '</span></span><span class="t kind mono"><span>' + esc(s.kind) + '</span></span>';
+    arm();
+  }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function arm() {
+    clearTimeout(timer);
+    if (slides.length < 2) return;   /* one film: it just plays */
+    if (document.hidden || fsHeld) return;
+    timer = setTimeout(function () { show(cur + 1); }, SLIDE_MS);
+  }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) clearTimeout(timer); else arm(); });
+  document.getElementById('prev').addEventListener('click', function () { show(cur - 1); });
+  document.getElementById('next').addEventListener('click', function () { show(cur + 1); });
+  /* a swipe moves the deck on touch */
+  var x0 = null;
+  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  root.addEventListener('touchend', function (e) {
+    if (x0 == null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 48) show(cur + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+
+  /* Ambient autoplay, as on the Aurora page: try now, try as the media
+     loads, and if a phone still refuses (Low Power Mode, Low Data Mode),
+     start on the first touch, tap, scroll or key anywhere. */
+  var ambient = function () {
+    var s = slides[cur];
+    if (s && s.media.tagName === 'VIDEO' && s.media.paused) { s.media.muted = true; var pr = s.media.play(); if (pr && pr.catch) pr.catch(function () {}); }
+  };
+  var unlock = function () {
+    ambient();
+    ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) { window.removeEventListener(ev, unlock); });
+  };
+  ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) { window.addEventListener(ev, unlock, { passive: true }); });
+
+  show(0);
+  ambient();
+
+  /* ---------- headline: one neon word turns over every two seconds ---------- */
+  var WORDS = ['Brands.', 'Sites.', 'Decks.', 'Images.', 'Videos.', 'Campaigns.', 'Short films.', 'Web series.', 'Avatars.'];
+  var WORD_MS = 2000;
+  var rotor = document.getElementById('rotor');
+  var h1 = document.getElementById('h1');
+  /* One line, always: the slot is as wide as the longest word, so the line
+     never re-wraps as the words change; each one rises in as the last leaves. */
+  var measure = document.createElement('span'); measure.className = 'measure'; measure.setAttribute('aria-hidden', 'true');
+  h1.appendChild(measure);
+  /* The line is set as large as it can be and still stay one line: the
+     longest phrase is measured and the size scaled to the full width. */
+  var st = h1.querySelector('.st');
+  function fit() {
+    h1.classList.remove('is-fit');
+    var base = parseFloat(getComputedStyle(h1).fontSize);
+    var longest = '', w = 0;
+    WORDS.forEach(function (t) { measure.textContent = t; var mw = measure.getBoundingClientRect().width; if (mw > w) { w = mw; longest = t; } });
+    measure.textContent = st.textContent + ' ' + longest;
+    var line = measure.getBoundingClientRect().width;
+    var avail = h1.clientWidth;
+    var size = Math.min(Math.floor(base * avail / line * 0.985), 220);
+    h1.style.setProperty('--fit', size + 'px');
+    h1.classList.add('is-fit');
+    measure.textContent = longest;
+    rotor.style.width = Math.ceil(measure.getBoundingClientRect().width) + 'px';
+  }
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('resize', fit);
+  var wi = 0;
+  function turn() {
+    if (document.hidden) return;
+    wi = (wi + 1) % WORDS.length;
+    /* Anything still on its way out goes now, so words never stack up —
+       a throttled tab can leave an exit unfinished. */
+    Array.prototype.forEach.call(rotor.querySelectorAll('.rw.is-out'), function (x) { x.remove(); });
+    var old = rotor.firstElementChild;
+    var nw = document.createElement('span'); nw.className = 'rw'; nw.textContent = WORDS[wi];
+    if (old) {
+      old.classList.add('is-out');
+      var gone = false, drop = function () { if (!gone) { gone = true; old.remove(); } };
+      old.addEventListener('animationend', drop);
+      setTimeout(drop, 600);
+    }
+    rotor.appendChild(nw);
+  }
+  setInterval(turn, WORD_MS);
+  /* back from a background tab: one word, cleanly */
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) return;
+    var all = rotor.querySelectorAll('.rw');
+    for (var k = 0; k < all.length - 1; k++) all[k].remove();
+    if (all.length) all[all.length - 1].classList.remove('is-out');
+  });
+
+  /* ---------- selected work ---------- */
+  AVA.mountProjects(document.getElementById('work'), {
+    ids: ['the-studio', 'aurora', 'virtual-affair', 'dupixent', 'asics', 'raven-rise', 'kia-oura', 'i-am-ava']
+  });
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

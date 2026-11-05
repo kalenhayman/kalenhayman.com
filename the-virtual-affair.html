@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Virtual Affair — An AVA Original</title>
+<meta name="description" content="Casting portfolio: The Virtual Affair ft. Danny &amp; Laura. Campaign images and film by AVA.">
+<link rel="canonical" href="https://www.avadesign.studio/the-virtual-affair">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AVA">
+<meta property="og:title" content="The Virtual Affair — An AVA Original">
+<meta property="og:description" content="Casting portfolio: The Virtual Affair ft. Danny &amp; Laura. Campaign images and film by AVA.">
+<meta property="og:url" content="https://www.avadesign.studio/the-virtual-affair">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/the-virtual-affair.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Virtual Affair — An AVA Original">
+<meta name="twitter:description" content="Casting portfolio: The Virtual Affair ft. Danny &amp; Laura. Campaign images and film by AVA.">
+<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/the-virtual-affair.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+/* ---------- hero: the shot on one side, the title on the other ---------- */
+.vf-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: calc(100svh - var(--nav-h)); margin-top: var(--nav-h); background: var(--ink); }
+.vf-hero .copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 3vw, 48px) var(--gutter); gap: 28px; }
+.vf-hero .top { color: var(--sand); display: flex; justify-content: space-between; gap: 16px; }
+.vf-hero h1 { font-size: clamp(56px, 9.2vw, 148px); margin: 0; }
+.vf-hero .ft { margin-top: 18px; color: var(--neon); font-size: 13px; }
+.vf-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.vf-hero .shot { position: relative; min-height: 60svh; overflow: hidden; background: #0a0a0a; }
+.vf-hero .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+.vf-hero .shot::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--neon); transform: skewX(-6deg); transform-origin: top; }
+.vf-hero .t > span { display: block; animation: rise .7s var(--ease) both; }
+.vf-hero .t { display: block; overflow: hidden; }
+@keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+
+/* ---------- the work ---------- */
+.vf-work { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(235,235,234,.12); }
+.vf-work .grid { margin-top: 0; }
+
+/* ---------- the pair ---------- */
+.vf-pair { padding: clamp(48px, 7vw, 112px) var(--gutter); background: var(--bone); color: var(--ink); }
+.vf-pair .row { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 12px; }
+.member { display: flex; flex-direction: column; background: var(--ink); color: var(--bone); }
+.member .face { position: relative; aspect-ratio: 4 / 5; overflow: hidden; }
+.member .face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .5s var(--ease), transform .9s var(--ease); }
+.member:hover .face img { filter: none; transform: scale(1.03); }
+.member .who { padding: 12px 14px 14px; border-top: 1px solid rgba(235,235,234,.12); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.member .who .card-title { font-size: 20px; }
+.member .who .role { color: var(--sand); }
+
+@media (max-width: 900px) {
+  .vf-hero { grid-template-columns: 1fr; min-height: 0; }
+  .vf-hero .shot { order: -1; min-height: 0; aspect-ratio: 4 / 5; }
+  .vf-hero .shot::after { display: none; }
+  .vf-hero .copy { gap: 24px; padding-bottom: 36px; }
+  .vf-pair .row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) { .vf-hero .t > span { animation: none; } .member:hover .face img { transform: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <section class="vf-hero">
+    <div class="copy">
+      <div class="top mono"><span class="dot">Casting · AVA Originals</span><span>2026</span></div>
+      <div>
+        <h1 class="display"><span class="t"><span>The Virtual<br>Affair</span></span></h1>
+        <div class="ft mono">ft. Danny &amp; Laura</div>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#work">See the work <span class="arr">↓</span></a>
+        <a class="btn btn--ghost" href="/start-intake">Start Intake <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="shot"><img id="heroImg" src="/assets/img/vf-01.jpg" alt="Danny and Laura" width="1554" height="1800"></div>
+  </section>
+
+  <section class="vf-work" id="work">
+    <div class="eyebrow mono"><span class="dot">01 · The work</span><span id="vfCount"></span></div>
+    <div class="grid" id="vfGrid"></div>
+  </section>
+
+  <section class="vf-pair">
+    <div class="eyebrow mono"><span class="dot">02 · The pair</span><span>AVA Originals</span></div>
+    <div class="row">
+      <a class="member" href="/model?m=danny"><div class="face"><img src="/assets/model-danny.jpg" alt="" loading="lazy" style="object-position:50% 38%"></div><div class="who"><span class="card-title display">Danny</span><span class="role mono">Men’s fashion</span></div></a>
+      <a class="member" href="/model?m=laura"><div class="face"><img src="/assets/model-laura.png" alt="" loading="lazy" style="object-position:52% 40%"></div><div class="who"><span class="card-title display">Laura</span><span class="role mono">Luxury · Beauty</span></div></a>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2 class="h2 display">Work with us.</h2>
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>AVA · A design studio.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  /* The Virtual Affair — every piece is untitled; add one line per asset.
+     Images are web-sized copies in /assets/img/ (built from the Blob originals);
+     a film adds  video:  and  poster:  the same way. */
+  var PIECES = [
+    { src: '/assets/img/vf-01.jpg', w: 1554, h: 1800 },
+    { src: '/assets/img/vf-02.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-03.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-04.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-05.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-06.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-07.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-08.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-09.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-10.jpg', w: 1344, h: 1800 },
+    { src: '/assets/img/vf-11.jpg', w: 1344, h: 1800 }
+  ];
+  PIECES.forEach(function (p, i) {
+    var n = (i + 1 < 10 ? '0' : '') + (i + 1);
+    p.id = 'vf-' + n; p.title = 'Untitled ' + n; p.sub = 'Danny & Laura'; p.types = ['Image'];
+    AVA.WORK.push(p);
+  });
+  AVA.mount(document.getElementById('vfGrid').parentNode, { ids: PIECES.map(function (p) { return p.id; }) });
+  document.getElementById('vfCount').textContent = (PIECES.length < 10 ? '0' : '') + PIECES.length + ' pieces';
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

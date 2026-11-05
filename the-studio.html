@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Studio — An AVA Original</title>
+<meta name="description" content="The Studio. A micro-drama satire about avatars running the ad world. A series by AVA, directed by K. Hayman.">
+<link rel="canonical" href="https://www.avadesign.studio/the-studio">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="video.tv_show">
+<meta property="og:site_name" content="AVA">
+<meta property="og:title" content="The Studio — An AVA Original">
+<meta property="og:description" content="A micro-drama satire about avatars running the ad world. A series by AVA, directed by K. Hayman.">
+<meta property="og:url" content="https://www.avadesign.studio/the-studio">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/the-studio-landscape.jpg">
+<meta property="og:image:secure_url" content="https://www.avadesign.studio/assets/og/the-studio-landscape.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Studio — An AVA Original">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Studio — An AVA Original">
+<meta name="twitter:description" content="A micro-drama satire about avatars running the ad world. A series by AVA, directed by K. Hayman.">
+<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/the-studio-landscape.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+/* ---------- hero: the series, edge to edge, like the home slider ---------- */
+.show-hero { position: relative; height: calc(100svh - var(--nav-h)); min-height: 480px; margin-top: var(--nav-h); overflow: hidden; background: var(--ink); }
+.show-hero .deck, .show-hero .deck video { position: absolute; inset: 0; width: 100%; height: 100%; }
+.show-hero .deck video { object-fit: cover; opacity: 0; transition: opacity .8s var(--ease); }
+.show-hero .deck video.is-on { opacity: 1; }
+.show-hero .segs { position: absolute; z-index: 2; right: var(--gutter); bottom: 32px; display: flex; gap: 6px; width: min(30vw, 260px); }
+.seg { flex: 1; height: 2px; background: rgba(235,235,234,.3); position: relative; overflow: hidden; }
+.seg i { position: absolute; inset: 0; background: var(--neon); transform: scaleX(0); transform-origin: left; }
+.seg.is-done i { transform: scaleX(1); }
+.seg.is-on i { animation: fill 10000ms linear forwards; }
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.show-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(270deg, rgba(0,0,0,.62) 0, rgba(0,0,0,.28) 45%, transparent 70%), linear-gradient(180deg, rgba(0,0,0,.4) 0, transparent 20%, transparent 80%, rgba(0,0,0,.28) 100%); pointer-events: none; }
+.show-top { position: absolute; z-index: 2; top: 22px; left: var(--gutter); right: var(--gutter); display: flex; justify-content: space-between; gap: 20px; color: var(--bone); }
+/* The title block sits at the top of the hero; the lower third stays clear for the film's own subtitles. */
+.show-title { position: absolute; z-index: 2; right: var(--gutter); top: 50%; transform: translateY(-50%); text-align: right; color: var(--bone); max-width: calc(100% - 2 * var(--gutter)); }
+.show-title .t { display: block; overflow: hidden; }
+.show-title .t > span { display: block; animation: rise .6s var(--ease) both; }
+.show-title .big { font-size: clamp(48px, 9.5vw, 150px); }
+.show-title .kind { margin-top: 14px; color: var(--neon); }
+.show-title .kind > span { animation-delay: .12s; }
+.show-cta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+@keyframes rise { from { transform: translateY(110%); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* ---------- description ---------- */
+.show-lede { padding: clamp(40px, 6vw, 88px) var(--gutter); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 80px); border-bottom: 1px solid rgba(235,235,234,.12); }
+.show-lede .h2 { font-size: clamp(32px, 4.6vw, 70px); }
+.show-lede p { margin: 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; max-width: 46ch; color: var(--bone); }
+.show-lede .facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 22px; color: var(--sand); }
+
+/* ---------- episodes ---------- */
+.eps { padding: clamp(48px, 7vw, 112px) var(--gutter); }
+.player { position: relative; background: #0a0a0a; aspect-ratio: 16 / 9; max-height: 82svh; margin: 0 auto; overflow: hidden; }
+.player.is-portrait { aspect-ratio: 9 / 16; max-width: min(100%, 62svh); }
+.player video { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+/* The series card holds the screen for a beat before an episode starts. */
+.player .intro { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; object-fit: contain; background: #000; opacity: 0; pointer-events: none; transition: opacity .35s var(--ease); }
+.player .intro.is-on { opacity: 1; }
+.player-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; padding: 14px 0 0; }
+.player-bar .now { display: flex; align-items: baseline; gap: 16px; }
+.player-bar .now .card-title { font-size: clamp(20px, 2.2vw, 30px); }
+.ctl { display: flex; gap: 8px; }
+.ctl button { height: 40px; padding: 0 14px; border: 1px solid rgba(235,235,234,.35); color: var(--bone); font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; transition: background .25s, color .25s; }
+.ctl button:hover, .ctl button[aria-pressed="true"] { background: var(--bone); color: var(--ink); }
+.stage-grid { display: grid; grid-template-columns: minmax(0, 1fr) clamp(240px, 24vw, 360px); gap: clamp(14px, 1.6vw, 24px); align-items: stretch; }
+.stage-main { min-width: 0; }
+.rail-nav { display: inline-flex; align-items: center; gap: 12px; }
+.rail-nav button { width: 40px; height: 36px; border: 1px solid rgba(235,235,234,.35); color: var(--bone); font-family: var(--body); font-size: 15px; transition: background .25s, color .25s; }
+.rail-nav button:hover:not(:disabled) { background: var(--bone); color: var(--ink); }
+.rail-nav button:disabled { opacity: .3; cursor: default; }
+#epCount { color: var(--sand); }
+/* the rail: the episodes in a column beside the player, newest first, scrolling */
+.rail { position: relative; min-height: 0; }
+.ep-list { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; overscroll-behavior: contain; scroll-snap-type: y proximity; padding-right: 8px; scrollbar-width: thin; scrollbar-color: var(--neon) transparent; }
+.ep { flex: 0 0 auto; scroll-snap-align: start; display: block; text-align: left; font-family: var(--mono); color: var(--bone); }
+.ep .art { position: relative; aspect-ratio: 16 / 9; overflow: hidden; display: block; }
+.ep .cap { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 9px 2px 0; }
+.ep .no { font-family: var(--display); font-size: clamp(22px, 2.2vw, 30px); line-height: 1; text-transform: uppercase; letter-spacing: -.01em; }
+.ep .state { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--sand); }
+/* out now: the episode's own cover; the playing one wears a neon edge */
+.ep.is-live { cursor: pointer; }
+.ep.is-live .art { background: #0a0a0a; border: 1px solid rgba(235,235,234,.3); }
+.ep.is-live img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease), filter .4s var(--ease); filter: brightness(.82); }
+.ep.is-live:hover img { transform: scale(1.04); filter: brightness(1); }
+.ep.is-on .art { border-color: var(--neon); box-shadow: inset 0 0 0 2px var(--neon); }
+.ep.is-on .no, .ep.is-on .state { color: var(--neon); }
+.ep .slash { position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--neon); z-index: 3; display: none; transform: skewX(-12deg); transform-origin: top; }
+.ep.is-on .slash { display: block; }
+/* coming: an empty hatched frame, nothing to press */
+.ep.is-soon .art { border: 1px dashed rgba(235,235,234,.22); background: repeating-linear-gradient(135deg, rgba(235,235,234,.05) 0 2px, transparent 2px 14px); }
+.ep.is-soon .no { color: rgba(235,235,234,.3); }
+
+/* ---------- cast ---------- */
+.cast { padding: clamp(48px, 7vw, 112px) var(--gutter); background: var(--bone); color: var(--ink); }
+.cast-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.member { display: flex; flex-direction: column; background: var(--ink); color: var(--bone); min-width: 0; }
+.member .face { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #0a0a0a; }
+.member .face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .5s var(--ease), transform .9s var(--ease); }
+.member:hover .face img { filter: none; transform: scale(1.03); }
+.member .face .mark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: clamp(28px, 3.2vw, 56px); text-transform: uppercase; color: var(--neon); }
+.member .face .band { position: absolute; left: -20%; right: -20%; top: 48%; height: 8%; background: var(--neon); transform: rotate(-9deg); opacity: .9; }
+.member .face.pair { display: grid; grid-template-columns: 1fr 1fr; }
+.member .face.pair img { position: relative; }
+.member .who { padding: 12px 12px 14px; border-top: 1px solid rgba(235,235,234,.12); }
+.member .who .card-title { font-size: 18px; display: block; }
+.member .who .role { display: block; margin-top: 6px; color: var(--sand); font-size: 10px; line-height: 1.5; letter-spacing: .14em; }
+
+/* ---------- from the set ---------- */
+.set { padding: clamp(48px, 7vw, 112px) var(--gutter); }
+.set-stage { position: relative; aspect-ratio: 16 / 9; background: #0a0a0a; overflow: hidden; }
+.set-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .7s var(--ease); }
+.set-stage img.is-on { opacity: 1; }
+.set-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 14px; }
+
+/* ---------- close ---------- */
+.show-close { padding: clamp(72px, 11vw, 150px) var(--gutter); border-top: 1px solid rgba(235,235,234,.12); display: grid; gap: 28px; }
+.show-close .h2 { font-size: clamp(40px, 7.2vw, 118px); max-width: 16ch; }
+.show-close .row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; }
+
+@media (max-width: 900px) {
+  .show-hero { height: calc(92svh - var(--nav-h)); min-height: 420px; }
+  .show-hero .segs { left: var(--gutter); right: auto; bottom: 72px; width: 44vw; }   /* both sit above the chat bubble at bottom centre */
+  .show-top { justify-content: flex-end; }
+  .show-top .dot { display: none; }   /* the tagline would wrap and crowd the title on a phone */
+  /* on a phone the title and its buttons sit bottom right, the two buttons stacked */
+  .show-title { top: auto; bottom: 92px; transform: none; display: flex; flex-direction: column; align-items: flex-end; }
+  .show-title .big { font-size: clamp(44px, 14vw, 84px); }
+  .show-cta { flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 8px; margin-top: 16px; width: 100%; }
+  .show-cta .btn { justify-content: space-between; }
+  .show-lede { grid-template-columns: 1fr; }
+  .stage-grid { grid-template-columns: minmax(0, 1fr); }
+  .rail { margin-top: 18px; min-width: 0; }
+  .ep-list { position: static; flex-direction: row; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; padding: 0 0 10px; gap: 10px; }
+  .ep { width: 72%; scroll-snap-align: start; }
+  .cast-row { grid-template-columns: repeat(2, 1fr); }
+  .member .who .card-title { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .show-title .t > span { animation: none; } .member:hover .face img { transform: none; } .seg.is-on i { animation: none; transform: scaleX(1); } }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <!-- ---------- hero ---------- -->
+  <section class="show-hero" id="hero" aria-label="The Studio — hero">
+    <div class="deck" id="heroDeck"></div>
+    <div class="show-top mono">
+      <span class="dot">When avatars run the ad world.</span>
+      <span id="heroEp">Series · 2026</span>
+    </div>
+    <div class="show-title">
+      <span class="t big display"><span>The Studio</span></span>
+      <span class="t kind mono"><span>An AVA Original.</span></span>
+      <div class="show-cta">
+        <a class="btn" href="#episodes" id="watch">Watch E01 <span class="arr">→</span></a>
+        <a class="btn btn--ghost" href="#cast">The cast <span class="arr">↓</span></a>
+      </div>
+    </div>
+    <div class="segs" id="heroSegs"></div>
+  </section>
+
+  <!-- ---------- description ---------- -->
+  <section class="show-lede">
+    <h2 class="h2 display">A micro-drama satire about avatars running the ad world.</h2>
+    <div>
+      <p>A series about the advertising world, run by model avatars. Inside AVA Design Studio, the clients are demanding, the deadlines are tight, and the cast has opinions. Six episodes. Directed by K. Hayman.</p>
+      <div class="facts mono"><span>6 episodes</span><span>Dir. K. Hayman</span><span>AVA · 2026</span></div>
+    </div>
+  </section>
+
+  <!-- ---------- episodes ---------- -->
+  <section class="eps" id="episodes">
+    <div class="eyebrow mono"><span class="dot">01 · Episodes</span><span class="rail-nav"><span id="epCount"></span><button type="button" id="railPrev" aria-label="Previous episode"></button><button type="button" id="railNext" aria-label="Next episode"></button></span></div>
+    <div class="stage-grid">
+    <div class="stage-main">
+    <div class="player" id="player">
+      <img class="intro" id="epIntro" src="/assets/og/the-studio-landscape.jpg" alt="" aria-hidden="true">
+      <video id="epVideo" playsinline preload="none" controls controlslist="nodownload" aria-label="The Studio — episode player"></video>
+    </div>
+    <div class="player-bar">
+      <div class="now"><span class="card-title" id="epTitle"></span><span class="mono" id="epMeta"></span></div>
+      <div class="ctl">
+        <button type="button" id="epSound" aria-pressed="false">Sound off</button>
+        <button type="button" id="epFull">Fullscreen</button>
+      </div>
+    </div>
+    </div>
+    <div class="rail"><div class="ep-list" id="epList" role="list"></div></div>
+    </div>
+  </section>
+
+  <!-- ---------- cast ---------- -->
+  <section class="cast" id="cast">
+    <div class="eyebrow mono"><span class="dot">02 · The cast</span><span>AVA Originals</span></div>
+    <div class="cast-row" id="castRow"></div>
+  </section>
+
+  <!-- ---------- from the set ---------- -->
+  <section class="set" id="set" hidden>
+    <div class="eyebrow mono"><span class="dot">03 · From the set</span><span id="setCount"></span></div>
+    <div class="set-stage" id="setStage"></div>
+    <div class="set-bar">
+      <span class="mono" id="setCap"></span>
+      <div class="ctl"><button type="button" id="setPrev" aria-label="Previous">←</button><button type="button" id="setNext" aria-label="Next">→</button></div>
+    </div>
+  </section>
+
+  <!-- ---------- close ---------- -->
+  <section class="show-close">
+    <h2 class="h2 display">Tell a story, build characters, design worlds.</h2>
+    <div class="row">
+      <a class="btn" href="/start-intake">Start the intake <span class="arr">→</span></a>
+      <span class="mono dot">AVA Design Studio.</span>
+    </div>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>AVA · A design studio.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  var B = 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/';
+  var S = B + 'THE%20STUDIO%20-%20SERIES/';
+  /* ---------- the episodes: landscape for desktop, vertical for phones ---------- */
+  var EPISODES = [
+    { no: 1, title: 'E01', sub: 'Pilot',
+      video: S + 'The%20Studio%20E01%20dir.%20k.hayman%2008.11.2026%20-%20landscap%2025mb.mp4',
+      videoPortrait: S + 'VERTICAL%20VIDEOS/The%20STUDIO%20S01%20EP%2001%20-vertical%20-%20Oct%205%202026%20-%20DIR%20K.HAYMAN.mp4',
+      poster: S + 'The_Studio_Title_Card.png',
+      posterPortrait: S + 'VERTICAL%20TITLE%20COVERS/The_Studio_Title_Card_-_Vertical.png' },
+    { no: 2, title: 'E02', sub: '',
+      video: S + 'LANDSCAPE%20VIDEOS/The%20Studio%20E02-2%20landscape%20Oct_13_2026%20dir.K.HAYMA.mp4',
+      videoPortrait: S + 'VERTICAL%20VIDEOS/The%20Studio%20S01%20E02%20dir.%20k.hayman%20_10_08_2026.mp4',
+      poster: S + 'LANDSCAPE%20TITLE%20COVERS/The_Studio_Title_Card_-_Episode_02.png',
+      posterPortrait: S + 'VERTICAL%20TITLE%20COVERS/The_Studio_Title_Card_-_Episode_02.png' },
+    { no: 3, title: 'E03', sub: '',
+      video: S + 'The%20STUDIO%20S01%20E03%20-%20landscape%20dir.%20K.HAYMAN%20-%20COMPRESSED.mp4',
+      videoPortrait: S + 'VERTICAL%20VIDEOS/The%20STUDIO%20S01%20E03.mp4',
+      poster: S + 'LANDSCAPE%20TITLE%20COVERS/The%20STUDIO%20S01%20E03%20-%20landscape%20dir.%20K.HAYMAN%281%29-Cover.jpg',
+      posterPortrait: S + 'VERTICAL%20TITLE%20COVERS/The_Studio_Title_Card_-_Episode_03_Vertical%20%281%29.png' },
+    { no: 4, title: 'E04', sub: '',
+      video: S + 'LANDSCAPE%20VIDEOS/The%20STUDIO%20S01%20E04.mp4',
+      videoPortrait: S + 'VERTICAL%20VIDEOS/The%20STUDIO%20S01%20E04%20-%20vertical%20dir.%20K.HAYMAN.mp4',
+      poster: S + 'LANDSCAPE%20TITLE%20COVERS/The_Studio_Title_Card_-_Episode_04.png',
+      posterPortrait: S + 'VERTICAL%20TITLE%20COVERS/The%20STUDIO%20S01%20E04%20-%20vertical%20dir.%20K.HAYMAN-Cover.jpg' },
+    { no: 5, title: 'E05', sub: 'A Mental Contract',
+      video: S + 'LANDSCAPE%20VIDEOS/The%20STUDIO%20S01%20E05%20-%20A%20Mental%20Contract%20-%20landscape%20w%20titles%20-%20compressed.mp4',
+      poster: S + 'LANDSCAPE%20TITLE%20COVERS/the-studio-s01e05-poster-16x9.png',
+      videoPortrait: S + 'VERTICAL%20VIDEOS/The%20STUDIO%20S01%20E05%20-%20A%20Mental%20Contract%20-%20vertical%20-%20compressed.mp4',
+      posterPortrait: S + 'VERTICAL%20TITLE%20COVERS/The%20STUDIO%20S01%20E05%20The%20Mental%20Contract%20ft%20KIA_poster.png' }
+  ];
+  var TOTAL = 6;
+  /* ---------- the cast ---------- */
+  var CAST = [
+    { name: 'KAI', role: 'Founder and creative director', img: 'assets/model-kai.png', pos: '50% 22%' },
+    { name: 'AVA', role: 'The studio’s voice', mark: 'AVA' },
+    { name: 'MARA', role: 'Executive assistant', img: B + 'MARA/MARA%20Cast%20Photo%202%20-%20The%20Studio.png', pos: '50% 22%' },
+    { name: 'KIA', role: 'Athletes and sports brands', img: 'assets/model-kia.png', pos: '33% 30%', deck: '/model?m=kia' },
+    { name: 'RAVEN', role: 'Recording artist', img: 'assets/model-raven.jpg', pos: '40% 34%', deck: '/model?m=raven' },
+    { name: 'GLOBE', role: 'Humanitarian', img: 'assets/model-globalist.jpg', pos: '50% 34%', deck: '/model?m=globalist' },
+    { name: 'DANNY', role: 'Lifestyle and fashion', img: 'assets/model-danny.jpg', pos: '50% 38%', deck: '/model?m=danny' },
+    { name: 'LAURA', role: 'Lifestyle and fashion', img: 'assets/model-laura.png', pos: '52% 40%', deck: '/model?m=laura' }
+  ];
+  /* ---------- from the set: screen grabs, in order ---------- */
+  var G = S + 'SCREEN%20GRABS/';
+  var FRAMES = [
+    { src: G + 'Screenshot%202026-10-12%20at%2011.32.46%E2%80%AFAM.png' },
+    { src: G + 'Screenshot%202026-10-12%20at%2011.33.22%E2%80%AFAM.png' },
+    { src: G + 'Screenshot%202026-10-12%20at%2011.33.31%E2%80%AFAM.png' },
+    { src: G + 'Screenshot%202026-10-12%20at%2011.34.24%E2%80%AFAM.png' },
+    { src: G + 'The%20STUDIO%20S01%20E03.png' },
+    { src: G + 'Screenshot%202026-10-11%20at%203.46.28%E2%80%AFPM.png' },
+    { src: G + 'Screenshot%202026-10-18%20at%202.24.22%E2%80%AFPM.png' },
+    { src: G + 'Screenshot%202026-10-20%20at%208.40.26%E2%80%AFAM.png' },
+    { src: S + 'LANDSCAPE%20TITLE%20COVERS/The%20Studio%20Poster-selection%20%281%29.png', caption: 'The Studio' }
+  ];
+
+  var portrait = window.matchMedia('(orientation: portrait)').matches;
+  var el = function (id) { return document.getElementById(id); };
+
+  /* hero: the episodes turn over every ten seconds, newest first, silent,
+     the same playback structure as the home slider */
+  var SLIDE_MS = 10000;
+  var deck = el('heroDeck'), segsEl = el('heroSegs'), heroEp = el('heroEp'), watch = el('watch');
+  var order = EPISODES.slice().reverse();
+  var slides = order.map(function (ep, i) {
+    var v = document.createElement('video');
+    v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
+    /* only the first film autoplays; the one loading ahead stays parked so a phone decodes a single stream */
+    if (i === 0) v.setAttribute('autoplay', '');
+    v.disablePictureInPicture = true; v.disableRemotePlayback = true;
+    v.addEventListener('volumechange', function () { if (!v.muted) v.muted = true; });
+    v.setAttribute('aria-label', 'The Studio — ' + ep.title);
+    var usePortrait = portrait && ep.videoPortrait;
+    v.poster = (usePortrait && ep.posterPortrait) || ep.poster || '';
+    v.dataset.src = usePortrait ? ep.videoPortrait : ep.video;
+    if (i === 0) { v.src = v.dataset.src; v.preload = 'auto'; v.load(); } else v.preload = 'none';
+    var nudge = function () { if (slides[cur] && slides[cur].v === v && v.paused && !heroHeld) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } };
+    ['loadedmetadata', 'loadeddata', 'canplay'].forEach(function (ev) { v.addEventListener(ev, nudge); });
+    deck.appendChild(v);
+    var seg = document.createElement('span'); seg.className = 'seg'; seg.appendChild(document.createElement('i')); segsEl.appendChild(seg);
+    return { ep: ep, v: v, seg: seg };
+  });
+  var cur = -1, timer, heroHeld = false;
+  function show(i) {
+    var prev = slides[cur];
+    cur = (i + slides.length) % slides.length;
+    var s = slides[cur];
+    if (prev && prev !== s) { prev.v.classList.remove('is-on'); prev.v.pause(); }
+    s.v.classList.add('is-on');
+    if (!s.v.src) { s.v.src = s.v.dataset.src; s.v.preload = 'auto'; s.v.load(); }
+    var ahead = slides[(cur + 1) % slides.length].v;
+    if (!ahead.src) { ahead.src = ahead.dataset.src; ahead.preload = 'auto'; ahead.load(); }
+    if (!heroHeld) { s.v.muted = true; var p = s.v.play(); if (p && p.catch) p.catch(function () {}); }
+    slides.forEach(function (x, k) { x.seg.classList.toggle('is-done', k < cur); x.seg.classList.remove('is-on'); });
+    void s.seg.offsetWidth; s.seg.classList.add('is-on');
+    heroEp.textContent = 'Series · ' + s.ep.title;
+    watch.innerHTML = 'Watch ' + s.ep.title + ' <span class="arr">→</span>';
+    arm();
+  }
+  function arm() { clearTimeout(timer); if (document.hidden || slides.length < 2) return; timer = setTimeout(function () { show(cur + 1); }, SLIDE_MS); }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) clearTimeout(timer); else arm(); });
+  var x0 = null;
+  deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', function (e) { if (x0 == null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 48) show(cur + (dx < 0 ? 1 : -1)); }, { passive: true });
+  var ambient = function () { var s = slides[cur]; if (s && s.v.paused && !heroHeld) { s.v.muted = true; var p = s.v.play(); if (p && p.catch) p.catch(function () {}); } };
+  var unlock = function () { ambient(); ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) { window.removeEventListener(ev, unlock); }); };
+  ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) { window.addEventListener(ev, unlock, { passive: true }); });
+  show(0);
+  var hero = { pause: function () { heroHeld = true; clearTimeout(timer); slides.forEach(function (x) { x.v.pause(); }); }, resume: function () { heroHeld = false; ambient(); arm(); } };
+
+  /* player */
+  var player = el('player'), vid = el('epVideo'), list = el('epList'), sound = el('epSound');
+  var cur = -1;
+  function load(i, play) {
+    var ep = EPISODES[i]; if (!ep) return;
+    cur = i; introFor = -1; syncNav();
+    var usePortrait = portrait && ep.videoPortrait;
+    player.classList.toggle('is-portrait', !!usePortrait);
+    /* the series card that shows before play matches the player's shape: 9:16 on a phone, 16:9 elsewhere */
+    el('epIntro').src = usePortrait ? '/assets/img/the-studio-poster-vertical.jpg' : '/assets/og/the-studio-landscape.jpg';
+    vid.poster = (usePortrait && ep.posterPortrait) || ep.poster || '';
+    vid.src = usePortrait ? ep.videoPortrait : ep.video;
+    vid.preload = play ? 'auto' : 'none';   /* the poster shows; nothing downloads until Play */
+    vid.load();
+    el('epTitle').textContent = 'The Studio · ' + ep.title;
+    el('epMeta').textContent = ep.sub || '';
+    Array.prototype.forEach.call(list.children, function (b) { if (b.dataset.k === undefined) return; var on = +b.dataset.k === i; b.classList.toggle('is-on', on); var st = b.querySelector('.state'); if (st) st.textContent = on ? 'Now playing' : 'Watch'; if (on && play) railShow(b); });
+    if (play) { hero.pause(); vid.muted = false; sound.setAttribute('aria-pressed', 'true'); sound.textContent = 'Sound on'; var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
+  }
+  /* newest first, then the ones still to come in order */
+  var order = [];
+  for (var k = EPISODES.length - 1; k >= 0; k--) order.push({ k: k });
+  for (var q = EPISODES.length + 1; q <= TOTAL; q++) order.push({ soon: q });
+  order.forEach(function (o) {
+    var n = o.k !== undefined ? o.k + 1 : o.soon;
+    var num = (n < 10 ? '0' : '') + n;
+    var b = document.createElement(o.k !== undefined ? 'button' : 'div');
+    b.className = 'ep ' + (o.k !== undefined ? 'is-live' : 'is-soon');
+    b.setAttribute('role', 'listitem');
+    if (o.k !== undefined) {
+      var ep = EPISODES[o.k];
+      b.type = 'button'; b.dataset.k = o.k; b.setAttribute('aria-label', 'Play The Studio episode ' + num);
+      b.innerHTML = '<span class="art"><img src="' + (ep.poster || '') + '" alt="" loading="lazy" decoding="async"><span class="slash"></span></span><span class="cap"><span class="no">E' + num + '</span><span class="state">Watch</span></span>';
+      b.addEventListener('click', function () { load(o.k, true); player.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+    } else {
+      b.setAttribute('aria-label', 'Episode ' + num + ', coming soon');
+      b.innerHTML = '<span class="art"></span><span class="cap"><span class="no">E' + num + '</span><span class="state">Coming soon</span></span>';
+    }
+    list.appendChild(b);
+  });
+  /* arrows and the playing tile keep the rail in step */
+  var mq = window.matchMedia('(max-width: 900px)');
+  el('railPrev').textContent = '←'; el('railNext').textContent = '→';
+  function railBy(d) {
+    var t = list.firstElementChild; if (!t) return;
+    if (mq.matches) list.scrollBy({ left: d * (t.offsetWidth + 10), behavior: 'smooth' });
+    else list.scrollBy({ top: d * (t.offsetHeight + 14), behavior: 'smooth' });
+  }
+  /* the arrows step the player to the previous / next episode: a film that is playing carries on into the next one */
+  function stepEp(d) {
+    var t = cur + d; if (t < 0 || t >= EPISODES.length) return;
+    var playing = !vid.paused && !vid.ended;
+    load(t, playing);
+    var tile = null; Array.prototype.forEach.call(list.children, function (b) { if (b.dataset.k !== undefined && +b.dataset.k === t) tile = b; });
+    railShow(tile);
+  }
+  function syncNav() {
+    el('epCount').textContent = (cur + 1 < 10 ? '0' : '') + (cur + 1) + ' / ' + (TOTAL < 10 ? '0' : '') + TOTAL;
+    el('railPrev').disabled = cur <= 0; el('railNext').disabled = cur >= EPISODES.length - 1;
+  }
+  el('railPrev').addEventListener('click', function () { stepEp(-1); });
+  el('railNext').addEventListener('click', function () { stepEp(1); });
+  function railShow(b) {
+    if (!b) return;
+    if (mq.matches) list.scrollTo({ left: b.offsetLeft - list.offsetLeft, behavior: 'smooth' });
+    else list.scrollTo({ top: b.offsetTop - list.offsetTop, behavior: 'smooth' });
+  }
+  load(EPISODES.length - 1, false);
+  sound.addEventListener('click', function () { vid.muted = !vid.muted; sound.setAttribute('aria-pressed', String(!vid.muted)); sound.textContent = vid.muted ? 'Sound off' : 'Sound on'; });
+  vid.addEventListener('volumechange', function () { sound.setAttribute('aria-pressed', String(!vid.muted)); sound.textContent = vid.muted ? 'Sound off' : 'Sound on'; });
+  /* The series card shows for a moment before each episode plays: the first
+     play of an episode is held, the card fades up, and playback resumes after
+     it. The element is already unlocked by the viewer's press, so the resume
+     is allowed on phones too. */
+  var INTRO_MS = 1500, intro = el('epIntro'), introFor = -1, introBusy = false;
+  vid.addEventListener('play', function () {
+    hero.pause();
+    if (introBusy || introFor === cur || vid.currentTime > 0.5) { introFor = cur; return; }
+    introBusy = true; vid.pause(); intro.classList.add('is-on');
+    setTimeout(function () {
+      intro.classList.remove('is-on'); introFor = cur; introBusy = false;
+      var q = vid.play(); if (q && q.catch) q.catch(function () {});
+    }, INTRO_MS);
+  });
+  vid.addEventListener('pause', function () { hero.resume(); });
+  el('epFull').addEventListener('click', function () { if (vid.requestFullscreen) vid.requestFullscreen(); else if (vid.webkitEnterFullscreen) vid.webkitEnterFullscreen(); });
+  watch.addEventListener('click', function (e) { e.preventDefault(); load(EPISODES.indexOf(slides[cur].ep), true); player.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+
+  /* cast */
+  var row = el('castRow');
+  CAST.forEach(function (c) {
+    var a = document.createElement(c.deck ? 'a' : 'div'); a.className = 'member'; if (c.deck) a.href = c.deck;
+    var face = document.createElement('div'); face.className = 'face' + (c.pair ? ' pair' : '');
+    if (c.pair) c.pair.forEach(function (src) { var im = document.createElement('img'); im.src = src; im.alt = ''; im.loading = 'lazy'; face.appendChild(im); });
+    else if (c.img) { var im = document.createElement('img'); im.src = c.img; im.alt = ''; im.loading = 'lazy'; im.style.objectPosition = c.pos || '50% 30%'; face.appendChild(im); }
+    else { var band = document.createElement('span'); band.className = 'band'; face.appendChild(band); var m = document.createElement('span'); m.className = 'mark'; m.textContent = c.mark || c.name; face.appendChild(m); }
+    var who = document.createElement('div'); who.className = 'who';
+    who.innerHTML = '<span class="card-title">' + c.name + '</span><span class="role mono">' + c.role + '</span>';
+    a.appendChild(face); a.appendChild(who); row.appendChild(a);
+  });
+
+  /* from the set */
+  if (FRAMES.length) {
+    var sec = el('set'), stage = el('setStage'), cap = el('setCap'); sec.hidden = false;
+    var imgs = FRAMES.map(function (f, i) { var im = document.createElement('img'); im.src = f.src; im.alt = f.caption || ''; im.loading = i ? 'lazy' : 'eager'; stage.appendChild(im); return im; });
+    var si = 0, frameTimer;
+    function showFrame(i) { si = (i + FRAMES.length) % FRAMES.length; imgs.forEach(function (im, k) { im.classList.toggle('is-on', k === si); }); cap.textContent = (si < 9 ? '0' : '') + (si + 1) + ' / ' + (FRAMES.length < 10 ? '0' : '') + FRAMES.length + (FRAMES[si].caption ? ' · ' + FRAMES[si].caption : ''); clearTimeout(frameTimer); frameTimer = setTimeout(function () { showFrame(si + 1); }, 3000); }
+    el('setCount').textContent = (FRAMES.length < 10 ? '0' : '') + FRAMES.length + ' frames';
+    el('setPrev').addEventListener('click', function () { showFrame(si - 1); });
+    el('setNext').addEventListener('click', function () { showFrame(si + 1); });
+    /* the arrow keys turn the frames while they are on screen (and nothing else has them) */
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      if (document.body.classList.contains('lb-open') || document.body.classList.contains('menu-open')) return;
+      var t = e.target.tagName; if (t === 'INPUT' || t === 'TEXTAREA' || t === 'VIDEO') return;
+      var r = el('set').getBoundingClientRect();
+      if (r.bottom < innerHeight * 0.25 || r.top > innerHeight * 0.75) return;
+      showFrame(si + (e.key === 'ArrowLeft' ? -1 : 1));
+    });
+    showFrame(0);
+  }
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

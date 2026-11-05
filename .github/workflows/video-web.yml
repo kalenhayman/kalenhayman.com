@@ -1,0 +1,54 @@
+name: Web video
+
+# On demand: fetches a film from Blob and writes a web copy to
+# assets/video/<name>.mp4 — H.264 + AAC, the moov atom at the front so it
+# starts playing before it has finished downloading, the long side capped.
+# Plays in every browser, whatever the master was (HEVC, ProRes, .mov).
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Source film URL
+        required: true
+      name:
+        description: Output name (assets/video/<name>.mp4)
+        required: true
+      size:
+        description: Longest side in pixels
+        default: "1920"
+      crf:
+        description: H.264 quality (lower is better, 20-26)
+        default: "23"
+      mode:
+        description: encode (H.264 re-encode) or remux (already H.264 — only move the index to the front, no quality change)
+        default: encode
+
+permissions:
+  contents: write
+
+jobs:
+  encode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Encode
+        run: |
+          curl -sSL -o /tmp/src "${{ github.event.inputs.url }}"
+          mkdir -p assets/video
+          S=${{ github.event.inputs.size }}
+          if [ "${{ github.event.inputs.mode }}" = "remux" ]; then
+            ffmpeg -v error -y -i /tmp/src -map 0 -c copy -movflags +faststart "assets/video/${{ github.event.inputs.name }}.mp4"
+          else
+          ffmpeg -v error -y -i /tmp/src -map 0:v:0 -map 0:a:0? \
+            -vf "scale='if(gt(iw,ih),min($S,iw),-2)':'if(gt(iw,ih),-2,min($S,ih))',format=yuv420p" \
+            -c:v libx264 -profile:v high -preset slow -crf ${{ github.event.inputs.crf }} -maxrate 6M -bufsize 12M \
+            -c:a aac -b:a 128k -movflags +faststart "assets/video/${{ github.event.inputs.name }}.mp4"
+          fi
+          ffprobe -v error -show_entries stream=codec_name,width,height:format=duration,size -of compact "assets/video/${{ github.event.inputs.name }}.mp4"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/video
+          git diff --cached --quiet || (git commit -m "Web video: ${{ github.event.inputs.name }}" && git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME})

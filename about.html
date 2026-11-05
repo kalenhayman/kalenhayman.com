@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — AVA</title>
+<meta name="description" content="Kalen Hayman. 20 years. Vancouver, working worldwide. This is my design studio.">
+<link rel="canonical" href="https://www.avadesign.studio/about">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AVA">
+<meta property="og:title" content="About — AVA">
+<meta property="og:description" content="Kalen Hayman. 20 years. Vancouver, working worldwide. This is my design studio.">
+<meta property="og:url" content="https://www.avadesign.studio/about">
+<meta property="og:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — AVA">
+<meta name="twitter:description" content="Kalen Hayman. 20 years. Vancouver, working worldwide. This is my design studio.">
+<meta name="twitter:image" content="https://www.avadesign.studio/assets/og/home.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+.about { padding: calc(var(--nav-h) + clamp(28px, 5vw, 72px)) var(--gutter) clamp(48px, 7vw, 112px); display: grid; grid-template-columns: minmax(280px, 5fr) 7fr; gap: clamp(28px, 5vw, 80px); align-items: end; }
+.portrait { position: relative; margin: 0; aspect-ratio: 4 / 5; background: #0a0a0a; border: 1px solid rgba(235,235,234,.16); overflow: hidden; }
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+.portrait .band { position: absolute; left: -20%; right: -20%; top: 46%; height: 9%; background: var(--neon); transform: rotate(-9deg); }
+.portrait.has-photo .band { display: none; }
+.portrait figcaption { position: absolute; left: 18px; bottom: 16px; color: var(--bone); }
+.about-copy .h1 { font-size: clamp(48px, 7.4vw, 118px); margin: 0; }
+.about-line { color: var(--sand); margin: clamp(20px, 3vw, 36px) 0 clamp(24px, 3vw, 40px); font-size: 12px; }
+.exp { border-top: 1px solid rgba(235,235,234,.12); padding: clamp(32px, 4vw, 56px) 0 clamp(56px, 8vw, 120px); overflow: hidden; }
+.exp .eyebrow { padding: 0 var(--gutter); margin-bottom: clamp(18px, 2.4vw, 32px); }
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; align-items: center; gap: 0; font-size: clamp(56px, 11vw, 160px); line-height: 1; padding-left: var(--gutter); animation: slide 38s linear infinite; }
+.marquee-track i { display: inline-block; width: 14px; height: 14px; background: var(--neon); margin: 0 clamp(24px, 3vw, 56px); transform: skewX(-18deg); }
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* ---------- credentials: the résumé, set in the site's own type ---------- */
+.cv { padding: 0 var(--gutter) clamp(64px, 9vw, 140px); }
+.cv-block { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 12px clamp(24px, 4vw, 64px); padding: clamp(32px, 4vw, 56px) 0; border-top: 1px solid rgba(235,235,234,.12); }
+.cv-block .eyebrow { margin: 0; align-self: start; }
+.cv-block--wide { grid-template-columns: 1fr; }
+.cv-block--wide .eyebrow { margin-bottom: 8px; }
+.cv-lede { margin: 0; font-size: clamp(18px, 1.7vw, 24px); line-height: 1.5; color: var(--bone); max-width: 52ch; text-wrap: pretty; }
+.skills { margin: 0; }
+.sk { display: grid; grid-template-columns: minmax(120px, 200px) 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(235,235,234,.1); align-items: baseline; }
+.sk:first-child { padding-top: 0; }
+.sk dt { font-size: clamp(18px, 1.8vw, 24px); }
+.sk dd { margin: 0; color: var(--sand); font-size: 15px; line-height: 1.6; }
+.sk dd i { font-style: normal; color: rgba(235,235,234,.25); margin: 0 4px; }
+.cr-head, .cr { display: grid; grid-template-columns: 64px minmax(0, 5fr) minmax(0, 3fr) minmax(0, 3fr); gap: 16px; }
+.cr-head { color: var(--sand); padding: 12px 0; border-bottom: 1px solid rgba(235,235,234,.12); font-size: 10px; }
+.cr-head span:last-child, .cr-c { text-align: right; }
+.cr-group { display: flex; align-items: center; gap: 14px; font-size: clamp(22px, 2.4vw, 34px); margin: clamp(26px, 3vw, 40px) 0 6px; }
+.cr-group::before { content: ""; width: 12px; height: 12px; background: var(--neon); flex: 0 0 auto; }
+.cr-group::after { content: ""; flex: 1; height: 1px; background: rgba(235,235,234,.12); }
+.cr-list { list-style: none; margin: 0; padding: 0; }
+.cr { padding: 12px 0; border-bottom: 1px solid rgba(235,235,234,.08); align-items: baseline; font-size: 15px; line-height: 1.45; transition: background .25s var(--ease); }
+.cr:hover { background: rgba(235,235,234,.03); }
+.cr-y { color: var(--sand); font-size: 11px; }
+.cr-t b { font-weight: 600; color: var(--bone); }
+.cr-t a { color: var(--bone); border-bottom: 1px solid var(--neon); }
+.cr-t a:hover { color: var(--neon); }
+.cr-t .tag { display: inline-block; vertical-align: 2px; margin-left: 8px; padding: 3px 6px; border: 1px solid rgba(235,235,234,.3); font-style: normal; font-size: 9px; letter-spacing: .16em; color: var(--sand); white-space: nowrap; }
+.cr-r { color: var(--bone); }
+.cr-c { color: var(--sand); }
+.edu { display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; align-items: baseline; }
+.edu .display { font-size: clamp(22px, 2.4vw, 34px); }
+.edu .mono { color: var(--sand); }
+.edu p { grid-column: 1 / -1; margin: 0; color: var(--sand); font-size: 15px; }
+@media (max-width: 900px) {
+  .cv-block { grid-template-columns: 1fr; }
+  .cr-head { display: none; }
+  .cr { grid-template-columns: 44px 1fr; gap: 4px 12px; }
+  .cr-r, .cr-c { grid-column: 2; text-align: left; font-size: 14px; }
+  .sk { grid-template-columns: 1fr; gap: 6px; }
+  .edu { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) { .about { grid-template-columns: 1fr; align-items: start; } .portrait { max-width: 320px; } }
+/* Standing still, the names stack one per line, flush left, no dividers. */
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; flex-direction: column; align-items: flex-start; white-space: normal; padding-right: var(--gutter); line-height: 1.02; } .marquee-track i { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="AVA — home"><img src="/assets/ava-primary-neon-trim.png" alt="AVA" width="2400" height="1170"></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <section class="about" id="about">
+    <figure class="portrait" id="portrait">
+      <span class="band" aria-hidden="true"></span>
+      <figcaption class="mono"><span class="dot">Kalen Hayman</span></figcaption>
+    </figure>
+    <div class="about-copy">
+      <h1 class="h1 display">I’m Kalen.<br>This is my<br>design studio.</h1>
+      <p class="mono about-line">20 years. Vancouver. Working worldwide.</p>
+      <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    </div>
+  </section>
+  <section class="exp" aria-label="Selected clients">
+    <div class="eyebrow mono"><span class="dot">01 · Selected clients</span></div>
+    <div class="marquee" id="marquee">
+      <div class="marquee-track display">
+        <span>Kyle Kuzma</span><i></i><span>Sony Music</span><i></i><span>Warner Music</span><i></i><span>Universal Music</span><i></i><span>Justin Bieber</span><i></i><span>MuchMusic</span><i></i><span>CBC</span><i></i><span>Cineplex</span><i></i><span>LCBO</span><i></i><span>Wrigley</span><i></i><span>Winners</span><i></i><span>Jim Beam</span><i></i><span>Red Bull</span><i></i><span>MSN</span><i></i><span>Tourism Toronto</span><i></i>
+      </div>
+    </div>
+  </section>
+  <section class="cv" aria-label="Credentials">
+    <div class="cv-block">
+      <div class="eyebrow mono"><span class="dot">02 · Profile</span></div>
+      <p class="cv-lede">Producer, director and photographer. Twenty years in traditional video and photo production across music video, broadcast, branded content and live events. Since 2025, I’ve been designing and directing AI productions, including the Aurora × Kyle Kuzma brand film.</p>
+    </div>
+    <div class="cv-block">
+      <div class="eyebrow mono"><span class="dot">03 · Skills</span></div>
+      <dl class="skills">
+        <div class="sk"><dt class="display">Production</dt><dd>Producing <i>/</i> Directing <i>/</i> Contract writing <i>/</i> Live stream <i>/</i> Music video <i>/</i> Branded content</dd></div>
+        <div class="sk"><dt class="display">Camera &amp; post</dt><dd>Cinematography <i>/</i> Photography <i>/</i> Editing <i>/</i> Premiere Pro <i>/</i> CapCut <i>/</i> Lightroom</dd></div>
+        <div class="sk"><dt class="display">AI</dt><dd>Image-to-video <i>/</i> AI avatars <i>/</i> Midjourney <i>/</i> Seedance <i>/</i> Runway <i>/</i> Magnific <i>/</i> ElevenLabs</dd></div>
+        <div class="sk"><dt class="display">Creative</dt><dd>Concept development <i>/</i> Writing <i>/</i> Visual storytelling <i>/</i> Design <i>/</i> Client management</dd></div>
+      </dl>
+    </div>
+    <div class="cv-block cv-block--wide">
+      <div class="eyebrow mono"><span class="dot">04 · Credits</span><span>2026 — 2007</span></div>
+      <div class="cr-head mono" aria-hidden="true"><span>Year</span><span>Production</span><span>Role</span><span>Company / client</span></div>
+      <h3 class="cr-group display">Creative &amp; design</h3>
+      <ul class="cr-list">
+      <li class="cr"><span class="cr-y mono">2026</span><span class="cr-t"><b>Dupixent commercial spots</b> <em class="tag mono">AI production</em></span><span class="cr-r">Motion Picture Designer</span><span class="cr-c">Dupixent</span></li>
+      <li class="cr"><span class="cr-y mono">2026</span><span class="cr-t"><b><a href="/aurora">Aurora × Kyle Kuzma brand film <span class="arr">→</span></a></b> <em class="tag mono">AI production</em></span><span class="cr-r">Lead Designer</span><span class="cr-c">Aurora</span></li>
+      <li class="cr"><span class="cr-y mono">2026</span><span class="cr-t"><b><a href="/the-studio">The STUDIO <span class="arr">→</span></a></b> <em class="tag mono">AI pilot web series</em></span><span class="cr-r">Writer / Director / Designer</span><span class="cr-c">Independent</span></li>
+      </ul>
+      <h3 class="cr-group display">Producing &amp; directing</h3>
+      <ul class="cr-list">
+      <li class="cr"><span class="cr-y mono">2019</span><span class="cr-t"><b>Corporate commercial spot</b> <em class="tag mono">Commercial</em></span><span class="cr-r">Producer / Director</span><span class="cr-c">Menkes Developments</span></li>
+      <li class="cr"><span class="cr-y mono">2015</span><span class="cr-t"><b>“Black to Gold” / Dear Rouge</b> <em class="tag mono">Music video</em></span><span class="cr-r">Music Video Producer</span><span class="cr-c">Universal Music / GLK Inc.</span></li>
+      <li class="cr"><span class="cr-y mono">2013</span><span class="cr-t"><b>“The Devil Put Dinosaurs Here” / Alice in Chains</b> <em class="tag mono">Music video</em></span><span class="cr-r">Music Video Producer</span><span class="cr-c">Sony Records</span></li>
+      <li class="cr"><span class="cr-y mono">2013</span><span class="cr-t"><b>“I Was a Fool” / Tegan and Sara</b> <em class="tag mono">Lyric video</em></span><span class="cr-r">Lyric Video Producer</span><span class="cr-c">Warner Bros. Records / GLK Inc.</span></li>
+      <li class="cr"><span class="cr-y mono">2011</span><span class="cr-t"><b>Tourism Toronto</b> <em class="tag mono">Promo</em></span><span class="cr-r">Promo Segment Producer</span><span class="cr-c">Tourism Toronto</span></li>
+      <li class="cr"><span class="cr-y mono">2010</span><span class="cr-t"><b>Wrigley Gum: The Road to Olympics</b> <em class="tag mono">Content capture</em></span><span class="cr-r">Video Producer</span><span class="cr-c">Brand Momentum / 2010 Winter Olympics</span></li>
+      <li class="cr"><span class="cr-y mono">2009</span><span class="cr-t"><b>MSN Entertainment</b> <em class="tag mono">Web series</em></span><span class="cr-r">Video Producer</span><span class="cr-c">MSN Entertainment</span></li>
+      <li class="cr"><span class="cr-y mono">2009</span><span class="cr-t"><b>World Gaming Network</b> <em class="tag mono">Livestream event</em></span><span class="cr-r">Segment Producer</span><span class="cr-c">Cineplex Entertainment</span></li>
+      <li class="cr"><span class="cr-y mono">2009</span><span class="cr-t"><b>CBC Canada Reads</b> <em class="tag mono">Web series</em></span><span class="cr-r">Video Producer</span><span class="cr-c">CBC</span></li>
+      <li class="cr"><span class="cr-y mono">2008</span><span class="cr-t"><b>Rockstar Supermodel</b> <em class="tag mono">TV special</em></span><span class="cr-r">Producer</span><span class="cr-c">MuchMusic / CTV BellMedia</span></li>
+      <li class="cr"><span class="cr-y mono">2008</span><span class="cr-t"><b>Winners sponsored segment</b> <em class="tag mono">TV segment</em></span><span class="cr-r">Producer / Segment Producer</span><span class="cr-c">MuchMusic / CTV BellMedia</span></li>
+      <li class="cr"><span class="cr-y mono">2007</span><span class="cr-t"><b>Danzka Vodka</b> <em class="tag mono">Commercial</em></span><span class="cr-r">Director / Producer</span><span class="cr-c">Danzka</span></li>
+      <li class="cr"><span class="cr-y mono">2009</span><span class="cr-t"><b>Cross-Canada music tour</b> <em class="tag mono">Web series</em></span><span class="cr-r">Content Producer</span><span class="cr-c">Jim Beam</span></li>
+      <li class="cr"><span class="cr-y mono">2008</span><span class="cr-t"><b>University recruitment video</b> <em class="tag mono">Promo</em></span><span class="cr-r">Video Producer</span><span class="cr-c">Red Bull</span></li>
+      </ul>
+      <h3 class="cr-group display">Camera &amp; photography</h3>
+      <ul class="cr-list">
+      <li class="cr"><span class="cr-y mono">2016</span><span class="cr-t"><b>Bodyguards: Secret Lives from the Watchtower — Justin Bieber segment</b> <em class="tag mono">Documentary</em></span><span class="cr-r">Director of Photography</span><span class="cr-c">—</span></li>
+      <li class="cr"><span class="cr-y mono">2009</span><span class="cr-t"><b>TIFF red carpet events</b> <em class="tag mono">Event coverage</em></span><span class="cr-r">Commercial Photographer</span><span class="cr-c">INK Entertainment</span></li>
+      </ul>
+      <h3 class="cr-group display">Live event &amp; broadcast</h3>
+      <ul class="cr-list">
+      <li class="cr"><span class="cr-y mono">2018</span><span class="cr-t"><b>E-commerce live event broadcast</b> <em class="tag mono">Live stream</em></span><span class="cr-r">Livestream Producer / Director</span><span class="cr-c">The Sazerac Bourbon</span></li>
+      <li class="cr"><span class="cr-y mono">2018</span><span class="cr-t"><b>Boobyball breast cancer fundraiser</b> <em class="tag mono">Live stream</em></span><span class="cr-r">Live Stream Producer / Director / Host</span><span class="cr-c">LivecastLIVE</span></li>
+      </ul>
+    </div>
+    <div class="cv-block">
+      <div class="eyebrow mono"><span class="dot">05 · Education</span></div>
+      <div class="edu"><span class="display">Academy of Art University</span><span class="mono">1999 — 2002</span><p>BA Media Studies coursework · San Francisco, CA</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>AVA · A design studio.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:hello@avadesign.studio">hello@avadesign.studio</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  /* One portrait. Drop a URL in and the neon band gives way to it. */
+  var PORTRAIT = 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KAI/KAI%20AVATAR%20hero%201.png';
+  var fig = document.getElementById('portrait');
+  if (PORTRAIT) { var img = document.createElement('img'); img.src = PORTRAIT; img.alt = 'Kalen Hayman'; img.decoding = 'async'; fig.insertBefore(img, fig.firstChild); fig.classList.add('has-photo'); }
+  /* The moving marquee needs the names twice so the seam never shows. With
+     Reduce Motion on it stands still, so each name appears once. */
+  var t = document.querySelector('.marquee-track');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) t.innerHTML += t.innerHTML;
+  else t.lastElementChild.remove();
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+name: Video audit
+
+# On demand: for each URL in scripts/video-urls.txt reports size, duration,
+# bitrate, resolution, codec/profile, and whether the moov atom sits at the
+# front of the file (faststart) — the things that decide how fast a phone
+# can start playing.
+on:
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Audit
+        run: |
+          while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            name=$(printf '%s' "$u" | sed 's|.*/||; s|%20| |g' | cut -c1-48)
+            size=$(curl -sI -L "$u" | tr -d '\r' | awk 'tolower($1)=="content-length:"{s=$2} END{print s}')
+            first=$(curl -s -r 0-262143 "$u" | LC_ALL=C grep -abo -m1 -E 'moov|mdat' | head -1 | cut -d: -f2)
+            info=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,codec_name,profile,pix_fmt,avg_frame_rate:format=duration,bit_rate -of csv=p=0 "$u" 2>&1 | tr '\n' ' ')
+            echo "AUDIT|$name|bytes=$size|first_atom_in_256KB=${first:-none}|$info"
+          done < scripts/video-urls.txt

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVA — Treatment</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A content treatment prepared by AVA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<meta name="theme-color" content="#000000">
+<style>
+:root {
+  --neon: #D8FE00;
+  --ink: #000000;
+  --bone: #EBEBEA;
+  --sand: #7A7A78;
+  --paper: #FFFFFF;
+  --hairline-dark: #1a1a1a;
+  --hairline-light: #c9c9c7;
+  --font-display: 'Archivo Black', sans-serif;
+  --font-strip: 'Archivo Narrow', sans-serif;
+  --font-body: Archivo, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--ink); color: var(--bone);
+  font-family: var(--font-body); overflow-x: clip;
+}
+a { color: var(--neon); text-decoration: none; }
+a:hover { color: var(--bone); }
+h1, h2, h3 { margin: 0; }
+p { margin: 0; }
+::selection { background: var(--neon); color: var(--ink); }
+
+/* chrome */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 40px; background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(10px); border-bottom: 1px solid #141414;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; }
+.nav-brand img { height: 34px; width: 34px; display: block; }
+.mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sand); }
+.nav-back { font-family: var(--font-strip); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); }
+.nav-back:hover { color: var(--neon); }
+
+.section { padding: clamp(64px,9vw,120px) 40px; border-bottom: 1px solid #141414; }
+.section--light { background: var(--bone); color: var(--ink); border-bottom: none; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+
+.kicker {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--sand);
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.section--light .kicker { color: #6a6a68; }
+.kicker .dot { color: var(--neon); }
+
+.display {
+  font-family: var(--font-display); line-height: 0.96; letter-spacing: -0.03em;
+  font-size: clamp(34px, 5vw, 74px); text-transform: uppercase; text-wrap: balance;
+}
+.display .accent { color: var(--neon); }
+.section--light .display { color: var(--ink); }
+
+.lede { max-width: 60ch; font-size: clamp(17px,2.1vw,20px); line-height: 1.6; color: var(--sand); text-wrap: pretty; }
+.section--light .lede { color: #2a2a29; }
+
+/* masthead */
+.mast { display: flex; flex-direction: column; gap: 26px; padding-top: 40px; }
+.mast-meta { display: flex; flex-wrap: wrap; gap: 8px 28px; border-top: 1px solid var(--hairline-dark); padding-top: 20px; }
+.mast-meta div { display: flex; flex-direction: column; gap: 6px; }
+.mast-meta .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand); }
+.mast-meta .v { font-family: var(--font-strip); font-weight: 600; font-size: 15px; letter-spacing: 0.04em; }
+
+/* direction definition grid */
+.h2 { font-family: var(--font-display); font-size: clamp(24px,3vw,40px); text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.04; }
+.defs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--hairline-light); margin-top: 34px; border: 1px solid var(--hairline-light); }
+.def { background: var(--bone); padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; }
+.def .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6a6a68; }
+.def .v { font-family: var(--font-strip); font-weight: 700; font-size: clamp(15px,2vw,18px); letter-spacing: 0.02em; color: var(--ink); text-transform: uppercase; }
+
+/* approach bullets */
+.approach { margin-top: 30px; display: flex; flex-direction: column; }
+.approach .row { border-top: 1px solid var(--hairline-dark); padding: 20px 0; display: grid; grid-template-columns: 46px 1fr; gap: 18px; align-items: start; }
+.approach .row:last-child { border-bottom: 1px solid var(--hairline-dark); }
+.approach .no { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; color: var(--neon); padding-top: 3px; }
+.approach .txt { font-size: clamp(15px,2vw,17px); line-height: 1.6; color: var(--bone); max-width: 60ch; }
+
+/* deliverables rows */
+.rows { display: flex; flex-direction: column; margin-top: 30px; }
+.drow { border-top: 1px solid var(--hairline-light); padding: 18px 0; display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: baseline; }
+.drow:last-child { border-bottom: 1px solid var(--hairline-light); }
+.drow .ch { font-family: var(--font-strip); font-weight: 700; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); }
+.drow .wh { font-size: 15px; line-height: 1.55; color: #2a2a29; max-width: 54ch; }
+
+/* four phases */
+.phases { display: grid; grid-template-columns: 1fr; margin-top: 34px; }
+.phase { position: relative; border-top: 1px solid var(--hairline-light); padding: 17px 0 21px; }
+.phase i { position: absolute; top: -2px; left: 0; height: 3px; width: 40px; background: var(--neon); display: block; }
+.phase-no { font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em; color: #6a6a68; }
+.phase-name { font-family: var(--font-strip); font-weight: 700; font-size: 14px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); margin-top: 11px; }
+.phase-does { font-size: 15px; color: #2a2a29; margin-top: 10px; line-height: 1.55; max-width: 42ch; }
+.phase-gets { font-size: 13.5px; color: #5c5c5a; margin-top: 9px; line-height: 1.5; max-width: 42ch; }
+.phase-gets b { color: var(--ink); font-weight: 600; }
+@media (min-width: 900px) {
+  .phases { grid-template-columns: repeat(4, 1fr); column-gap: 26px; }
+  .phase:nth-child(2) { margin-top: 24px; }
+  .phase:nth-child(3) { margin-top: 48px; }
+  .phase:nth-child(4) { margin-top: 72px; }
+}
+
+/* growth cycle */
+.cycle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
+.stage { border: 1px solid var(--hairline-light); padding: 24px 22px; display: flex; flex-direction: column; gap: 12px; background: var(--paper); }
+.stage .st-no { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6a6a68; }
+.stage .st-name { font-family: var(--font-display); font-size: 20px; text-transform: uppercase; letter-spacing: -0.01em; color: var(--ink); line-height: 1.05; }
+.stage .st-price { font-family: var(--font-strip); font-weight: 700; font-size: 22px; color: var(--ink); }
+.stage .st-note { font-size: 13.5px; line-height: 1.5; color: #4a4a48; }
+.cycle-note { font-size: 13.5px; color: #5c5c5a; margin-top: 22px; max-width: 62ch; line-height: 1.55; }
+
+/* cta */
+.btn { display: inline-block; background: var(--neon); color: var(--ink); font-family: var(--font-strip); font-weight: 700; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding: 15px 28px; border: 1px solid var(--neon); cursor: pointer; transition: background 300ms ease-out, color 300ms ease-out, border-color 300ms ease-out; }
+.btn:hover { background: var(--bone); border-color: var(--bone); color: var(--ink); }
+.btn--ghost { background: transparent; color: var(--bone); border-color: #2a2a2a; }
+.btn--ghost:hover { color: var(--neon); border-color: var(--neon); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.fineprint { font-size: 13px; color: var(--sand); margin-top: 26px; max-width: 60ch; line-height: 1.55; }
+
+.footer {
+  max-width: 1080px; margin: 0 auto; padding: 40px; border-top: 1px solid var(--hairline-dark);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--sand); text-transform: uppercase;
+}
+
+.footer-credit { flex-basis: 100%; color: var(--bone); }
+
+@media (max-width: 760px) {
+  .nav, .section { padding-left: 22px; padding-right: 22px; }
+  .footer { padding-left: 22px; padding-right: 22px; }
+  .defs { grid-template-columns: 1fr; }
+  .drow { grid-template-columns: 1fr; gap: 6px; }
+  .cycle { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="/">
+    <img src="/assets/badge-nav.png" alt="AVA">
+    <span class="mono">Content design studio</span>
+  </a>
+  <a class="nav-back" href="/">avadesign.studio →</a>
+</nav>
+
+<main id="doc" aria-live="polite"></main>
+
+<script>
+/* ---------------------------------------------------------------------------
+   AVA treatment renderer.
+
+   The page is template + overlay. The fixed brand content (method and
+   framing) lives here; the per-lead overlay is a small JSON published
+   at /treatments/<token>.json and addressed by the URL hash:
+       /treatment/#<token>
+   With no token, the embedded SAMPLE renders so the design is always viewable.
+   No imagery — typographic, on brand.
+   --------------------------------------------------------------------------- */
+
+var SAMPLE = {
+  form: 'production',
+  brand: 'Meridian Athletic',
+  preparedFor: 'Dana Osei',
+  date: '20 August 2026',
+  headline: ['One content system for', 'Meridian’s next season.'],
+  standfirst: 'A single direction, cast once and cut for every channel — so month three costs less than month one, and the brand looks like itself everywhere it shows up.',
+  direction: [
+    { k: 'Audience', v: 'Women 25–34' },
+    { k: 'Look', v: 'Editorial, clean' },
+    { k: 'Moment', v: 'Season launch' },
+    { k: 'Format', v: 'Hero film + stills' },
+    { k: 'Volume', v: 'Ongoing, monthly' },
+    { k: 'Timing', v: 'This quarter' },
+    { k: 'Channels', v: 'Social, Campaign, Editorial' },
+    { k: 'Team', v: 'Founder-led' }
+  ],
+  approach: [
+    'I build one visual direction — reference, palette, tone, the world it lives in — and lock it before anything is shot, so every later asset traces back to the same treatment.',
+    'One production feeds every channel. The hero film and the stills come from the same set; the cutdowns, verticals and editorial frames are pulled from that, not re-shot.',
+    'Because the system is built once, each month of content is cheaper than the last — you’re extending a set, not starting from zero every campaign.'
+  ],
+  deliverables: [
+    { ch: 'Hero film', wh: 'A single flagship film that sets the season’s tone — the piece everything else is cut from.' },
+    { ch: 'Stills', wh: 'Campaign stills from the same shoot: hero frames, product-forward frames, and portrait.' },
+    { ch: 'Social', wh: 'Vertical cutdowns and stills sized for the feed and stories, on the same look.' },
+    { ch: 'Editorial', wh: 'Long-form frames for site and press that read as one campaign, not stock.' }
+  ]
+};
+
+/* --- fixed template blocks ------------------------------------------------ */
+
+var PHASES = [
+  { no: '01', name: 'Direction', does: 'I agree what your content looks and sounds like — reference, palette, tone, the world it lives in.', gets: 'a content treatment you could hand to anyone.' },
+  { no: '02', name: 'Casting', does: 'I choose the face. From AVA Originals, or built for you.', gets: 'the cast locked — look, voice, and how they carry the brand.' },
+  { no: '03', name: 'Production', does: 'I make the work. Hero film, stills, cutdowns.', gets: 'the campaign, finished.' },
+  { no: '04', name: 'Delivery', does: 'I cut it for the places it actually goes.', gets: 'every format your channels need, ready to post.' }
+];
+
+var esc = function (s) {
+  return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+  });
+};
+
+function render(d) {
+  var isCasting = d.form === 'casting';
+  var docLabel = isCasting ? 'Casting Brief' : 'Content Treatment';
+  var head = Array.isArray(d.headline) ? d.headline : [d.headline || ''];
+
+  var defs = (d.direction || []).map(function (r) {
+    return '<div class="def"><span class="k">' + esc(r.k) + '</span><span class="v">' + esc(r.v) + '</span></div>';
+  }).join('');
+
+  var approach = (d.approach || []).map(function (t, i) {
+    return '<div class="row"><span class="no">' + ('0' + (i + 1)) + '</span><p class="txt">' + esc(t) + '</p></div>';
+  }).join('');
+
+  var deliverables = (d.deliverables || []).map(function (r) {
+    return '<div class="drow"><span class="ch">' + esc(r.ch) + '</span><p class="wh">' + esc(r.wh) + '</p></div>';
+  }).join('');
+
+  var phases = PHASES.map(function (p) {
+    return '<div class="phase"><i></i><div class="phase-no">' + p.no + '</div>' +
+      '<div class="phase-name">' + p.name + '</div>' +
+      '<p class="phase-does">' + p.does + '</p>' +
+      '<p class="phase-gets"><b>You get:</b> ' + p.gets + '</p></div>';
+  }).join('');
+
+  document.title = 'AVA — ' + docLabel + ' · ' + (d.brand || '');
+
+  document.getElementById('doc').innerHTML =
+  '<section class="section">' +
+    '<div class="wrap mast">' +
+      '<div class="kicker"><span class="dot">●</span> ' + esc(docLabel) + ' <span>·</span> Prepared for ' + esc(d.brand) + ' <span>·</span> Confidential</div>' +
+      '<h1 class="display">' + head.map(function (l, i) { return i === head.length - 1 ? '<span class="accent">' + esc(l) + '</span>' : esc(l); }).join('<br>') + '</h1>' +
+      (d.standfirst ? '<p class="lede">' + esc(d.standfirst) + '</p>' : '') +
+      '<div class="mast-meta">' +
+        '<div><span class="k">Prepared for</span><span class="v">' + esc(d.preparedFor || d.brand) + '</span></div>' +
+        '<div><span class="k">Brand</span><span class="v">' + esc(d.brand) + '</span></div>' +
+        '<div><span class="k">Date</span><span class="v">' + esc(d.date) + '</span></div>' +
+        '<div><span class="k">Document</span><span class="v">' + esc(docLabel) + '</span></div>' +
+      '</div>' +
+    '</div>' +
+  '</section>' +
+
+  '<section class="section section--light">' +
+    '<div class="wrap">' +
+      '<div class="kicker"><span class="dot">●</span> 01 · ' + (isCasting ? 'The brief you gave me' : 'Your direction') + '</div>' +
+      '<h2 class="h2" style="margin-top:18px">' + (isCasting ? 'What I heard.' : 'What you told me.') + '</h2>' +
+      '<div class="defs">' + defs + '</div>' +
+    '</div>' +
+  '</section>' +
+
+  '<section class="section">' +
+    '<div class="wrap">' +
+      '<div class="kicker"><span class="dot">●</span> 02 · The approach</div>' +
+      '<h2 class="h2" style="margin-top:18px;color:var(--bone)">' + (isCasting ? 'How I’d cast it.' : 'How I’d build it.') + '</h2>' +
+      '<div class="approach">' + approach + '</div>' +
+    '</div>' +
+  '</section>' +
+
+  '<section class="section section--light">' +
+    '<div class="wrap">' +
+      '<div class="kicker"><span class="dot">●</span> 03 · ' + (isCasting ? 'The cast' : 'What I’d make') + '</div>' +
+      '<h2 class="h2" style="margin-top:18px">' + (isCasting ? 'The face, and where it works.' : 'The deliverables.') + '</h2>' +
+      '<div class="rows">' + deliverables + '</div>' +
+    '</div>' +
+  '</section>' +
+
+  '<section class="section">' +
+    '<div class="wrap">' +
+      '<div class="kicker"><span class="dot">●</span> 04 · How it gets made</div>' +
+      '<h2 class="h2" style="margin-top:18px;color:var(--bone)">Four phases.</h2>' +
+      '<div style="background:var(--bone);color:var(--ink);margin-top:30px;padding:34px 30px">' +
+        '<div class="phases">' + phases + '</div>' +
+      '</div>' +
+    '</div>' +
+  '</section>' +
+
+  '<section class="section">' +
+    '<div class="wrap">' +
+      '<div class="kicker"><span class="dot">●</span> 05 · Next</div>' +
+      '<h2 class="h2" style="margin-top:18px;color:var(--bone)">Let’s make it.</h2>' +
+      '<p class="lede" style="color:var(--sand);margin-top:18px">This is a starting point built from your brief — not a fixed quote. Twenty minutes on the call and I’ll turn it into a real plan.</p>' +
+      '<div class="btn-row">' +
+        '<a class="btn" href="mailto:hello@avadesign.studio?subject=' + encodeURIComponent(docLabel + ' — ' + (d.brand || '')) + '">Book 20 minutes</a>' +
+        '<a class="btn btn--ghost" href="mailto:hello@avadesign.studio">Reply with questions</a>' +
+      '</div>' +
+      '<p class="fineprint">Prepared by AVA for ' + esc(d.brand) + '. Shared privately — please don’t forward.</p>' +
+    '</div>' +
+  '</section>' +
+
+  '<footer class="footer">' +
+    '<span>AVA</span>' +
+    '<span>Content design · Casting · Motion · Editorial</span>' +
+    '<span>© 2026</span>' +
+    '<span class="footer-credit">AVA · A design studio. © 2026 Kalen Hayman</span>' +
+  '</footer>';
+}
+
+(function () {
+  var token = (location.hash || '').replace(/^#/, '').trim();
+  if (!token) { render(SAMPLE); return; }
+  fetch('/treatments/' + encodeURIComponent(token) + '.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('not found'); return r.json(); })
+    .then(render)
+    .catch(function () { render(SAMPLE); });
+})();
+</script>
+
+</body>
+</html>

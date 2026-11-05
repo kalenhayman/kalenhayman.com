@@ -1,0 +1,40 @@
+name: Web image
+
+# On demand: fetches an image from Blob and writes a web-sized JPEG to
+# assets/img/<name>.jpg (longest side capped, ~85 quality, metadata stripped),
+# so a multi-megabyte PNG becomes a few hundred KB served from the site's CDN.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Source image URL
+        required: true
+      name:
+        description: Output name (assets/img/<name>.jpg)
+        required: true
+      size:
+        description: Longest side in pixels
+        default: "1800"
+
+permissions:
+  contents: write
+
+jobs:
+  resize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick >/dev/null
+      - name: Resize
+        run: |
+          curl -sSL -o /tmp/src "${{ github.event.inputs.url }}"
+          mkdir -p assets/img
+          convert /tmp/src -background white -alpha remove -alpha off -resize "${{ github.event.inputs.size }}x${{ github.event.inputs.size }}>" -strip -interlace Plane -quality 85 "assets/img/${{ github.event.inputs.name }}.jpg"
+          identify "assets/img/${{ github.event.inputs.name }}.jpg"
+          ls -la "assets/img/${{ github.event.inputs.name }}.jpg"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/img
+          git diff --cached --quiet || (git commit -m "Web image: ${{ github.event.inputs.name }}" && git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME})

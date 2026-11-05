@@ -1,0 +1,140 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/start-intake",
+      "destination": "/production-brief"
+    },
+    {
+      "source": "/kuzma",
+      "destination": "/aurora"
+    },
+    {
+      "source": "/model",
+      "has": [
+        {
+          "type": "query",
+          "key": "m",
+          "value": "kia"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|Facebot|Twitterbot|twitterbot|LinkedInBot|Slackbot|WhatsApp|Discordbot|TelegramBot|Applebot|Pinterest|SkypeUriPreview|Snapchat|Googlebot|bingbot).*"
+        }
+      ],
+      "destination": "/kia"
+    },
+    {
+      "source": "/model",
+      "has": [
+        {
+          "type": "query",
+          "key": "m",
+          "value": "raven"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|Facebot|Twitterbot|twitterbot|LinkedInBot|Slackbot|WhatsApp|Discordbot|TelegramBot|Applebot|Pinterest|SkypeUriPreview|Snapchat|Googlebot|bingbot).*"
+        }
+      ],
+      "destination": "/raven"
+    },
+    {
+      "source": "/model",
+      "has": [
+        {
+          "type": "query",
+          "key": "m",
+          "value": "globalist"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|Facebot|Twitterbot|twitterbot|LinkedInBot|Slackbot|WhatsApp|Discordbot|TelegramBot|Applebot|Pinterest|SkypeUriPreview|Snapchat|Googlebot|bingbot).*"
+        }
+      ],
+      "destination": "/globalist"
+    },
+    {
+      "source": "/model",
+      "has": [
+        {
+          "type": "query",
+          "key": "m",
+          "value": "danny"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|Facebot|Twitterbot|twitterbot|LinkedInBot|Slackbot|WhatsApp|Discordbot|TelegramBot|Applebot|Pinterest|SkypeUriPreview|Snapchat|Googlebot|bingbot).*"
+        }
+      ],
+      "destination": "/danny"
+    },
+    {
+      "source": "/model",
+      "has": [
+        {
+          "type": "query",
+          "key": "m",
+          "value": "laura"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|Facebot|Twitterbot|twitterbot|LinkedInBot|Slackbot|WhatsApp|Discordbot|TelegramBot|Applebot|Pinterest|SkypeUriPreview|Snapchat|Googlebot|bingbot).*"
+        }
+      ],
+      "destination": "/laura"
+    },
+    {
+      "source": "/model",
+      "destination": "/profile"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/studio",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/partner-guide",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/guide",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/brief/production",
+      "destination": "/start-intake",
+      "permanent": true
+    },
+    {
+      "source": "/brief/casting",
+      "destination": "/start-intake",
+      "permanent": true
+    },
+    {
+      "source": "/casting-brief",
+      "destination": "/start-intake",
+      "permanent": true
+    },
+    {
+      "source": "/casting-intake",
+      "destination": "/start-intake",
+      "permanent": true
+    },
+    {
+      "source": "/intake",
+      "destination": "/start-intake",
+      "permanent": true
+    }
+  ]
+}
