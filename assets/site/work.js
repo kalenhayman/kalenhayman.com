@@ -62,7 +62,7 @@
       more: [KUZ + 'KUZ%20IMAGE/kyle_landing_page_2.png', KUZ + 'KUZ%20IMAGE/aurora_landing_page_1_LPM%20environment.png', KUZ + 'KUZ%20IMAGE/kyle_LPM_night_landing_page.png'] },
     /* the home page hero: the demo reel, from its own title card (startAt 0) */
     { id: 'demo-reel', title: 'Demo Reel', types: ['Video'], w: 16, h: 9, startAt: 0,
-      poster: '/assets/img/demo-reel-cover.jpg',
+      poster: B + 'PORTFOLIO/AVA-Demo-Reel-Cover.png',
       video: '/assets/video/ava-demo-reel.mp4' },   /* faststart copy of DEMO REELS/AVA DEMO REEL 11_2026 */
     { id: 'dupixent', title: 'Dupixent', types: ['Video'], w: 16, h: 9,
       poster: 'assets/img/dupixent-cover.jpg',
