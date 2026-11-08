@@ -1,0 +1,43 @@
+name: Site shots
+
+# On demand: opens a live website in Chromium and commits screenshots of it to
+# assets/web/<name>/ — a desktop frame per section (1440x900 @2x), phone frames
+# (390x844 @3x) and one full-page desktop capture. The page's text, title and
+# meta tags are printed to the log so case-study copy can be written from it.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Site URL
+        required: true
+      name:
+        description: Output folder (assets/web/<name>/)
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  shoot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Chromium
+        run: |
+          mkdir -p /tmp/pw && cd /tmp/pw && npm init -y >/dev/null && npm i playwright@1.48.2 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+      - name: Shoot
+        env:
+          URL: ${{ github.event.inputs.url }}
+          OUT: assets/web/${{ github.event.inputs.name }}
+        run: NODE_PATH=/tmp/pw/node_modules node scripts/site-shots.js
+      - name: Commit
+        run: |
+          ls -la "assets/web/${{ github.event.inputs.name }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/web
+          git diff --cached --quiet || (git commit -m "Site shots: ${{ github.event.inputs.name }}" && git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME})

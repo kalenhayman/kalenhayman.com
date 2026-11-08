@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>No Bad Days Vancouver — Website by Kalen Hayman</title>
+<meta name="description" content="Website design for No Bad Days, an all-day wellness café on Nelson Street, Vancouver. Designed by Kalen Hayman.">
+<link rel="canonical" href="https://www.kalenhayman.com/no-bad-days">
+<meta name="theme-color" content="#FFFFFF">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kalen Hayman">
+<meta property="og:title" content="No Bad Days Vancouver — Website by Kalen Hayman">
+<meta property="og:description" content="Website design for No Bad Days, an all-day wellness café on Nelson Street, Vancouver. Designed by Kalen Hayman.">
+<meta property="og:url" content="https://www.kalenhayman.com/no-bad-days">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/og/no-bad-days.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="No Bad Days Vancouver — Website by Kalen Hayman">
+<meta name="twitter:description" content="Website design for No Bad Days, an all-day wellness café on Nelson Street, Vancouver. Designed by Kalen Hayman.">
+<meta name="twitter:image" content="https://www.kalenhayman.com/assets/og/no-bad-days.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+.nb-hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); min-height: calc(100svh - var(--nav-h)); margin-top: var(--nav-h); background: var(--ink); }
+.nb-hero .copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 3vw, 48px) var(--gutter); gap: 28px; }
+.nb-hero .top { color: var(--sand); display: flex; justify-content: space-between; gap: 16px; }
+.nb-hero h1 { font-size: clamp(56px, 8.4vw, 136px); margin: 0; }
+.nb-hero .ft { margin-top: 18px; color: var(--neon-text); font-size: 13px; }
+.nb-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.nb-hero .shot { position: relative; min-height: 60svh; overflow: hidden; background: #466c97; }
+.nb-hero .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.nb-hero .shot::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--neon); transform: skewX(-6deg); transform-origin: top; }
+.nb-hero .t { display: block; overflow: hidden; }
+.nb-hero .t > span { display: block; animation: rise .7s var(--ease) both; }
+@keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+
+.nb-brief { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb),.12); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 5vw, 80px); }
+.nb-brief h2 { font-size: clamp(36px, 4.6vw, 72px); margin: 0 0 22px; }
+.nb-brief .lede { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: rgba(var(--bone-rgb),.78); max-width: 58ch; }
+.nb-brief .lede + .lede { margin-top: 14px; }
+.specs { align-self: start; border-top: 1px solid rgba(var(--bone-rgb),.16); }
+.spec { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(var(--bone-rgb),.16); }
+.spec .k { color: var(--sand); font-size: 11px; }
+.spec .v { font-size: 14px; }
+.spec .v a { color: var(--neon-text); overflow-wrap: anywhere; }
+.specs .btn { margin-top: 22px; }
+
+.nb-frames { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb),.12); }
+.nb-frames .grid { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .nb-hero { grid-template-columns: 1fr; min-height: 0; }
+  .nb-hero .shot { order: -1; min-height: 0; aspect-ratio: 16 / 10; }
+  .nb-hero .shot::after { display: none; }
+  .nb-hero .copy { gap: 24px; padding-bottom: 36px; }
+  .nb-brief { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .nb-hero .t > span { animation: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="Kalen Hayman — home"><span class="k-mark" aria-hidden="true">K</span></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <section class="nb-hero">
+    <div class="copy">
+      <div class="top mono"><span class="dot">Web design · Client project</span><span>2026</span></div>
+      <div>
+        <h1 class="display"><span class="t"><span>No Bad<br>Days</span></span></h1>
+        <div class="ft mono">Vancouver · All-day wellness café</div>
+      </div>
+      <div class="cta">
+        <a class="btn" href="https://nobaddaysvancouver.avadesign.studio/" target="_blank" rel="noopener">Visit the live site <span class="arr">↗</span></a>
+        <a class="btn btn--ghost" href="#desktop">See the work <span class="arr">↓</span></a>
+      </div>
+    </div>
+    <a class="shot" href="https://nobaddaysvancouver.avadesign.studio/" target="_blank" rel="noopener" aria-label="Open the No Bad Days website"><img src="/assets/projects/no-bad-days.jpg" alt="The No Bad Days website on desktop and phone" width="1600" height="1000"></a>
+  </section>
+
+  <section class="nb-brief">
+    <div>
+      <div class="eyebrow mono"><span class="dot">01 · The brief</span></div>
+      <h2 class="display">Good food. Good mood. Now online.</h2>
+      <p class="lede">I designed a new website for No Bad Days, the all-day wellness café at Nelson &amp; Seymour in downtown Vancouver. Brunch, bowls, coffee and colourful elixirs, in a site that feels as sunny as the room.</p>
+      <p class="lede">The menu, Google reviews, hours, directions and online ordering are all one tap away, on any screen.</p>
+    </div>
+    <div class="specs mono">
+      <div class="spec"><span class="k">Client</span><span class="v">No Bad Days Vancouver</span></div>
+      <div class="spec"><span class="k">Scope</span><span class="v">Website design</span></div>
+      <div class="spec"><span class="k">Designed by</span><span class="v">Kalen Hayman</span></div>
+      <div class="spec"><span class="k">Year</span><span class="v">2026</span></div>
+      <div class="spec"><span class="k">Live site</span><span class="v"><a href="https://nobaddaysvancouver.avadesign.studio/" target="_blank" rel="noopener">nobaddaysvancouver.avadesign.studio ↗</a></span></div>
+      <a class="btn" href="https://nobaddaysvancouver.avadesign.studio/" target="_blank" rel="noopener">Visit the live site <span class="arr">↗</span></a>
+    </div>
+  </section>
+
+  <section class="nb-frames" id="desktop">
+    <div class="eyebrow mono"><span class="dot">02 · Desktop</span><span>06 frames</span></div>
+    <div class="grid" id="nbDesk"></div>
+  </section>
+
+  <section class="nb-frames" id="mobile">
+    <div class="eyebrow mono"><span class="dot">03 · Mobile</span><span>05 frames</span></div>
+    <div class="grid" id="nbMob"></div>
+  </section>
+
+  <section class="band">
+    <h2 class="h2 display">Work with me.</h2>
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>Kalen Hayman · Director, producer, designer.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  /* No Bad Days — screenshots of the live site (assets/web/no-bad-days/, from the site-shots workflow). */
+  var D = '/assets/web/no-bad-days/';
+  var DESK = ['Home', 'Big on flavour', 'Elixirs', 'Reviews', 'Gallery', 'Visit'];
+  var MOB = ['Mobile 01', 'Mobile 02', 'Mobile 03', 'Mobile 04', 'Mobile 05'];
+  function add(list, pre, w, h, sub) {
+    return list.map(function (t, i) {
+      var id = 'nbd-' + pre + i;
+      AVA.WORK.push({ id: id, title: 'No Bad Days · ' + t, sub: sub, types: ['Web'], w: w, h: h, src: D + pre + '-0' + i + '.jpg' });
+      return id;
+    });
+  }
+  AVA.mount(document.getElementById('nbDesk').parentNode, { ids: add(DESK, 'd', 2880, 1800, 'Desktop') });
+  AVA.mount(document.getElementById('nbMob').parentNode, { ids: add(MOB, 'm', 1170, 1992, 'Mobile') });
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
