@@ -466,10 +466,17 @@
     if (all.length) all[all.length - 1].classList.remove('is-out');
   });
 
-  /* ---------- selected work ---------- */
-  AVA.mountProjects(document.getElementById('work'), {
-    ids: ['the-studio', 'aurora', 'virtual-affair', 'dupixent', 'asics', 'raven-rise', 'kia-oura', 'i-am-ava']
-  });
+  /* ---------- selected work ----------
+     Eight projects, freshly picked on every visit: the three newest (the top
+     of AVA.PROJECTS, newest first) always make it, five more are drawn at
+     random from the rest, and the eight are shuffled. */
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  var pool = AVA.PROJECTS.filter(function (p) { return !p.face; }).map(function (p) { return p.id; });
+  var picks = pool.slice(0, 3).concat(shuffle(pool.slice(3)).slice(0, 5));
+  AVA.mountProjects(document.getElementById('work'), { ids: shuffle(picks) });
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>

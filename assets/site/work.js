@@ -150,6 +150,7 @@
     });
     return out;
   }
+  /* Newest first: the home page always shows the top three. */
   var PROJECTS = [
     { id: 'no-bad-days', name: 'No Bad Days', kind: 'Website', types: ['Web'], href: '/no-bad-days' },
     { id: 'the-studio', name: 'The STUDIO', kind: 'Pilot web series', types: ['Series', 'Video'], href: '/the-studio' },
