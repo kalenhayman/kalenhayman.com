@@ -152,7 +152,8 @@
   }
   /* Newest first: the home page always shows the top three. */
   var PROJECTS = [
-    { id: 'no-bad-days', name: 'No Bad Days', kind: 'Website', types: ['Web'], href: '/no-bad-days' },
+    /* No Bad Days (website, /no-bad-days) is parked for now — to bring it back, restore:
+       { id: 'no-bad-days', name: 'No Bad Days', kind: 'Website', types: ['Web'], href: '/no-bad-days' }, */
     { id: 'the-studio', name: 'The STUDIO', kind: 'Pilot web series', types: ['Series', 'Video'], href: '/the-studio' },
     { id: 'aurora', name: 'Aurora × KUZ', kind: 'Brand film', types: ['Video', 'Image', 'Web'], href: '/aurora' },
     { id: 'virtual-affair', name: 'The Virtual Affair', kind: 'Casting', types: ['Image', 'Casting'], href: '/the-virtual-affair' },

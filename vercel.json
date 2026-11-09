@@ -97,6 +97,11 @@
   ],
   "redirects": [
     {
+      "source": "/no-bad-days",
+      "destination": "/work",
+      "permanent": false
+    },
+    {
       "source": "/studio",
       "destination": "/services",
       "permanent": true
