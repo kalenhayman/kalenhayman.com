@@ -152,6 +152,11 @@
   }
   /* Newest first: the home page always shows the top three. */
   var PROJECTS = [
+    { id: 'oshi-nori', name: 'Oshi Nori', kind: 'Concept site', types: ['Web'], href: '/oshi-nori' },
+    { id: 'craffles', name: 'Craffles', kind: 'Concept site', types: ['Web'], href: '/craffles' },
+    { id: 'tavola', name: 'Tavola', kind: 'Concept site', types: ['Web'], href: '/tavola' },
+    { id: 'espana', name: 'España', kind: 'Concept site', types: ['Web'], href: '/espana' },
+    { id: 'red-accordion', name: 'The Red Accordion', kind: 'Concept site', types: ['Web'], href: '/red-accordion' },
     /* No Bad Days (website, /no-bad-days) is parked for now — to bring it back, restore:
        { id: 'no-bad-days', name: 'No Bad Days', kind: 'Website', types: ['Web'], href: '/no-bad-days' }, */
     { id: 'the-studio', name: 'The STUDIO', kind: 'Pilot web series', types: ['Series', 'Video'], href: '/the-studio' },
