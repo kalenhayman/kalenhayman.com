@@ -97,6 +97,11 @@
   ],
   "redirects": [
     {
+      "source": "/espana",
+      "destination": "/work",
+      "permanent": false
+    },
+    {
       "source": "/no-bad-days",
       "destination": "/work",
       "permanent": false

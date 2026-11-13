@@ -155,7 +155,8 @@
     { id: 'oshi-nori', name: 'Oshi Nori', kind: 'Concept site', types: ['Web'], href: '/oshi-nori' },
     { id: 'craffles', name: 'Craffles', kind: 'Concept site', types: ['Web'], href: '/craffles' },
     { id: 'tavola', name: 'Tavola', kind: 'Concept site', types: ['Web'], href: '/tavola' },
-    { id: 'espana', name: 'España', kind: 'Concept site', types: ['Web'], href: '/espana' },
+    /* España (concept site, /espana) is decommissioned — files kept; to bring it back, restore:
+       { id: 'espana', name: 'España', kind: 'Concept site', types: ['Web'], href: '/espana' }, */
     { id: 'red-accordion', name: 'The Red Accordion', kind: 'Concept site', types: ['Web'], href: '/red-accordion' },
     /* No Bad Days (website, /no-bad-days) is parked for now — to bring it back, restore:
        { id: 'no-bad-days', name: 'No Bad Days', kind: 'Website', types: ['Web'], href: '/no-bad-days' }, */
