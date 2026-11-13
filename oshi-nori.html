@@ -63,6 +63,24 @@
   .nb-brief { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { .nb-hero .t > span { animation: none; } }
+
+/* ---------- the menu demo: a phone film in the hero's open space ---------- */
+.nb-hero.has-vid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.nb-hero.has-vid .copy { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto 1fr auto; column-gap: clamp(20px, 2.4vw, 40px); row-gap: 28px; }
+.nb-hero.has-vid .copy > .top { grid-column: 1 / -1; }
+.nb-hero.has-vid .copy > .ttl { grid-column: 1; grid-row: 2; align-self: center; }
+.nb-hero.has-vid .copy > .cta { grid-column: 1; grid-row: 3; align-self: end; }
+.nb-vid { grid-column: 2; grid-row: 2 / 4; justify-self: end; align-self: start; margin: 0; position: relative; height: min(58svh, 540px); aspect-ratio: 9 / 16; background: #0a0a0a; overflow: hidden; }
+.nb-vid video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.nb-sound { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 12px; border: 0; cursor: pointer; background: var(--neon); color: #000; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.nb-sound:hover { background: #fff; }
+.nb-vid figcaption { position: absolute; left: 10px; top: 10px; padding: 5px 8px; background: rgba(0,0,0,.55); color: #EBEBEA; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
+@media (max-width: 900px) {
+  .nb-hero.has-vid { grid-template-columns: 1fr; }
+  .nb-hero.has-vid .copy { grid-template-columns: 1fr; }
+  .nb-hero.has-vid .copy > .ttl, .nb-hero.has-vid .copy > .cta { grid-column: 1; grid-row: auto; }
+  .nb-vid { grid-column: 1; grid-row: auto; justify-self: center; height: auto; width: min(78vw, 320px); }
+}
 </style>
 </head>
 <body>
@@ -97,10 +115,10 @@
 </div>
 
 <main>
-  <section class="nb-hero">
+  <section class="nb-hero has-vid">
     <div class="copy">
       <div class="top mono"><span class="dot">Web design · Concept site</span><span>2026</span></div>
-      <div>
+      <div class="ttl">
         <h1 class="display"><span class="t"><span>Oshi<br>Nori</span></span></h1>
         <div class="ft mono">Yaletown · Sushi counter</div>
       </div>
@@ -108,6 +126,11 @@
         <a class="btn" href="https://oshinori.avadesign.studio/" target="_blank" rel="noopener">Visit the live site <span class="arr">↗</span></a>
         <a class="btn btn--ghost" href="#desktop">See the work <span class="arr">↓</span></a>
       </div>
+      <figure class="nb-vid">
+        <video id="nbVid" src="/assets/video/oshi-nori-menu-demo.mp4" autoplay muted loop playsinline preload="auto" aria-label="Oshi Nori mobile menu demo"></video>
+        <figcaption class="mono">Mobile menu demo</figcaption>
+        <button class="nb-sound" id="nbSound" type="button" aria-pressed="false">▶ Play with sound</button>
+      </figure>
     </div>
     <a class="shot" href="https://oshinori.avadesign.studio/" target="_blank" rel="noopener" aria-label="Open the Oshi Nori website"><img src="/assets/projects/oshi-nori.jpg" alt="The Oshi Nori website on desktop and phone" width="1600" height="1000"></a>
   </section>
@@ -171,6 +194,24 @@
   }
   AVA.mount(document.getElementById('nbDesk').parentNode, { ids: add(DESK, 'd', 2880, 1800, 'Desktop') });
   AVA.mount(document.getElementById('nbMob').parentNode, { ids: add(MOB, 'm', 1170, 1992, 'Mobile') });
+})();
+</script>
+<script>
+(function () {
+  /* the menu demo plays muted on a loop; the button brings the sound in from the top */
+  var v = document.getElementById('nbVid'), b = document.getElementById('nbSound');
+  if (!v || !b) return;
+  function set(on) {
+    v.muted = !on;
+    if (on) { v.currentTime = 0; v.play().catch(function () {}); }
+    b.setAttribute('aria-pressed', String(on));
+    b.textContent = on ? '■ Mute' : '▶ Play with sound';
+  }
+  b.addEventListener('click', function () { set(v.muted); });
+  /* go quiet when it scrolls out of view */
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) {
+    if (!e[0].isIntersecting && !v.muted) set(false);
+  }).observe(v);
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
