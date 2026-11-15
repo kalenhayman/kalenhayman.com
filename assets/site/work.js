@@ -163,7 +163,7 @@
     { id: 'the-studio', name: 'The STUDIO', kind: 'Pilot web series', types: ['Series', 'Video'], href: '/the-studio' },
     { id: 'aurora', name: 'Aurora × KUZ', kind: 'Brand film', types: ['Video', 'Image', 'Web'], href: '/aurora' },
     { id: 'virtual-affair', name: 'The Virtual Affair', kind: 'Casting', types: ['Image', 'Casting'], href: '/the-virtual-affair' },
-    { id: 'dupixent', name: 'Dupixent', kind: 'Animatic ad', types: ['Video'], media: mediaOf(['dupixent']) },
+    { id: 'dupixent', name: 'Dupixent', kind: 'Animatic ad', types: ['Video'], href: '/dupixent' },
     { id: 'asics', name: 'Asics', kind: 'Spec ad', types: ['Video'], media: mediaOf(['asics']) },
     { id: 'raven-rise', name: 'Vancouver Rise FC', kind: 'Spec campaign · Video & stills', types: ['Video', 'Image'], media: mediaOf(['raven-rise-film', 'raven-rise-stills']) },
     { id: 'kia-oura', name: 'Oura', kind: 'Spec ad', types: ['Video'], media: mediaOf(['kia-oura']) },

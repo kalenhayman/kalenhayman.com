@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dupixent — Animatic spots by Kalen Hayman</title>
+<meta name="description" content="Two :60 animatic spots for DUPIXENT (dupilumab), with Paper Route. Frames, characters and locations designed and rendered with AI, on a 7-day rush.">
+<link rel="canonical" href="https://www.kalenhayman.com/dupixent">
+<meta name="theme-color" content="#FFFFFF">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kalen Hayman">
+<meta property="og:title" content="Dupixent — Animatic spots by Kalen Hayman">
+<meta property="og:description" content="Two :60 animatic spots for DUPIXENT (dupilumab), with Paper Route. Frames, characters and locations designed and rendered with AI, on a 7-day rush.">
+<meta property="og:url" content="https://www.kalenhayman.com/dupixent">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/img/dupixent-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dupixent — Animatic spots by Kalen Hayman">
+<meta name="twitter:description" content="Two :60 animatic spots for DUPIXENT (dupilumab), with Paper Route. Frames, characters and locations designed and rendered with AI, on a 7-day rush.">
+<meta name="twitter:image" content="https://www.kalenhayman.com/assets/img/dupixent-cover.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+.dx-hero { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); min-height: calc(100svh - var(--nav-h)); margin-top: var(--nav-h); }
+.dx-hero .copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 3vw, 48px) var(--gutter); gap: 28px; }
+.dx-hero .top { color: var(--sand); display: flex; justify-content: space-between; gap: 16px; }
+.dx-hero h1 { font-size: clamp(48px, 6.2vw, 104px); margin: 0; }
+.dx-hero .ft { margin-top: 18px; color: var(--neon-text, var(--neon)); font-size: 13px; }
+.dx-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.dx-film { position: relative; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.dx-film::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--neon); transform: skewX(-6deg); transform-origin: top; }
+.dx-film video { width: 100%; aspect-ratio: 16 / 9; display: block; background: #000; object-fit: contain; }
+.dx-film .ctl { position: absolute; right: 18px; bottom: 18px; display: flex; gap: 8px; }
+.dx-film .ctl button { border: 0; cursor: pointer; padding: 11px 14px; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--neon); color: #000; }
+.dx-film .ctl button.ghost { background: rgba(0,0,0,.6); color: #EBEBEA; border: 1px solid rgba(235,235,234,.4); }
+.dx-film .ctl button:hover { background: #fff; color: #000; }
+
+.dx-brief { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 5vw, 80px); }
+.dx-brief h2 { font-size: clamp(36px, 4.6vw, 72px); margin: 0 0 22px; }
+.dx-brief .lede { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: rgba(var(--bone-rgb, 235,235,234),.78); max-width: 58ch; }
+.dx-brief .lede + .lede { margin-top: 14px; }
+.specs { align-self: start; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.spec { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.spec .k { color: var(--sand); font-size: 11px; }
+.spec .v { font-size: 14px; }
+.specs .btn { margin-top: 22px; }
+
+.dx-work { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); }
+.dx-rows { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.dx-row { display: grid; grid-template-columns: 70px minmax(0, 260px) minmax(0, 1fr); gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); align-items: baseline; }
+.dx-row .n { color: var(--neon-text, var(--neon)); font-size: 12px; }
+.dx-row h3 { font-size: clamp(22px, 2vw, 30px); margin: 0; }
+.dx-row p { margin: 0; font-size: 16px; line-height: 1.55; color: rgba(var(--bone-rgb, 235,235,234),.78); max-width: 62ch; }
+.dx-spots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
+.dx-spot { padding: 22px; color: var(--bone); background: var(--panel, #0a0a0a); border: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); }
+.dx-spot .k { color: var(--sand); font-size: 11px; }
+.dx-spot h3 { font-size: clamp(28px, 3vw, 44px); margin: 10px 0 6px; }
+
+@media (max-width: 900px) {
+  .dx-hero { grid-template-columns: 1fr; min-height: 0; }
+  .dx-film { order: -1; }
+  .dx-film::after { display: none; }
+  .dx-film .ctl { right: 10px; bottom: 10px; }
+  .dx-hero .copy { gap: 24px; padding-bottom: 36px; }
+  .dx-brief { grid-template-columns: 1fr; }
+  .dx-row { grid-template-columns: 1fr; gap: 8px; }
+  .dx-spots { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="Kalen Hayman — home"><span class="k-mark" aria-hidden="true">K</span></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <section class="dx-hero">
+    <div class="copy">
+      <div class="top mono"><span class="dot">Pharma · Animatic spots</span><span>2026</span></div>
+      <div>
+        <h1 class="display"><span>Dupixent</span></h1>
+        <div class="ft mono">Two :60 animatics · with Paper Route</div>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#brief">The brief <span class="arr">↓</span></a>
+        <a class="btn btn--ghost" href="/start-intake">Start Intake <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="dx-film dark">
+      <video id="dxVid" src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20animatic%20.mp4" poster="/assets/img/dupixent-cover.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dupixent animatic"></video>
+      <div class="ctl">
+        <button id="dxSound" type="button" aria-pressed="false">▶ Play with sound</button>
+        <button id="dxFull" class="ghost" type="button">Watch now ⤢</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="dx-brief" id="brief">
+    <div>
+      <div class="eyebrow mono"><span class="dot">01 · The brief</span></div>
+      <h2 class="display">A pharma spot, before the shoot.</h2>
+      <p class="lede">I designed and delivered two :60 animatic spots for DUPIXENT (dupilumab), working with the Toronto production company Paper Route. Every storyboard frame, character and location was designed and rendered as an AI-generated motion shot. There was no live shoot and no recording.</p>
+      <p class="lede">It ran as a 7-day rush, with revisions built into the week and a number of rounds and re-shoots along the way, so the agency could see the spots move before committing to production.</p>
+    </div>
+    <div class="specs mono">
+      <div class="spec"><span class="k">Brand</span><span class="v">DUPIXENT (dupilumab)</span></div>
+      <div class="spec"><span class="k">Production</span><span class="v">Paper Route</span></div>
+      <div class="spec"><span class="k">Deliverables</span><span class="v">2 × :60 animatic spots</span></div>
+      <div class="spec"><span class="k">Method</span><span class="v">AI-generated motion shots</span></div>
+      <div class="spec"><span class="k">Turnaround</span><span class="v">7-day rush</span></div>
+      <div class="spec"><span class="k">Designed by</span><span class="v">Kalen Hayman</span></div>
+      <div class="spec"><span class="k">Year</span><span class="v">2026</span></div>
+      <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    </div>
+  </section>
+
+  <section class="dx-work">
+    <div class="eyebrow mono"><span class="dot">02 · The work</span><span>2 spots</span></div>
+    <div class="dx-rows">
+      <div class="dx-row"><span class="n mono">01</span><h3 class="display">Frames</h3><p>Storyboard frames designed shot by shot, then brought to life as motion: the animatic plays like the finished spot, at full length.</p></div>
+      <div class="dx-row"><span class="n mono">02</span><h3 class="display">Characters</h3><p>The cast was designed and kept consistent from shot to shot and across both spots, with wardrobe following the client’s notes.</p></div>
+      <div class="dx-row"><span class="n mono">03</span><h3 class="display">Locations</h3><p>Every setting was built and rendered with AI, with no locations to scout or book.</p></div>
+      <div class="dx-row"><span class="n mono">04</span><h3 class="display">Hand-off</h3><p>Paper Route took the shots into their edit, adding voiceover, music, legal text, logos and end cards.</p></div>
+    </div>
+    <div class="dx-spots">
+      <div class="dx-spot dark"><span class="k mono">Spot 01 · :60</span><h3 class="display">“Jeff”</h3></div>
+      <div class="dx-spot dark"><span class="k mono">Spot 02 · :60</span><h3 class="display">“It All Adds Up”</h3></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2 class="h2 display">Work with me.</h2>
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>Kalen Hayman · Director, producer, designer.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  /* plays muted on a loop; the buttons bring in the sound, or the whole film full screen */
+  var v = document.getElementById('dxVid'), s = document.getElementById('dxSound'), f = document.getElementById('dxFull');
+  function sound(on, fromTop) {
+    v.muted = !on;
+    if (on && fromTop) v.currentTime = 0;
+    if (on) v.play().catch(function () {});
+    s.setAttribute('aria-pressed', String(on));
+    s.textContent = on ? '■ Mute' : '▶ Play with sound';
+  }
+  s.addEventListener('click', function () { sound(v.muted, true); });
+  f.addEventListener('click', function () {
+    v.currentTime = 0; sound(true, false);
+    var go = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen;
+    if (go) go.call(v);
+  });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) sound(false); });
+  v.addEventListener('webkitendfullscreen', function () { sound(false); });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) {
+    if (!e[0].isIntersecting && !v.muted && !document.fullscreenElement) sound(false);
+  }).observe(v);
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
