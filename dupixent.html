@@ -59,7 +59,9 @@
 .dx-row h3 { font-size: clamp(22px, 2vw, 30px); margin: 0; }
 .dx-row p { margin: 0; font-size: 16px; line-height: 1.55; color: rgba(var(--bone-rgb, 235,235,234),.78); max-width: 62ch; }
 .dx-spots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
-.dx-spot { padding: 22px; color: var(--bone); background: var(--panel, #0a0a0a); border: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); }
+.dx-spot { margin: 0; scroll-margin-top: calc(var(--nav-h) + 20px); color: var(--bone); background: var(--panel, #0a0a0a); border: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); }
+.dx-spot video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.dx-spot figcaption { padding: 16px 20px 20px; }
 .dx-spot .k { color: var(--sand); font-size: 11px; }
 .dx-spot h3 { font-size: clamp(28px, 3vw, 44px); margin: 10px 0 6px; }
 
@@ -120,7 +122,7 @@
       </div>
     </div>
     <div class="dx-film dark">
-      <video id="dxVid" src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20animatic%20.mp4" poster="/assets/img/dupixent-cover.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dupixent animatic"></video>
+      <video id="dxVid" src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20animatic%20.mp4" poster="/assets/img/dupixent-cover.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dupixent — It All Adds Up"></video>
       <div class="ctl">
         <button id="dxSound" type="button" aria-pressed="false">▶ Play with sound</button>
         <button id="dxFull" class="ghost" type="button">Watch now ⤢</button>
@@ -156,8 +158,14 @@
       <div class="dx-row"><span class="n mono">04</span><h3 class="display">Hand-off</h3><p>Paper Route took the shots into their edit, adding voiceover, music, legal text, logos and end cards.</p></div>
     </div>
     <div class="dx-spots">
-      <div class="dx-spot dark"><span class="k mono">Spot 01 · :60</span><h3 class="display">“Jeff”</h3></div>
-      <div class="dx-spot dark"><span class="k mono">Spot 02 · :60</span><h3 class="display">“It All Adds Up”</h3></div>
+      <figure class="dx-spot dark" id="jeff">
+        <video src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20JEFF%20-%20compressed%20-%20FINAL.mp4" poster="/assets/img/dupixent-jeff-cover.jpg" controls playsinline preload="none" aria-label="Dupixent — Jeff"></video>
+        <figcaption><span class="k mono">Spot 01 · :60</span><h3 class="display">“Jeff”</h3></figcaption>
+      </figure>
+      <figure class="dx-spot dark" id="it-all-adds-up">
+        <video src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20animatic%20.mp4" poster="/assets/img/dupixent-cover.jpg" controls playsinline preload="none" aria-label="Dupixent — It All Adds Up"></video>
+        <figcaption><span class="k mono">Spot 02 · :60</span><h3 class="display">“It All Adds Up”</h3></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -197,6 +205,13 @@
   });
   document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) sound(false); });
   v.addEventListener('webkitendfullscreen', function () { sound(false); });
+  var spots = document.querySelectorAll('.dx-spot video');
+  Array.prototype.forEach.call(spots, function (x) {
+    x.addEventListener('play', function () {
+      if (!v.muted) sound(false);
+      Array.prototype.forEach.call(spots, function (y) { if (y !== x) y.pause(); });
+    });
+  });
   if ('IntersectionObserver' in window) new IntersectionObserver(function (e) {
     if (!e[0].isIntersecting && !v.muted && !document.fullscreenElement) sound(false);
   }).observe(v);
