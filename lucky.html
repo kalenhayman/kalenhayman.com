@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucky Energy — OG Luck concept promo by Kalen Hayman</title>
+<meta name="description" content="A game-inspired concept promo for Lucky Energy’s OG Luck: a 27-frame storyboard, locations, cast and props, designed with AI. In production.">
+<link rel="canonical" href="https://www.kalenhayman.com/lucky">
+<meta name="theme-color" content="#FFFFFF">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kalen Hayman">
+<meta property="og:title" content="Lucky Energy — OG Luck concept promo by Kalen Hayman">
+<meta property="og:description" content="A game-inspired concept promo for Lucky Energy’s OG Luck: a 27-frame storyboard, locations, cast and props, designed with AI. In production.">
+<meta property="og:url" content="https://www.kalenhayman.com/lucky">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/og/lucky.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lucky Energy — OG Luck concept promo by Kalen Hayman">
+<meta name="twitter:description" content="A game-inspired concept promo for Lucky Energy’s OG Luck: a 27-frame storyboard, locations, cast and props, designed with AI. In production.">
+<meta name="twitter:image" content="https://www.kalenhayman.com/assets/og/lucky.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+:root { --lucky: #158438; --apple: #7DBB22; }
+.lk-hero { position: relative; margin-top: var(--nav-h); min-height: calc(100svh - var(--nav-h)); display: flex; align-items: flex-end; overflow: hidden; background: #000; color: #EBEBEA; }
+.lk-hero .media { position: absolute; inset: 0; }
+.lk-hero .media img, .lk-hero .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lk-hero .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,.1) 100%); }
+.lk-hero .copy { position: relative; z-index: 1; width: 100%; padding: clamp(24px, 3vw, 48px) var(--gutter); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
+.lk-hero .top { color: rgba(235,235,234,.8); margin-bottom: 18px; display: flex; gap: 16px; flex-wrap: wrap; }
+.lk-hero .pill { display: inline-block; padding: 5px 10px; background: var(--lucky); color: #fff; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.lk-hero h1 { font-size: clamp(64px, 11vw, 190px); margin: 0; line-height: .86; }
+.lk-hero .ft { margin-top: 14px; color: var(--apple); font-size: 13px; }
+.lk-hero .cta { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+.lk-hero .cta button { border: 0; cursor: pointer; padding: 13px 16px; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--neon); color: #000; }
+.lk-hero .cta button:hover { background: #fff; }
+.lk-hero .cta .soon { padding: 13px 16px; border: 1px solid rgba(235,235,234,.4); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(235,235,234,.85); }
+
+.lk-sec { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); }
+.lk-brief { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 5vw, 80px); }
+.lk-brief h2, .lk-sec h2.t { font-size: clamp(36px, 4.6vw, 72px); margin: 0 0 22px; }
+.lede { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: rgba(var(--bone-rgb, 235,235,234),.78); max-width: 58ch; }
+.lede + .lede { margin-top: 14px; }
+.beats { margin-top: 30px; display: grid; gap: 0; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.beat { display: grid; grid-template-columns: 54px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.beat .n { color: var(--neon-text, var(--neon)); font-size: 12px; }
+.beat b { display: block; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+.beat span { color: rgba(var(--bone-rgb, 235,235,234),.72); font-size: 15px; }
+.specs { align-self: start; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.spec { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.spec .k { color: var(--sand); font-size: 11px; }
+.spec .v { font-size: 14px; }
+.spec .v.live { color: var(--lucky); }
+.specs .btn { margin-top: 22px; }
+.lk-grid { display: grid; gap: 10px; }
+.lk-grid.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lk-grid.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.lk-grid.c5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.lk-grid.c6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.lk-tile { display: flex; flex-direction: column; gap: 8px; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: zoom-in; }
+.lk-tile .im { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #0a0a0a; }
+.lk-grid.c3 .lk-tile .im { aspect-ratio: 2.15 / 1; }
+.lk-grid.sq .lk-tile .im { aspect-ratio: 1 / 1; }
+.lk-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease, ease); }
+.lk-tile:hover img { transform: scale(1.04); }
+.lk-tile .cap { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.45; color: rgba(var(--bone-rgb, 235,235,234),.8); }
+.lk-sub { margin: 48px 0 16px; display: flex; justify-content: space-between; gap: 16px; color: var(--sand); }
+.lk-brand { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.lk-brand .tile { position: relative; overflow: hidden; background: #fff; min-height: 340px; }
+.lk-brand .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.lk-brand .tile.contain img { object-fit: contain; padding: 24px; }
+.sw { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+.sw div { height: 64px; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.sw span { display: block; margin-top: 6px; color: var(--sand); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+@media (max-width: 900px) {
+  .lk-hero { min-height: 82svh; }
+  .lk-hero .copy { grid-template-columns: 1fr; }
+  .lk-hero .cta { justify-content: flex-start; }
+  .lk-brief, .lk-brand { grid-template-columns: 1fr; }
+  .lk-brand .tile { min-height: 260px; }
+  .sw { grid-template-columns: repeat(2, 1fr); }
+  .lk-grid.c3, .lk-grid.c4, .lk-grid.c5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lk-grid.c6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="Kalen Hayman — home"><span class="k-mark" aria-hidden="true">K</span></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <section class="lk-hero dark" id="top">
+    <div class="media">
+      <!-- FINAL VIDEO: when the film is ready, give this video a src (and keep muted autoplay loop playsinline); the poster shows until then -->
+      <video id="lkVid" poster="/assets/lucky/assets/drops/v2-01.jpg" muted loop playsinline preload="none" aria-label="Lucky Energy — OG Luck concept promo"></video>
+    </div>
+    <div class="copy">
+      <div>
+        <div class="top mono"><span class="pill">In production</span><span>Concept promo · 2026</span></div>
+        <h1 class="display">Lucky</h1>
+        <div class="ft mono">OG Luck · Built for the Relentless</div>
+      </div>
+      <div class="cta">
+        <button id="lkSound" type="button" hidden aria-pressed="false">▶ Play with sound</button>
+        <button id="lkFull" type="button" hidden>Watch now ⤢</button>
+        <span class="soon mono" id="lkSoon">Final film coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="lk-sec lk-brief" id="brief">
+    <div>
+      <div class="eyebrow mono"><span class="dot">01 · The brief</span></div>
+      <h2 class="display">He loses everything. Finds LUCKY. Wins it all back.</h2>
+      <p class="lede">A concept promo for Lucky Energy’s hero can, OG Luck: an open-world, game-inspired spot that plays like a cut-scene. Higher fidelity, brighter colour and more life than the game spots it nods to, but always on-brand, and built from scratch with original characters, locations and props.</p>
+      <p class="lede">I took it from a first-pass edit to a faster, 27-frame V2 storyboard, with Matrix-style slow motion, a 360° turntable and an outfit-swap gag, ending in the sun on the beach.</p>
+      <div class="beats mono">
+        <div class="beat"><span class="n">01</span><div><b>A real turning point</b><span>He loses everything, finds LUCKY, wins it all back.</span></div></div>
+        <div class="beat"><span class="n">02</span><div><b>Faster, and it plays like a game</b><span>Non-stop action, game-quality visuals, bullet time.</span></div></div>
+        <div class="beat"><span class="n">03</span><div><b>The drink changes his mindset</b><span>Not his luck. He ends up active, confident and in the sun.</span></div></div>
+      </div>
+    </div>
+    <div class="specs mono">
+      <div class="spec"><span class="k">Brand</span><span class="v">Lucky Energy</span></div>
+      <div class="spec"><span class="k">Hero can</span><span class="v">OG Luck · green apple</span></div>
+      <div class="spec"><span class="k">Format</span><span class="v">Concept promo spot</span></div>
+      <div class="spec"><span class="k">Storyboard</span><span class="v">27 frames (V2)</span></div>
+      <div class="spec"><span class="k">Design</span><span class="v">12 locations · 12 cast · 10 props</span></div>
+      <div class="spec"><span class="k">Method</span><span class="v">AI-generated frames, characters &amp; worlds</span></div>
+      <div class="spec"><span class="k">Designed by</span><span class="v">Kalen Hayman</span></div>
+      <div class="spec"><span class="k">Status</span><span class="v live">In production · 2026</span></div>
+      <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    </div>
+  </section>
+
+  <section class="lk-sec" id="storyboard">
+    <div class="eyebrow mono"><span class="dot">02 · The V2 storyboard</span><span>27 frames</span></div>
+    <div class="lk-grid c3" id="lkV2"></div>
+  </section>
+
+  <section class="lk-sec" id="design">
+    <div class="eyebrow mono"><span class="dot">03 · Production design</span><span>Downtown → store → Ocean Drive → shore</span></div>
+    <div class="lk-sub mono"><span>Locations</span><span>12</span></div>
+    <div class="lk-grid c4" id="lkLoc"></div>
+    <div class="lk-sub mono"><span>Cast</span><span>12</span></div>
+    <div class="lk-grid c6 sq" id="lkCast"></div>
+    <div class="lk-sub mono"><span>Cars, wardrobe &amp; props</span><span>10</span></div>
+    <div class="lk-grid c5" id="lkAcc"></div>
+  </section>
+
+  <section class="lk-sec" id="brand">
+    <div class="eyebrow mono"><span class="dot">04 · The brand</span><span>OG Luck · zero sugar · 200mg caffeine</span></div>
+    <h2 class="t display">Natural. Healthy. Relentless.</h2>
+    <div class="lk-brand">
+      <div class="tile"><img src="/assets/lucky/assets/brand/og-apples.jpg" alt="OG Luck can on green apples" loading="lazy"></div>
+      <div>
+        <div class="tile contain" style="min-height:260px"><img src="/assets/lucky/assets/brand/lineup.jpg" alt="The Lucky Energy lineup" loading="lazy" style="object-fit:cover;padding:0"></div>
+        <div class="sw mono">
+          <div style="background:#158438"></div><div style="background:#7DBB22"></div><div style="background:#000"></div><div style="background:#fff"></div>
+        </div>
+        <div class="sw mono" style="margin-top:0"><span>Lucky Green #158438</span><span>Apple #7DBB22</span><span>Black #000000</span><span>White #FFFFFF</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lk-sec" id="v1">
+    <div class="eyebrow mono"><span class="dot">05 · Where it started</span><span>V1 edit · 27 frames</span></div>
+    <p class="lede" style="margin-bottom:28px">The first pass: a grey, rainy street, one bad morning and a slow turn into sunshine. The client asked for more pace, more swagger and more of the brand’s bright, active world, which led to V2.</p>
+    <div class="lk-grid c6" id="lkV1"></div>
+  </section>
+
+  <section class="band">
+    <h2 class="h2 display">Work with me.</h2>
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>Kalen Hayman · Director, producer, designer.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  var D = {"V2": ["Opening drone swoop: Ocean Drive chaos, chopper searching", "Chaotic driving: hero pulls up at the corner store", "Street thug moves in on the car", "Matrix slow-mo car robbery, grabs fly", "Takes the ride and peels out", "Hero knocked flat outside the store", "Black cat licks the hero awake", "It starts to rain on our hero", "Whip-zoom POV to the LUCKY billboard as the weather changes", "Hero walks into the store: shop owner scared", "Owner points to the fridge", "Hero grabs an ice-cold LUCKY", "360 turntable: hero skulls the LUCKY", "Power-up: hero's eyes light up", "Hero exits and bumps a woman outside the café", "Matrix slow-mo save: coffee, shades, keys", "Hero returns her shades, she blushes", "Run club jogs up and bumps into the hero", "Outfit-swap bump: instant running gear", "Hero sprints across traffic to the beach", "Hero dive-saves match point", "Glitchy high-fives from the players", "Cooler guy hands him a LUCKY", "Surfer crew invite to surf", "Squad charges into the ocean", "Wave wipes into LUCKY bubbles", "Logo reveal: Built for the Relentless"], "V1": ["Wide. Grey, wet street seen from the elevated tracks", "Close. Hand turns the ignition key", "He glares over the wheel", "Eyes shut. A long exhale", "A black cat crosses the hood", "The billboard. LUCKY Energy, OG Luck can", "He climbs out of the red car beside a puddle", "A taxi sprays the sidewalk", "He trips on the cracked pavement", "He walks on", "Close. Head down, hand to his chest", "Hand on the store door. OPEN", "Low angle. The LUCKY fridge, fully stocked", "Can down on the counter", "Outside. He cracks the tab", "He drinks", "Extreme close. Eyes open in warm light", "Profile. The sun breaks through", "He steps past a four-leaf clover", "A lotto ticket drifts down", "He strolls by", "A green umbrella blocks the splash", "He leaps the cracked pavement", "Hand taps the hood of the red car", "Key turns in the ignition, sunlit", "Behind the wheel, relaxed", "Wide. Same street, now sunlit"], "LOC": ["Street wide at dusk (aerial)", "Carjacking corner", "Billboard POV in the rain", "Store exterior", "Store interior", "LUCKY fridge", "Checkout counter", "Exit POV at dawn", "Café sidewalk", "Ocean Drive sidewalk (run club)", "On the volleyball court", "Shore, early afternoon"], "CAST": ["Hero, street look", "Hero, run look", "Hero, surf look", "Car thief", "Black cat", "Shop keeper", "Café lady", "Run club lead", "Run club group", "Cooler man", "Volleyball group", "Surfers (pair)"], "ACC": ["Yellow convertible", "Black sunglasses", "Car keys", "Phone", "Black sunglasses (alt)", "Iced coffee", "Keys with shell charm", "Tortoiseshell sunglasses", "Cooler with volleyball", "Surfboards (pair)"]}, L = '/assets/lucky/';
+  function n2(i) { return (i < 9 ? '0' : '') + (i + 1); }
+  function add(key, list, src, w, h, sub) {
+    return list.map(function (t, i) {
+      var id = 'lucky-' + key + '-' + n2(i);
+      AVA.WORK.push({ id: id, title: n2(i) + ' · ' + t, sub: sub, types: ['Image'], w: w, h: h, src: src(i) });
+      return id;
+    });
+  }
+  function mount(el, ids) {
+    var box = document.getElementById(el);
+    var seq = ids.map(function (id) { return AVA.WORK.filter(function (p) { return p.id === id; })[0]; });
+    seq.forEach(function (p) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'lk-tile';
+      b.innerHTML = '<span class="im"><img loading="lazy" alt=""></span><span class="cap mono"></span>';
+      b.querySelector('img').src = p.src; b.querySelector('img').alt = p.title;
+      b.querySelector('.cap').textContent = p.title;
+      b.addEventListener('click', function () { AVA.open(p, seq); });
+      box.appendChild(b);
+    });
+  }
+  mount('lkV2', add('v2', D.V2, function (i) { return L + 'assets/drops/v2-' + n2(i) + '.jpg'; }, 1000, 466, 'V2 storyboard'));
+  mount('lkLoc', add('loc', D.LOC, function (i) { return L + 'assets/drops/loc-' + n2(i) + '.jpg'; }, 958, 536, 'Location'));
+  mount('lkCast', add('cast', D.CAST, function (i) { return L + 'assets/drops/cast-' + n2(i) + '.jpg'; }, 1, 1, 'Cast'));
+  mount('lkAcc', add('acc', D.ACC, function (i) { return L + 'assets/drops/acc-' + n2(i) + '.jpg'; }, 1200, 671, 'Props'));
+  mount('lkV1', add('v1', D.V1, function (i) { return L + 'frames/' + n2(i) + '.jpg'; }, 800, 442, 'V1 edit'));
+
+  /* header film: once the video has a src, it plays muted on a loop with sound / full-screen buttons */
+  var v = document.getElementById('lkVid'), s = document.getElementById('lkSound'), f = document.getElementById('lkFull');
+  if (v.getAttribute('src')) {
+    document.getElementById('lkSoon').hidden = true; s.hidden = false; f.hidden = false;
+    v.autoplay = true; v.preload = 'auto'; v.play().catch(function () {});
+    var sound = function (on, top) { v.muted = !on; if (on && top) v.currentTime = 0; if (on) v.play().catch(function () {}); s.setAttribute('aria-pressed', String(on)); s.textContent = on ? '■ Mute' : '▶ Play with sound'; };
+    s.addEventListener('click', function () { sound(v.muted, true); });
+    f.addEventListener('click', function () { v.currentTime = 0; sound(true); var go = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen; if (go) go.call(v); });
+    document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) sound(false); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { if (!e[0].isIntersecting && !v.muted && !document.fullscreenElement) sound(false); }).observe(v);
+  }
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
