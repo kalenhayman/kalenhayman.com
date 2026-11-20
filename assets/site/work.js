@@ -155,7 +155,7 @@
   }
   /* Newest first: the home page always shows the top three. */
   var PROJECTS = [
-    { id: 'lucky', name: 'Lucky Energy', kind: 'Concept promo · In production', types: ['Video', 'Image'], href: '/lucky' },
+    { id: 'lucky', name: 'Lucky Energy', kind: 'Concept promo · Delivered', types: ['Video', 'Image'], href: '/lucky' },
     { id: 'oshi-nori', name: 'Oshi Nori', kind: 'Concept site', types: ['Web'], href: '/oshi-nori' },
     { id: 'craffles', name: 'Craffles', kind: 'Concept site', types: ['Web'], href: '/craffles' },
     { id: 'tavola', name: 'Tavola', kind: 'Concept site', types: ['Web'], href: '/tavola' },
