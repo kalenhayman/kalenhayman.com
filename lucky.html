@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lucky Energy — OG Luck concept promo by Kalen Hayman</title>
-<meta name="description" content="A game-inspired concept promo for Lucky Energy’s OG Luck: a 27-frame storyboard, locations, cast and props, designed with AI. In production.">
+<meta name="description" content="A game-inspired concept promo for Lucky Energy’s OG Luck. 27-frame storyboard, cast, worlds and score, designed with AI. In production.">
 <link rel="canonical" href="https://www.kalenhayman.com/lucky">
 <meta name="theme-color" content="#FFFFFF">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kalen Hayman">
 <meta property="og:title" content="Lucky Energy — OG Luck concept promo by Kalen Hayman">
-<meta property="og:description" content="A game-inspired concept promo for Lucky Energy’s OG Luck: a 27-frame storyboard, locations, cast and props, designed with AI. In production.">
+<meta property="og:description" content="A game-inspired concept promo for Lucky Energy’s OG Luck. 27-frame storyboard, cast, worlds and score, designed with AI. In production.">
 <meta property="og:url" content="https://www.kalenhayman.com/lucky">
 <meta property="og:image" content="https://www.kalenhayman.com/assets/og/lucky.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lucky Energy — OG Luck concept promo by Kalen Hayman">
-<meta name="twitter:description" content="A game-inspired concept promo for Lucky Energy’s OG Luck: a 27-frame storyboard, locations, cast and props, designed with AI. In production.">
+<meta name="twitter:description" content="A game-inspired concept promo for Lucky Energy’s OG Luck. 27-frame storyboard, cast, worlds and score, designed with AI. In production.">
 <meta name="twitter:image" content="https://www.kalenhayman.com/assets/og/lucky.jpg">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -29,65 +29,117 @@
 <link rel="stylesheet" href="/assets/site/site.css">
 <style>
 :root { --lucky: #158438; --apple: #7DBB22; }
-.lk-hero { position: relative; margin-top: var(--nav-h); min-height: calc(100svh - var(--nav-h)); display: flex; align-items: flex-end; overflow: hidden; background: #000; color: #EBEBEA; }
-.lk-hero .media { position: absolute; inset: 0; }
-.lk-hero .media img, .lk-hero .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lk-hero .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,.1) 100%); }
-.lk-hero .copy { position: relative; z-index: 1; width: 100%; padding: clamp(24px, 3vw, 48px) var(--gutter); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
-.lk-hero .top { color: rgba(235,235,234,.8); margin-bottom: 18px; display: flex; gap: 16px; flex-wrap: wrap; }
-.lk-hero .pill { display: inline-block; padding: 5px 10px; background: var(--lucky); color: #fff; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
-.lk-hero h1 { font-size: clamp(64px, 11vw, 190px); margin: 0; line-height: .86; }
-.lk-hero .ft { margin-top: 14px; color: var(--apple); font-size: 13px; }
-.lk-hero .cta { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
-.lk-hero .cta button { border: 0; cursor: pointer; padding: 13px 16px; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--neon); color: #000; }
-.lk-hero .cta button:hover { background: #fff; }
-.lk-hero .cta .soon { padding: 13px 16px; border: 1px solid rgba(235,235,234,.4); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(235,235,234,.85); }
+.lk-line { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.14); }
+.lk-sec { padding: clamp(44px, 6vw, 96px) 0; }
+.lk-sec > .in, .lk-head { padding: 0 var(--gutter); }
+.lk-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 22px; }
+.lk-head h2 { font-size: clamp(32px, 4vw, 64px); margin: 6px 0 0; line-height: .92; }
+.lk-head .eyebrow { margin: 0; }
+.ctl { display: flex; align-items: center; gap: 8px; flex: none; }
+.ctl .count { min-width: 64px; text-align: right; color: var(--sand); font-size: 12px; letter-spacing: .14em; }
+.ctl button, .tabs button { font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.3); background: none; color: inherit; height: 40px; padding: 0 14px; }
+.ctl button.ar { width: 40px; padding: 0; font-size: 15px; }
+.ctl button:hover, .tabs button:hover, .tabs button[aria-pressed="true"] { background: var(--neon); color: #000; border-color: var(--neon); }
 
-.lk-sec { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); }
-.lk-brief { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 5vw, 80px); }
-.lk-brief h2, .lk-sec h2.t { font-size: clamp(36px, 4.6vw, 72px); margin: 0 0 22px; }
-.lede { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: rgba(var(--bone-rgb, 235,235,234),.78); max-width: 58ch; }
-.lede + .lede { margin-top: 14px; }
-.beats { margin-top: 30px; display: grid; gap: 0; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
-.beat { display: grid; grid-template-columns: 54px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
-.beat .n { color: var(--neon-text, var(--neon)); font-size: 12px; }
-.beat b { display: block; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
-.beat span { color: rgba(var(--bone-rgb, 235,235,234),.72); font-size: 15px; }
-.specs { align-self: start; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
-.spec { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
-.spec .k { color: var(--sand); font-size: 11px; }
-.spec .v { font-size: 14px; }
-.spec .v.live { color: var(--lucky); }
-.specs .btn { margin-top: 22px; }
-.lk-grid { display: grid; gap: 10px; }
-.lk-grid.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.lk-grid.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.lk-grid.c5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.lk-grid.c6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-.lk-tile { display: flex; flex-direction: column; gap: 8px; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: zoom-in; }
-.lk-tile .im { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #0a0a0a; }
-.lk-grid.c3 .lk-tile .im { aspect-ratio: 2.15 / 1; }
-.lk-grid.sq .lk-tile .im { aspect-ratio: 1 / 1; }
-.lk-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease, ease); }
-.lk-tile:hover img { transform: scale(1.04); }
-.lk-tile .cap { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.45; color: rgba(var(--bone-rgb, 235,235,234),.8); }
-.lk-sub { margin: 48px 0 16px; display: flex; justify-content: space-between; gap: 16px; color: var(--sand); }
-.lk-brand { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
-.lk-brand .tile { position: relative; overflow: hidden; background: #fff; min-height: 340px; }
-.lk-brand .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.lk-brand .tile.contain img { object-fit: contain; padding: 24px; }
-.sw { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
-.sw div { height: 64px; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
-.sw span { display: block; margin-top: 6px; color: var(--sand); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+/* hero */
+.lk-hero { position: relative; margin-top: var(--nav-h); height: calc(100svh - var(--nav-h)); min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; background: #000; color: #EBEBEA; }
+.lk-hero .media { position: absolute; inset: 0; }
+.lk-hero .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lk-hero .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,0) 55%); }
+.lk-hero .copy { position: relative; z-index: 1; width: 100%; padding: clamp(24px, 3vw, 44px) var(--gutter); display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.lk-hero h1 { font-size: clamp(72px, 13vw, 220px); margin: 10px 0 0; line-height: .82; }
+.pill { display: inline-block; padding: 5px 10px; background: var(--lucky); color: #fff; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.lk-hero .ft { margin-top: 12px; color: var(--apple); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
+.lk-hero .cta { display: flex; gap: 8px; }
+.lk-hero .cta button { border: 0; cursor: pointer; height: 44px; padding: 0 16px; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--neon); color: #000; }
+.lk-hero .soon { height: 44px; display: inline-flex; align-items: center; padding: 0 16px; border: 1px solid rgba(235,235,234,.4); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+
+/* brief */
+.lk-brief .in { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
+.lk-brief h2 { font-size: clamp(36px, 4.4vw, 70px); line-height: .92; margin: 12px 0 18px; }
+.lk-brief p { font-size: clamp(16px, 1.3vw, 19px); line-height: 1.5; max-width: 52ch; color: rgba(var(--bone-rgb, 235,235,234),.78); margin: 0; }
+.beats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.beats span { padding: 8px 12px; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.22); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+.beats b { color: var(--neon-text, var(--neon)); margin-right: 8px; font-weight: 500; }
+.specs { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.spec { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); font-size: 13px; }
+.spec .k { color: var(--sand); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; padding-top: 2px; }
+.spec .live { color: var(--lucky); }
+
+/* rails: full-bleed horizontal sliders */
+.rail { display: grid; grid-auto-flow: column; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--gutter); padding: 0 var(--gutter) 6px; scrollbar-width: none; overscroll-behavior-x: contain; }
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { scroll-snap-align: start; }
+.rail.big { grid-auto-columns: min(78vw, 1020px); }
+.rail.mid { grid-auto-columns: min(42vw, 420px); }
+.rail.sm { grid-auto-columns: min(30vw, 240px); }
+.tile { display: flex; flex-direction: column; gap: 10px; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: zoom-in; }
+.tile .im { position: relative; display: block; overflow: hidden; background: #0a0a0a; aspect-ratio: 16 / 9; }
+.rail.big .tile .im { aspect-ratio: 2.15 / 1; }
+.rail.sq .tile .im { aspect-ratio: 1 / 1; }
+.tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease, ease); }
+.tile:hover img { transform: scale(1.03); }
+.tile .n { position: absolute; left: 0; top: 0; background: #000; color: #fff; padding: 5px 8px; font-size: 11px; letter-spacing: .1em; }
+.tile .cap { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.45; color: rgba(var(--bone-rgb, 235,235,234),.82); }
+.rail.big .tile .cap { font-size: 13px; }
+.sheet { display: none; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; padding: 0 var(--gutter); }
+.sheet .tile .im { aspect-ratio: 2.15 / 1; }
+.sheet .tile .cap { display: none; }
+.is-sheet .sheet { display: grid; }
+.is-sheet .rail.big { display: none; }
+.tabs { display: flex; gap: 6px; }
+
+/* sound */
+.lk-sound .in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
+.lk-sound h2 { font-size: clamp(32px, 4vw, 64px); line-height: .92; margin: 12px 0 16px; }
+.lk-sound p { font-size: 16px; line-height: 1.5; color: rgba(var(--bone-rgb, 235,235,234),.75); max-width: 46ch; margin: 0; }
+.refs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.refs span { padding: 6px 10px; background: var(--panel, #0a0a0a); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; }
+.player { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.trk { display: grid; grid-template-columns: 48px minmax(0, 1fr) 88px; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.trk .pp { width: 48px; height: 48px; border: 0; border-radius: 50%; cursor: pointer; background: var(--neon); color: #000; font-size: 15px; }
+.trk .pp:disabled { background: none; border: 1px dashed rgba(var(--bone-rgb, 235,235,234),.35); color: var(--sand); cursor: default; }
+.trk .nm { font-size: 18px; letter-spacing: .02em; }
+.trk .sub { color: var(--sand); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; margin-top: 4px; }
+.trk .bar { height: 3px; background: rgba(var(--bone-rgb, 235,235,234),.16); margin-top: 10px; cursor: pointer; }
+.trk .bar i { display: block; height: 100%; width: 0; background: var(--neon); }
+.trk .tm { text-align: right; color: var(--sand); font-size: 12px; letter-spacing: .1em; }
+
+/* brand + instagram */
+.lk-brand .in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 12px; align-items: stretch; }
+.og { position: relative; min-height: 420px; overflow: hidden; }
+.og img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.og .sw { position: absolute; left: 14px; bottom: 14px; display: flex; gap: 6px; }
+.og .sw i { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.6); }
+.ig { background: #fff; color: #111; border: 1px solid #dbdbdb; display: flex; flex-direction: column; font-family: -apple-system, system-ui, sans-serif; }
+.ig .top { display: flex; align-items: center; gap: 10px; padding: 12px 14px; font-size: 14px; font-weight: 600; }
+.ig .av { width: 32px; height: 32px; border-radius: 50%; background: #000 center/70% no-repeat; border: 2px solid var(--lucky); }
+.ig .top small { display: block; font-weight: 400; color: #737373; font-size: 12px; }
+.ig .pics { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: #000; }
+.ig .pics img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s; }
+.ig .pics img.on { opacity: 1; }
+.ig .pics button { position: absolute; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); cursor: pointer; font-size: 14px; color: #000; }
+.ig .pics .pv { left: 8px; } .ig .pics .nx { right: 8px; }
+.ig .dots { display: flex; justify-content: center; gap: 4px; padding: 10px 0 2px; }
+.ig .dots i { width: 6px; height: 6px; border-radius: 50%; background: #c7c7c7; }
+.ig .dots i.on { background: #0095f6; }
+.ig .cap { padding: 6px 14px 14px; font-size: 13.5px; line-height: 1.4; }
+.ig .cap b { margin-right: 6px; }
+
+/* v1 strip */
+.v1 { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; padding: 0 var(--gutter); }
+.v1 .tile .im { aspect-ratio: 16 / 9; filter: grayscale(.35); }
+.v1 .tile .cap { font-size: 10px; }
+
 @media (max-width: 900px) {
-  .lk-hero { min-height: 82svh; }
-  .lk-hero .copy { grid-template-columns: 1fr; }
-  .lk-hero .cta { justify-content: flex-start; }
-  .lk-brief, .lk-brand { grid-template-columns: 1fr; }
-  .lk-brand .tile { min-height: 260px; }
-  .sw { grid-template-columns: repeat(2, 1fr); }
-  .lk-grid.c3, .lk-grid.c4, .lk-grid.c5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .lk-grid.c6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lk-head { flex-direction: column; align-items: flex-start; }
+  .lk-brief .in, .lk-sound .in, .lk-brand .in { grid-template-columns: 1fr; }
+  .rail.big { grid-auto-columns: 86vw; }
+  .rail.mid { grid-auto-columns: 62vw; }
+  .rail.sm { grid-auto-columns: 40vw; }
+  .sheet { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .v1 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .og { min-height: 300px; }
 }
 </style>
 </head>
@@ -123,14 +175,14 @@
 </div>
 
 <main>
-  <section class="lk-hero dark" id="top">
+  <section class="lk-hero" id="top">
     <div class="media">
-      <!-- FINAL VIDEO: when the film is ready, give this video a src (and keep muted autoplay loop playsinline); the poster shows until then -->
+      <!-- FINAL FILM: give this video a src; it then plays muted on a loop with sound / full-screen buttons -->
       <video id="lkVid" poster="/assets/lucky/assets/drops/v2-01.jpg" muted loop playsinline preload="none" aria-label="Lucky Energy — OG Luck concept promo"></video>
     </div>
     <div class="copy">
       <div>
-        <div class="top mono"><span class="pill">In production</span><span>Concept promo · 2026</span></div>
+        <span class="pill mono">In production</span>
         <h1 class="display">Lucky</h1>
         <div class="ft mono">OG Luck · Built for the Relentless</div>
       </div>
@@ -142,65 +194,84 @@
     </div>
   </section>
 
-  <section class="lk-sec lk-brief" id="brief">
-    <div>
-      <div class="eyebrow mono"><span class="dot">01 · The brief</span></div>
-      <h2 class="display">He loses everything. Finds LUCKY. Wins it all back.</h2>
-      <p class="lede">A concept promo for Lucky Energy’s hero can, OG Luck: an open-world, game-inspired spot that plays like a cut-scene. Higher fidelity, brighter colour and more life than the game spots it nods to, but always on-brand, and built from scratch with original characters, locations and props.</p>
-      <p class="lede">I took it from a first-pass edit to a faster, 27-frame V2 storyboard, with Matrix-style slow motion, a 360° turntable and an outfit-swap gag, ending in the sun on the beach.</p>
-      <div class="beats mono">
-        <div class="beat"><span class="n">01</span><div><b>A real turning point</b><span>He loses everything, finds LUCKY, wins it all back.</span></div></div>
-        <div class="beat"><span class="n">02</span><div><b>Faster, and it plays like a game</b><span>Non-stop action, game-quality visuals, bullet time.</span></div></div>
-        <div class="beat"><span class="n">03</span><div><b>The drink changes his mindset</b><span>Not his luck. He ends up active, confident and in the sun.</span></div></div>
-      </div>
-    </div>
-    <div class="specs mono">
-      <div class="spec"><span class="k">Brand</span><span class="v">Lucky Energy</span></div>
-      <div class="spec"><span class="k">Hero can</span><span class="v">OG Luck · green apple</span></div>
-      <div class="spec"><span class="k">Format</span><span class="v">Concept promo spot</span></div>
-      <div class="spec"><span class="k">Storyboard</span><span class="v">27 frames (V2)</span></div>
-      <div class="spec"><span class="k">Design</span><span class="v">12 locations · 12 cast · 10 props</span></div>
-      <div class="spec"><span class="k">Method</span><span class="v">AI-generated frames, characters &amp; worlds</span></div>
-      <div class="spec"><span class="k">Designed by</span><span class="v">Kalen Hayman</span></div>
-      <div class="spec"><span class="k">Status</span><span class="v live">In production · 2026</span></div>
-      <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
-    </div>
-  </section>
-
-  <section class="lk-sec" id="storyboard">
-    <div class="eyebrow mono"><span class="dot">02 · The V2 storyboard</span><span>27 frames</span></div>
-    <div class="lk-grid c3" id="lkV2"></div>
-  </section>
-
-  <section class="lk-sec" id="design">
-    <div class="eyebrow mono"><span class="dot">03 · Production design</span><span>Downtown → store → Ocean Drive → shore</span></div>
-    <div class="lk-sub mono"><span>Locations</span><span>12</span></div>
-    <div class="lk-grid c4" id="lkLoc"></div>
-    <div class="lk-sub mono"><span>Cast</span><span>12</span></div>
-    <div class="lk-grid c6 sq" id="lkCast"></div>
-    <div class="lk-sub mono"><span>Cars, wardrobe &amp; props</span><span>10</span></div>
-    <div class="lk-grid c5" id="lkAcc"></div>
-  </section>
-
-  <section class="lk-sec" id="brand">
-    <div class="eyebrow mono"><span class="dot">04 · The brand</span><span>OG Luck · zero sugar · 200mg caffeine</span></div>
-    <h2 class="t display">Natural. Healthy. Relentless.</h2>
-    <div class="lk-brand">
-      <div class="tile"><img src="/assets/lucky/assets/brand/og-apples.jpg" alt="OG Luck can on green apples" loading="lazy"></div>
+  <section class="lk-sec lk-brief">
+    <div class="in">
       <div>
-        <div class="tile contain" style="min-height:260px"><img src="/assets/lucky/assets/brand/lineup.jpg" alt="The Lucky Energy lineup" loading="lazy" style="object-fit:cover;padding:0"></div>
-        <div class="sw mono">
-          <div style="background:#158438"></div><div style="background:#7DBB22"></div><div style="background:#000"></div><div style="background:#fff"></div>
-        </div>
-        <div class="sw mono" style="margin-top:0"><span>Lucky Green #158438</span><span>Apple #7DBB22</span><span>Black #000000</span><span>White #FFFFFF</span></div>
+        <div class="eyebrow mono"><span class="dot">01 · The brief</span></div>
+        <h2 class="display">Loses everything. Finds LUCKY. Wins it back.</h2>
+        <p>A game-inspired spot for Lucky Energy’s OG Luck that plays like a cut-scene: bright, fast and on-brand, with original characters, worlds and props built from scratch.</p>
+        <div class="beats mono"><span><b>01</b>A real turning point</span><span><b>02</b>Plays like a game</span><span><b>03</b>Mindset, not luck</span></div>
+      </div>
+      <div class="specs mono">
+        <div class="spec"><span class="k">Brand</span><span>Lucky Energy · OG Luck</span></div>
+        <div class="spec"><span class="k">Format</span><span>Concept promo · :60 / :30</span></div>
+        <div class="spec"><span class="k">Build</span><span>27 frames · 12 worlds · 12 cast · 10 props</span></div>
+        <div class="spec"><span class="k">Method</span><span>AI-generated</span></div>
+        <div class="spec"><span class="k">Design</span><span>Kalen Hayman</span></div>
+        <div class="spec"><span class="k">Status</span><span class="live">In production · 2026</span></div>
       </div>
     </div>
   </section>
 
-  <section class="lk-sec" id="v1">
-    <div class="eyebrow mono"><span class="dot">05 · Where it started</span><span>V1 edit · 27 frames</span></div>
-    <p class="lede" style="margin-bottom:28px">The first pass: a grey, rainy street, one bad morning and a slow turn into sunshine. The client asked for more pace, more swagger and more of the brand’s bright, active world, which led to V2.</p>
-    <div class="lk-grid c6" id="lkV1"></div>
+  <section class="lk-sec lk-line" id="storyboard">
+    <div class="lk-head">
+      <div><div class="eyebrow mono"><span class="dot">02 · My storyboard</span></div><h2 class="display">27 frames.</h2></div>
+      <div class="ctl mono">
+        <button type="button" id="sbMode" aria-pressed="false">Sheet</button>
+        <button class="ar" type="button" data-rail="sb" data-dir="-1" aria-label="Previous">←</button>
+        <button class="ar" type="button" data-rail="sb" data-dir="1" aria-label="Next">→</button>
+        <span class="count" id="sbCount">01 / 27</span>
+      </div>
+    </div>
+    <div class="rail big" id="sb"></div>
+    <div class="sheet" id="sbSheet"></div>
+  </section>
+
+  <section class="lk-sec lk-line lk-sound" id="sound">
+    <div class="in">
+      <div>
+        <div class="eyebrow mono"><span class="dot">03 · The sound</span></div>
+        <h2 class="display">West Coast swagger. South Beach sun.</h2>
+        <p>Inspired by the strings-and-piano bounce of Dr. Dre’s <em>2001</em> era and the neon pulse of Miami open-world games. For the back half, a sunny surf-pop lift, with the orchestral instrumentals kept throughout.</p>
+        <div class="refs mono"><span>“Forgot About Dre” inspired</span><span>Miami open-world</span><span>Beach Boys sun</span><span>Orchestral</span></div>
+      </div>
+      <div class="player mono" id="player"></div>
+    </div>
+  </section>
+
+  <section class="lk-sec lk-line" id="design">
+    <div class="lk-head">
+      <div><div class="eyebrow mono"><span class="dot">04 · Production design</span></div><h2 class="display">Worlds, cast &amp; props.</h2></div>
+      <div class="ctl mono">
+        <div class="tabs" role="tablist">
+          <button type="button" data-tab="loc" aria-pressed="true">Worlds 12</button>
+          <button type="button" data-tab="cast" aria-pressed="false">Cast 12</button>
+          <button type="button" data-tab="acc" aria-pressed="false">Props 10</button>
+        </div>
+        <button class="ar" type="button" data-rail="pd" data-dir="-1" aria-label="Previous">←</button>
+        <button class="ar" type="button" data-rail="pd" data-dir="1" aria-label="Next">→</button>
+      </div>
+    </div>
+    <div class="rail mid" id="pd"></div>
+  </section>
+
+  <section class="lk-sec lk-line lk-brand" id="brand">
+    <div class="lk-head"><div><div class="eyebrow mono"><span class="dot">05 · The brand</span></div><h2 class="display">Natural. Healthy. Relentless.</h2></div></div>
+    <div class="in">
+      <div class="og"><img src="/assets/lucky/assets/brand/og-apples.jpg" alt="OG Luck on green apples" loading="lazy">
+        <div class="sw"><i style="background:#158438" title="Lucky Green #158438"></i><i style="background:#7DBB22" title="Apple #7DBB22"></i><i style="background:#000" title="Black"></i><i style="background:#fff" title="White"></i></div></div>
+      <div class="ig" id="ig">
+        <div class="top"><span class="av" style="background-image:url(/assets/lucky/assets/brand/og-can-sm.jpg)"></span><span>luckyenergy<small>Brand content</small></span></div>
+        <div class="pics"></div>
+        <div class="dots"></div>
+        <div class="cap"><b>luckyenergy</b>Real people, bright colour, healthy energy. Built for the relentless.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lk-sec lk-line" id="v1">
+    <div class="lk-head"><div><div class="eyebrow mono"><span class="dot">06 · Where it started</span><span>V1 edit</span></div></div></div>
+    <div class="v1" id="v1s"></div>
   </section>
 
   <section class="band">
@@ -222,41 +293,101 @@
 <script src="/assets/site/site.js"></script>
 <script>
 (function () {
-  var D = {"V2": ["Opening drone swoop: Ocean Drive chaos, chopper searching", "Chaotic driving: hero pulls up at the corner store", "Street thug moves in on the car", "Matrix slow-mo car robbery, grabs fly", "Takes the ride and peels out", "Hero knocked flat outside the store", "Black cat licks the hero awake", "It starts to rain on our hero", "Whip-zoom POV to the LUCKY billboard as the weather changes", "Hero walks into the store: shop owner scared", "Owner points to the fridge", "Hero grabs an ice-cold LUCKY", "360 turntable: hero skulls the LUCKY", "Power-up: hero's eyes light up", "Hero exits and bumps a woman outside the café", "Matrix slow-mo save: coffee, shades, keys", "Hero returns her shades, she blushes", "Run club jogs up and bumps into the hero", "Outfit-swap bump: instant running gear", "Hero sprints across traffic to the beach", "Hero dive-saves match point", "Glitchy high-fives from the players", "Cooler guy hands him a LUCKY", "Surfer crew invite to surf", "Squad charges into the ocean", "Wave wipes into LUCKY bubbles", "Logo reveal: Built for the Relentless"], "V1": ["Wide. Grey, wet street seen from the elevated tracks", "Close. Hand turns the ignition key", "He glares over the wheel", "Eyes shut. A long exhale", "A black cat crosses the hood", "The billboard. LUCKY Energy, OG Luck can", "He climbs out of the red car beside a puddle", "A taxi sprays the sidewalk", "He trips on the cracked pavement", "He walks on", "Close. Head down, hand to his chest", "Hand on the store door. OPEN", "Low angle. The LUCKY fridge, fully stocked", "Can down on the counter", "Outside. He cracks the tab", "He drinks", "Extreme close. Eyes open in warm light", "Profile. The sun breaks through", "He steps past a four-leaf clover", "A lotto ticket drifts down", "He strolls by", "A green umbrella blocks the splash", "He leaps the cracked pavement", "Hand taps the hood of the red car", "Key turns in the ignition, sunlit", "Behind the wheel, relaxed", "Wide. Same street, now sunlit"], "LOC": ["Street wide at dusk (aerial)", "Carjacking corner", "Billboard POV in the rain", "Store exterior", "Store interior", "LUCKY fridge", "Checkout counter", "Exit POV at dawn", "Café sidewalk", "Ocean Drive sidewalk (run club)", "On the volleyball court", "Shore, early afternoon"], "CAST": ["Hero, street look", "Hero, run look", "Hero, surf look", "Car thief", "Black cat", "Shop keeper", "Café lady", "Run club lead", "Run club group", "Cooler man", "Volleyball group", "Surfers (pair)"], "ACC": ["Yellow convertible", "Black sunglasses", "Car keys", "Phone", "Black sunglasses (alt)", "Iced coffee", "Keys with shell charm", "Tortoiseshell sunglasses", "Cooler with volleyball", "Surfboards (pair)"]}, L = '/assets/lucky/';
-  function n2(i) { return (i < 9 ? '0' : '') + (i + 1); }
-  function add(key, list, src, w, h, sub) {
-    return list.map(function (t, i) {
-      var id = 'lucky-' + key + '-' + n2(i);
-      AVA.WORK.push({ id: id, title: n2(i) + ' · ' + t, sub: sub, types: ['Image'], w: w, h: h, src: src(i) });
-      return id;
-    });
+  var D = {"V2": ["Opening drone swoop: Ocean Drive chaos, chopper searching", "Chaotic driving: hero pulls up at the corner store", "Street thug moves in on the car", "Matrix slow-mo car robbery, grabs fly", "Takes the ride and peels out", "Hero knocked flat outside the store", "Black cat licks the hero awake", "It starts to rain on our hero", "Whip-zoom POV to the LUCKY billboard as the weather changes", "Hero walks into the store: shop owner scared", "Owner points to the fridge", "Hero grabs an ice-cold LUCKY", "360 turntable: hero skulls the LUCKY", "Power-up: hero's eyes light up", "Hero exits and bumps a woman outside the café", "Matrix slow-mo save: coffee, shades, keys", "Hero returns her shades, she blushes", "Run club jogs up and bumps into the hero", "Outfit-swap bump: instant running gear", "Hero sprints across traffic to the beach", "Hero dive-saves match point", "Glitchy high-fives from the players", "Cooler guy hands him a LUCKY", "Surfer crew invite to surf", "Squad charges into the ocean", "Wave wipes into LUCKY bubbles", "Logo reveal: Built for the Relentless"], "V1": [[1, "Wide. Grey, wet street seen from the elevated tracks"], [5, "A black cat crosses the hood"], [6, "The billboard. LUCKY Energy, OG Luck can"], [9, "He trips on the cracked pavement"], [13, "Low angle. The LUCKY fridge, fully stocked"], [16, "He drinks"], [27, "Wide. Same street, now sunlit"]], "LOC": ["Street wide at dusk (aerial)", "Carjacking corner", "Billboard POV in the rain", "Store exterior", "Store interior", "LUCKY fridge", "Checkout counter", "Exit POV at dawn", "Café sidewalk", "Ocean Drive sidewalk (run club)", "On the volleyball court", "Shore, early afternoon"], "CAST": ["Hero, street look", "Hero, run look", "Hero, surf look", "Car thief", "Black cat", "Shop keeper", "Café lady", "Run club lead", "Run club group", "Cooler man", "Volleyball group", "Surfers (pair)"], "ACC": ["Yellow convertible", "Black sunglasses", "Car keys", "Phone", "Black sunglasses (alt)", "Iced coffee", "Keys with shell charm", "Tortoiseshell sunglasses", "Cooler with volleyball", "Surfboards (pair)"], "IG": ["ig-01", "ig-02", "ig-03", "ig-04", "ig-05", "ig-06", "lineup", "liftoff"]}, L = '/assets/lucky/';
+  /* the three cuts of the score: add each file's URL to src when it is ready */
+  var TRACKS = [
+    { name: 'OG Luck · :60', sub: 'Full spot', src: '' },
+    { name: 'OG Luck · :30 A', sub: 'Cut-down', src: '' },
+    { name: 'OG Luck · :30 B', sub: 'Cut-down', src: '' }
+  ];
+  function n2(i) { return (i < 10 ? '0' : '') + i; }
+  function piece(id, title, src, sub) { var p = { id: id, title: title, sub: sub, types: ['Image'], w: 16, h: 9, src: src }; AVA.WORK.push(p); return p; }
+  function tile(p, n, seq, cap) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'tile';
+    b.innerHTML = '<span class="im"><img loading="lazy" alt=""><span class="n mono"></span></span><span class="cap mono"></span>';
+    b.querySelector('img').src = p.src; b.querySelector('img').alt = p.title;
+    b.querySelector('.n').textContent = n; if (!n) b.querySelector('.n').remove();
+    b.querySelector('.cap').textContent = cap;
+    b.addEventListener('click', function () { AVA.open(p, seq); });
+    return b;
   }
-  function mount(el, ids) {
-    var box = document.getElementById(el);
-    var seq = ids.map(function (id) { return AVA.WORK.filter(function (p) { return p.id === id; })[0]; });
-    seq.forEach(function (p) {
-      var b = document.createElement('button'); b.type = 'button'; b.className = 'lk-tile';
-      b.innerHTML = '<span class="im"><img loading="lazy" alt=""></span><span class="cap mono"></span>';
-      b.querySelector('img').src = p.src; b.querySelector('img').alt = p.title;
-      b.querySelector('.cap').textContent = p.title;
-      b.addEventListener('click', function () { AVA.open(p, seq); });
-      box.appendChild(b);
+  /* storyboard: a full-bleed slider, or a 27-up contact sheet */
+  var sb = D.V2.map(function (t, i) { return piece('lucky-v2-' + n2(i + 1), n2(i + 1) + ' · ' + t, L + 'assets/drops/v2-' + n2(i + 1) + '.jpg', 'Storyboard'); });
+  var rail = document.getElementById('sb'), sheet = document.getElementById('sbSheet');
+  sb.forEach(function (p, i) { rail.appendChild(tile(p, n2(i + 1), sb, D.V2[i])); sheet.appendChild(tile(p, n2(i + 1), sb, '')); });
+  var count = document.getElementById('sbCount');
+  rail.addEventListener('scroll', function () {
+    var w = rail.firstChild.getBoundingClientRect().width + 10;
+    count.textContent = n2(Math.min(27, Math.round(rail.scrollLeft / w) + 1)) + ' / 27';
+  }, { passive: true });
+  document.getElementById('sbMode').addEventListener('click', function () {
+    var on = document.getElementById('storyboard').classList.toggle('is-sheet');
+    this.setAttribute('aria-pressed', String(on)); this.textContent = on ? 'Slider' : 'Sheet';
+  });
+  document.querySelectorAll('[data-rail]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var r = document.getElementById(b.getAttribute('data-rail'));
+      var w = r.firstChild ? r.firstChild.getBoundingClientRect().width + 10 : 300;
+      r.scrollBy({ left: w * +b.getAttribute('data-dir'), behavior: 'smooth' });
     });
+  });
+  /* production design: one rail, three tabs */
+  var PD = {
+    loc: { list: D.LOC, f: 'loc', sub: 'World' },
+    cast: { list: D.CAST, f: 'cast', sub: 'Cast' },
+    acc: { list: D.ACC, f: 'acc', sub: 'Props' }
+  };
+  var pd = document.getElementById('pd');
+  function showTab(k) {
+    var g = PD[k];
+    var seq = g.list.map(function (t, i) { return piece('lucky-' + g.f + '-' + n2(i + 1), t, L + 'assets/drops/' + g.f + '-' + n2(i + 1) + '.jpg', g.sub); });
+    pd.textContent = ''; pd.className = 'rail ' + (k === 'cast' ? 'sm sq' : 'mid'); pd.scrollLeft = 0;
+    seq.forEach(function (p, i) { pd.appendChild(tile(p, n2(i + 1), seq, g.list[i])); });
+    document.querySelectorAll('[data-tab]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-tab') === k)); });
   }
-  mount('lkV2', add('v2', D.V2, function (i) { return L + 'assets/drops/v2-' + n2(i) + '.jpg'; }, 1000, 466, 'V2 storyboard'));
-  mount('lkLoc', add('loc', D.LOC, function (i) { return L + 'assets/drops/loc-' + n2(i) + '.jpg'; }, 958, 536, 'Location'));
-  mount('lkCast', add('cast', D.CAST, function (i) { return L + 'assets/drops/cast-' + n2(i) + '.jpg'; }, 1, 1, 'Cast'));
-  mount('lkAcc', add('acc', D.ACC, function (i) { return L + 'assets/drops/acc-' + n2(i) + '.jpg'; }, 1200, 671, 'Props'));
-  mount('lkV1', add('v1', D.V1, function (i) { return L + 'frames/' + n2(i) + '.jpg'; }, 800, 442, 'V1 edit'));
-
-  /* header film: once the video has a src, it plays muted on a loop with sound / full-screen buttons */
+  document.querySelectorAll('[data-tab]').forEach(function (b) { b.addEventListener('click', function () { showTab(b.getAttribute('data-tab')); }); });
+  showTab('loc');
+  /* instagram-style post */
+  var ig = document.getElementById('ig'), pics = ig.querySelector('.pics'), dots = ig.querySelector('.dots'), at = 0;
+  D.IG.forEach(function (n, i) {
+    var im = document.createElement('img'); im.src = L + 'assets/brand/' + n + '.jpg'; im.alt = ''; im.loading = 'lazy'; if (!i) im.className = 'on'; pics.appendChild(im);
+    var d = document.createElement('i'); if (!i) d.className = 'on'; dots.appendChild(d);
+  });
+  function go(k) { at = (k + D.IG.length) % D.IG.length; [].forEach.call(pics.querySelectorAll('img'), function (m, i) { m.className = i === at ? 'on' : ''; }); [].forEach.call(dots.children, function (d, i) { d.className = i === at ? 'on' : ''; }); }
+  ['pv', 'nx'].forEach(function (c, j) { var b = document.createElement('button'); b.type = 'button'; b.className = c; b.textContent = j ? '›' : '‹'; b.setAttribute('aria-label', j ? 'Next' : 'Previous'); b.addEventListener('click', function () { go(at + (j ? 1 : -1)); }); pics.appendChild(b); });
+  /* v1 strip */
+  var v1 = D.V1.map(function (x) { return piece('lucky-v1-' + n2(x[0]), 'V1 · ' + n2(x[0]) + ' · ' + x[1], L + 'frames/' + n2(x[0]) + '.jpg', 'V1 edit'); });
+  var v1s = document.getElementById('v1s'); v1.forEach(function (p, i) { v1s.appendChild(tile(p, '', v1, D.V1[i][1])); });
+  /* music player */
+  var player = document.getElementById('player'), cur = null;
+  function fmt(s) { s = Math.max(0, Math.round(s || 0)); return Math.floor(s / 60) + ':' + n2(s % 60); }
+  TRACKS.forEach(function (t) {
+    var row = document.createElement('div'); row.className = 'trk';
+    row.innerHTML = '<button class="pp" type="button" aria-label="Play">▶</button><div><div class="nm"></div><div class="sub"></div><div class="bar"><i></i></div></div><div class="tm"></div>';
+    row.querySelector('.nm').textContent = t.name;
+    var pp = row.querySelector('.pp'), bar = row.querySelector('.bar'), fill = bar.querySelector('i'), tm = row.querySelector('.tm');
+    if (!t.src) { pp.disabled = true; pp.textContent = '·'; row.querySelector('.sub').textContent = t.sub + ' · coming soon'; tm.textContent = t.name.indexOf(':60') > -1 ? '1:00' : '0:30'; player.appendChild(row); return; }
+    row.querySelector('.sub').textContent = t.sub;
+    var a = new Audio(); a.preload = 'metadata'; a.src = t.src;
+    a.addEventListener('loadedmetadata', function () { tm.textContent = fmt(a.duration); });
+    a.addEventListener('timeupdate', function () { fill.style.width = (a.currentTime / (a.duration || 1) * 100) + '%'; tm.textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration); });
+    a.addEventListener('ended', function () { pp.textContent = '▶'; });
+    pp.addEventListener('click', function () {
+      if (cur && cur !== a) { cur.pause(); }
+      if (a.paused) { a.play(); pp.textContent = '❚❚'; cur = a; [].forEach.call(player.querySelectorAll('.pp'), function (b) { if (b !== pp && !b.disabled) b.textContent = '▶'; }); }
+      else { a.pause(); pp.textContent = '▶'; }
+    });
+    bar.addEventListener('click', function (e) { var r = bar.getBoundingClientRect(); if (a.duration) a.currentTime = (e.clientX - r.left) / r.width * a.duration; });
+    player.appendChild(row);
+  });
+  /* header film: once the video has a src */
   var v = document.getElementById('lkVid'), s = document.getElementById('lkSound'), f = document.getElementById('lkFull');
   if (v.getAttribute('src')) {
     document.getElementById('lkSoon').hidden = true; s.hidden = false; f.hidden = false;
     v.autoplay = true; v.preload = 'auto'; v.play().catch(function () {});
-    var sound = function (on, top) { v.muted = !on; if (on && top) v.currentTime = 0; if (on) v.play().catch(function () {}); s.setAttribute('aria-pressed', String(on)); s.textContent = on ? '■ Mute' : '▶ Play with sound'; };
+    var sound = function (on, top) { v.muted = !on; if (on && top) v.currentTime = 0; if (on) { v.play().catch(function () {}); if (cur) cur.pause(); } s.setAttribute('aria-pressed', String(on)); s.textContent = on ? '■ Mute' : '▶ Play with sound'; };
     s.addEventListener('click', function () { sound(v.muted, true); });
-    f.addEventListener('click', function () { v.currentTime = 0; sound(true); var go = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen; if (go) go.call(v); });
+    f.addEventListener('click', function () { v.currentTime = 0; sound(true); var go2 = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen; if (go2) go2.call(v); });
     document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) sound(false); });
     if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { if (!e[0].isIntersecting && !v.muted && !document.fullscreenElement) sound(false); }).observe(v);
   }
