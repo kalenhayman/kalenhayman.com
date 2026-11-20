@@ -108,20 +108,22 @@
 .trk .tm { text-align: right; color: var(--sand); font-size: 12px; letter-spacing: .1em; white-space: nowrap; min-width: 92px; }
 
 /* brand + instagram */
-.lk-brand .in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 12px; align-items: stretch; }
-.og { position: relative; min-height: 420px; overflow: hidden; }
+.lk-brand .in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 32px; align-items: center; max-width: 1180px; }
+.og { position: relative; height: clamp(300px, 34vw, 440px); overflow: hidden; }
 .og img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .og .sw { position: absolute; left: 14px; bottom: 14px; display: flex; gap: 6px; }
 .og .sw i { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.6); }
-.ig { background: #fff; color: #111; border: 1px solid #dbdbdb; display: flex; flex-direction: column; font-family: -apple-system, system-ui, sans-serif; }
+.ig { position: relative; background: #fff; color: #111; border: 1px solid #dbdbdb; display: flex; flex-direction: column; font-family: -apple-system, system-ui, sans-serif; margin: 0 22px; }
 .ig .top { display: flex; align-items: center; gap: 10px; padding: 12px 14px; font-size: 14px; font-weight: 600; }
 .ig .av { width: 32px; height: 32px; border-radius: 50%; background: #000 center/70% no-repeat; border: 2px solid var(--lucky); }
 .ig .top small { display: block; font-weight: 400; color: #737373; font-size: 12px; }
 .ig .pics { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: #000; }
 .ig .pics img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s; }
 .ig .pics img.on { opacity: 1; }
-.ig .pics button { position: absolute; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); cursor: pointer; font-size: 14px; color: #000; }
-.ig .pics .pv { left: 8px; } .ig .pics .nx { right: 8px; }
+/* carousel arrows sit on the card's left and right edges, half outside, always visible */
+.ig .nav-ar { position: absolute; top: calc(57px + (100% - 57px - 92px) / 2); transform: translateY(-50%); z-index: 2; width: 44px; height: 44px; border-radius: 50%; border: 2px solid #000; background: var(--neon); color: #000; cursor: pointer; font-size: 20px; line-height: 1; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+.ig .nav-ar:hover { background: #fff; }
+.ig .pv { left: -22px; } .ig .nx { right: -22px; }
 .ig .dots { display: flex; justify-content: center; gap: 4px; padding: 10px 0 2px; }
 .ig .dots i { width: 6px; height: 6px; border-radius: 50%; background: #c7c7c7; }
 .ig .dots i.on { background: #0095f6; }
@@ -358,7 +360,7 @@
     var d = document.createElement('i'); if (!i) d.className = 'on'; dots.appendChild(d);
   });
   function go(k) { at = (k + D.IG.length) % D.IG.length; [].forEach.call(pics.querySelectorAll('img'), function (m, i) { m.className = i === at ? 'on' : ''; }); [].forEach.call(dots.children, function (d, i) { d.className = i === at ? 'on' : ''; }); }
-  ['pv', 'nx'].forEach(function (c, j) { var b = document.createElement('button'); b.type = 'button'; b.className = c; b.textContent = j ? '›' : '‹'; b.setAttribute('aria-label', j ? 'Next' : 'Previous'); b.addEventListener('click', function () { go(at + (j ? 1 : -1)); }); pics.appendChild(b); });
+  ['pv', 'nx'].forEach(function (c, j) { var b = document.createElement('button'); b.type = 'button'; b.className = 'nav-ar ' + c; b.textContent = j ? '→' : '←'; b.setAttribute('aria-label', j ? 'Next' : 'Previous'); b.addEventListener('click', function () { go(at + (j ? 1 : -1)); }); ig.appendChild(b); });
   /* v1 strip */
   var v1 = D.V1.map(function (x) { return piece('lucky-v1-' + n2(x[0]), 'V1 · ' + n2(x[0]) + ' · ' + x[1], L + 'frames/' + n2(x[0]) + '.jpg', 'V1 edit'); });
   var v1s = document.getElementById('v1s'); v1.forEach(function (p, i) { v1s.appendChild(tile(p, '', v1, D.V1[i][1])); });
