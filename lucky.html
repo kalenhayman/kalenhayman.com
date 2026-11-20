@@ -45,7 +45,9 @@
 .lk-hero { position: relative; margin-top: var(--nav-h); height: calc(100svh - var(--nav-h)); min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; background: #000; color: #EBEBEA; }
 .lk-hero .media { position: absolute; inset: 0; }
 .lk-hero .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lk-hero .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,0) 55%); }
+.lk-hero .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.6) 32%, rgba(0,0,0,0) 62%); }
+.lk-hero [hidden] { display: none !important; }
+.lk-hero h1 { text-shadow: 0 2px 30px rgba(0,0,0,.35); }
 .lk-hero .copy { position: relative; z-index: 1; width: 100%; padding: clamp(24px, 3vw, 44px) var(--gutter); display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
 .lk-hero h1 { font-size: clamp(72px, 13vw, 220px); margin: 10px 0 0; line-height: .82; }
 .pill { display: inline-block; padding: 5px 10px; background: var(--lucky); color: #fff; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
@@ -177,8 +179,8 @@
 <main>
   <section class="lk-hero" id="top">
     <div class="media">
-      <!-- FINAL FILM: give this video a src; it then plays muted on a loop with sound / full-screen buttons -->
-      <video id="lkVid" poster="/assets/lucky/assets/drops/v2-01.jpg" muted loop playsinline preload="none" aria-label="Lucky Energy — OG Luck concept promo"></video>
+      <!-- the :30 film: plays muted on a loop; the buttons bring in sound or full screen -->
+      <video id="lkVid" src="/assets/video/lucky-30.mp4" poster="/assets/lucky/assets/drops/v2-01.jpg" muted loop playsinline preload="none" aria-label="Lucky Energy — OG Luck concept promo"></video>
     </div>
     <div class="copy">
       <div>
