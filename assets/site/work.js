@@ -372,10 +372,15 @@
     a.appendChild(el('span', 'card-slash'));
     a.appendChild(m);
     var cap = el('div', 'card-cap');
-    cap.appendChild(el('span', 'card-title', p.name));
+    /* brand and format on one line, same size and weight; the action sits underneath */
+    var line = el('span', 'card-line');
+    line.appendChild(el('span', 'card-title', p.name));
+    line.appendChild(el('span', 'card-sep', '/'));
+    line.appendChild(el('span', 'card-title card-kind', p.kind));
+    cap.appendChild(line);
     var n = p.media ? p.media.length : 0;
     var meta = p.href ? (p.face ? 'Profile →' : 'Project page →') : (n > 1 ? n + ' pieces' : (n && p.media[0].video ? 'Video' : ''));
-    cap.appendChild(el('span', 'card-types mono', '<span>' + p.kind + '</span>' + (meta ? '<span class="card-meta">' + meta + '</span>' : '')));
+    if (meta) cap.appendChild(el('span', 'card-meta mono', meta));
     a.appendChild(cap);
     return a;
   }

@@ -210,3 +210,18 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 .nav-mark { position: relative; z-index: 0; }
 .k-mark { position: relative; display: inline-block; font-family: var(--display); font-size: 32px; line-height: 1; text-transform: uppercase; color: var(--bone); padding: 0 4px; }
 .k-mark::before { content: ""; position: absolute; z-index: -1; left: -6px; right: -6px; top: 46%; height: 30%; background: var(--neon); transform: skewX(-14deg) rotate(-8deg); }
+
+/* project cards: brand / format on one line, one size, one style, full colour */
+.card--project .card-line { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .4em; row-gap: 2px; }
+.card--project .card-line .card-title { font-size: clamp(18px, 1.6vw, 23px); line-height: 1.04; color: var(--bone); }
+.card--project .card-sep { font-family: var(--display); font-size: clamp(18px, 1.6vw, 23px); line-height: 1.04; color: var(--neon); }
+.card--project .card-meta { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sand); white-space: nowrap; }
+.card--project:hover .card-meta { color: var(--neon); }
+/* kalenhayman: white project cards, black type */
+.card--project { --ink: #FFFFFF; --bone: #000000; --bone-rgb: 0, 0, 0; --panel: #F1F1EF; --hair: #D6D6D4; --neon-text: #000000; background: #FFFFFF; color: #000; border: 1px solid #E2E2E0; }
+.card--project .card-cap { border-top-color: #E2E2E0; }
+.card--project .card-sep { color: #000; opacity: .28; }
+.card--project .card-meta { color: #6a6a68; }
+.card--project:hover .card-meta { color: #000; background: var(--neon); }
+.card--project .card-media { background: #F1F1EF; }
+.on-bone .card--project { background: #FFFFFF; }
