@@ -375,8 +375,7 @@
     /* brand and format on one line, same size and weight; the action sits underneath */
     var line = el('span', 'card-line');
     line.appendChild(el('span', 'card-title', p.name));
-    line.appendChild(el('span', 'card-sep', '/'));
-    line.appendChild(el('span', 'card-title card-kind', p.kind));
+    line.appendChild(el('span', 'card-kind mono', p.kind));
     cap.appendChild(line);
     var n = p.media ? p.media.length : 0;
     var meta = p.href ? (p.face ? 'Profile →' : 'Project page →') : (n > 1 ? n + ' pieces' : (n && p.media[0].video ? 'Video' : ''));
