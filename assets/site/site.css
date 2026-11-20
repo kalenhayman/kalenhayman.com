@@ -211,11 +211,12 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 .k-mark { position: relative; display: inline-block; font-family: var(--display); font-size: 32px; line-height: 1; text-transform: uppercase; color: var(--bone); padding: 0 4px; }
 .k-mark::before { content: ""; position: absolute; z-index: -1; left: -6px; right: -6px; top: 46%; height: 30%; background: var(--neon); transform: skewX(-14deg) rotate(-8deg); }
 
-/* project cards: brand (Anton) and format (JetBrains Mono 500, caps, .22em) side by side at one size, full colour */
-.card--project .card-line { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .7em; row-gap: 4px; font-size: clamp(16px, 1.35vw, 20px); }
-.card--project .card-line .card-title { font-size: 1em; line-height: 1.05; color: var(--bone); }
-.card--project .card-kind { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 500; font-size: 1em; line-height: 1.05; text-transform: uppercase; letter-spacing: .22em; color: var(--bone); }
-.card--project .card-meta { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sand); white-space: nowrap; }
+/* project cards: brand in Anton on top; format below in mono, wide-tracked and bright; the action on the right */
+.card--project .card-cap { gap: 8px; }
+.card--project .card-title { font-size: clamp(20px, 1.9vw, 28px); line-height: 1; color: var(--bone); }
+.card--project .card-row { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; width: 100%; }
+.card--project .card-kind { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 500; font-size: 12px; line-height: 1.4; text-transform: uppercase; letter-spacing: .22em; color: var(--bone); }
+.card--project .card-meta { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); white-space: nowrap; }
 .card--project:hover .card-meta { color: var(--neon); }
 /* kalenhayman: white project cards, black type */
 .card--project { --ink: #FFFFFF; --bone: #000000; --bone-rgb: 0, 0, 0; --panel: #F1F1EF; --hair: #D6D6D4; --neon-text: #000000; background: #FFFFFF; color: #000; border: 1px solid #E2E2E0; }
