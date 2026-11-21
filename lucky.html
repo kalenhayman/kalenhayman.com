@@ -526,6 +526,16 @@
     }
     raf = requestAnimationFrame(tick);
   }
+  /* desktop: the player starts on the line under the section headline */
+  function alignPlayer() {
+    var pl = document.getElementById('player'), h = document.querySelector('.lk-sound h2');
+    if (!pl || !h) return;
+    if (innerWidth <= 900) { pl.style.marginTop = ''; return; }
+    pl.style.marginTop = '0px';
+    pl.style.marginTop = Math.max(0, Math.round(h.getBoundingClientRect().bottom - pl.getBoundingClientRect().top)) + 'px';
+  }
+  alignPlayer(); addEventListener('resize', alignPlayer);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignPlayer);
   /* header film: once the video has a src */
   var v = document.getElementById('lkVid'), s = document.getElementById('lkSound'), f = document.getElementById('lkFull');
   if (v.getAttribute('src')) {
