@@ -190,6 +190,12 @@
 .rail.pd-sq { grid-auto-columns: min(46vw, 460px); }
 .rail.pd-sq .tile .im { aspect-ratio: 1 / 1; }
 @media (max-width: 900px) { .rail.pd-xl { grid-auto-columns: 86vw; } .rail.pd-sq { grid-auto-columns: 70vw; } .pd-head { flex-direction: row; align-items: center; } }
+
+/* v1 edit: a scrolling row at twice the old size */
+.rail.v1r { grid-auto-columns: min(60vw, 420px); }
+.rail.v1r .tile .im { aspect-ratio: 16 / 9; filter: grayscale(.35); }
+.rail.v1r .tile .cap { font-size: 11px; }
+@media (max-width: 900px) { .rail.v1r { grid-auto-columns: 78vw; } }
 </style>
 </head>
 <body>
@@ -360,8 +366,14 @@
   </section>
 
   <section class="lk-sec lk-line" id="v1">
-    <div class="lk-head"><div><div class="eyebrow mono"><span class="dot">06 · Where it started</span><span>V1 edit</span></div></div></div>
-    <div class="v1" id="v1s"></div>
+    <div class="lk-head">
+      <div><div class="eyebrow mono"><span class="dot">06 · Where it started</span><span>V1 edit</span></div></div>
+      <div class="ctl mono">
+        <button class="ar" type="button" data-rail="v1s" data-dir="-1" aria-label="Previous">←</button>
+        <button class="ar" type="button" data-rail="v1s" data-dir="1" aria-label="Next">→</button>
+      </div>
+    </div>
+    <div class="rail v1r" id="v1s"></div>
   </section>
 
   <section class="band">
