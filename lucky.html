@@ -174,7 +174,10 @@
 .pd-head { margin-bottom: 14px; align-items: center; }
 .pd-lbl { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
 .pd-lbl b { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 2.6vw, 40px); letter-spacing: 0; text-transform: uppercase; color: var(--bone); }
-.pd-lbl span { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); }
+.pd-lbl span { font-size: clamp(18px, 2.2vw, 32px); line-height: 1.1; letter-spacing: .06em; text-transform: uppercase; color: var(--sand); }
+.pd-lbl .cd { font-style: normal; background: var(--neon); color: #000; padding: 0 .25em; display: inline-block; transform: skewX(-6deg); }
+.rail.pd-half { grid-auto-columns: min(42vw, 420px); }
+@media (max-width: 900px) { .rail.pd-half { grid-auto-columns: 62vw; } .pd-lbl span { font-size: 15px; } }
 .rail.pd-xl { grid-auto-columns: min(84vw, 840px); }
 .rail.pd-sq { grid-auto-columns: min(46vw, 460px); }
 .rail.pd-sq .tile .im { aspect-ratio: 1 / 1; }
@@ -338,7 +341,7 @@
     </div>
     <div class="pd-row">
       <div class="lk-head pd-head">
-        <div class="pd-lbl mono"><b>Worlds</b><span>12 · custom locations</span></div>
+        <div class="pd-lbl mono"><b>Worlds</b><span>12 · <em class="cd">Custom design</em> locations</span></div>
         <div class="ctl mono">
           <button class="ar" type="button" data-rail="pdLoc" data-dir="-1" aria-label="Previous Worlds">←</button>
           <button class="ar" type="button" data-rail="pdLoc" data-dir="1" aria-label="Next Worlds">→</button>
@@ -348,7 +351,7 @@
     </div>
     <div class="pd-row">
       <div class="lk-head pd-head">
-        <div class="pd-lbl mono"><b>Cast</b><span>12 · custom characters</span></div>
+        <div class="pd-lbl mono"><b>Cast</b><span>12 · <em class="cd">Custom design</em> characters</span></div>
         <div class="ctl mono">
           <button class="ar" type="button" data-rail="pdCast" data-dir="-1" aria-label="Previous Cast">←</button>
           <button class="ar" type="button" data-rail="pdCast" data-dir="1" aria-label="Next Cast">→</button>
@@ -358,13 +361,13 @@
     </div>
     <div class="pd-row">
       <div class="lk-head pd-head">
-        <div class="pd-lbl mono"><b>Props</b><span>10 · custom cars, wardrobe &amp; props</span></div>
+        <div class="pd-lbl mono"><b>Props</b><span>10 · <em class="cd">Custom design</em> cars, wardrobe &amp; props</span></div>
         <div class="ctl mono">
           <button class="ar" type="button" data-rail="pdAcc" data-dir="-1" aria-label="Previous Props">←</button>
           <button class="ar" type="button" data-rail="pdAcc" data-dir="1" aria-label="Next Props">→</button>
         </div>
       </div>
-      <div class="rail pd-xl" id="pdAcc"></div>
+      <div class="rail pd-half" id="pdAcc"></div>
     </div>
   </section>
 
