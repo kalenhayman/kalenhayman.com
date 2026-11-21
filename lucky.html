@@ -177,6 +177,19 @@
   .ask-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 14px; }
   .ask-stats div:nth-child(3) { padding-left: 0; border-left: 0; }
 }
+
+/* production design rows */
+.hl { background: var(--neon); color: #000; padding: 0 .1em; margin-right: .12em; display: inline-block; transform: skewX(-6deg); }
+.pd-sub { margin: 12px 0 0; font-size: clamp(15px, 1.2vw, 18px); color: rgba(var(--bone-rgb, 235,235,234),.75); }
+.pd-row { margin-top: clamp(26px, 3.4vw, 44px); }
+.pd-head { margin-bottom: 14px; align-items: center; }
+.pd-lbl { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.pd-lbl b { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 2.6vw, 40px); letter-spacing: 0; text-transform: uppercase; color: var(--bone); }
+.pd-lbl span { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); }
+.rail.pd-xl { grid-auto-columns: min(84vw, 840px); }
+.rail.pd-sq { grid-auto-columns: min(46vw, 460px); }
+.rail.pd-sq .tile .im { aspect-ratio: 1 / 1; }
+@media (max-width: 900px) { .rail.pd-xl { grid-auto-columns: 86vw; } .rail.pd-sq { grid-auto-columns: 70vw; } .pd-head { flex-direction: row; align-items: center; } }
 </style>
 </head>
 <body>
@@ -296,18 +309,40 @@
 
   <section class="lk-sec lk-line" id="design">
     <div class="lk-head">
-      <div><div class="eyebrow mono"><span class="dot">04 · Production design</span></div><h2 class="display">Worlds, cast &amp; props.</h2></div>
-      <div class="ctl mono">
-        <div class="tabs" role="tablist">
-          <button type="button" data-tab="loc" aria-pressed="true">Worlds 12</button>
-          <button type="button" data-tab="cast" aria-pressed="false">Cast 12</button>
-          <button type="button" data-tab="acc" aria-pressed="false">Props 10</button>
-        </div>
-        <button class="ar" type="button" data-rail="pd" data-dir="-1" aria-label="Previous">←</button>
-        <button class="ar" type="button" data-rail="pd" data-dir="1" aria-label="Next">→</button>
-      </div>
+      <div><div class="eyebrow mono"><span class="dot">04 · Production design</span></div>
+        <h2 class="display"><span class="hl">Designed.</span> Not sourced.</h2>
+        <p class="pd-sub">Every world, character and prop is a custom render.</p></div>
     </div>
-    <div class="rail mid" id="pd"></div>
+    <div class="pd-row">
+      <div class="lk-head pd-head">
+        <div class="pd-lbl mono"><b>Worlds</b><span>12 · custom locations</span></div>
+        <div class="ctl mono">
+          <button class="ar" type="button" data-rail="pdLoc" data-dir="-1" aria-label="Previous Worlds">←</button>
+          <button class="ar" type="button" data-rail="pdLoc" data-dir="1" aria-label="Next Worlds">→</button>
+        </div>
+      </div>
+      <div class="rail pd-xl" id="pdLoc"></div>
+    </div>
+    <div class="pd-row">
+      <div class="lk-head pd-head">
+        <div class="pd-lbl mono"><b>Cast</b><span>12 · custom characters</span></div>
+        <div class="ctl mono">
+          <button class="ar" type="button" data-rail="pdCast" data-dir="-1" aria-label="Previous Cast">←</button>
+          <button class="ar" type="button" data-rail="pdCast" data-dir="1" aria-label="Next Cast">→</button>
+        </div>
+      </div>
+      <div class="rail pd-sq" id="pdCast"></div>
+    </div>
+    <div class="pd-row">
+      <div class="lk-head pd-head">
+        <div class="pd-lbl mono"><b>Props</b><span>10 · custom cars, wardrobe &amp; props</span></div>
+        <div class="ctl mono">
+          <button class="ar" type="button" data-rail="pdAcc" data-dir="-1" aria-label="Previous Props">←</button>
+          <button class="ar" type="button" data-rail="pdAcc" data-dir="1" aria-label="Next Props">→</button>
+        </div>
+      </div>
+      <div class="rail pd-xl" id="pdAcc"></div>
+    </div>
   </section>
 
   <section class="lk-sec lk-line lk-brand" id="brand">
@@ -386,22 +421,12 @@
       r.scrollBy({ left: w * +b.getAttribute('data-dir'), behavior: 'smooth' });
     });
   });
-  /* production design: one rail, three tabs */
-  var PD = {
-    loc: { list: D.LOC, f: 'loc', sub: 'World' },
-    cast: { list: D.CAST, f: 'cast', sub: 'Cast' },
-    acc: { list: D.ACC, f: 'acc', sub: 'Props' }
-  };
-  var pd = document.getElementById('pd');
-  function showTab(k) {
-    var g = PD[k];
-    var seq = g.list.map(function (t, i) { return piece('lucky-' + g.f + '-' + n2(i + 1), t, L + 'assets/drops/' + g.f + '-' + n2(i + 1) + '.jpg', g.sub); });
-    pd.textContent = ''; pd.className = 'rail ' + (k === 'cast' ? 'sm sq' : 'mid'); pd.scrollLeft = 0;
-    seq.forEach(function (p, i) { pd.appendChild(tile(p, n2(i + 1), seq, g.list[i])); });
-    document.querySelectorAll('[data-tab]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-tab') === k)); });
-  }
-  document.querySelectorAll('[data-tab]').forEach(function (b) { b.addEventListener('click', function () { showTab(b.getAttribute('data-tab')); }); });
-  showTab('loc');
+  /* production design: three rails, one per kind */
+  [['pdLoc', D.LOC, 'loc', 'World'], ['pdCast', D.CAST, 'cast', 'Cast'], ['pdAcc', D.ACC, 'acc', 'Props']].forEach(function (g) {
+    var box = document.getElementById(g[0]);
+    var seq = g[1].map(function (t, i) { return piece('lucky-' + g[2] + '-' + n2(i + 1), t, L + 'assets/drops/' + g[2] + '-' + n2(i + 1) + '.jpg', g[3]); });
+    seq.forEach(function (p, i) { box.appendChild(tile(p, n2(i + 1), seq, g[1][i])); });
+  });
   /* instagram-style post */
   var ig = document.getElementById('ig'), pics = ig.querySelector('.pics'), dots = ig.querySelector('.dots'), at = 0;
   D.IG.forEach(function (n, i) {
