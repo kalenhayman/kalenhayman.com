@@ -198,6 +198,20 @@
 .rail.igr .tile .im { aspect-ratio: 166 / 231; }
 .rail.igr .tile { cursor: zoom-in; }
 @media (max-width: 900px) { .rail.igr { grid-auto-columns: 46vw; } }
+
+/* the ask card holds the credits as its right column */
+.lk-brief .in { grid-template-columns: 1fr !important; }
+.ask { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, .75fr); gap: 0; padding: 0 !important; }
+.ask-main { padding: clamp(22px, 3vw, 40px); padding-left: calc(clamp(22px, 3vw, 40px) + 6px); min-width: 0; }
+.ask > .specs { border-top: 0; border-left: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); padding: clamp(22px, 3vw, 40px); align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+.ask > .specs .spec:first-child { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.ask-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+.spec .live { display: inline-block; justify-self: start; background: var(--neon); color: #000 !important; padding: 3px 8px; letter-spacing: .18em; }
+@media (max-width: 1000px) {
+  .ask { grid-template-columns: 1fr; }
+  .ask > .specs { border-left: 0; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+}
+@media (max-width: 700px) { .ask-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } .ask-stats div:nth-child(3) { padding-left: 16px !important; border-left: 1px solid rgba(var(--bone-rgb, 235,235,234),.16) !important; } }
 </style>
 </head>
 <body>
@@ -254,6 +268,7 @@
     <div class="in">
       <div>
         <div class="ask">
+          <div class="ask-main">
           <div class="eyebrow mono"><span class="dot">01 · The ask</span><span>Agency concept → finished film</span></div>
           <div class="ask-top">
             <div class="ask-n display" aria-label="3 days"><span class="num">3</span><span class="unit mono">days</span></div>
@@ -263,22 +278,22 @@
             </div>
           </div>
           <div class="ask-stats mono">
-            <div><b class="display">27</b><span>frames</span></div>
             <div><b class="display">12</b><span>worlds</span></div>
             <div><b class="display">3</b><span>tracks</span></div>
             <div><b class="display">:30</b><span>film</span></div>
           </div>
+          </div>
+          <div class="specs mono">
+            <div class="spec"><span class="k">Brand</span><span>Lucky Energy</span></div>
+            <div class="spec"><span class="k">Agency</span><span>Sequel</span></div>
+            <div class="spec"><span class="k">Studio</span><span>AVA Design</span></div>
+            <div class="spec"><span class="k">Format</span><span>Concept promo</span></div>
+            <div class="spec"><span class="k">Build</span><span>12 worlds<br>10 props</span></div>
+            <div class="spec"><span class="k">Method</span><span>AI</span></div>
+            <div class="spec"><span class="k">Design</span><span>Kalen Hayman</span></div>
+            <div class="spec"><span class="k">Status</span><span class="live">Delivered</span></div>
+          </div>
         </div>
-      </div>
-      <div class="specs mono">
-        <div class="spec"><span class="k">Brand</span><span>Lucky Energy</span></div>
-        <div class="spec"><span class="k">Agency</span><span>Sequel</span></div>
-        <div class="spec"><span class="k">Studio</span><span>AVA Design</span></div>
-        <div class="spec"><span class="k">Format</span><span>Concept promo</span></div>
-        <div class="spec"><span class="k">Build</span><span>27 frames<br>12 worlds<br>10 props</span></div>
-        <div class="spec"><span class="k">Method</span><span>AI</span></div>
-        <div class="spec"><span class="k">Design</span><span>Kalen Hayman</span></div>
-        <div class="spec"><span class="k">Status</span><span class="live">Delivered</span></div>
       </div>
     </div>
   </section>
