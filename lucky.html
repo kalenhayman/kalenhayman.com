@@ -95,16 +95,25 @@
 .lk-sound .in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
 .lk-sound h2 { font-size: clamp(32px, 4vw, 64px); line-height: .92; margin: 12px 0 16px; }
 .lk-sound p { font-size: 16px; line-height: 1.5; color: rgba(var(--bone-rgb, 235,235,234),.75); max-width: 46ch; margin: 0; }
-.refs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-.refs span { padding: 6px 10px; background: var(--panel, #0a0a0a); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; }
-.player { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.cuts { display: flex; gap: 8px; margin: 18px 0 16px; }
+.cuts span { padding: 6px 10px; background: var(--neon); color: #000; font-size: 11px; letter-spacing: .18em; }
+.refs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 22px 0 0; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); max-width: 520px; }
+.refs div { padding: 12px 14px 12px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.refs dt { color: var(--sand); font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 4px; }
+.refs dd { margin: 0; font-size: 16px; line-height: 1.3; color: var(--bone); }
+.lk-player { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
 .trk { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
 .trk .pp { width: 48px; height: 48px; border: 0; border-radius: 50%; cursor: pointer; background: var(--neon); color: #000; font-size: 15px; }
 .trk .pp:disabled { background: none; border: 1px dashed rgba(var(--bone-rgb, 235,235,234),.35); color: var(--sand); cursor: default; }
 .trk .nm { font-size: 18px; letter-spacing: .02em; }
 .trk .sub { color: var(--sand); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; margin-top: 4px; }
-.trk .bar { height: 3px; background: rgba(var(--bone-rgb, 235,235,234),.16); margin-top: 10px; cursor: pointer; }
-.trk .bar i { display: block; height: 100%; width: 0; background: var(--neon); }
+.trk .wave { display: flex; align-items: center; gap: 2px; height: 34px; margin-top: 10px; cursor: pointer; }
+.trk .wave { color: var(--bone); }
+.trk .wave i { flex: 1; min-width: 2px; height: var(--h, 30%); background: currentColor; opacity: .3; border-radius: 1px; transition: height .09s linear, opacity .2s; }
+.trk .wave i.on { background: var(--neon); opacity: 1; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.trk.is-playing .pp { animation: ppPulse 1.2s ease-in-out infinite; }
+@keyframes ppPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(216,254,0,.55); } 50% { box-shadow: 0 0 0 10px rgba(216,254,0,0); } }
+@media (prefers-reduced-motion: reduce) { .trk.is-playing .pp { animation: none; } }
 .trk .tm { text-align: right; color: var(--sand); font-size: 12px; letter-spacing: .1em; white-space: nowrap; min-width: 92px; }
 
 /* brand + instagram */
@@ -270,12 +279,18 @@
   <section class="lk-sec lk-line lk-sound" id="sound">
     <div class="in">
       <div>
-        <div class="eyebrow mono"><span class="dot">03 · The sound</span></div>
-        <h2 class="display">West Coast swagger. South Beach sun.</h2>
-        <p>Inspired by the strings-and-piano bounce of Dr. Dre’s <em>2001</em> era and the neon pulse of Miami open-world games. For the back half, a sunny surf-pop lift, with the orchestral instrumentals kept throughout.</p>
-        <div class="refs mono"><span>“Forgot About Dre” inspired</span><span>Miami open-world</span><span>Beach Boys sun</span><span>Orchestral</span></div>
+        <div class="eyebrow mono"><span class="dot">03 · Soundtrack</span></div>
+        <h2 class="display">Original music, scored for the spot.</h2>
+        <div class="cuts mono"><span>1 × :60</span><span>2 × :30</span></div>
+        <p>Dr. Dre’s <em>2001</em>-era strings and piano meet Miami neon, with a sunny surf-pop finish.</p>
+        <dl class="refs">
+          <div><dt class="mono">Inspired by</dt><dd>“Forgot About Dre”</dd></div>
+          <div><dt class="mono">World</dt><dd>Miami open-world games</dd></div>
+          <div><dt class="mono">Back half</dt><dd>Beach Boys sun</dd></div>
+          <div><dt class="mono">Score</dt><dd>Orchestral, throughout</dd></div>
+        </dl>
       </div>
-      <div class="player mono" id="player"></div>
+      <div class="lk-player mono" id="player"></div>
     </div>
   </section>
 
@@ -398,28 +413,63 @@
   /* v1 strip */
   var v1 = D.V1.map(function (x) { return piece('lucky-v1-' + n2(x[0]), 'V1 · ' + n2(x[0]) + ' · ' + x[1], L + 'frames/' + n2(x[0]) + '.jpg', 'V1 edit'); });
   var v1s = document.getElementById('v1s'); v1.forEach(function (p, i) { v1s.appendChild(tile(p, '', v1, D.V1[i][1])); });
-  /* music player */
-  var player = document.getElementById('player'), cur = null;
+  /* music player: a waveform per track that pulses with the music while it plays */
+  var player = document.getElementById('player'), cur = null, ac = null, rows = [];
+  var NB = 56;
   function fmt(s) { s = Math.max(0, Math.round(s || 0)); return Math.floor(s / 60) + ':' + n2(s % 60); }
+  function seeded(k) { var x = 0; for (var c = 0; c < k.length; c++) x = (x * 31 + k.charCodeAt(c)) % 9973; return function () { x = (x * 1103 + 12345) % 9973; return x / 9973; }; }
   TRACKS.forEach(function (t) {
     var row = document.createElement('div'); row.className = 'trk';
-    row.innerHTML = '<button class="pp" type="button" aria-label="Play">▶</button><div><div class="nm"></div><div class="sub"></div><div class="bar"><i></i></div></div><div class="tm"></div>';
+    row.innerHTML = '<button class="pp" type="button" aria-label="Play">▶</button><div><div class="nm"></div><div class="sub"></div><div class="wave" role="slider" aria-label="Seek"></div></div><div class="tm"></div>';
     row.querySelector('.nm').textContent = t.name;
-    var pp = row.querySelector('.pp'), bar = row.querySelector('.bar'), fill = bar.querySelector('i'), tm = row.querySelector('.tm');
-    if (!t.src) { pp.disabled = true; pp.textContent = '·'; row.querySelector('.sub').textContent = t.sub + ' · coming soon'; tm.textContent = t.name.indexOf(':60') > -1 ? '1:00' : '0:30'; player.appendChild(row); return; }
+    var pp = row.querySelector('.pp'), wave = row.querySelector('.wave'), tm = row.querySelector('.tm');
+    var rnd = seeded(t.name), base = [];
+    for (var b = 0; b < NB; b++) { var h = 18 + Math.round((Math.sin(b / 3.1) * .5 + .5) * 40 + rnd() * 42); base.push(Math.min(100, h)); var bar = document.createElement('i'); bar.style.setProperty('--h', base[b] + '%'); wave.appendChild(bar); }
+    var bars = wave.children;
+    if (!t.src) { pp.disabled = true; pp.textContent = '·'; row.querySelector('.sub').textContent = t.sub + ' · coming soon'; player.appendChild(row); return; }
     row.querySelector('.sub').textContent = t.sub;
     var a = new Audio(); a.preload = 'metadata'; a.src = t.src;
+    var R = { a: a, row: row, pp: pp, bars: bars, base: base, an: null, data: null };
+    rows.push(R);
     a.addEventListener('loadedmetadata', function () { tm.textContent = fmt(a.duration); });
-    a.addEventListener('timeupdate', function () { fill.style.width = (a.currentTime / (a.duration || 1) * 100) + '%'; tm.textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration); });
-    a.addEventListener('ended', function () { pp.textContent = '▶'; });
-    pp.addEventListener('click', function () {
-      if (cur && cur !== a) { cur.pause(); }
-      if (a.paused) { a.play(); pp.textContent = '❚❚'; cur = a; [].forEach.call(player.querySelectorAll('.pp'), function (b) { if (b !== pp && !b.disabled) b.textContent = '▶'; }); }
-      else { a.pause(); pp.textContent = '▶'; }
+    a.addEventListener('timeupdate', function () {
+      var k = Math.floor(a.currentTime / (a.duration || 1) * NB);
+      for (var q = 0; q < NB; q++) bars[q].classList.toggle('on', q < k);
+      tm.textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration);
     });
-    bar.addEventListener('click', function (e) { var r = bar.getBoundingClientRect(); if (a.duration) a.currentTime = (e.clientX - r.left) / r.width * a.duration; });
+    a.addEventListener('ended', function () { stop(R); });
+    a.addEventListener('pause', function () { stop(R); });
+    pp.addEventListener('click', function () {
+      if (cur && cur !== a) cur.pause();
+      if (a.paused) { connect(R); a.play(); pp.textContent = '❚❚'; row.classList.add('is-playing'); cur = a; tick(); }
+      else a.pause();
+    });
+    wave.addEventListener('click', function (e) { var r = wave.getBoundingClientRect(); if (a.duration) a.currentTime = (e.clientX - r.left) / r.width * a.duration; });
     player.appendChild(row);
   });
+  function stop(R) { R.pp.textContent = '▶'; R.row.classList.remove('is-playing'); for (var q = 0; q < NB; q++) R.bars[q].style.setProperty('--h', R.base[q] + '%'); }
+  function connect(R) {
+    if (R.an) return;
+    try {
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      if (ac.state === 'suspended') ac.resume();
+      var src = ac.createMediaElementSource(R.a), an = ac.createAnalyser(); an.fftSize = 256; an.smoothingTimeConstant = .7;
+      src.connect(an); an.connect(ac.destination); R.an = an; R.data = new Uint8Array(an.frequencyBinCount);
+    } catch (e) { R.an = false; }
+  }
+  var raf = 0;
+  function tick() {
+    cancelAnimationFrame(raf);
+    var R = rows.filter(function (r) { return r.a === cur; })[0];
+    if (!R || R.a.paused) return;
+    var t = performance.now() / 1000;
+    if (R.an) R.an.getByteFrequencyData(R.data);
+    for (var q = 0; q < NB; q++) {
+      var lv = R.an ? R.data[Math.floor(q / NB * R.data.length * .7)] / 255 : (Math.sin(t * 6 + q * .45) * .5 + .5) * .7;
+      R.bars[q].style.setProperty('--h', Math.max(12, Math.min(100, R.base[q] * (.45 + lv * 1.1))) + '%');
+    }
+    raf = requestAnimationFrame(tick);
+  }
   /* header film: once the video has a src */
   var v = document.getElementById('lkVid'), s = document.getElementById('lkSound'), f = document.getElementById('lkFull');
   if (v.getAttribute('src')) {
