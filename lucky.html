@@ -101,16 +101,21 @@
 .refs div { padding: 12px 14px 12px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
 .refs dt { color: var(--sand); font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 4px; }
 .refs dd { margin: 0; font-size: 16px; line-height: 1.3; color: var(--bone); }
-.lk-player { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.lk-player { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); margin-top: var(--lk-h2-top, 61px); }
+@media (max-width: 900px) { .lk-player { margin-top: 8px; } }
 .trk { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
 .trk .pp { width: 48px; height: 48px; border: 0; border-radius: 50%; cursor: pointer; background: var(--neon); color: #000; font-size: 15px; }
 .trk .pp:disabled { background: none; border: 1px dashed rgba(var(--bone-rgb, 235,235,234),.35); color: var(--sand); cursor: default; }
 .trk .nm { font-size: 18px; letter-spacing: .02em; }
 .trk .sub { color: var(--sand); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; margin-top: 4px; }
-.trk .wave { display: flex; align-items: center; gap: 2px; height: 34px; margin-top: 10px; cursor: pointer; }
-.trk .wave { color: var(--bone); }
-.trk .wave i { flex: 1; min-width: 2px; height: var(--h, 30%); background: currentColor; opacity: .3; border-radius: 1px; transition: height .09s linear, opacity .2s; }
-.trk .wave i.on { background: var(--neon); opacity: 1; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+/* sleek waveform: hairline when idle, thin rounded lines only on the track that is playing */
+.trk .wave { position: relative; display: flex; align-items: center; justify-content: space-between; height: 18px; margin-top: 10px; cursor: pointer; color: var(--bone); }
+.trk .wave::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: currentColor; opacity: .2; transition: opacity .25s; }
+.trk .wave i { position: relative; flex: 0 0 2px; height: 2px; border-radius: 2px; background: currentColor; opacity: 0; transition: height .12s ease-out, opacity .25s; }
+.trk.is-playing .wave { height: 30px; }
+.trk.is-playing .wave::before { opacity: 0; }
+.trk.is-playing .wave i { height: var(--h, 30%); opacity: .28; }
+.trk.is-playing .wave i.on { opacity: 1; background: var(--neon); }
 .trk.is-playing .pp { animation: ppPulse 1.2s ease-in-out infinite; }
 @keyframes ppPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(216,254,0,.55); } 50% { box-shadow: 0 0 0 10px rgba(216,254,0,0); } }
 @media (prefers-reduced-motion: reduce) { .trk.is-playing .pp { animation: none; } }
@@ -452,7 +457,7 @@
   var v1s = document.getElementById('v1s'); v1.forEach(function (p, i) { v1s.appendChild(tile(p, '', v1, D.V1[i][1])); });
   /* music player: a waveform per track that pulses with the music while it plays */
   var player = document.getElementById('player'), cur = null, ac = null, rows = [];
-  var NB = 56;
+  var NB = 72;
   function fmt(s) { s = Math.max(0, Math.round(s || 0)); return Math.floor(s / 60) + ':' + n2(s % 60); }
   function seeded(k) { var x = 0; for (var c = 0; c < k.length; c++) x = (x * 31 + k.charCodeAt(c)) % 9973; return function () { x = (x * 1103 + 12345) % 9973; return x / 9973; }; }
   TRACKS.forEach(function (t) {
