@@ -145,6 +145,29 @@
   .v1 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .og { min-height: 300px; }
 }
+
+/* the ask: a big number card */
+.ask { position: relative; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); background: var(--panel, #0a0a0a); padding: clamp(22px, 3vw, 40px); overflow: hidden; }
+.ask::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--neon); }
+.ask .eyebrow { margin-bottom: clamp(26px, 3.4vw, 44px); }
+.ask-top { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); align-items: center; }
+.ask-n { position: relative; z-index: 0; display: flex; align-items: flex-end; gap: 10px; line-height: .8; }
+.ask-n .num { position: relative; font-size: clamp(150px, 17vw, 260px); color: var(--bone); letter-spacing: -.02em; }
+.ask-n .num::before { content: ""; position: absolute; z-index: -1; left: -14%; right: -18%; top: 48%; height: 26%; background: var(--neon); transform: skewX(-14deg) rotate(-8deg); }
+.ask-n .unit { font-size: clamp(13px, 1.2vw, 16px); letter-spacing: .28em; text-transform: uppercase; color: var(--bone); padding-bottom: .4em; }
+.ask-copy h2 { font-size: clamp(30px, 3.4vw, 54px) !important; line-height: .94 !important; margin: 0 0 14px !important; }
+.ask-copy p { font-size: clamp(15px, 1.2vw, 18px) !important; line-height: 1.5; margin: 0; max-width: 40ch; color: rgba(var(--bone-rgb, 235,235,234),.78); }
+.ask-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(20px, 3vw, 34px); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.ask-stats div { padding: 14px 0 0; display: flex; flex-direction: column; gap: 4px; }
+.ask-stats div + div { padding-left: 16px; border-left: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.ask-stats b { font-size: clamp(28px, 2.8vw, 44px); line-height: 1; font-weight: 400; color: var(--bone); }
+.ask-stats span { font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); }
+@media (max-width: 700px) {
+  .ask-top { grid-template-columns: 1fr; }
+  .ask .eyebrow span:last-child { display: none; }
+  .ask-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 14px; }
+  .ask-stats div:nth-child(3) { padding-left: 0; border-left: 0; }
+}
 </style>
 </head>
 <body>
@@ -186,7 +209,6 @@
     </div>
     <div class="copy">
       <div>
-        <span class="pill mono">Delivered</span>
         <h1 class="display">Lucky</h1>
         <div class="ft mono">Concept promo</div>
       </div>
@@ -201,10 +223,22 @@
   <section class="lk-sec lk-brief">
     <div class="in">
       <div>
-        <div class="eyebrow mono"><span class="dot">01 · The brief</span></div>
-        <h2 class="display">Loses everything.<br>Finds LUCKY.<br>Wins it back.</h2>
-        <p>A game-inspired spot for Lucky Energy’s OG Luck that plays like a cut-scene: bright, fast and on-brand, with original characters, worlds and props built from scratch.</p>
-        <div class="beats mono"><span><b>01</b>A real turning point</span><span><b>02</b>Plays like a game</span><span><b>03</b>Mindset, not luck</span></div>
+        <div class="ask">
+          <div class="eyebrow mono"><span class="dot">01 · The ask</span><span>Agency concept → finished film</span></div>
+          <div class="ask-top">
+            <div class="ask-n display" aria-label="3 days"><span class="num">3</span><span class="unit mono">days</span></div>
+            <div class="ask-copy">
+              <h2 class="display">Bring the agency’s concept to life.</h2>
+              <p>Sequel had the idea. I had three days to make it real: storyboard, cast, worlds, score and a delivered film.</p>
+            </div>
+          </div>
+          <div class="ask-stats mono">
+            <div><b class="display">27</b><span>frames</span></div>
+            <div><b class="display">12</b><span>worlds</span></div>
+            <div><b class="display">3</b><span>tracks</span></div>
+            <div><b class="display">:30</b><span>film</span></div>
+          </div>
+        </div>
       </div>
       <div class="specs mono">
         <div class="spec"><span class="k">Brand</span><span>Lucky Energy</span></div>
