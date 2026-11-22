@@ -72,6 +72,11 @@
 .hero-play.is-on { background: rgba(0,0,0,.45); color: var(--bone); border-color: rgba(var(--bone-rgb),.6); }
 .hero-play.is-on:hover { background: var(--bone); color: var(--ink); }
 .hero-play[hidden] { display: none; }
+.hero-watch { color: #EBEBEA; }
+.hero-watch[hidden] { display: none; }
+.hero-watch .l { text-shadow: 0 1px 12px rgba(0,0,0,.6); }
+.hero .slide { cursor: pointer; }
+@media (max-width: 900px) { .hero-watch .b { width: 52px; height: 52px; } .hero.is-single .slide-title { bottom: 96px !important; } }
 /* one film: the title sits clear above the Play button, and "Video" goes — the button says it */
 .hero.is-single .slide-title { bottom: 92px; }
 .hero.is-single .slide-title .kind { display: none; }
@@ -175,8 +180,7 @@
         <button type="button" id="prev" aria-label="Previous">←</button>
         <button type="button" id="next" aria-label="Next">→</button>
       </div>
-      <button type="button" class="hero-play" id="heroPlay" aria-pressed="false" hidden><span class="ic" aria-hidden="true">▶</span><span class="lbl">Play with sound</span></button>
-      <button type="button" class="hero-full" id="heroFull" aria-label="Watch the reel full screen, with sound" hidden>Watch now <span aria-hidden="true">⤢</span></button>
+      <button type="button" class="play1 hero-watch" id="heroFull" aria-label="Watch the reel full screen, with sound" hidden><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Watch the reel</span></button>
     </div>
   </section>
 
@@ -184,10 +188,8 @@
   <section class="lede">
     <h1 class="h1 display" id="h1"><span class="st">I design</span> <span class="rotor" id="rotor"><span class="rw">Brands.</span></span><span class="neon-line" aria-hidden="true"></span></h1>
     <div class="lede-row">
-      <span class="mono dot">Kalen Hayman · Vancouver</span>
       <div class="lede-cta">
         <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
-        <a class="btn btn--ghost" href="/work">View Work <span class="arr">→</span></a>
       </div>
     </div>
   </section>
@@ -256,7 +258,7 @@
   var slides = pieces.map(function (p, i) {
     var a = document.createElement(p.href ? 'a' : 'button');
     a.className = 'slide';
-    if (p.href) a.href = p.href; else { a.type = 'button'; a.addEventListener('click', function () { if (pieces.length === 1 && p.video) toggleSound(); else AVA.open(p); }); }
+    if (p.href) a.href = p.href; else { a.type = 'button'; a.addEventListener('click', function () { if (pieces.length === 1 && p.video) document.getElementById('heroFull').click(); else AVA.open(p); }); }
     var kind = p.types[0];
     a.setAttribute('aria-label', p.title + ' · ' + kind);
     a.setAttribute('aria-roledescription', 'slide');
@@ -311,7 +313,7 @@
   /* Play with sound: the one film on the hero restarts from its first frame
      with sound; pressed again (or once it scrolls out of view) it goes quiet
      and keeps playing. */
-  var playBtn = document.getElementById('heroPlay');
+  var playBtn = document.getElementById('heroPlay') || (function () { var b = document.createElement('button'); b.innerHTML = '<span class="ic"></span><span class="lbl"></span>'; return b; })();
   function setSound(on) {
     var s = slides[cur]; if (!s || s.media.tagName !== 'VIDEO') return;
     var v = s.media;
