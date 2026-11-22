@@ -158,7 +158,8 @@
     { id: 'lucky', name: 'Lucky Energy', kind: 'Concept promo · Delivered', types: ['Video', 'Image'], href: '/lucky' },
     { id: 'oshi-nori', name: 'Oshi Nori', kind: 'Concept site', types: ['Web'], href: '/oshi-nori' },
     { id: 'craffles', name: 'Craffles', kind: 'Concept site', types: ['Web'], href: '/craffles' },
-    { id: 'tavola', name: 'Tavola', kind: 'Concept site', types: ['Web'], href: '/tavola' },
+    /* Tavola (concept site, /tavola) is removed — files kept; to bring it back, restore:
+       { id: 'tavola', name: 'Tavola', kind: 'Concept site', types: ['Web'], href: '/tavola' }, */
     /* España (concept site, /espana) is decommissioned — files kept; to bring it back, restore:
        { id: 'espana', name: 'España', kind: 'Concept site', types: ['Web'], href: '/espana' }, */
     { id: 'red-accordion', name: 'The Red Accordion', kind: 'Concept site', types: ['Web'], href: '/red-accordion' },
