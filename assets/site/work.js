@@ -250,7 +250,7 @@
     var link = p.href || p.deck;
     var a = el(link ? 'a' : 'button', 'card');
     a._ratio = p.w / p.h;
-    if (link) a.href = link; else { a.type = 'button'; a.addEventListener('click', function () { open(p, seqFrom(a)); }); }
+    if (link) a.href = link; else { a.type = 'button'; a.addEventListener('click', function () { open(p); });   /* one piece at a time: no stepping into the next card */ }
     a.setAttribute('data-id', p.id);
     a.setAttribute('aria-label', p.title + ' — ' + typesLine(p));
     var m = el('div', 'card-media');
@@ -365,7 +365,7 @@
   function projectCard(p) {
     var a = el(p.href ? 'a' : 'button', 'card card--project');
     if (p.href) a.href = p.href;
-    else { a.type = 'button'; a.addEventListener('click', function () { open(asPiece(p), projectSeq(a)); }); }
+    else { a.type = 'button'; a.addEventListener('click', function () { open(asPiece(p)); });   /* steps only through this project's own pieces */ }
     a.setAttribute('data-id', p.id);
     a.setAttribute('aria-label', p.name + ' — ' + p.kind);
     var m = el('div', 'card-media');
@@ -463,8 +463,8 @@
     /* previous / next piece in the grid it was opened from */
     lbPrev = el('button', 'lb-step lb-step--prev', '←'); lbPrev.type = 'button'; lbPrev.setAttribute('aria-label', 'Previous piece');
     lbNext = el('button', 'lb-step lb-step--next', '→'); lbNext.type = 'button'; lbNext.setAttribute('aria-label', 'Next piece');
-    lbPrev.addEventListener('click', function () { piece(-1); });
-    lbNext.addEventListener('click', function () { piece(1); });
+    lbPrev.addEventListener('click', function () { step(-1); });
+    lbNext.addEventListener('click', function () { step(1); });
     lbCount = el('span', 'lb-count mono');
     lb.appendChild(lbPrev); lb.appendChild(lbNext); lb.appendChild(lbCount);
     lb.addEventListener('click', function (e) { if (e.target === lb) shut(); });
@@ -495,7 +495,7 @@
      to the previous one. */
   function step(d) {
     var n = lbPdf ? lbPdf.total : (lbPages ? lbPages.length : 1);
-    if (n > 1 && lbIdx + d >= 0 && lbIdx + d < n) { page(d); return; }
+    if (n > 1) { page(d); return; }   /* a piece's own pages loop; it never moves on to another piece */
     piece(d);
   }
   function piece(d) {
@@ -623,7 +623,8 @@
     else if (p.pdf) { lbLink.hidden = false; lbLink.href = p.pdf; lbLink.target = '_blank'; lbLink.rel = 'noopener'; lbLink.textContent = 'Open the PDF →'; }
     else { lbLink.hidden = true; }
     var many = lbSeq.length > 1;
-    lbPrev.hidden = lbNext.hidden = lbCount.hidden = !many;
+    lbPrev.hidden = lbNext.hidden = !(many || lbPages || lbPdf);   /* arrows for a piece's own pages too */
+    lbCount.hidden = !many;
     lbCount.textContent = many ? (lbPos + 1) + ' / ' + lbSeq.length : '';
   }
   function shut() {
