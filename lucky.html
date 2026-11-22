@@ -97,8 +97,12 @@
 .tile .n { position: absolute; left: 0; top: 0; background: #000; color: #fff; padding: 5px 8px; font-size: 11px; letter-spacing: .1em; }
 .tile .cap { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.45; color: rgba(var(--bone-rgb, 235,235,234),.82); }
 .rail.big .tile .cap { font-size: 11.5px; }
-.sheet { display: none; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; padding: 0 var(--gutter); }
-.sheet .tile .im { aspect-ratio: 2.15 / 1; }
+.sheet { display: none; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; padding: 0 var(--gutter); }
+#sbSheet .tile .im { aspect-ratio: 2.15 / 1; }
+#pdLocSheet { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+#pdCastSheet .tile .im { aspect-ratio: 1 / 1; }
+.is-sheet > .rail { display: none; }
+.is-sheet .ctl .ar, .is-sheet .ctl .count { display: none; }
 .sheet .tile .cap { display: none; }
 .is-sheet .sheet { display: grid; }
 .is-sheet .rail.big { display: none; }
@@ -137,7 +141,7 @@
   .rail.big .tile .cap { font-size: 13px; }
   .rail.mid { grid-auto-columns: 62vw; }
   .rail.sm { grid-auto-columns: 40vw; }
-  .sheet { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sheet, #pdLocSheet { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .v1 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .og { min-height: 300px; }
 }
@@ -415,31 +419,37 @@
       <div class="lk-head pd-head">
         <div class="pd-lbl mono"><b>Worlds</b><span>12</span></div>
         <div class="ctl mono">
+          <button type="button" data-sheet="pdLoc" aria-pressed="false">Sheet</button>
           <button class="ar" type="button" data-rail="pdLoc" data-dir="-1" aria-label="Previous Worlds">←</button>
           <button class="ar" type="button" data-rail="pdLoc" data-dir="1" aria-label="Next Worlds">→</button>
         </div>
       </div>
       <div class="rail pd-xl" id="pdLoc"></div>
+      <div class="sheet" id="pdLocSheet"></div>
     </div>
     <div class="pd-row">
       <div class="lk-head pd-head">
         <div class="pd-lbl mono"><b>Cast</b><span>9</span></div>
         <div class="ctl mono">
+          <button type="button" data-sheet="pdCast" aria-pressed="false">Sheet</button>
           <button class="ar" type="button" data-rail="pdCast" data-dir="-1" aria-label="Previous Cast">←</button>
           <button class="ar" type="button" data-rail="pdCast" data-dir="1" aria-label="Next Cast">→</button>
         </div>
       </div>
       <div class="rail pd-sq" id="pdCast"></div>
+      <div class="sheet" id="pdCastSheet"></div>
     </div>
     <div class="pd-row">
       <div class="lk-head pd-head">
         <div class="pd-lbl mono"><b>Props</b><span>10</span></div>
         <div class="ctl mono">
+          <button type="button" data-sheet="pdAcc" aria-pressed="false">Sheet</button>
           <button class="ar" type="button" data-rail="pdAcc" data-dir="-1" aria-label="Previous Props">←</button>
           <button class="ar" type="button" data-rail="pdAcc" data-dir="1" aria-label="Next Props">→</button>
         </div>
       </div>
       <div class="rail pd-half" id="pdAcc"></div>
+      <div class="sheet" id="pdAccSheet"></div>
     </div>
   </section>
 
@@ -533,6 +543,13 @@
     var on = document.getElementById('storyboard').classList.toggle('is-sheet');
     this.setAttribute('aria-pressed', String(on)); this.textContent = on ? 'Slider' : 'Sheet';
   });
+  /* production design rows: slider or contact sheet, per row */
+  document.querySelectorAll('[data-sheet]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var on = b.closest('.pd-row').classList.toggle('is-sheet');
+      b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'Slider' : 'Sheet';
+    });
+  });
   document.querySelectorAll('[data-rail]').forEach(function (b) {
     b.addEventListener('click', function () {
       var r = document.getElementById(b.getAttribute('data-rail'));
@@ -546,7 +563,8 @@
     /* a null caption hides that image (the file number stays the same) */
     var keep = []; g[1].forEach(function (t, i) { if (t) keep.push([t, i + 1]); });
     var seq = keep.map(function (k) { return piece('lucky-' + g[2] + '-' + n2(k[1]), k[0], L + 'assets/drops/' + g[2] + '-' + n2(k[1]) + '.jpg', g[3]); });
-    seq.forEach(function (p, i) { box.appendChild(tile(p, n2(i + 1), seq, keep[i][0])); });
+    var sh = document.getElementById(g[0] + 'Sheet');
+    seq.forEach(function (p, i) { box.appendChild(tile(p, n2(i + 1), seq, keep[i][0])); if (sh) sh.appendChild(tile(p, n2(i + 1), seq, '')); });
   });
   /* brand content: individual posts in a slider */
   var IGP = ['13','61','45','52','25','63','33','12','55','64','21','31','53','44','65','11','62','22','42','24','41','51','32','15','35'];
