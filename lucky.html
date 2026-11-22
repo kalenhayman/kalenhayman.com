@@ -156,6 +156,8 @@
 .ask { position: relative; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); background: var(--panel, #0a0a0a); padding: clamp(22px, 3vw, 40px); overflow: hidden; }
 .ask::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--neon); }
 .ask .eyebrow { margin-bottom: clamp(26px, 3.4vw, 44px); }
+.ask > .specs { justify-content: flex-start !important; }
+.ask .specs-h { margin-bottom: clamp(18px, 2.4vw, 30px); }
 .ask-top { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); align-items: center; }
 .ask-n { position: relative; z-index: 0; display: flex; align-items: flex-end; gap: 10px; line-height: .8; }
 .ask-n .num { position: relative; font-size: clamp(150px, 17vw, 260px); color: var(--bone); letter-spacing: -.02em; }
@@ -228,7 +230,7 @@
 .ask { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, .75fr); gap: 0; padding: 0 !important; }
 .ask-main { padding: clamp(22px, 3vw, 40px); padding-left: calc(clamp(22px, 3vw, 40px) + 6px); min-width: 0; }
 .ask > .specs { border-top: 0; border-left: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); padding: clamp(22px, 3vw, 40px); align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
-.ask > .specs .spec:first-child { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.ask > .specs .spec:first-child, .ask > .specs .specs-h + .spec { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
 .ask-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 .spec .live { display: inline-block; justify-self: start; background: var(--neon); color: #000 !important; padding: 3px 8px; letter-spacing: .18em; }
 @media (max-width: 1000px) {
@@ -375,6 +377,7 @@
           </div>
           </div>
           <div class="specs mono">
+            <div class="eyebrow mono specs-h"><span class="dot">Credits</span></div>
             <div class="spec"><span class="k">Brand</span><a href="https://luckybevco.com/" target="_blank" rel="noopener">Lucky Energy <i class="ex">↗</i></a></div>
             <div class="spec"><span class="k">Agency</span><a href="https://www.sequel.co/" target="_blank" rel="noopener">Sequel <i class="ex">↗</i></a></div>
             <div class="spec"><span class="k">Studio</span><span>AVA Design</span></div>
