@@ -59,6 +59,14 @@
 .lk-hero .ft { margin-top: 12px; color: var(--apple); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
 .lk-hero .cta { display: flex; gap: 8px; }
 .lk-hero .cta button { border: 0; cursor: pointer; height: 44px; padding: 0 16px; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--neon); color: #000; }
+.lk-hero .media { cursor: pointer; }
+.lk-hero .cta button.lk-play { display: inline-flex; align-items: center; gap: 14px; height: auto; padding: 0; background: none; color: #EBEBEA; }
+.lk-play .b { width: clamp(66px, 6vw, 86px); height: clamp(66px, 6vw, 86px); border-radius: 50%; background: var(--neon); display: grid; place-items: center; animation: lkRing 2.4s ease-out infinite; transition: transform .25s var(--ease, ease); }
+.lk-play:hover .b, .lk-hero .media:hover ~ .copy .lk-play .b { transform: scale(1.07); }
+.lk-play svg { width: 34%; height: 34%; fill: #000; margin-left: 8%; display: block; }
+.lk-play .l { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+@keyframes lkRing { 0% { box-shadow: 0 0 0 0 rgba(216,254,0,.5); } 75%, 100% { box-shadow: 0 0 0 18px rgba(216,254,0,0); } }
+@media (prefers-reduced-motion: reduce) { .lk-play .b { animation: none; } }
 .lk-hero .soon { height: 44px; display: inline-flex; align-items: center; padding: 0 16px; border: 1px solid rgba(235,235,234,.4); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
 
 /* brief */
@@ -332,8 +340,7 @@
         <div class="ft mono">Concept promo</div>
       </div>
       <div class="cta">
-        <button id="lkSound" type="button" hidden aria-pressed="false">▶ Play with sound</button>
-        <button id="lkFull" type="button" hidden>Watch now ⤢</button>
+        <button id="lkPlay" class="lk-play" type="button" hidden aria-label="Watch the spot with sound"><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l mono">Watch the spot</span></button>
         <span class="soon mono" id="lkSoon">Final film coming soon</span>
       </div>
     </div>
@@ -617,26 +624,36 @@
     });
     fv.addEventListener('play', function () {
       if (cur && cur !== fv) cur.pause(); cur = fv;
-      var hv = document.getElementById('lkVid'), hs = document.getElementById('lkSound');
-      if (hv && !hv.muted && hs) hs.click();
+      var hv = document.getElementById('lkVid');
+      if (hv && !hv.muted) hv.muted = true;
     });
   })();
   /* header film: once the video has a src */
-  var v = document.getElementById('lkVid'), s = document.getElementById('lkSound'), f = document.getElementById('lkFull');
+  var v = document.getElementById('lkVid'), p = document.getElementById('lkPlay');
   if (v.getAttribute('src')) {
-    document.getElementById('lkSoon').hidden = true; s.hidden = false; f.hidden = false;
+    document.getElementById('lkSoon').hidden = true; p.hidden = false;
     v.autoplay = true; v.preload = 'auto'; v.play().catch(function () {});
-    /* the can + logo lockup holds as the first frame, then fades into the film */
+    /* the opening still holds as the first frame, then fades into the film */
     var first = document.querySelector('.lk-first'), hero = first && first.closest('.lk-hero'), gone = function () { if (first) first.classList.add('gone'); if (hero) setTimeout(function () { hero.classList.remove('is-first'); }, 500); };
     if (hero) hero.classList.add('is-first');
     if (window.matchMedia && matchMedia('(max-width: 760px)').matches) v.poster = '/assets/lucky/poster-can-m.jpg';
     setTimeout(function () { if (!v.paused && v.readyState > 2) gone(); else v.addEventListener('playing', gone, { once: true }); }, 1800);
-    s.addEventListener('click', gone);
-    var sound = function (on, top) { v.muted = !on; if (on && top) v.currentTime = 0; if (on) { v.play().catch(function () {}); if (cur) cur.pause(); } s.setAttribute('aria-pressed', String(on)); s.textContent = on ? '■ Mute' : '▶ Play with sound'; };
-    s.addEventListener('click', function () { sound(v.muted, true); });
-    f.addEventListener('click', function () { v.currentTime = 0; sound(true); var go2 = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen; if (go2) go2.call(v); });
-    document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) sound(false); });
-    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { if (!e[0].isIntersecting && !v.muted && !document.fullscreenElement) sound(false); }).observe(v);
+    /* one play: the film pops up full screen, from the top, with sound; tapping the film does the same */
+    var quiet = function () { v.muted = true; v.controls = false; v.play().catch(function () {}); };
+    var watch = function () {
+      gone(); if (cur) cur.pause();
+      v.currentTime = 0; v.muted = false; v.play().catch(function () {});
+      var fs = v.requestFullscreen || v.webkitRequestFullscreen;
+      if (fs) { var r = fs.call(v); if (r && r.catch) r.catch(function () { v.controls = true; }); }
+      else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+      else v.controls = true;
+    };
+    p.addEventListener('click', watch);
+    v.parentNode.addEventListener('click', function () { if (!document.fullscreenElement && !document.webkitFullscreenElement) watch(); });
+    document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) quiet(); });
+    document.addEventListener('webkitfullscreenchange', function () { if (!document.webkitFullscreenElement) quiet(); });
+    v.addEventListener('webkitendfullscreen', quiet);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { if (!e[0].isIntersecting && !v.muted && !document.fullscreenElement) quiet(); }).observe(v);
   }
 })();
 </script>
