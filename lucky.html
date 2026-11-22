@@ -45,6 +45,11 @@
 .lk-hero { position: relative; margin-top: var(--nav-h); height: calc(100svh - var(--nav-h)); min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; background: #000; color: #EBEBEA; }
 .lk-hero .media { position: absolute; inset: 0; }
 .lk-hero .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lk-hero .media .lk-first { position: absolute; inset: 0; overflow: hidden; background: #fff; transition: opacity .9s ease; }
+.lk-hero .media .lk-first img { position: absolute; right: 1%; top: 2%; width: 78%; height: auto; display: block; }
+.lk-hero .media .lk-first.gone { opacity: 0; pointer-events: none; }
+.lk-hero.is-first .media::after { background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.7) 24%, rgba(0,0,0,0) 44%); }
+@media (max-width: 760px) { .lk-hero .media .lk-first img { right: auto; left: 50%; top: 34%; width: 168%; transform: translate(-48.2%, -54%); } }
 .lk-hero .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.6) 32%, rgba(0,0,0,0) 62%); }
 .lk-hero [hidden] { display: none !important; }
 .lk-hero h1 { text-shadow: 0 2px 30px rgba(0,0,0,.35); }
@@ -271,7 +276,8 @@
   <section class="lk-hero" id="top">
     <div class="media">
       <!-- the :30 film: plays muted on a loop; the buttons bring in sound or full screen -->
-      <video id="lkVid" src="/assets/video/lucky-30-v2.mp4" poster="/assets/lucky/assets/drops/v2-01.jpg" muted loop playsinline preload="none" aria-label="Lucky Energy — OG Luck concept promo"></video>
+      <video id="lkVid" src="/assets/video/lucky-30-v2.mp4" poster="/assets/lucky/poster-can.jpg" muted loop playsinline preload="none" aria-label="Lucky Energy — OG Luck concept promo"></video>
+      <div class="lk-first" aria-hidden="true"><img src="/assets/lucky/poster-can.jpg" alt="" fetchpriority="high"></div>
     </div>
     <div class="copy">
       <div>
@@ -548,6 +554,11 @@
   if (v.getAttribute('src')) {
     document.getElementById('lkSoon').hidden = true; s.hidden = false; f.hidden = false;
     v.autoplay = true; v.preload = 'auto'; v.play().catch(function () {});
+    /* the can + logo lockup holds as the first frame, then fades into the film */
+    var first = document.querySelector('.lk-first'), hero = first && first.closest('.lk-hero'), gone = function () { if (first) first.classList.add('gone'); if (hero) setTimeout(function () { hero.classList.remove('is-first'); }, 500); };
+    if (hero) hero.classList.add('is-first');
+    setTimeout(function () { if (!v.paused && v.readyState > 2) gone(); else v.addEventListener('playing', gone, { once: true }); }, 1800);
+    s.addEventListener('click', gone);
     var sound = function (on, top) { v.muted = !on; if (on && top) v.currentTime = 0; if (on) { v.play().catch(function () {}); if (cur) cur.pause(); } s.setAttribute('aria-pressed', String(on)); s.textContent = on ? '■ Mute' : '▶ Play with sound'; };
     s.addEventListener('click', function () { sound(v.muted, true); });
     f.addEventListener('click', function () { v.currentTime = 0; sound(true); var go2 = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen; if (go2) go2.call(v); });
