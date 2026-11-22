@@ -103,23 +103,9 @@
 .refs dd { margin: 0; font-size: 16px; line-height: 1.3; color: var(--bone); }
 .lk-player { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); margin-top: var(--lk-h2-top, 61px); }
 @media (max-width: 900px) { .lk-player { margin-top: 8px; } }
-.trk { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
-.trk .pp { width: 48px; height: 48px; border: 0; border-radius: 50%; cursor: pointer; background: var(--neon); color: #000; font-size: 15px; }
-.trk .pp:disabled { background: none; border: 1px dashed rgba(var(--bone-rgb, 235,235,234),.35); color: var(--sand); cursor: default; }
-.trk .nm { font-size: 18px; letter-spacing: .02em; }
-.trk .sub { color: var(--sand); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; margin-top: 4px; }
 /* sleek waveform: hairline when idle, thin rounded lines only on the track that is playing */
-.trk .wave { position: relative; display: flex; align-items: center; justify-content: space-between; height: 18px; margin-top: 10px; cursor: pointer; color: var(--bone); }
-.trk .wave::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: currentColor; opacity: .2; transition: opacity .25s; }
-.trk .wave i { position: relative; flex: 0 0 2px; height: 2px; border-radius: 2px; background: currentColor; opacity: 0; transition: height .12s ease-out, opacity .25s; }
-.trk.is-playing .wave { height: 30px; }
-.trk.is-playing .wave::before { opacity: 0; }
-.trk.is-playing .wave i { height: var(--h, 30%); opacity: .28; }
-.trk.is-playing .wave i.on { opacity: 1; background: var(--neon); }
-.trk.is-playing .pp { animation: ppPulse 1.2s ease-in-out infinite; }
 @keyframes ppPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(216,254,0,.55); } 50% { box-shadow: 0 0 0 10px rgba(216,254,0,0); } }
-@media (prefers-reduced-motion: reduce) { .trk.is-playing .pp { animation: none; } }
-.trk .tm { text-align: right; color: var(--sand); font-size: 12px; letter-spacing: .1em; white-space: nowrap; min-width: 92px; }
+@media (prefers-reduced-motion: reduce) { .transport .big.is-on { animation: none; } }
 
 /* brand + instagram */
 .lk-brand .in { display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: 12px; align-items: stretch; }
@@ -215,6 +201,38 @@
   .ask > .specs { border-left: 0; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
 }
 @media (max-width: 700px) { .ask-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } .ask-stats div:nth-child(3) { padding-left: 16px !important; border-left: 1px solid rgba(var(--bone-rgb, 235,235,234),.16) !important; } }
+
+/* soundtrack: a real player card */
+.snd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.snd-tags span { padding: 7px 10px; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.22); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; }
+.lk-player { border: 1px solid rgba(var(--bone-rgb, 235,235,234),.16) !important; border-top-width: 1px !important; background: var(--panel, #0a0a0a); padding: clamp(18px, 2.4vw, 28px); }
+.np { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 16px; align-items: center; }
+.np .art { width: 84px; height: 84px; background: #000 center/cover no-repeat; position: relative; }
+.np .art::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 4px; background: var(--neon); }
+.np-k { font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); }
+.np-t { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(24px, 2.4vw, 34px); line-height: 1; text-transform: uppercase; margin: 6px 0 6px; color: var(--bone); }
+.np-s { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--sand); }
+.pwave { position: relative; display: flex; align-items: center; justify-content: space-between; height: 40px; margin: 22px 0 6px; cursor: pointer; color: var(--bone); }
+.pwave i { flex: 0 0 2px; height: var(--h, 20%); border-radius: 2px; background: currentColor; opacity: .25; transition: height .12s ease-out; }
+.pwave i.on { opacity: 1; background: var(--neon); }
+.ptimes { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .12em; color: var(--sand); }
+.transport { display: flex; justify-content: center; align-items: center; gap: 22px; margin: 14px 0 20px; }
+.transport button { display: grid; place-items: center; border: 0; background: none; color: var(--bone); cursor: pointer; width: 44px; height: 44px; border-radius: 50%; padding: 0; }
+.transport svg { width: 20px; height: 20px; fill: currentColor; display: block; }
+.transport .big svg { width: 24px; height: 24px; }
+.transport button:hover { background: rgba(var(--bone-rgb, 235,235,234),.08); }
+.transport .big { width: 64px; height: 64px; background: var(--neon) !important; color: #000; }
+.transport .big.is-on { animation: ppPulse 1.4s ease-in-out infinite; }
+.tl { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.14); }
+.tl li { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 11px 6px; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.1); cursor: pointer; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.tl li .n { color: var(--sand); }
+.tl li .t { color: var(--bone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl li .t small { color: var(--sand); margin-left: 8px; letter-spacing: .14em; }
+.tl li .d { color: var(--sand); }
+.tl li:hover { background: rgba(var(--bone-rgb, 235,235,234),.05); }
+.tl li.is-cur .n { color: var(--neon-text, var(--neon)); }
+.tl li.is-cur .t { font-weight: 600; }
+@media (max-width: 700px) { .tl li .t small { display: none; } .np { grid-template-columns: 64px minmax(0, 1fr); } .np .art { width: 64px; height: 64px; } }
 </style>
 </head>
 <body>
@@ -321,13 +339,7 @@
         <div class="eyebrow mono"><span class="dot">03 · Soundtrack</span></div>
         <h2 class="display">Original music, scored for the spot.</h2>
         <div class="cuts mono"><span>1 × :60</span><span>2 × :30</span></div>
-        <p>Dr. Dre’s <em>2001</em>-era strings and piano meet Miami neon, with a sunny surf-pop finish.</p>
-        <dl class="refs">
-          <div><dt class="mono">Inspired by</dt><dd>“Forgot About Dre”</dd></div>
-          <div><dt class="mono">World</dt><dd>Miami open-world games</dd></div>
-          <div><dt class="mono">Back half</dt><dd>Beach Boys sun</dd></div>
-          <div><dt class="mono">Score</dt><dd>Orchestral, throughout</dd></div>
-        </dl>
+        <div class="snd-tags mono"><span>“Forgot About Dre” inspired</span><span>Miami open-world</span><span>Beach Boys sun</span><span>Orchestral</span></div>
       </div>
       <div class="lk-player mono" id="player"></div>
     </div>
@@ -469,63 +481,58 @@
   /* v1 strip */
   var v1 = D.V1.map(function (x) { return piece('lucky-v1-' + n2(x[0]), 'V1 · ' + n2(x[0]) + ' · ' + x[1], L + 'frames/' + n2(x[0]) + '.jpg', 'V1 edit'); });
   var v1s = document.getElementById('v1s'); v1.forEach(function (p, i) { v1s.appendChild(tile(p, '', v1, D.V1[i][1])); });
-  /* music player: a waveform per track that pulses with the music while it plays */
-  var player = document.getElementById('player'), cur = null, ac = null, rows = [];
-  var NB = 72;
+  /* music player: one card — now playing, waveform, transport, tracklist */
+  var player = document.getElementById('player'), cur = null, ac = null, an = null, adata = null;
+  var NB = 64, at = 0;
   function fmt(s) { s = Math.max(0, Math.round(s || 0)); return Math.floor(s / 60) + ':' + n2(s % 60); }
-  function seeded(k) { var x = 0; for (var c = 0; c < k.length; c++) x = (x * 31 + k.charCodeAt(c)) % 9973; return function () { x = (x * 1103 + 12345) % 9973; return x / 9973; }; }
-  TRACKS.forEach(function (t) {
-    var row = document.createElement('div'); row.className = 'trk';
-    row.innerHTML = '<button class="pp" type="button" aria-label="Play">▶</button><div><div class="nm"></div><div class="sub"></div><div class="wave" role="slider" aria-label="Seek"></div></div><div class="tm"></div>';
-    row.querySelector('.nm').textContent = t.name;
-    var pp = row.querySelector('.pp'), wave = row.querySelector('.wave'), tm = row.querySelector('.tm');
-    var rnd = seeded(t.name), base = [];
-    for (var b = 0; b < NB; b++) { var h = 18 + Math.round((Math.sin(b / 3.1) * .5 + .5) * 40 + rnd() * 42); base.push(Math.min(100, h)); var bar = document.createElement('i'); bar.style.setProperty('--h', base[b] + '%'); wave.appendChild(bar); }
-    var bars = wave.children;
-    if (!t.src) { pp.disabled = true; pp.textContent = '·'; row.querySelector('.sub').textContent = t.sub + ' · coming soon'; player.appendChild(row); return; }
-    row.querySelector('.sub').textContent = t.sub;
-    var a = new Audio(); a.preload = 'metadata'; a.src = t.src;
-    var R = { a: a, row: row, pp: pp, bars: bars, base: base, an: null, data: null };
-    rows.push(R);
-    a.addEventListener('loadedmetadata', function () { tm.textContent = fmt(a.duration); });
-    a.addEventListener('timeupdate', function () {
-      var k = Math.floor(a.currentTime / (a.duration || 1) * NB);
-      for (var q = 0; q < NB; q++) bars[q].classList.toggle('on', q < k);
-      tm.textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration);
-    });
-    a.addEventListener('ended', function () { stop(R); });
-    a.addEventListener('pause', function () { stop(R); });
-    pp.addEventListener('click', function () {
-      if (cur && cur !== a) cur.pause();
-      if (a.paused) { connect(R); a.play(); pp.textContent = '❚❚'; row.classList.add('is-playing'); cur = a; tick(); }
-      else a.pause();
-    });
-    wave.addEventListener('click', function (e) { var r = wave.getBoundingClientRect(); if (a.duration) a.currentTime = (e.clientX - r.left) / r.width * a.duration; });
-    player.appendChild(row);
+  player.innerHTML = '<div class="np"><div class="art" style="background-image:url(' + L + 'assets/drops/v2-27.jpg)"></div><div><span class="np-k">Now playing</span><b class="np-t"></b><span class="np-s"></span></div></div>' +
+    '<div class="pwave" role="slider" aria-label="Seek"></div><div class="ptimes"><span class="t0">0:00</span><span class="t1"></span></div>' +
+    '<div class="transport"><button class="pv" type="button" aria-label="Previous track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h2.5v14H5zM19 5v14L8.5 12z"/></svg></button><button class="big" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button><button class="nx" type="button" aria-label="Next track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 5H19v14h-2.5zM5 5v14l10.5-7z"/></svg></button></div><ol class="tl"></ol>';
+  var wave = player.querySelector('.pwave'), big = player.querySelector('.big'), tl = player.querySelector('.tl');
+  var base = [];
+  for (var q = 0; q < NB; q++) { base.push(18 + Math.round((Math.sin(q / 3.3) * .5 + .5) * 38 + ((q * 37) % 23))); var bar = document.createElement('i'); bar.style.setProperty('--h', base[q] + '%'); wave.appendChild(bar); }
+  var bars = wave.children;
+  var audio = new Audio(); audio.preload = 'metadata';
+  TRACKS.forEach(function (t, k) {
+    var li = document.createElement('li');
+    li.innerHTML = '<span class="n">' + n2(k + 1) + '</span><span class="t"></span><span class="d">' + (t.sub.indexOf(':60') > -1 ? '1:00' : '0:30') + '</span>';
+    li.querySelector('.t').textContent = t.name; var sm = document.createElement('small'); sm.textContent = t.sub; li.querySelector('.t').appendChild(sm);
+    li.addEventListener('click', function () { load(k, true); });
+    tl.appendChild(li);
   });
-  function stop(R) { R.pp.textContent = '▶'; R.row.classList.remove('is-playing'); for (var q = 0; q < NB; q++) R.bars[q].style.setProperty('--h', R.base[q] + '%'); }
-  function connect(R) {
-    if (R.an) return;
-    try {
-      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
-      if (ac.state === 'suspended') ac.resume();
-      var src = ac.createMediaElementSource(R.a), an = ac.createAnalyser(); an.fftSize = 256; an.smoothingTimeConstant = .7;
-      src.connect(an); an.connect(ac.destination); R.an = an; R.data = new Uint8Array(an.frequencyBinCount);
-    } catch (e) { R.an = false; }
+  function load(k, play) {
+    at = (k + TRACKS.length) % TRACKS.length; var t = TRACKS[at];
+    audio.src = t.src; audio.currentTime = 0;
+    player.querySelector('.np-t').textContent = t.name; player.querySelector('.np-s').textContent = t.sub;
+    player.querySelector('.t1').textContent = t.sub.indexOf(':60') > -1 ? '1:00' : '0:30';
+    [].forEach.call(tl.children, function (li, i) { li.classList.toggle('is-cur', i === at); });
+    paint(0); if (play) start();
   }
+  function paint(frac) { var k = Math.floor(frac * NB); for (var q = 0; q < NB; q++) bars[q].classList.toggle('on', q < k); }
+  function connect() {
+    if (an !== null) return;
+    try { ac = new (window.AudioContext || window.webkitAudioContext)(); var src = ac.createMediaElementSource(audio); an = ac.createAnalyser(); an.fftSize = 256; an.smoothingTimeConstant = .72; src.connect(an); an.connect(ac.destination); adata = new Uint8Array(an.frequencyBinCount); }
+    catch (e) { an = false; }
+  }
+  function start() { connect(); if (ac && ac.state === 'suspended') ac.resume(); audio.play().catch(function () {}); }
+  audio.addEventListener('play', function () { cur = audio; big.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z"/></svg>'; big.classList.add('is-on'); big.setAttribute('aria-label', 'Pause'); tick(); });
+  audio.addEventListener('pause', function () { big.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>'; big.classList.remove('is-on'); big.setAttribute('aria-label', 'Play'); rest(); });
+  audio.addEventListener('ended', function () { if (at < TRACKS.length - 1) load(at + 1, true); });
+  audio.addEventListener('loadedmetadata', function () { player.querySelector('.t1').textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { player.querySelector('.t0').textContent = fmt(audio.currentTime); paint(audio.currentTime / (audio.duration || 1)); });
+  big.addEventListener('click', function () { if (audio.paused) start(); else audio.pause(); });
+  player.querySelector('.pv').addEventListener('click', function () { load(at - 1, !audio.paused); });
+  player.querySelector('.nx').addEventListener('click', function () { load(at + 1, !audio.paused); });
+  wave.addEventListener('click', function (e) { var r = wave.getBoundingClientRect(); if (audio.duration) audio.currentTime = (e.clientX - r.left) / r.width * audio.duration; });
+  function rest() { for (var q = 0; q < NB; q++) bars[q].style.setProperty('--h', base[q] + '%'); }
   var raf = 0;
   function tick() {
-    cancelAnimationFrame(raf);
-    var R = rows.filter(function (r) { return r.a === cur; })[0];
-    if (!R || R.a.paused) return;
-    var t = performance.now() / 1000;
-    if (R.an) R.an.getByteFrequencyData(R.data);
-    for (var q = 0; q < NB; q++) {
-      var lv = R.an ? R.data[Math.floor(q / NB * R.data.length * .7)] / 255 : (Math.sin(t * 6 + q * .45) * .5 + .5) * .7;
-      R.bars[q].style.setProperty('--h', Math.max(12, Math.min(100, R.base[q] * (.45 + lv * 1.1))) + '%');
-    }
+    cancelAnimationFrame(raf); if (audio.paused) return;
+    var t = performance.now() / 1000; if (an) an.getByteFrequencyData(adata);
+    for (var q = 0; q < NB; q++) { var lv = an ? adata[Math.floor(q / NB * adata.length * .7)] / 255 : (Math.sin(t * 6 + q * .45) * .5 + .5) * .7; bars[q].style.setProperty('--h', Math.max(10, Math.min(100, base[q] * (.4 + lv * 1.2))) + '%'); }
     raf = requestAnimationFrame(tick);
   }
+  load(0, false);
   /* desktop: the player starts on the line under the section headline */
   function alignPlayer() {
     var pl = document.getElementById('player'), h = document.querySelector('.lk-sound h2');
