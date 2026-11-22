@@ -451,7 +451,7 @@
     <div class="in">
       <div>
         <div class="eyebrow mono"><span class="dot">04 · Soundtrack</span></div>
-        <h2 class="display">Original music, scored for the spot.</h2>
+        <h2 class="display">Original score.</h2>
         <div class="cuts mono"><span>1 × :60</span><span>2 × :30</span></div>
         <div class="snd-tags mono"><span>“Forgot About Dre” inspired</span><span>Miami open-world</span><span>Beach Boys sun</span><span>Orchestral</span></div>
       </div>
@@ -461,7 +461,7 @@
 
   <section class="lk-sec lk-line" id="storyboard">
     <div class="lk-head">
-      <div><div class="eyebrow mono"><span class="dot">05 · Storyboard</span></div><h2 class="display">My storyboard.</h2></div>
+      <div><div class="eyebrow mono"><span class="dot">05 · Storyboard</span></div><h2 class="display">Director’s storyboards.</h2></div>
       <div class="ctl mono">
         <button type="button" id="sbMode" aria-pressed="false">Sheet</button>
         <button class="ar" type="button" data-rail="sb" data-dir="-1" aria-label="Previous">←</button>
@@ -489,8 +489,8 @@
   <section class="lk-sec lk-line lk-bb" id="billboard">
     <div class="in">
       <div>
-        <div class="eyebrow mono"><span class="dot">07 · Out of home</span></div>
-        <h2 class="display">Custom vertical digital billboard.</h2>
+        <div class="eyebrow mono"><span class="dot">07 · Custom art</span></div>
+        <h2 class="display">Poster.</h2>
         <div class="bb-tags mono"><span>Digital OOH</span><span>9:16 vertical</span><span>Custom render</span></div>
       </div>
       <button class="bb-frame" type="button" id="bbOpen" aria-label="Open the vertical billboard"><img src="/assets/lucky/billboard.jpg" alt="Lucky Energy vertical digital billboard: the hero winks, holding a can, in front of a giant can" loading="lazy"></button>
@@ -655,7 +655,7 @@
   load(0, false);
   /* the billboard opens full size in the viewer */
   (function () { var b = document.getElementById('bbOpen'); if (!b) return;
-    var p = piece('lucky-billboard', 'Custom vertical digital billboard', b.querySelector('img').getAttribute('src'), 'Digital OOH · 9:16'); p.w = 1088; p.h = 1920;
+    var p = piece('lucky-billboard', 'Poster · custom vertical billboard', b.querySelector('img').getAttribute('src'), 'Digital OOH · 9:16'); p.w = 1088; p.h = 1920;
     b.addEventListener('click', function () { AVA.open(p); }); })();
   /* final cut: plays the delivered spot in place, with sound; stops the music and the header film's sound */
   (function () {
