@@ -82,7 +82,9 @@
 .slide-title .hero-watch { pointer-events: auto; gap: 18px; }
 .hero-watch .b { width: clamp(76px, 7.6vw, 116px); height: clamp(76px, 7.6vw, 116px); }
 .hero-watch .l { font-size: 12px; letter-spacing: .24em; }
-@media (max-width: 900px) { .hero-watch .b { width: 64px; height: 64px; } .hero-watch .l { display: none; } }
+.hero.is-single .slide-title .t { display: none; }   /* one film: no title, just Play */
+.hero-watch .l { font-size: 14px; letter-spacing: .3em; }
+@media (max-width: 900px) { .hero-watch .b { width: 68px; height: 68px; } }
 /* one film: the title sits clear above the Play button, and "Video" goes — the button says it */
 .hero.is-single .slide-title { bottom: 92px; }
 .hero.is-single .slide-title .kind { display: none; }
@@ -186,7 +188,7 @@
         <button type="button" id="prev" aria-label="Previous">←</button>
         <button type="button" id="next" aria-label="Next">→</button>
       </div>
-      <button type="button" class="play1 hero-watch" id="heroFull" aria-label="Watch the reel full screen, with sound" hidden><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Watch the reel</span></button>
+      <button type="button" class="play1 hero-watch" id="heroFull" aria-label="Watch the reel full screen, with sound" hidden><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Play</span></button>
     </div>
   </section>
 
