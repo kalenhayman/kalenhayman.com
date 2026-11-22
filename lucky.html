@@ -60,6 +60,9 @@
 .lk-hero .cta { display: flex; gap: 8px; }
 .lk-hero .cta button { border: 0; cursor: pointer; height: 44px; padding: 0 16px; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--neon); color: #000; }
 .lk-hero .media { cursor: pointer; }
+/* keep the title and play button clear of the floating chat widget (pill bottom-right on desktop, bubble bottom-centre on phones) */
+.lk-hero .copy { padding-bottom: calc(clamp(24px, 3vw, 44px) + 92px); }
+@media (max-width: 900px) { .lk-hero .copy { padding-bottom: 92px; } }
 .lk-hero .cta button.lk-play { display: inline-flex; align-items: center; gap: 14px; height: auto; padding: 0; background: none; color: #EBEBEA; }
 .lk-play .b { width: clamp(66px, 6vw, 86px); height: clamp(66px, 6vw, 86px); border-radius: 50%; background: var(--neon); display: grid; place-items: center; animation: lkRing 2.4s ease-out infinite; transition: transform .25s var(--ease, ease); }
 .lk-play:hover .b, .lk-hero .media:hover ~ .copy .lk-play .b { transform: scale(1.07); }
