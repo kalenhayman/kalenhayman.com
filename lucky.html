@@ -193,6 +193,15 @@
 .rail.igr .tile .im { aspect-ratio: 166 / 231; }
 .rail.igr .tile { cursor: zoom-in; }
 @media (max-width: 900px) { .rail.igr { grid-auto-columns: 46vw; } }
+/* desktop: posts sit on the same line as the apple image, same height; the account row sits above that line */
+@media (min-width: 901px) {
+  .lk-brand .in { margin-top: 58px; }
+  .igw { position: relative; }
+  .igw-head { position: absolute; left: 0; right: 0; bottom: calc(100% + 10px); }
+  .rail.igr { grid-auto-columns: calc(clamp(240px, 25.5vw, 330px) * 166 / 231); padding-bottom: 0; }
+  .rail.igr .tile { gap: 0; }
+  .rail.igr .tile .im { height: clamp(240px, 25.5vw, 330px); aspect-ratio: auto; }
+}
 
 /* the ask card holds the credits as its right column */
 .lk-brief .in { grid-template-columns: 1fr !important; }
