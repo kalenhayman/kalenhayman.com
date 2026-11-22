@@ -319,7 +319,7 @@
   <section class="lk-hero" id="top">
     <div class="media">
       <!-- the :30 film: plays muted on a loop; the buttons bring in sound or full screen -->
-      <video id="lkVid" src="/assets/video/lucky-30-v2.mp4" poster="/assets/lucky/lucky-hero.jpg" muted loop playsinline preload="none" aria-label="Lucky Energy — OG Luck concept promo"></video>
+      <video id="lkVid" src="/assets/video/lucky-30-v27.mp4" poster="/assets/lucky/lucky-hero.jpg" muted loop playsinline preload="none" aria-label="Lucky Energy — OG Luck concept promo"></video>
       <div class="lk-first" aria-hidden="true"><picture><source media="(max-width: 760px)" srcset="/assets/lucky/poster-can-m.jpg"><img src="/assets/lucky/lucky-hero.jpg" alt="" fetchpriority="high"></picture></div>
     </div>
     <div class="copy">
@@ -607,7 +607,7 @@
     var box = document.getElementById('fc'); if (!box) return;
     var fv = document.getElementById('fcVid'), go = box.querySelector('.fc-play');
     go.addEventListener('click', function () {
-      if (!fv.src) fv.src = '/assets/video/lucky-30-v2.mp4';
+      if (!fv.src) fv.src = '/assets/video/lucky-30-v27.mp4';
       fv.controls = true; box.classList.add('is-on');
       fv.play().catch(function () {});
     });
