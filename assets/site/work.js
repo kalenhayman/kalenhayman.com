@@ -177,7 +177,8 @@
     { id: 'ava-brand-guide', name: 'AVA', kind: 'Brand guide', types: ['Branding', 'Deck'], href: '/brand-guide' },
     { id: 'raven-brand-kit', name: 'Raven Red', kind: 'Brand kit', types: ['Branding'], media: mediaOf(['raven-brand-kit']) },
     { id: 'kia-brand-guide', name: 'KIA', kind: 'Brand guide', types: ['Branding'], media: mediaOf(['kia-brand-guide']) },
-    { id: 'raven-editorial', name: 'Raven Red · In Search of My Hero', kind: 'Editorial', types: ['Deck'], media: mediaOf(['raven-editorial']) },
+    /* Raven Red · In Search of My Hero (editorial) is removed — files kept; to bring it back, restore:
+       { id: 'raven-editorial', name: 'Raven Red · In Search of My Hero', kind: 'Editorial', types: ['Deck'], media: mediaOf(['raven-editorial']) }, */
     { id: 'kia-editorial', name: 'KIA · Avatar Editorial No.01', kind: 'Editorial', types: ['Deck'], media: mediaOf(['kia-editorial']) },
     { id: 'globalist', name: 'The Globalist', kind: 'Editorial · Brand kit', types: ['Deck', 'Branding'],
       media: mediaOf(['globalist-editorial']).concat([1, 2, 3, 4, 5].map(function (n) { return { src: 'assets/docs/globalist-brand-kit/p-' + n + '.jpg' }; })) },
