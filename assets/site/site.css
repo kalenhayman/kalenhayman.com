@@ -257,3 +257,17 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 }
 .specs .spec .crhl { justify-self: start; color: var(--bone); font-weight: 500; padding: 0 4px; margin-left: -4px; background: linear-gradient(transparent 56%, rgba(216,254,0,.75) 56%); border-bottom: 0; }
 .specs .spec a.crhl:hover { background: var(--neon); color: #000; }
+
+/* lightbox: an easy, always-visible close on every screen size; room kept for it above the piece */
+.lb-close { z-index: 5; height: 48px; padding: 0 18px; background: #000; color: #EBEBEA; border: 1px solid rgba(235,235,234,.55); top: calc(env(safe-area-inset-top, 0px) + 12px); display: inline-flex; align-items: center; gap: 10px; }
+.lb-close::before { content: "✕"; font-size: 15px; letter-spacing: 0; }
+.lb-close:hover { background: var(--neon); color: #000; border-color: var(--neon); }
+.lb-step, .lb-count { z-index: 4; }
+.lb-media, .lb-media img, .lb-media video, .lb-media canvas { max-height: calc(100vh - 160px); max-height: calc(100svh - 160px); }
+@media (max-width: 700px) {
+  .lb { padding: calc(env(safe-area-inset-top, 0px) + 76px) 12px 20px; align-items: flex-start; }
+  .lb-close { right: 12px; height: 52px; padding: 0 20px; font-size: 12px; }
+  .lb-media, .lb-media img, .lb-media video, .lb-media canvas { max-height: calc(100svh - 210px); }
+}
+.lb .card-title { color: #EBEBEA; }
+.lb .card-types { color: rgba(235,235,234,.7); }
