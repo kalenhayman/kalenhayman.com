@@ -129,7 +129,9 @@
 /* sleek waveform: hairline when idle, thin rounded lines only on the track that is playing */
 
 /* brand + instagram */
-.lk-brand .in { display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: 12px; align-items: stretch; }
+.lk-brand .in { display: grid; grid-template-columns: minmax(0, 960px); gap: 12px; align-items: stretch; }
+.lk-brand .og { height: clamp(260px, 36vw, 520px) !important; }
+.lk-brand .og img { transform: scale(1.09); }   /* the apples image has thin white edges baked in */
 .og { position: relative; height: clamp(240px, 25.5vw, 330px); overflow: hidden; }
 .og img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .og .sw { position: absolute; left: 14px; bottom: 14px; display: flex; gap: 6px; }
@@ -218,7 +220,7 @@
 @media (max-width: 900px) { .rail.igr { grid-auto-columns: 46vw; } }
 /* desktop: posts sit on the same line as the apple image, same height; the account row sits above that line */
 @media (min-width: 901px) {
-  .lk-brand .in { margin-top: 58px; }
+  .lk-brand .in { margin-top: 0; }
   .igw { position: relative; }
   .igw-head { position: absolute; left: 0; right: 0; bottom: calc(100% + 10px); }
   .rail.igr { grid-auto-columns: calc(clamp(240px, 25.5vw, 330px) * 166 / 231); padding-bottom: 0; }
@@ -393,49 +395,11 @@
     </div>
   </section>
 
-  <section class="lk-sec lk-line" id="storyboard">
-    <div class="lk-head">
-      <div><div class="eyebrow mono"><span class="dot">02 · Storyboard</span></div><h2 class="display">My storyboard.</h2></div>
-      <div class="ctl mono">
-        <button type="button" id="sbMode" aria-pressed="false">Sheet</button>
-        <button class="ar" type="button" data-rail="sb" data-dir="-1" aria-label="Previous">←</button>
-        <button class="ar" type="button" data-rail="sb" data-dir="1" aria-label="Next">→</button>
-        <span class="count" id="sbCount">01 / 27</span>
-      </div>
-    </div>
-    <div class="rail big" id="sb"></div>
-    <div class="sheet" id="sbSheet"></div>
-  </section>
-
-  <section class="lk-sec lk-line lk-sound" id="sound">
-    <div class="in">
-      <div>
-        <div class="eyebrow mono"><span class="dot">03 · Soundtrack</span></div>
-        <h2 class="display">Original music, scored for the spot.</h2>
-        <div class="cuts mono"><span>1 × :60</span><span>2 × :30</span></div>
-        <div class="snd-tags mono"><span>“Forgot About Dre” inspired</span><span>Miami open-world</span><span>Beach Boys sun</span><span>Orchestral</span></div>
-      </div>
-      <div class="lk-player mono" id="player"></div>
-    </div>
-  </section>
-
   <section class="lk-sec lk-line" id="design">
     <div class="lk-head">
-      <div><div class="eyebrow mono"><span class="dot">04 · Production design</span></div>
+      <div><div class="eyebrow mono"><span class="dot">02 · Production design</span></div>
         <h2 class="display"><span class="hl">Custom designed.</span></h2>
         </div>
-    </div>
-    <div class="pd-row">
-      <div class="lk-head pd-head">
-        <div class="pd-lbl mono"><b>Locations</b><span>12</span></div>
-        <div class="ctl mono">
-          <button type="button" data-sheet="pdLoc" aria-pressed="false">Sheet</button>
-          <button class="ar" type="button" data-rail="pdLoc" data-dir="-1" aria-label="Previous Locations">←</button>
-          <button class="ar" type="button" data-rail="pdLoc" data-dir="1" aria-label="Next Locations">→</button>
-        </div>
-      </div>
-      <div class="rail pd-xl" id="pdLoc"></div>
-      <div class="sheet" id="pdLocSheet"></div>
     </div>
     <div class="pd-row">
       <div class="lk-head pd-head">
@@ -461,22 +425,52 @@
       <div class="rail pd-half" id="pdAcc"></div>
       <div class="sheet" id="pdAccSheet"></div>
     </div>
+    <div class="pd-row">
+      <div class="lk-head pd-head">
+        <div class="pd-lbl mono"><b>Locations</b><span>12</span></div>
+        <div class="ctl mono">
+          <button type="button" data-sheet="pdLoc" aria-pressed="false">Sheet</button>
+          <button class="ar" type="button" data-rail="pdLoc" data-dir="-1" aria-label="Previous Locations">←</button>
+          <button class="ar" type="button" data-rail="pdLoc" data-dir="1" aria-label="Next Locations">→</button>
+        </div>
+      </div>
+      <div class="rail pd-xl" id="pdLoc"></div>
+      <div class="sheet" id="pdLocSheet"></div>
+    </div>
   </section>
 
   <section class="lk-sec lk-line lk-brand" id="brand">
-    <div class="lk-head"><div><div class="eyebrow mono"><span class="dot">05 · Brand</span></div><h2 class="display">Lucky brand.</h2></div></div>
+    <div class="lk-head"><div><div class="eyebrow mono"><span class="dot">03 · Brand</span></div><h2 class="display">Lucky brand.</h2></div></div>
     <div class="in">
       <div class="og"><img src="/assets/lucky/assets/brand/og-apples.jpg" alt="OG Luck on green apples" loading="lazy">
         <div class="sw"><i style="background:#158438" title="Lucky Green #158438"></i><i style="background:#7DBB22" title="Apple #7DBB22"></i><i style="background:#000" title="Black"></i><i style="background:#fff" title="White"></i></div></div>
-      <div class="igw">
-        <div class="igw-head">
-          <span class="av" style="background-image:url(/assets/lucky/assets/brand/lucky-avatar.jpg)"></span>
-          <span class="who"><b>luckyenergy</b><small>Brand content · Instagram</small></span>
-          <span class="ctl"><button class="ar" type="button" data-rail="igRail" data-dir="-1" aria-label="Previous">←</button><button class="ar" type="button" data-rail="igRail" data-dir="1" aria-label="Next">→</button></span>
-        </div>
-        <div class="rail igr" id="igRail"></div>
+    </div>
+  </section>
+
+  <section class="lk-sec lk-line lk-sound" id="sound">
+    <div class="in">
+      <div>
+        <div class="eyebrow mono"><span class="dot">04 · Soundtrack</span></div>
+        <h2 class="display">Original music, scored for the spot.</h2>
+        <div class="cuts mono"><span>1 × :60</span><span>2 × :30</span></div>
+        <div class="snd-tags mono"><span>“Forgot About Dre” inspired</span><span>Miami open-world</span><span>Beach Boys sun</span><span>Orchestral</span></div>
+      </div>
+      <div class="lk-player mono" id="player"></div>
+    </div>
+  </section>
+
+  <section class="lk-sec lk-line" id="storyboard">
+    <div class="lk-head">
+      <div><div class="eyebrow mono"><span class="dot">05 · Storyboard</span></div><h2 class="display">My storyboard.</h2></div>
+      <div class="ctl mono">
+        <button type="button" id="sbMode" aria-pressed="false">Sheet</button>
+        <button class="ar" type="button" data-rail="sb" data-dir="-1" aria-label="Previous">←</button>
+        <button class="ar" type="button" data-rail="sb" data-dir="1" aria-label="Next">→</button>
+        <span class="count" id="sbCount">01 / 27</span>
       </div>
     </div>
+    <div class="rail big" id="sb"></div>
+    <div class="sheet" id="sbSheet"></div>
   </section>
 
   <section class="lk-sec lk-line" id="final">
@@ -596,7 +590,7 @@
   var IGP = ['13','61','45','52','25','63','33','12','55','64','21','31','53','44','65','11','62','22','42','24','41','51','32','15','35'];
   var igSeq = IGP.map(function (k, i) { return piece('lucky-ig-' + k, 'luckyenergy · post ' + n2(i + 1), L + 'assets/brand/post-' + k + '.jpg', 'Brand content'); });
   var igRail = document.getElementById('igRail');
-  igSeq.forEach(function (p) { var t = tile(p, '', igSeq, ''); t.querySelector('.cap').remove(); igRail.appendChild(t); });
+  if (igRail) igSeq.forEach(function (p) { var t = tile(p, '', igSeq, ''); t.querySelector('.cap').remove(); igRail.appendChild(t); });
   /* v1 strip */
   var v1 = D.V1.map(function (x) { return piece('lucky-v1-' + n2(x[0]), 'V1 · ' + n2(x[0]) + ' · ' + x[1], L + 'frames/' + n2(x[0]) + '.jpg', 'V1 edit'); });
   var v1s = document.getElementById('v1s'); if (v1s) v1.forEach(function (p, i) { v1s.appendChild(tile(p, '', v1, D.V1[i][1])); });
