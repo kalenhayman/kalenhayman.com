@@ -423,7 +423,7 @@
     </div>
     <div class="pd-row">
       <div class="lk-head pd-head">
-        <div class="pd-lbl mono"><b>Cast</b><span>12</span></div>
+        <div class="pd-lbl mono"><b>Cast</b><span>11</span></div>
         <div class="ctl mono">
           <button class="ar" type="button" data-rail="pdCast" data-dir="-1" aria-label="Previous Cast">←</button>
           <button class="ar" type="button" data-rail="pdCast" data-dir="1" aria-label="Next Cast">→</button>
@@ -502,7 +502,7 @@
 <script src="/assets/site/site.js"></script>
 <script>
 (function () {
-  var D = {"V2": ["Drone swoop over Ocean Drive", "Hero pulls up at the store", "Thug moves in", "Slow-mo car robbery", "Thief peels out", "Hero knocked flat", "Black cat wake-up", "Rain sets in", "Whip-zoom to the LUCKY billboard", "Scared shop owner", "Points to the fridge", "Ice-cold LUCKY", "360 skull", "Eyes light up", "Bump outside the café", "Slow-mo save", "Shades returned", "Run club bump", "Instant running gear", "Sprint to the beach", "Match-point dive", "Glitchy high-fives", "A LUCKY from the cooler", "Surf invite", "Charge the ocean", "Wave into LUCKY bubbles", "Built for the Relentless"], "V1": [[1, "Wide. Grey, wet street seen from the elevated tracks"], [5, "A black cat crosses the hood"], [6, "The billboard. LUCKY Energy, OG Luck can"], [9, "He trips on the cracked pavement"], [13, "Low angle. The LUCKY fridge, fully stocked"], [16, "He drinks"], [27, "Wide. Same street, now sunlit"]], "LOC": ["Street wide at dusk (aerial)", "Carjacking corner", "Billboard POV in the rain", "Store exterior", "Store interior", "LUCKY fridge", "Checkout counter", "Exit POV at dawn", "Café sidewalk", "Ocean Drive sidewalk (run club)", "On the volleyball court", "Shore, early afternoon"], "CAST": ["Hero, street look", "Hero, run look", "Hero", "Car thief", "Black cat", "Shop keeper", "Café lady", "Run club lead", "Run club group", "Cooler man", "Volleyball group", "Surfers (pair)"], "ACC": ["Yellow convertible", "Black sunglasses", "Car keys", "Phone", "Black sunglasses (alt)", "Iced coffee", "Keys with shell charm", "Tortoiseshell sunglasses", "Cooler with volleyball", "Surfboards (pair)"], "IG": ["ig-01", "ig-02", "ig-03", "ig-04", "ig-05", "ig-06", "lineup", "liftoff"]}, L = '/assets/lucky/';
+  var D = {"V2": ["Drone swoop over Ocean Drive", "Hero pulls up at the store", "Thug moves in", "Slow-mo car robbery", "Thief peels out", "Hero knocked flat", "Black cat wake-up", "Rain sets in", "Whip-zoom to the LUCKY billboard", "Scared shop owner", "Points to the fridge", "Ice-cold LUCKY", "360 skull", "Eyes light up", "Bump outside the café", "Slow-mo save", "Shades returned", "Run club bump", "Instant running gear", "Sprint to the beach", "Match-point dive", "Glitchy high-fives", "A LUCKY from the cooler", "Surf invite", "Charge the ocean", "Wave into LUCKY bubbles", "Built for the Relentless"], "V1": [[1, "Wide. Grey, wet street seen from the elevated tracks"], [5, "A black cat crosses the hood"], [6, "The billboard. LUCKY Energy, OG Luck can"], [9, "He trips on the cracked pavement"], [13, "Low angle. The LUCKY fridge, fully stocked"], [16, "He drinks"], [27, "Wide. Same street, now sunlit"]], "LOC": ["Street wide at dusk (aerial)", "Carjacking corner", "Billboard POV in the rain", "Store exterior", "Store interior", "LUCKY fridge", "Checkout counter", "Exit POV at dawn", "Café sidewalk", "Ocean Drive sidewalk (run club)", "On the volleyball court", "Shore, early afternoon"], "CAST": ["Hero, street look", "Hero, run look", null, "Car thief", "Black cat", "Shop keeper", "Café lady", "Run club lead", "Run club group", "Cooler man", "Volleyball group", "Surfers (pair)"], "ACC": ["Yellow convertible", "Black sunglasses", "Car keys", "Phone", "Black sunglasses (alt)", "Iced coffee", "Keys with shell charm", "Tortoiseshell sunglasses", "Cooler with volleyball", "Surfboards (pair)"], "IG": ["ig-01", "ig-02", "ig-03", "ig-04", "ig-05", "ig-06", "lineup", "liftoff"]}, L = '/assets/lucky/';
   /* the three cuts of the score: add each file's URL to src when it is ready */
   var TRACKS = [
     { name: 'From Mystery to Freedom', sub: ':60 · Full spot', src: '/assets/audio/lucky-60-mystery-to-freedom.m4a' },
@@ -543,8 +543,10 @@
   /* production design: three rails, one per kind */
   [['pdLoc', D.LOC, 'loc', 'World'], ['pdCast', D.CAST, 'cast', 'Cast'], ['pdAcc', D.ACC, 'acc', 'Props']].forEach(function (g) {
     var box = document.getElementById(g[0]);
-    var seq = g[1].map(function (t, i) { return piece('lucky-' + g[2] + '-' + n2(i + 1), t, L + 'assets/drops/' + g[2] + '-' + n2(i + 1) + '.jpg', g[3]); });
-    seq.forEach(function (p, i) { box.appendChild(tile(p, n2(i + 1), seq, g[1][i])); });
+    /* a null caption hides that image (the file number stays the same) */
+    var keep = []; g[1].forEach(function (t, i) { if (t) keep.push([t, i + 1]); });
+    var seq = keep.map(function (k) { return piece('lucky-' + g[2] + '-' + n2(k[1]), k[0], L + 'assets/drops/' + g[2] + '-' + n2(k[1]) + '.jpg', g[3]); });
+    seq.forEach(function (p, i) { box.appendChild(tile(p, n2(i + 1), seq, keep[i][0])); });
   });
   /* brand content: individual posts in a slider */
   var IGP = ['13','61','45','52','25','63','33','12','55','64','21','31','53','44','65','11','62','22','42','24','41','51','32','15','35'];
