@@ -162,7 +162,8 @@
        { id: 'tavola', name: 'Tavola', kind: 'Concept site', types: ['Web'], href: '/tavola' }, */
     /* España (concept site, /espana) is decommissioned — files kept; to bring it back, restore:
        { id: 'espana', name: 'España', kind: 'Concept site', types: ['Web'], href: '/espana' }, */
-    { id: 'red-accordion', name: 'The Red Accordion', kind: 'Concept site', types: ['Web'], href: '/red-accordion' },
+    /* The Red Accordion (concept site, /red-accordion) is removed — files kept; to bring it back, restore:
+       { id: 'red-accordion', name: 'The Red Accordion', kind: 'Concept site', types: ['Web'], href: '/red-accordion' }, */
     /* No Bad Days (website, /no-bad-days) is parked for now — to bring it back, restore:
        { id: 'no-bad-days', name: 'No Bad Days', kind: 'Website', types: ['Web'], href: '/no-bad-days' }, */
     { id: 'the-studio', name: 'The STUDIO', kind: 'Pilot web series', types: ['Series', 'Video'], href: '/the-studio' },
