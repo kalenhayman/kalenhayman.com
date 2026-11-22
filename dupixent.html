@@ -28,21 +28,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site/site.css">
 <style>
-.dx-hero { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); min-height: calc(100svh - var(--nav-h)); margin-top: var(--nav-h); }
-.dx-hero .copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 3vw, 48px) var(--gutter); gap: 28px; }
-.dx-hero .top { color: var(--sand); display: flex; justify-content: space-between; gap: 16px; }
-.dx-hero h1 { font-size: clamp(48px, 6.2vw, 104px); margin: 0; }
-.dx-hero .ft { margin-top: 18px; color: var(--neon-text, var(--neon)); font-size: 13px; }
-.dx-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.dx-film { position: relative; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.dx-film::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--neon); transform: skewX(-6deg); transform-origin: top; }
-.dx-film video { width: 100%; aspect-ratio: 16 / 9; display: block; background: #000; object-fit: contain; }
-.dx-film .ctl { position: absolute; right: 22px; bottom: 22px; display: flex; gap: 8px; color: #EBEBEA; }
-.dx-film video { cursor: pointer; }
-.dx-film .ctl .l { text-shadow: 0 1px 12px rgba(0,0,0,.6); }
-.dx-film .ctl button { border: 0; cursor: pointer; padding: 11px 14px; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--neon); color: #000; }
-.dx-film .ctl button.ghost { background: rgba(0,0,0,.6); color: #EBEBEA; border: 1px solid rgba(235,235,234,.4); }
-.dx-film .ctl button:hover { background: #fff; color: #000; }
+/* hero: the film fills the screen; title, line and the one play button sit bottom-left */
+.dx-hero { position: relative; margin-top: var(--nav-h); height: calc(100svh - var(--nav-h)); min-height: 520px; overflow: hidden; background: #000; color: #EBEBEA; }
+.dx-film { position: absolute; inset: 0; background: #000; }
+.dx-film video { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+.dx-film::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.45) 34%, rgba(0,0,0,0) 60%), linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 22%); }
+.dx-hero .copy { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(22px, 3vw, 40px) var(--gutter) calc(clamp(24px, 3vw, 44px) + 40px); pointer-events: none; }
+.dx-hero .top { color: rgba(235,235,234,.78); display: flex; justify-content: space-between; gap: 16px; }
+.dx-hero .ttl { display: flex; align-items: center; flex-wrap: wrap; gap: clamp(18px, 2.4vw, 44px); }
+.dx-hero h1 { font-size: clamp(64px, 10vw, 176px); margin: 0; line-height: .85; color: #EBEBEA; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+.dx-hero .ft { margin-top: 14px; color: var(--neon); font-size: 13px; }
+.dx-hero .play1 { pointer-events: auto; color: #EBEBEA; gap: 18px; }
+.dx-hero .play1 .b { width: clamp(76px, 7.6vw, 116px); height: clamp(76px, 7.6vw, 116px); }
+.dx-hero .play1 .l { font-size: 12px; letter-spacing: .24em; text-shadow: 0 1px 12px rgba(0,0,0,.6); }
 
 .dx-brief { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 5vw, 80px); }
 .dx-brief h2 { font-size: clamp(36px, 4.6vw, 72px); margin: 0 0 22px; }
@@ -68,16 +66,13 @@
 .dx-spot h3 { font-size: clamp(28px, 3vw, 44px); margin: 10px 0 6px; }
 
 @media (max-width: 900px) {
-  .dx-hero { grid-template-columns: 1fr; min-height: 0; }
-  .dx-film { order: -1; }
-  .dx-film::after { display: none; }
-  .dx-film .ctl { right: 10px; bottom: 10px; }
-  .dx-hero .copy { gap: 24px; padding-bottom: 36px; }
+  .dx-hero .copy { padding-bottom: 96px; }
+  .dx-hero .play1 .b { width: 64px; height: 64px; }
+  .dx-hero .play1 .l { display: none; }
   .dx-brief { grid-template-columns: 1fr; }
   .dx-row { grid-template-columns: 1fr; gap: 8px; }
   .dx-spots { grid-template-columns: 1fr; }
 }
-.dx-film .ctl button.play1, .dx-film .ctl button.play1:hover { background: none; padding: 0; color: #EBEBEA; }
 </style>
 </head>
 <body>
@@ -113,20 +108,16 @@
 
 <main>
   <section class="dx-hero">
-    <div class="copy">
-      <div class="top mono"><span class="dot">Pharma · Animatic spots</span><span>2026</span></div>
-      <div>
-        <h1 class="display"><span>Dupixent</span></h1>
-        <div class="ft mono">Two :60 animatics · with Paper Route</div>
-      </div>
-      <div class="cta">
-        <a class="btn" href="#brief">The brief <span class="arr">↓</span></a>
-        <a class="btn btn--ghost" href="/start-intake">Start Intake <span class="arr">→</span></a>
-      </div>
-    </div>
     <div class="dx-film dark">
-      <video id="dxVid" src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20animatic%20.mp4" poster="/assets/img/dupixent-cover.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dupixent — It All Adds Up"></video>
-      <div class="ctl">
+        <video id="dxVid" src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20animatic%20.mp4" poster="/assets/img/dupixent-cover.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dupixent — It All Adds Up"></video>
+    </div>
+    <div class="copy">
+        <div class="top mono"><span class="dot">Pharma · Animatic spots</span><span>2026</span></div>
+      <div class="ttl">
+        <div>
+          <h1 class="display"><span>Dupixent</span></h1>
+          <div class="ft mono">Two :60 animatics · with Paper Route</div>
+        </div>
         <button class="play1" id="dxPlay" type="button" aria-label="Watch the spot with sound"><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Watch the spot</span></button>
       </div>
     </div>
@@ -205,17 +196,17 @@
   document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) quiet(); });
   document.addEventListener('webkitfullscreenchange', function () { if (!document.webkitFullscreenElement) quiet(); });
   v.addEventListener('webkitendfullscreen', quiet);
-  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) sound(false); });
-  v.addEventListener('webkitendfullscreen', function () { sound(false); });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) quiet(); });
+  v.addEventListener('webkitendfullscreen', function () { quiet(); });
   var spots = document.querySelectorAll('.dx-spot video');
   Array.prototype.forEach.call(spots, function (x) {
     x.addEventListener('play', function () {
-      if (!v.muted) sound(false);
+      if (!v.muted) quiet();
       Array.prototype.forEach.call(spots, function (y) { if (y !== x) y.pause(); });
     });
   });
   if ('IntersectionObserver' in window) new IntersectionObserver(function (e) {
-    if (!e[0].isIntersecting && !v.muted && !document.fullscreenElement) sound(false);
+    if (!e[0].isIntersecting && !v.muted && !document.fullscreenElement) quiet();
   }).observe(v);
 })();
 </script>
