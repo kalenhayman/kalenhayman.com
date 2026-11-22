@@ -251,6 +251,16 @@
 .fc-cap { position: absolute; left: clamp(16px, 2vw, 28px); bottom: clamp(14px, 2vw, 24px); color: #fff; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; pointer-events: none; }
 .fc.is-on .fc-play, .fc.is-on .fc-cap { display: none; }
 @media (max-width: 600px) { .fc-cap { display: none; } }
+/* 07 · custom vertical digital billboard */
+.lk-bb .in { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(28px, 5vw, 80px); align-items: end; }
+.lk-bb h2 { font-size: clamp(36px, 4.6vw, 76px); line-height: .92; margin: 10px 0 18px; }
+.lk-bb .bb-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.lk-bb .bb-tags span { padding: 7px 10px; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.22); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; }
+.lk-bb .bb-tags span:first-child { background: var(--neon); border-color: var(--neon); color: #000; }
+.bb-frame { position: relative; display: block; width: min(44vw, calc((100svh - var(--nav-h) - 80px) * 1088 / 1920), 460px); aspect-ratio: 1088 / 1920; padding: 10px; background: #0b0b0b; border: 1px solid #1d1d1d; cursor: zoom-in; }
+.bb-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bb-frame::after { content: "9:16 · DOOH"; position: absolute; left: 10px; top: 10px; background: #000; color: #fff; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 10px; letter-spacing: .16em; padding: 5px 8px; }
+@media (max-width: 900px) { .lk-bb .in { grid-template-columns: 1fr; } .bb-frame { width: 100%; } }
 /* soundtrack: player — a dark, minimal deck under the headline */
 .lk-sound .in { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; }
 .snd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
@@ -492,6 +502,17 @@
     </div>
   </section>
 
+  <section class="lk-sec lk-line lk-bb" id="billboard">
+    <div class="in">
+      <div>
+        <div class="eyebrow mono"><span class="dot">07 · Out of home</span></div>
+        <h2 class="display">Custom vertical digital billboard.</h2>
+        <div class="bb-tags mono"><span>Digital OOH</span><span>9:16 vertical</span><span>Custom render</span></div>
+      </div>
+      <button class="bb-frame" type="button" id="bbOpen" aria-label="Open the vertical billboard"><img src="/assets/lucky/billboard.jpg" alt="Lucky Energy vertical digital billboard: the hero winks, holding a can, in front of a giant can" loading="lazy"></button>
+    </div>
+  </section>
+
   <section class="band">
     <h2 class="h2 display">Work with me.</h2>
     <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
@@ -632,6 +653,10 @@
     raf = requestAnimationFrame(tick);
   }
   load(0, false);
+  /* the billboard opens full size in the viewer */
+  (function () { var b = document.getElementById('bbOpen'); if (!b) return;
+    var p = piece('lucky-billboard', 'Custom vertical digital billboard', b.querySelector('img').getAttribute('src'), 'Digital OOH · 9:16'); p.w = 1088; p.h = 1920;
+    b.addEventListener('click', function () { AVA.open(p); }); })();
   /* final cut: plays the delivered spot in place, with sound; stops the music and the header film's sound */
   (function () {
     var box = document.getElementById('fc'); if (!box) return;
