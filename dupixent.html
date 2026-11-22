@@ -37,7 +37,9 @@
 .dx-film { position: relative; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .dx-film::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--neon); transform: skewX(-6deg); transform-origin: top; }
 .dx-film video { width: 100%; aspect-ratio: 16 / 9; display: block; background: #000; object-fit: contain; }
-.dx-film .ctl { position: absolute; right: 18px; bottom: 18px; display: flex; gap: 8px; }
+.dx-film .ctl { position: absolute; right: 22px; bottom: 22px; display: flex; gap: 8px; color: #EBEBEA; }
+.dx-film video { cursor: pointer; }
+.dx-film .ctl .l { text-shadow: 0 1px 12px rgba(0,0,0,.6); }
 .dx-film .ctl button { border: 0; cursor: pointer; padding: 11px 14px; font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--neon); color: #000; }
 .dx-film .ctl button.ghost { background: rgba(0,0,0,.6); color: #EBEBEA; border: 1px solid rgba(235,235,234,.4); }
 .dx-film .ctl button:hover { background: #fff; color: #000; }
@@ -75,6 +77,7 @@
   .dx-row { grid-template-columns: 1fr; gap: 8px; }
   .dx-spots { grid-template-columns: 1fr; }
 }
+.dx-film .ctl button.play1, .dx-film .ctl button.play1:hover { background: none; padding: 0; color: #EBEBEA; }
 </style>
 </head>
 <body>
@@ -124,8 +127,7 @@
     <div class="dx-film dark">
       <video id="dxVid" src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20animatic%20.mp4" poster="/assets/img/dupixent-cover.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dupixent — It All Adds Up"></video>
       <div class="ctl">
-        <button id="dxSound" type="button" aria-pressed="false">▶ Play with sound</button>
-        <button id="dxFull" class="ghost" type="button">Watch now ⤢</button>
+        <button class="play1" id="dxPlay" type="button" aria-label="Watch the spot with sound"><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Watch the spot</span></button>
       </div>
     </div>
   </section>
@@ -189,20 +191,19 @@
 <script>
 (function () {
   /* plays muted on a loop; the buttons bring in the sound, or the whole film full screen */
-  var v = document.getElementById('dxVid'), s = document.getElementById('dxSound'), f = document.getElementById('dxFull');
-  function sound(on, fromTop) {
-    v.muted = !on;
-    if (on && fromTop) v.currentTime = 0;
-    if (on) v.play().catch(function () {});
-    s.setAttribute('aria-pressed', String(on));
-    s.textContent = on ? '■ Mute' : '▶ Play with sound';
-  }
-  s.addEventListener('click', function () { sound(v.muted, true); });
-  f.addEventListener('click', function () {
-    v.currentTime = 0; sound(true, false);
-    var go = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen;
-    if (go) go.call(v);
-  });
+  var v = document.getElementById('dxVid'), p = document.getElementById('dxPlay');
+  var quiet = function () { v.muted = true; v.play().catch(function () {}); };
+  var watch = function () {
+    v.currentTime = 0; v.muted = false; v.play().catch(function () {});
+    var fs = v.requestFullscreen || v.webkitRequestFullscreen;
+    if (fs) { var r = fs.call(v); if (r && r.catch) r.catch(function () {}); }
+    else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+  };
+  p.addEventListener('click', watch);
+  v.addEventListener('click', function () { if (!document.fullscreenElement && !document.webkitFullscreenElement) watch(); });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) quiet(); });
+  document.addEventListener('webkitfullscreenchange', function () { if (!document.webkitFullscreenElement) quiet(); });
+  v.addEventListener('webkitendfullscreen', quiet);
   document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) sound(false); });
   v.addEventListener('webkitendfullscreen', function () { sound(false); });
   var spots = document.querySelectorAll('.dx-spot video');

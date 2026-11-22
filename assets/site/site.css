@@ -225,3 +225,16 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 .card--project:hover .card-meta { color: #000; background: var(--neon); }
 .card--project .card-media { background: #F1F1EF; }
 .on-bone .card--project { background: #FFFFFF; }
+
+/* ---------------------------------------------------------------------------
+   One play button per video: a neon disc with a play mark and a short label.
+   ------------------------------------------------------------------------ */
+.play1 { display: inline-flex; align-items: center; gap: 14px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; text-decoration: none; font: inherit; }
+.play1 .b { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--neon); display: grid; place-items: center; animation: play1Ring 2.4s ease-out infinite; transition: transform .25s var(--ease, ease); }
+.play1:hover .b { transform: scale(1.07); }
+.play1 svg { width: 34%; height: 34%; fill: #000; margin-left: 8%; display: block; }
+.play1.is-on svg { margin-left: 0; }
+.play1 .l { font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; white-space: nowrap; }
+.play1--sm .b { width: 48px; height: 48px; }
+@keyframes play1Ring { 0% { box-shadow: 0 0 0 0 rgba(216,254,0,.5); } 75%, 100% { box-shadow: 0 0 0 16px rgba(216,254,0,0); } }
+@media (prefers-reduced-motion: reduce) { .play1 .b { animation: none; } }

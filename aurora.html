@@ -206,6 +206,9 @@ button { font: inherit; }
   .slide, .film-scrim, .film-inner, .film-video { transition: none; }
   .blink { animation: none; }
 }
+#filmInner .play1, #filmInner .btn--ghost { color: #EBEBEA; }
+#filmInner .btn--ghost { border-color: rgba(235,235,234,.45); }
+#filmInner .btn--ghost:hover { background: #EBEBEA; color: #000; }
 </style>
 </head>
 <body>
@@ -257,8 +260,8 @@ button { font: inherit; }
       <span>Brand film &middot; 2026</span>
     </div>
     <h1 class="film-title">Aurora<br><span class="accent">&times; Kyle Kuzma</span></h1>
-    <div class="btn-row" style="margin-top:6px">
-      <button class="btn" id="watchNow" type="button">Watch now &rarr;</button>
+    <div class="btn-row" style="margin-top:6px;align-items:center;gap:22px">
+      <button class="play1" id="watchNow" type="button"><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Watch the film</span></button>
       <a class="btn btn--ghost" href="/start-intake">Start Intake &rarr;</a>
     </div>
   </div>
@@ -317,7 +320,7 @@ button { font: inherit; }
       </div>
       <div class="navigator">
         <div class="nav-count" id="clipCount"><b>&mdash;</b> / 05</div>
-        <button class="btn" id="clipsWatch" type="button">Watch with sound &rarr;</button>
+        <button class="play1" id="clipsWatch" type="button"><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Watch with sound</span></button>
       </div>
     </div>
     <div class="player" id="player">
