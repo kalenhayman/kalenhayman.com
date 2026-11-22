@@ -102,7 +102,7 @@
   if (AVA.liveViews().indexOf(want) === -1) want = 'All';
   var pad = function (n) { return (n < 10 ? '0' : '') + n; };
   var m = AVA.mountProjects(document.getElementById('work'), {
-    cta: true, view: want,
+    cta: true, view: want, ids: AVA.pinnedOrder(),
     onView: function (v) {
       /* The view you pick becomes the page's title. */
       var label = v === 'All' ? 'Work' : (v === 'Casting' ? 'Originals' : v);

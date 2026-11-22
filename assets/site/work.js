@@ -386,6 +386,14 @@
     a.appendChild(cap);
     return a;
   }
+  /* Pinned to the front of every project list, in this order; the rest follow in a fresh random order on each visit. */
+  var PINNED = ['lucky', 'aurora', 'the-studio'];
+  function pinnedOrder() {
+    var ids = PROJECTS.map(function (p) { return p.id; });
+    var rest = ids.filter(function (id) { return PINNED.indexOf(id) === -1; });
+    for (var i = rest.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = rest[i]; rest[i] = rest[j]; rest[j] = t; }
+    return PINNED.filter(function (id) { return ids.indexOf(id) > -1; }).concat(rest);
+  }
   function mountProjects(root, opts) {
     opts = opts || {};
     var list = opts.ids ? opts.ids.map(function (id) { return PROJECTS.filter(function (p) { return p.id === id; })[0]; }).filter(Boolean) : PROJECTS;
@@ -625,5 +633,5 @@
     document.body.classList.remove('lb-open');
   }
 
-  window.AVA = { WORK: WORK, PROJECTS: PROJECTS, VIEWS: VIEWS, INTAKE: INTAKE, mount: mount, mountProjects: mountProjects, open: open, liveViews: liveViews, count: count };
+  window.AVA = { WORK: WORK, PROJECTS: PROJECTS, VIEWS: VIEWS, INTAKE: INTAKE, mount: mount, mountProjects: mountProjects, pinnedOrder: pinnedOrder, PINNED: PINNED, open: open, liveViews: liveViews, count: count };
 })();
