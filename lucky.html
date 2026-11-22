@@ -215,6 +215,17 @@
 }
 @media (max-width: 700px) { .ask-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } .ask-stats div:nth-child(3) { padding-left: 16px !important; border-left: 1px solid rgba(var(--bone-rgb, 235,235,234),.16) !important; } }
 
+/* final cut: the delivered :30, watched in place */
+.fc { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+.fc video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; background: #000; }
+.fc.is-on video { object-fit: contain; }
+.fc-play { position: absolute; inset: 0; display: grid; place-items: center; padding: 0; border: 0; cursor: pointer; background: linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.12) 42%, rgba(0,0,0,.06) 100%); }
+.fc-play .b { width: clamp(76px, 8vw, 112px); height: clamp(76px, 8vw, 112px); border-radius: 50%; background: var(--neon); display: grid; place-items: center; box-shadow: 0 10px 40px rgba(0,0,0,.35); transition: transform .3s var(--ease, ease); }
+.fc-play:hover .b { transform: scale(1.07); }
+.fc-play svg { width: 32%; height: 32%; fill: #000; margin-left: 7%; }
+.fc-cap { position: absolute; left: clamp(16px, 2vw, 28px); bottom: clamp(14px, 2vw, 24px); color: #fff; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; pointer-events: none; }
+.fc.is-on .fc-play, .fc.is-on .fc-cap { display: none; }
+@media (max-width: 600px) { .fc-cap { display: none; } }
 /* soundtrack: player — a dark, minimal deck under the headline */
 .lk-sound .in { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; }
 .snd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
@@ -446,6 +457,19 @@
     <div class="rail v1r" id="v1s"></div>
   </section>
 
+  <section class="lk-sec lk-line" id="final">
+    <div class="lk-head">
+      <div><div class="eyebrow mono"><span class="dot">07 · Final cut</span><span>:30 spot</span></div><h2 class="display">Watch the spot.</h2></div>
+    </div>
+    <div class="in">
+      <div class="fc" id="fc">
+        <video id="fcVid" poster="/assets/lucky/lucky-hero.jpg" playsinline preload="none" aria-label="Lucky Energy — final cut, :30"></video>
+        <button class="fc-play" type="button" aria-label="Play the final cut with sound"><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+        <span class="fc-cap mono">Lucky · Final cut · :30</span>
+      </div>
+    </div>
+  </section>
+
   <section class="band">
     <h2 class="h2 display">Work with me.</h2>
     <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
@@ -575,6 +599,21 @@
     raf = requestAnimationFrame(tick);
   }
   load(0, false);
+  /* final cut: plays the delivered spot in place, with sound; stops the music and the header film's sound */
+  (function () {
+    var box = document.getElementById('fc'); if (!box) return;
+    var fv = document.getElementById('fcVid'), go = box.querySelector('.fc-play');
+    go.addEventListener('click', function () {
+      if (!fv.src) fv.src = '/assets/video/lucky-30-v2.mp4';
+      fv.controls = true; box.classList.add('is-on');
+      fv.play().catch(function () {});
+    });
+    fv.addEventListener('play', function () {
+      if (cur && cur !== fv) cur.pause(); cur = fv;
+      var hv = document.getElementById('lkVid'), hs = document.getElementById('lkSound');
+      if (hv && !hv.muted && hs) hs.click();
+    });
+  })();
   /* header film: once the video has a src */
   var v = document.getElementById('lkVid'), s = document.getElementById('lkSound'), f = document.getElementById('lkFull');
   if (v.getAttribute('src')) {
