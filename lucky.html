@@ -235,7 +235,7 @@
 .pl-art { grid-row: 1 / span 2; aspect-ratio: 1 / 1; background: #151515 center 18% / cover no-repeat; }
 .pl-meta { display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--mut); }
 .pl-meta .pl-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mut); }
-.lk-player.is-playing .pl-meta .pl-dot { background: var(--neon); box-shadow: 0 0 0 4px rgba(216,254,0,.14); }
+.lk-player.is-playing .pl-meta .pl-dot { background: var(--acc, var(--neon)); box-shadow: 0 0 0 4px rgba(255,255,255,.08); }
 .pl-meta .idx { margin-left: auto; font-variant-numeric: tabular-nums; }
 .pl-t { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(26px, 2.7vw, 40px); line-height: .95; text-transform: uppercase; letter-spacing: .005em; margin: 10px 0 6px; color: var(--ink); }
 .pl-s { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--mut); }
@@ -251,22 +251,24 @@
 .pl-row .t1 { text-align: right; }
 .pwave { flex: 1; min-width: 0; height: 38px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
 .pwave i { flex: 0 0 2px; height: var(--h, 30%); border-radius: 2px; background: rgba(243,243,239,.2); transition: height .14s ease-out, background .25s; }
-.pwave i.on { background: var(--neon); }
+.pwave i.on { background: var(--acc, var(--neon)); }
 .pwave:hover i:not(.on) { background: rgba(243,243,239,.34); }
 .lk-player .tl { list-style: none; margin: 0; padding: clamp(14px, 1.8vw, 24px) clamp(12px, 1.6vw, 22px); border-left: 1px solid var(--hair); display: flex; flex-direction: column; justify-content: center; }
 .tl li.tl-h, .tl li.tl-h:hover { display: flex; justify-content: space-between; padding: 0 10px 10px; background: none; cursor: default; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--mut); }
-.tl li:not(.tl-h) { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 10px; cursor: pointer; color: var(--mut); transition: color .2s, background .2s; }
-.tl li + li { border-top: 1px solid var(--hair); }
-.tl li:hover { color: var(--ink); background: rgba(255,255,255,.03); }
-.tl li .n { font-size: 10.5px; letter-spacing: .08em; font-variant-numeric: tabular-nums; display: flex; align-items: center; }
-.tl li .t { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.tl li .t b { font-weight: 500; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: inherit; }
-.tl li .t small { font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; opacity: .7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.tl li .d { font-size: 10.5px; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
-.tl li.is-cur { color: var(--ink); }
-.tl li.is-cur .n { color: var(--neon); }
-.eq { display: none; gap: 2px; align-items: flex-end; height: 11px; }
-.eq i { width: 2px; height: 4px; background: var(--neon); animation: eqb .9s ease-in-out infinite; }
+.tl li.trk { position: relative; display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 16px; cursor: pointer; outline: 2px solid transparent; outline-offset: 3px; transition: outline-color .25s, transform .25s var(--ease, ease); }
+.tl li.trk + li.trk { margin-top: 8px; }
+.tl li.trk:hover { transform: translateX(3px); }
+.tl li.trk.is-cur { outline-color: #f3f3ef; }
+.tl li.c0 { background: var(--neon); color: #000; }
+.tl li.c1 { background: #cfcfca; color: #000; }
+.tl li.c2 { background: #000; color: #f3f3ef; box-shadow: inset 0 0 0 1px #34342f; }
+.tl li .n { font-size: 11px; letter-spacing: .08em; font-variant-numeric: tabular-nums; display: flex; align-items: center; font-weight: 600; }
+.tl li .t { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.tl li .t b { font-family: var(--display); font-weight: 400; font-size: clamp(19px, 1.6vw, 24px); line-height: .95; letter-spacing: .01em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: inherit; }
+.tl li .t small { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; opacity: .72; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl li .d { font-size: 11px; letter-spacing: .08em; font-variant-numeric: tabular-nums; font-weight: 600; padding-right: 6px; }
+.eq { display: none; gap: 2px; align-items: flex-end; height: 12px; }
+.eq i { width: 2.5px; height: 4px; background: currentColor; animation: eqb .9s ease-in-out infinite; }
 .eq i:nth-child(2) { animation-delay: -.3s; } .eq i:nth-child(3) { animation-delay: -.6s; }
 @keyframes eqb { 0%, 100% { height: 3px; } 50% { height: 11px; } }
 .lk-player.is-playing .tl li.is-cur .num { display: none; }
@@ -557,7 +559,7 @@
   var bars = wave.children, rows = [];
   var audio = new Audio(); audio.preload = 'metadata';
   TRACKS.forEach(function (t, k) {
-    var li = document.createElement('li');
+    var li = document.createElement('li'); li.className = 'trk c' + (k % 3);
     li.innerHTML = '<span class="n"><span class="num">' + n2(k + 1) + '</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></span><span class="t"><b></b><small></small></span><span class="d">' + (t.sub.indexOf(':60') > -1 ? '1:00' : '0:30') + '</span>';
     li.querySelector('b').textContent = t.name; li.querySelector('small').textContent = t.sub.replace(/^:\d+ · /, '');
     li.addEventListener('click', function () { load(k, true); });
@@ -571,6 +573,7 @@
     player.querySelector('.t0').textContent = '0:00';
     player.querySelector('.t1').textContent = t.sub.indexOf(':60') > -1 ? '1:00' : '0:30';
     rows.forEach(function (li, i) { li.classList.toggle('is-cur', i === at); });
+    player.style.setProperty('--acc', ['var(--neon)', '#cfcfca', '#ffffff'][at % 3]);
     paint(0); if (play) start();
   }
   function paint(frac) { var k = Math.floor(frac * NB); for (var q = 0; q < NB; q++) bars[q].classList.toggle('on', q < k); wave.setAttribute('aria-valuenow', String(Math.round(frac * 100))); }
