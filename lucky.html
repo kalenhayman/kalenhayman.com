@@ -129,9 +129,17 @@
 /* sleek waveform: hairline when idle, thin rounded lines only on the track that is playing */
 
 /* brand + instagram */
-.lk-brand .in { display: grid; grid-template-columns: minmax(0, 960px); gap: 12px; align-items: stretch; }
-.lk-brand .og { height: clamp(260px, 36vw, 520px) !important; }
-.lk-brand .og img { transform: scale(1.09); }   /* the apples image has thin white edges baked in */
+.lk-brand .in { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: end; }
+.lk-brand .og { width: clamp(300px, 34vw, 480px); height: auto !important; aspect-ratio: 1 / 1; cursor: zoom-in; padding: 0; border: 0; background: #0b0b0b; display: block; }
+.lk-brand .og img { transform: none; }
+.pal { max-width: 460px; }
+.pal-h { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--bone); }
+.pal-h::before { content: ""; width: 8px; height: 8px; background: var(--neon); }
+.pal-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.pal-row i { width: 44px; height: 44px; border: 1px solid rgba(var(--bone-rgb, 235,235,234),.25); }
+.pal-row b { font-weight: 500; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: var(--bone); }
+.pal-row span { font-size: 12px; letter-spacing: .1em; color: rgba(var(--bone-rgb, 235,235,234),.66); }
+@media (max-width: 900px) { .lk-brand .in { grid-template-columns: 1fr; } .lk-brand .og { width: 100%; } .pal { max-width: none; } }
 .og { position: relative; height: clamp(240px, 25.5vw, 330px); overflow: hidden; }
 .og img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .og .sw { position: absolute; left: 14px; bottom: 14px; display: flex; gap: 6px; }
@@ -443,8 +451,14 @@
   <section class="lk-sec lk-line lk-brand" id="brand">
     <div class="lk-head"><div><div class="eyebrow mono"><span class="dot">03 · Client brand</span></div><h2 class="display">Lucky Energy</h2></div></div>
     <div class="in">
-      <div class="og"><img src="/assets/lucky/assets/brand/og-apples.jpg" alt="OG Luck on green apples" loading="lazy">
-        <div class="sw"><i style="background:#158438" title="Lucky Green #158438"></i><i style="background:#7DBB22" title="Apple #7DBB22"></i><i style="background:#000" title="Black"></i><i style="background:#fff" title="White"></i></div></div>
+      <button class="og" type="button" id="brandOpen" aria-label="Open the Lucky Energy brand image"><img src="/assets/lucky/lucky-branding.jpg" alt="Lucky Energy OG Luck can on green apples" loading="lazy"></button>
+      <div class="pal mono">
+        <div class="pal-h">Brand palette</div>
+        <div class="pal-row"><i style="background:#158438"></i><b>Lucky green</b><span>#158438</span></div>
+        <div class="pal-row"><i style="background:#7DBB22"></i><b>Apple</b><span>#7DBB22</span></div>
+        <div class="pal-row"><i style="background:#000"></i><b>Black</b><span>#000000</span></div>
+        <div class="pal-row"><i style="background:#fff"></i><b>White</b><span>#FFFFFF</span></div>
+      </div>
     </div>
   </section>
 
@@ -654,6 +668,7 @@
     raf = requestAnimationFrame(tick);
   }
   load(0, false);
+  (function () { var b = document.getElementById('brandOpen'); if (!b) return; var p = piece('lucky-brand', 'Lucky Energy · OG Luck', b.querySelector('img').getAttribute('src'), 'Client brand'); p.w = 1; p.h = 1; b.addEventListener('click', function () { AVA.open(p); }); })();
   /* the billboard opens full size in the viewer */
   (function () { var b = document.getElementById('bbOpen'); if (!b) return;
     var p = piece('lucky-billboard', 'Poster · custom vertical billboard', b.querySelector('img').getAttribute('src'), 'Digital OOH · 9:16'); p.w = 1088; p.h = 1920;
