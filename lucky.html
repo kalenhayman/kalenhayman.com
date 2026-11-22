@@ -472,20 +472,9 @@
     </div>
   </section>
 
-  <section class="lk-sec lk-line" id="v1">
-    <div class="lk-head">
-      <div><div class="eyebrow mono"><span class="dot">06 · Where it started</span><span>V1 edit</span></div></div>
-      <div class="ctl mono">
-        <button class="ar" type="button" data-rail="v1s" data-dir="-1" aria-label="Previous">←</button>
-        <button class="ar" type="button" data-rail="v1s" data-dir="1" aria-label="Next">→</button>
-      </div>
-    </div>
-    <div class="rail v1r" id="v1s"></div>
-  </section>
-
   <section class="lk-sec lk-line" id="final">
     <div class="lk-head">
-      <div><div class="eyebrow mono"><span class="dot">07 · Final cut</span><span>:30 spot</span></div><h2 class="display">Watch the spot.</h2></div>
+      <div><div class="eyebrow mono"><span class="dot">06 · Final cut</span><span>:30 spot</span></div><h2 class="display">Watch the spot.</h2></div>
     </div>
     <div class="in">
       <div class="fc" id="fc">
@@ -576,7 +565,7 @@
   igSeq.forEach(function (p) { var t = tile(p, '', igSeq, ''); t.querySelector('.cap').remove(); igRail.appendChild(t); });
   /* v1 strip */
   var v1 = D.V1.map(function (x) { return piece('lucky-v1-' + n2(x[0]), 'V1 · ' + n2(x[0]) + ' · ' + x[1], L + 'frames/' + n2(x[0]) + '.jpg', 'V1 edit'); });
-  var v1s = document.getElementById('v1s'); v1.forEach(function (p, i) { v1s.appendChild(tile(p, '', v1, D.V1[i][1])); });
+  var v1s = document.getElementById('v1s'); if (v1s) v1.forEach(function (p, i) { v1s.appendChild(tile(p, '', v1, D.V1[i][1])); });
   /* music player: one card — now playing, waveform, transport, tracklist */
   var player = document.getElementById('player'), cur = null, ac = null, an = null, adata = null;
   var NB = 72, at = 0;
