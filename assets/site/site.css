@@ -329,3 +329,24 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 
 /* phones with Reduce Motion on: the client names can't scroll, so the strip is hidden rather than shown as a static jumble */
 @media (prefers-reduced-motion: reduce) and (max-width: 900px) { .cl-strip, .exp[aria-label="Selected clients"] { display: none; } }
+
+/* closing band buttons: soft pills, plain words, the arrow in its own circle that tips forward on hover */
+.band-cta { gap: 14px; align-items: center; }
+.band-cta .btn {
+  height: 76px; padding: 0 11px 0 34px; gap: 24px; border-radius: 999px;
+  font-family: var(--body); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; text-transform: none;
+  transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+}
+.band-cta .btn .arr {
+  width: 54px; height: 54px; border-radius: 50%; display: inline-grid; place-items: center; flex: none;
+  font-family: var(--body); font-size: 20px; line-height: 1; background: #000; color: var(--neon);
+  transition: transform .35s var(--ease), background .3s var(--ease), color .3s var(--ease);
+}
+.band-cta .btn:hover { transform: translateY(-2px); }
+.band-cta .btn:hover .arr { transform: rotate(-45deg); }
+.band-cta .btn--ghost { border: 1px solid color-mix(in srgb, var(--bone) 30%, transparent); color: var(--bone); background: transparent; }
+.band-cta .btn--ghost .arr { background: var(--bone); color: var(--ink); }
+.band-cta .btn--ghost:hover { border-color: var(--bone); background: color-mix(in srgb, var(--bone) 6%, transparent); color: var(--bone); }
+@media (max-width: 900px) { .band-cta .btn { height: 58px; font-size: 16px; padding-left: 24px; } .band-cta .btn .arr { width: 42px; height: 42px; } }
+.band-cta .btn:not(.btn--ghost):hover { background: var(--neon); color: #000; border-color: var(--neon); }
+.band-cta .btn .arr { padding-bottom: 2px; }
