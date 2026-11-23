@@ -308,3 +308,7 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
   .nav-links { gap: clamp(28px, 2.6vw, 48px); }
   .nav-links a { font-size: 22px; letter-spacing: .18em; }
 }
+
+/* Build your own (end of the Casting view): a grey field with the words in acid neon */
+.card--project.card--build .card-media { background: #3A3A38 !important; }
+.card--project.card--build .build-t { color: #D8FE00 !important; }
