@@ -4,7 +4,7 @@
     { "id": "the-studio", "layout": "cover", "y": 40, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/THE%20STUDIO%20-%20SERIES/STUDIO%20CAST%20UPDATE.png"] },
     { "id": "aurora", "layout": "cover", "y": 40, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/Aurora%20V1%20-%20KUZ/KUZ%20IMAGE/KYLE%20AURORA%20HERO%20PAGE%201.png"] },
     { "id": "virtual-affair", "layout": "cover", "y": 35, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/The%20Virtual%20Affair/DANNY%20%26%20LAURA%204.jpg"] },
-    { "id": "i-am-ava", "layout": "cover", "y": 50, "src": ["assets/work/i-am-ava.jpg"] },
+    { "id": "i-am-ava", "layout": "cover", "y": 35, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/I%20AM%20AVA%20OUTTAKES%201.png"] },
     { "id": "ava-brand-guide", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/BRANDING/AVA/AVA%20BRAND%20GUIDE%20COVER%20THUMBN.png"] },
     { "id": "dupixent", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20IT%20ALL%20COMES%20TOGETHER%202%20-%20ANIMATIC%20-%20NOV%202026.png"] },
     { "id": "asics", "layout": "cover", "y": 72, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%202.png"] },
