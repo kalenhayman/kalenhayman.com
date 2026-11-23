@@ -178,7 +178,8 @@
 .ask-n .unit { grid-column: 2; grid-row: 2; align-self: end; }
 .ask-n .pre { grid-column: 2; grid-row: 1; align-self: end; white-space: nowrap; font-size: clamp(30px, 3.3vw, 50px); line-height: .9; text-transform: uppercase; color: var(--bone); margin-bottom: -.66em; position: relative; z-index: 1; }
 .ask-n .unit { font-size: clamp(72px, 8.2vw, 128px); line-height: .8; letter-spacing: 0; text-transform: uppercase; color: var(--bone); padding-bottom: .02em; }
-.ask-copy h2 { font-size: clamp(30px, 3.4vw, 54px) !important; line-height: .94 !important; margin: 0 !important; max-width: 14ch; }
+.ask-copy h2 { font-size: clamp(30px, 3.4vw, 54px) !important; line-height: .94 !important; margin: 0 !important; max-width: 16ch; }
+@media (min-width: 1001px) { .ask-copy h2 { font-size: clamp(40px, 4.4vw, 84px) !important; max-width: 22ch; } }
 .ask-copy p { font-size: clamp(15px, 1.2vw, 18px) !important; line-height: 1.5; margin: 0; max-width: 40ch; color: rgba(var(--bone-rgb, 235,235,234),.78); }
 .ask-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(20px, 3vw, 34px); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
 .ask-stats div { padding: 14px 0 0; display: flex; flex-direction: column; gap: 4px; }
@@ -390,7 +391,7 @@
           <div class="ask-top">
             <div class="ask-n display" aria-label="Made in 3 days"><span class="pre">Made in</span><span class="num">3</span><span class="unit">days</span></div>
             <div class="ask-copy">
-              <h2 class="display">GTA-inspired concept ad for a US energy drink</h2>
+              <h2 class="display">GTA-inspired concept ad brought to life for a U.S. energy drink</h2>
             </div>
           </div>
           <div class="ask-stats mono">
