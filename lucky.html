@@ -176,7 +176,7 @@
 .ask-n { display: grid !important; grid-template-columns: auto auto; justify-content: start; column-gap: 10px; align-items: end; }
 .ask-n .num { grid-column: 1; grid-row: 1 / span 2; }
 .ask-n .unit { grid-column: 2; grid-row: 2; align-self: end; }
-.ask-n .pre { grid-column: 2; grid-row: 1; align-self: end; white-space: nowrap; font-size: clamp(30px, 3.3vw, 50px); line-height: .9; text-transform: uppercase; color: var(--bone); margin-bottom: .08em; }
+.ask-n .pre { grid-column: 2; grid-row: 1; align-self: end; white-space: nowrap; font-size: clamp(30px, 3.3vw, 50px); line-height: .9; text-transform: uppercase; color: var(--bone); margin-bottom: -.66em; position: relative; z-index: 1; }
 .ask-n .unit { font-size: clamp(72px, 8.2vw, 128px); line-height: .8; letter-spacing: 0; text-transform: uppercase; color: var(--bone); padding-bottom: .02em; }
 .ask-copy h2 { font-size: clamp(30px, 3.4vw, 54px) !important; line-height: .94 !important; margin: 0 !important; max-width: 14ch; }
 .ask-copy p { font-size: clamp(15px, 1.2vw, 18px) !important; line-height: 1.5; margin: 0; max-width: 40ch; color: rgba(var(--bone-rgb, 235,235,234),.78); }
