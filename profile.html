@@ -252,6 +252,20 @@ p { margin: 0; }
   html { scroll-behavior: auto; }
   .mag-leaf { transition: none; }
 }
+
+/* comp card — the model's casting sheet, set like the project credits */
+.comp { max-width: 1240px; margin: 0 auto; padding: 88px 32px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(32px, 6vw, 96px); }
+.comp-eb { color: var(--sand); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; }
+.comp-name { font-family: var(--display, 'Anton', sans-serif); font-weight: 400; text-transform: uppercase; font-size: clamp(48px, 6vw, 96px); line-height: .9; margin: 18px 0 10px; color: var(--bone); }
+.comp-role { color: var(--neon-text, var(--neon)); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; }
+.comp-bio { font-family: var(--body, 'Archivo', sans-serif); font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: rgba(var(--bone-rgb, 235,235,234), .78); max-width: 52ch; margin: 26px 0 22px; }
+.comp-tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.comp-tags li { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; padding: 7px 10px; border: 1px solid rgba(var(--bone-rgb, 235,235,234), .2); color: var(--bone); }
+.comp-specs { align-self: start; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234), .16); }
+.comp-specs .spec { display: grid; grid-template-columns: 130px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234), .16); }
+.comp-specs .k { color: var(--sand); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.comp-specs .v { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--bone); }
+@media (max-width: 900px) { .comp { grid-template-columns: 1fr; padding: 56px 20px; } .comp-specs .spec { grid-template-columns: 110px 1fr; } }
 </style>
 </head>
 <body>
@@ -296,6 +310,17 @@ p { margin: 0; }
       <div class="portrait-role" id="modelRole">Fitness Model</div>
     </div>
   </div>
+</section>
+
+<section class="comp" id="comp" data-screen-label="Comp card">
+  <div class="comp-l">
+    <div class="comp-eb mono">● Casting · Model</div>
+    <h2 class="comp-name" id="compName"></h2>
+    <div class="comp-role mono" id="compRole"></div>
+    <p class="comp-bio" id="compBio"></p>
+    <ul class="comp-tags mono" id="compTags"></ul>
+  </div>
+  <div class="comp-specs mono has-h" id="compSpecs"></div>
 </section>
 
 <section class="mag-section" id="magSection" hidden data-screen-label="Editorial">
@@ -388,7 +413,7 @@ var MODELS = [
     ] },
     bio: 'Performance-led and camera-ready. KIA carries activewear, supplement and training brands across long-form and short-form without a single studio booking.',
     tags: ['Activewear', 'Supplements', 'Training', 'Outdoor', 'Studio'],
-    specs: [['Niche', 'Fitness · Performance'], ['Primary Use', 'Campaign · Social'], ['Wardrobe', 'Activewear · Athleisure'], ['Environments', 'Gym · Track · Studio'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
+    specs: [['Niche', 'Fitness · Performance'], ['Primary Use', 'Campaign · Social'], ['Wardrobe', 'Activewear · Athleisure'], ['Environments', 'Gym · Track · Studio'], ['Motion', 'Available · 60–90s'], ['Voice', 'Available on request'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
   { no: '02', name: 'RAVEN', slug: 'raven', pos: '40% 34%', role: 'Recording Artist', img: 'assets/model-raven.jpg',
     works: [
       { title: 'Battle Cry · Nîpisîy Red', kind: 'Campaign', cat: 'Stills',
@@ -421,13 +446,8 @@ var MODELS = [
     /* magazine (Raven Red · In Search of My Hero) removed — not correct; files kept in assets/raven-editorial */
     bio: 'Built for music and culture work. RAVEN anchors release cycles, label campaigns and cross-brand collaborations with a consistent, unmistakable face.',
     tags: ['Music', 'Culture', 'Streetwear', 'Nightlife', 'Press'],
-    specs: [['Niche', 'Music · Culture'], ['Primary Use', 'Release · Press'], ['Wardrobe', 'Streetwear · Evening'], ['Environments', 'Stage · Studio · Street'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
+    specs: [['Niche', 'Music · Culture'], ['Primary Use', 'Release · Press'], ['Wardrobe', 'Streetwear · Evening'], ['Environments', 'Stage · Studio · Street'], ['Motion', 'Available · 60–90s'], ['Voice', 'Available on request'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
   { no: '03', name: 'GLOBALIST', slug: 'globalist', pos: '50% 34%', role: 'Journalist', img: 'assets/model-globalist.jpg',
-    magazine: { label: 'The Introduction · Issue No.01', pages: [
-      'assets/globalist-editorial/globalist-01.jpg', 'assets/globalist-editorial/globalist-02.jpg',
-      'assets/globalist-editorial/globalist-03.jpg', 'assets/globalist-editorial/globalist-04.jpg',
-      'assets/globalist-editorial/globalist-05.jpg', 'assets/globalist-editorial/globalist-06.jpg'
-    ] },
     works: [
       { title: 'The Globalist · Brand Kit', kind: 'Brand kit · PDF', cat: 'Editorial', ar: '900 / 637',
         src: '/assets/docs/globalist-brand-kit/p-1.jpg', href: '/assets/docs/globalist-brand-kit.pdf' },
@@ -444,9 +464,9 @@ var MODELS = [
       { title: 'Studio · Seated', kind: 'Still', cat: 'Editorial', ar: '1800 / 1018',
         src: '/assets/img/globalist-p05.jpg' }
     ],
-    bio: 'An editorial anchor. GLOBALIST fronts longform, explainer and thought-leadership formats where authority matters more than glamour.',
-    tags: ['Editorial', 'Longform', 'Explainer', 'Corporate', 'News'],
-    specs: [['Niche', 'Editorial · News'], ['Primary Use', 'Longform · Thought leadership'], ['Wardrobe', 'Tailored · Business'], ['Environments', 'Desk · Field · Studio'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
+    bio: 'Ex-soldier turned statesman. GLOBALIST fronts longform, explainer and thought-leadership work where authority matters more than glamour: weathered, resolute, generous.',
+    tags: ['Editorial', 'Longform', 'Humanitarian', 'Thought leadership', 'News'],
+    specs: [['Character', 'Humanitarian statesman · ex-soldier'], ['Playing age', '65–75'], ['Look', 'Weathered · silver hair, tied back · round glasses'], ['Niche', 'Editorial · News · Humanitarian'], ['Primary use', 'Longform · Thought leadership · Foundation & NGO'], ['Wardrobe', 'Trench · Tailored · Field wear'], ['Environments', 'Desk · Field · Studio · Geneva'], ['Motion', 'Available · 60–90s'], ['Voice', 'Measured, low · available on request'], ['Licensing', 'Brand-owned on buyout']] },
   { no: '04', name: 'DANNY', slug: 'danny', pos: '50% 38%', role: "Men's Fashion", img: 'assets/model-danny.jpg',
     works: [
       { title: 'Air Jordan · Spec Ad', kind: 'Spec ad', cat: 'Stills', ar: '1786 / 1199',
@@ -470,7 +490,7 @@ var MODELS = [
     ],
     bio: 'Campaign and e-comm workhorse. DANNY holds a seasonal look consistently across lookbook, product and paid — the same face, every SKU.',
     tags: ['Fashion', 'E-comm', 'Lookbook', 'Paid', 'Seasonal'],
-    specs: [['Niche', "Men's Fashion"], ['Primary Use', 'Campaign · E-comm'], ['Wardrobe', 'Seasonal · Tailored · Casual'], ['Environments', 'Studio · Location'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
+    specs: [['Niche', "Men's Fashion"], ['Primary Use', 'Campaign · E-comm'], ['Wardrobe', 'Seasonal · Tailored · Casual'], ['Environments', 'Studio · Location'], ['Motion', 'Available · 60–90s'], ['Voice', 'Available on request'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] },
   { no: '05', name: 'LAURA', slug: 'laura', pos: '52% 40%', role: "Women's Luxury", img: 'assets/model-laura.png',
     works: [
       { title: 'Fine Jewelry · Beauty', kind: 'Still', cat: 'Stills', ar: '1329 / 1800',
@@ -488,7 +508,7 @@ var MODELS = [
     ],
     bio: 'Beauty and couture register. LAURA carries premium positioning across editorial spreads, fragrance-style motion and high-gloss product work.',
     tags: ['Luxury', 'Beauty', 'Couture', 'Fragrance', 'Editorial'],
-    specs: [['Niche', "Women's Luxury"], ['Primary Use', 'Editorial · Beauty'], ['Wardrobe', 'Couture · Evening'], ['Environments', 'Studio · Interior · Resort'], ['Motion', 'Available · 60–90s'], ['Voice', 'ElevenLabs pairing'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] }
+    specs: [['Niche', "Women's Luxury"], ['Primary Use', 'Editorial · Beauty'], ['Wardrobe', 'Couture · Evening'], ['Environments', 'Studio · Interior · Resort'], ['Motion', 'Available · 60–90s'], ['Voice', 'Available on request'], ['Build Status', 'Production-ready'], ['Licensing', 'Brand-owned on buyout']] }
 ];
 
 var WORKS = [
@@ -864,9 +884,21 @@ function tick() {
   requestAnimationFrame(tick);
 }
 
+function renderComp(m) {
+  el('compName').textContent = m.name;
+  el('compRole').textContent = m.role;
+  el('compBio').textContent = m.bio || '';
+  el('compTags').innerHTML = (m.tags || []).map(function (t) { return '<li>' + t + '</li>'; }).join('');
+  el('compSpecs').innerHTML = '<div class="cred-h">Comp card</div>' + (m.specs || []).map(function (p, i) {
+    return '<div class="spec"><span class="k">' + p[0] + '</span><span class="v' + (i === 0 ? ' crhl' : '') + '">' + p[1] + '</span></div>';
+  }).join('');
+  el('comp').hidden = !(m.bio || (m.specs && m.specs.length));
+}
+
 function render() {
   renderTabs();
   renderProfile();
+  renderComp(MODELS[idx]);
   renderMag(MODELS[idx]);
   renderFilters();
   renderWorks();
