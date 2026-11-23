@@ -42,6 +42,22 @@
   if ('requestIdleCallback' in window) requestIdleCallback(loadAgent, { timeout: 4000 });
   else setTimeout(loadAgent, 2500);
 
+  /* back to top — a small arrow, bottom-left (the chat widget has the bottom-right
+     on desktop and bottom-centre on phones); it shows once the page has scrolled a screen */
+  var top = document.createElement('button');
+  top.type = 'button'; top.className = 'to-top';
+  top.setAttribute('aria-label', 'Back to top');
+  top.innerHTML = '<span aria-hidden="true">\u2191</span>';
+  top.addEventListener('click', function () {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+  });
+  body.appendChild(top);
+  var topTick = false;
+  function topShow() { topTick = false; top.classList.toggle('is-on', window.scrollY > window.innerHeight * 0.9); }
+  window.addEventListener('scroll', function () { if (!topTick) { topTick = true; requestAnimationFrame(topShow); } }, { passive: true });
+  topShow();
+
   /* neon dot cursor — fine pointers only, swells over anything clickable */
   if (window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var cur = document.createElement('div');

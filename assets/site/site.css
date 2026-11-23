@@ -277,3 +277,18 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 .card--project .card-title { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: clamp(20px, 1.9vw, 28px); line-height: 1; }
 .card--project .card-fmt { flex: none; font-family: var(--display); font-size: clamp(20px, 1.9vw, 28px); line-height: 1; text-transform: uppercase; letter-spacing: -0.01em; color: rgba(0,0,0,.42); white-space: nowrap; }
 @media (max-width: 600px) { .card--project .card-title, .card--project .card-fmt { font-size: 22px; } }
+
+/* back to top: a small square arrow, bottom-left, clear of the chat widget; under the nav, menu and lightbox */
+.to-top {
+  position: fixed; left: var(--gutter); bottom: max(18px, env(safe-area-inset-bottom)); z-index: 45;
+  width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--body); font-size: 16px; line-height: 1;
+  color: var(--bone); background: color-mix(in srgb, var(--ink) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bone) 38%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s, background .25s var(--ease), color .25s var(--ease);
+}
+.to-top.is-on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.to-top:hover { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+.menu-open .to-top { opacity: 0; visibility: hidden; }
