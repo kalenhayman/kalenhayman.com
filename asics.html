@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asics — Spec campaign by Kalen Hayman</title>
+<meta name="description" content="A spec campaign for the ASICS Superblast 3 starring KIA: one vertical film and six stills, every frame made with AI.">
+<link rel="canonical" href="https://www.kalenhayman.com/asics">
+<meta name="theme-color" content="#FFFFFF">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kalen Hayman">
+<meta property="og:title" content="Asics — Spec campaign by Kalen Hayman">
+<meta property="og:description" content="A spec campaign for the ASICS Superblast 3 starring KIA: one vertical film and six stills, every frame made with AI.">
+<meta property="og:url" content="https://www.kalenhayman.com/asics">
+<meta property="og:image" content="https://www.kalenhayman.com/assets/projects/asics.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Asics — Spec campaign by Kalen Hayman">
+<meta name="twitter:description" content="A spec campaign for the ASICS Superblast 3 starring KIA: one vertical film and six stills, every frame made with AI.">
+<meta name="twitter:image" content="https://www.kalenhayman.com/assets/projects/asics.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site/site.css">
+<style>
+/* hero: the vertical film in its own frame, the title and the one play button beside it */
+.as-hero { margin-top: var(--nav-h); padding: clamp(28px, 4vw, 64px) var(--gutter); background: #000; color: #EBEBEA; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(28px, 5vw, 88px); align-items: end; }
+.as-hero .top { color: rgba(235,235,234,.78); display: flex; justify-content: space-between; gap: 16px; margin-bottom: clamp(32px, 6vw, 120px); }
+.as-hero h1 { font-size: clamp(72px, 12vw, 200px); margin: 0; line-height: .85; color: #EBEBEA; }
+.as-hero .ft { margin-top: 16px; color: var(--neon); font-size: 13px; }
+.as-hero .play1 { margin-top: clamp(24px, 3vw, 40px); color: #EBEBEA; gap: 16px; }
+.as-hero .play1 .b { width: clamp(56px, 5vw, 76px); height: clamp(56px, 5vw, 76px); }
+.as-hero .play1 .l { font-size: 12px; letter-spacing: .24em; }
+.as-film { position: relative; width: min(30vw, calc((100svh - var(--nav-h) - 96px) * 1080 / 1838)); min-width: 240px; aspect-ratio: 1080 / 1838; background: #0a0a0a; border: 1px solid rgba(235,235,234,.14); }
+.as-film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+
+.dx-brief { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 5vw, 80px); }
+.dx-brief h2 { font-size: clamp(36px, 4.6vw, 72px); margin: 0 0 22px; }
+.dx-brief .lede { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: rgba(var(--bone-rgb, 235,235,234),.78); max-width: 58ch; margin: 0; }
+.specs { align-self: start; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.spec { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(var(--bone-rgb, 235,235,234),.16); }
+.spec .k { color: var(--sand); font-size: 11px; }
+.spec .v { font-size: 14px; }
+.spec a.v { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+.as-stills { padding: clamp(48px, 7vw, 112px) var(--gutter); border-top: 1px solid rgba(var(--bone-rgb, 235,235,234),.12); }
+.as-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.as-still { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #0a0a0a; cursor: zoom-in; overflow: hidden; }
+.as-still img { display: block; width: 100%; height: auto; transition: transform .5s var(--ease); }
+.as-still:hover img { transform: scale(1.025); }
+.as-still .n { position: absolute; left: 12px; top: 12px; font-size: 11px; color: #EBEBEA; background: rgba(0,0,0,.55); padding: 6px 8px; }
+
+@media (max-width: 900px) {
+  .as-hero { grid-template-columns: 1fr; align-items: start; }
+  .as-hero .top { margin-bottom: 28px; }
+  .as-film { width: min(100%, 420px); min-width: 0; justify-self: start; }
+  .as-hero .play1 .b { width: 56px; height: 56px; }
+  .dx-brief { grid-template-columns: 1fr; }
+  .as-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <a class="nav-mark" href="/" aria-label="Kalen Hayman — home"><span class="k-mark" aria-hidden="true">K</span></a>
+  <div class="nav-links">
+    <a href="/work">Work</a>
+    <a href="/services">Services</a>
+    <a href="/the-studio">Series</a>
+    <a href="/work?view=Casting">Casting</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+</nav>
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li><a href="/work">Work</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/the-studio">Series</a></li>
+    <li><a href="/work?view=Casting">Casting</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="menu-foot">
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+    <a class="mono" href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
+    <span class="mono">Vancouver · Worldwide</span>
+  </div>
+</div>
+
+<main>
+  <section class="as-hero dark">
+    <div class="copy">
+      <div class="top mono"><span class="dot">Spec campaign · Footwear</span><span>2026</span></div>
+      <h1 class="display">Asics</h1>
+      <div class="ft mono">Superblast 3 · ft. KIA</div>
+      <button class="play1" id="asPlay" type="button" aria-label="Watch the film full screen, with sound"><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Watch the film</span></button>
+    </div>
+    <div class="as-film">
+      <video id="asVid" src="/assets/video/asics-spec-ad.mp4" poster="/assets/img/asics-cover.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Asics Superblast 3 — spec film"></video>
+    </div>
+  </section>
+
+  <section class="dx-brief" id="brief">
+    <div>
+      <div class="eyebrow mono"><span class="dot">01 · The brief</span></div>
+      <h2 class="display">One shoe, one face, no shoot.</h2>
+      <p class="lede">I made an unsolicited spec campaign for the ASICS Superblast 3, starring KIA, an AI fitness talent from AVA. One vertical film for social and six campaign stills, with every frame made with AI.</p>
+    </div>
+    <div class="specs mono has-h">
+      <div class="cred-h">Credits</div>
+      <div class="spec"><span class="k">Brand</span><span class="v crhl">ASICS (spec, unsolicited)</span></div>
+      <div class="spec"><span class="k">Product</span><span class="v">Superblast 3</span></div>
+      <div class="spec"><span class="k">Talent</span><a class="v crhl" href="/model?m=kia">KIA</a></div>
+      <div class="spec"><span class="k">Deliverables</span><span class="v">1 vertical film · 6 stills</span></div>
+      <div class="spec"><span class="k">Format</span><span class="v">9:16 · :10</span></div>
+      <div class="spec"><span class="k">Designed by</span><span class="v crhl">Kalen Hayman</span></div>
+      <div class="spec"><span class="k">Year</span><span class="v">2026</span></div>
+    </div>
+  </section>
+
+  <section class="as-stills">
+    <div class="eyebrow mono"><span class="dot">02 · The stills</span><span>6 frames</span></div>
+    <div class="as-grid">
+      <button class="as-still" type="button" data-i="0" aria-label="Open still 01 of 6"><img src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%201.png" alt="Asics Superblast 3 spec campaign, still 01, KIA" loading="lazy" decoding="async"><span class="n mono">01</span></button>
+      <button class="as-still" type="button" data-i="1" aria-label="Open still 02 of 6"><img src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%202.png" alt="Asics Superblast 3 spec campaign, still 02, KIA" loading="lazy" decoding="async"><span class="n mono">02</span></button>
+      <button class="as-still" type="button" data-i="2" aria-label="Open still 03 of 6"><img src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%203.png" alt="Asics Superblast 3 spec campaign, still 03, KIA" loading="lazy" decoding="async"><span class="n mono">03</span></button>
+      <button class="as-still" type="button" data-i="3" aria-label="Open still 04 of 6"><img src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%204.png" alt="Asics Superblast 3 spec campaign, still 04, KIA" loading="lazy" decoding="async"><span class="n mono">04</span></button>
+      <button class="as-still" type="button" data-i="4" aria-label="Open still 05 of 6"><img src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%205.png" alt="Asics Superblast 3 spec campaign, still 05, KIA" loading="lazy" decoding="async"><span class="n mono">05</span></button>
+      <button class="as-still" type="button" data-i="5" aria-label="Open still 06 of 6"><img src="https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%206.png" alt="Asics Superblast 3 spec campaign, still 06, KIA" loading="lazy" decoding="async"><span class="n mono">06</span></button>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2 class="h2 display">Work with me.</h2>
+    <a class="btn" href="/start-intake">Start Intake <span class="arr">→</span></a>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <div class="foot-l">
+    <span>Kalen Hayman · Director, producer, designer.</span>
+    <span>Vancouver · Worldwide</span>
+    <a href="mailto:info@kalenhayman.com">info@kalenhayman.com</a>
+  </div>
+  <span>© 2026 Kalen Hayman</span>
+</footer>
+
+<script src="/assets/site/work.js"></script>
+<script src="/assets/site/site.js"></script>
+<script>
+(function () {
+  /* the film loops muted; the button (or a tap on the film) plays it full screen with sound */
+  var v = document.getElementById('asVid'), p = document.getElementById('asPlay');
+  var quiet = function () { v.muted = true; v.play().catch(function () {}); };
+  var watch = function () {
+    v.currentTime = 0; v.muted = false; v.play().catch(function () {});
+    var fs = v.requestFullscreen || v.webkitRequestFullscreen;
+    if (fs) { var r = fs.call(v); if (r && r.catch) r.catch(function () {}); }
+    else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+  };
+  p.addEventListener('click', watch);
+  v.addEventListener('click', function () { if (!document.fullscreenElement && !document.webkitFullscreenElement) watch(); });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) quiet(); });
+  document.addEventListener('webkitfullscreenchange', function () { if (!document.webkitFullscreenElement) quiet(); });
+  v.addEventListener('webkitendfullscreen', quiet);
+
+  /* the stills open in the site lightbox at the one tapped, and step through all six */
+  var piece = (AVA.WORK || []).filter(function (w) { return w.id === 'asics-stills'; })[0];
+  Array.prototype.forEach.call(document.querySelectorAll('.as-still'), function (b) {
+    b.addEventListener('click', function () {
+      if (!piece) return;
+      AVA.open(piece);
+      for (var i = 0; i < +b.dataset.i; i++) document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+    });
+  });
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
