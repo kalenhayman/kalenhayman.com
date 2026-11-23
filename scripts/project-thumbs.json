@@ -12,7 +12,7 @@
     { "id": "raven-brand-kit", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/1%20RAVEN%20BRAND%20KIT%20COVER.png"] },
     { "id": "raven-editorial", "layout": "row", "y": 30, "src": ["assets/raven-editorial/raven-01.jpg", "assets/raven-editorial/raven-02.jpg", "assets/raven-editorial/raven-03.jpg"] },
     { "id": "raven-campaigns", "layout": "cover", "y": 30, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20HEAD%20SHOT%20HERO.jpeg"] },
-    { "id": "kia-oura", "layout": "row", "y": 35, "video": "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20OURA%20RING.mp4", "frames": [0.3, 0.55, 0.8] },
+    { "id": "kia-oura", "layout": "cover", "y": 30, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20OURA%20SPEC%20GRAPHIC%202.png"] },
     { "id": "kia-brand-guide", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20BRAND%20GUIDE%20COVER%20PAGE%20SCREEN%20GRAB.png"] },
     { "id": "kia-editorial", "layout": "cover", "y": 18, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20EDITORIAL%20THUMB%201.png"] },
     { "id": "kia-campaigns", "layout": "row", "y": 30, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%203.png", "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%205.png"] },
