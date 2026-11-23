@@ -294,3 +294,17 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 .to-top.is-on:hover { transform: translateY(-3px); box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 45%, transparent), 0 12px 30px rgba(0,0,0,.36); }
 @media (min-width: 901px) { .has-agent .to-top { bottom: 120px; } }
 .menu-open .to-top { opacity: 0; visibility: hidden; }
+
+/* desktop nav: bigger mark and links (double from 1200px up, one and a half between 901 and 1199px) */
+@media (min-width: 901px) {
+  :root { --nav-h: 84px; }
+  .k-mark { font-size: 48px; }
+  .nav-links { gap: 28px; }
+  .nav-links a { font-size: 16px; letter-spacing: .2em; }
+}
+@media (min-width: 1200px) {
+  :root { --nav-h: 100px; }
+  .k-mark { font-size: 64px; }
+  .nav-links { gap: clamp(28px, 2.6vw, 48px); }
+  .nav-links a { font-size: 22px; letter-spacing: .18em; }
+}

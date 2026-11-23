@@ -33,6 +33,19 @@
 .page-work .h1 span { display: block; animation: rise .6s var(--ease) both; }
 @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .page-work .h1 span { animation: none; } }
+/* Casting view: the I Am AVA film as the header, with the home page's pulsing play button */
+.cast-hero { position: relative; margin-top: var(--nav-h); height: min(72svh, 56.25vw); min-height: 360px; overflow: hidden; background: #000; color: #EBEBEA; }
+.cast-hero[hidden] { display: none; }
+.cast-hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+.cast-hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 45%); }
+.cast-hero .play1 { position: absolute; z-index: 1; left: var(--gutter); bottom: clamp(24px, 3.4vw, 48px); color: #EBEBEA; gap: 14px; }
+.cast-hero .play1 .b { width: clamp(46px, 4.56vw, 70px); height: clamp(46px, 4.56vw, 70px); animation: heroPulse 2.8s ease-in-out infinite; }
+.cast-hero .play1:hover .b { animation-play-state: paused; }
+.cast-hero .play1 .l { font-size: 14px; letter-spacing: .3em; text-shadow: 0 1px 12px rgba(0,0,0,.6); }
+@keyframes heroPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(216,254,0,.48); } 50% { transform: scale(1.09); box-shadow: 0 0 0 14px rgba(216,254,0,0); } }
+@media (prefers-reduced-motion: reduce) { .cast-hero .play1 .b { animation: none; } }
+@media (max-width: 900px) { .cast-hero .play1 .b { width: 41px; height: 41px; } .cast-hero .play1 .l { font-size: 12px; letter-spacing: .24em; } }
+body.has-cast-hero .page-work { padding-top: clamp(28px, 4vw, 56px); }
 </style>
 </head>
 <body>
@@ -67,6 +80,10 @@
 </div>
 
 <main>
+  <section class="cast-hero dark" id="castHero" hidden>
+    <video id="castVid" poster="/assets/projects/i-am-ava.jpg" muted loop playsinline preload="none" aria-label="I Am AVA — casting film"></video>
+    <button class="play1" id="castPlay" type="button" aria-label="Play the I Am AVA film full screen, with sound"><span class="b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="l">Play film</span></button>
+  </section>
   <section class="section on-bone page-work" id="work">
     <div class="eyebrow mono">
       <span class="dot">Work</span>
@@ -100,10 +117,32 @@
   var q = new URLSearchParams(location.search);
   var want = q.get('view') || (location.hash === '#casting' ? 'Casting' : 'All');
   if (AVA.liveViews().indexOf(want) === -1) want = 'All';
+  /* Casting view: the I Am AVA film plays muted as the header; Play takes it full screen with sound */
+  var castHero = document.getElementById('castHero'), castVid = document.getElementById('castVid');
+  var CAST_SRC = 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/I%20AM%20AVA%20-%20FULL%20-%20compressed.mp4';
+  var castQuiet = function () { castVid.muted = true; var r = castVid.play(); if (r && r.catch) r.catch(function () {}); };
+  function showCast(on) {
+    castHero.hidden = !on;
+    document.body.classList.toggle('has-cast-hero', on);
+    if (on) { if (!castVid.getAttribute('src')) { castVid.preload = 'auto'; castVid.src = CAST_SRC; } castQuiet(); }
+    else castVid.pause();
+  }
+  var castWatch = function () {
+    castVid.currentTime = 0; castVid.muted = false; var r = castVid.play(); if (r && r.catch) r.catch(function () {});
+    var fs = castVid.requestFullscreen || castVid.webkitRequestFullscreen;
+    if (fs) { var x = fs.call(castVid); if (x && x.catch) x.catch(function () {}); }
+    else if (castVid.webkitEnterFullscreen) castVid.webkitEnterFullscreen();
+  };
+  document.getElementById('castPlay').addEventListener('click', castWatch);
+  castVid.addEventListener('click', function () { if (!document.fullscreenElement && !document.webkitFullscreenElement) castWatch(); });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement && !castHero.hidden) castQuiet(); });
+  document.addEventListener('webkitfullscreenchange', function () { if (!document.webkitFullscreenElement && !castHero.hidden) castQuiet(); });
+  castVid.addEventListener('webkitendfullscreen', castQuiet);
   var pad = function (n) { return (n < 10 ? '0' : '') + n; };
   var m = AVA.mountProjects(document.getElementById('work'), {
     cta: true, view: want, ids: AVA.pinnedOrder(),
     onView: function (v) {
+      showCast(v === 'Casting');
       /* The view you pick becomes the page's title. */
       var label = v === 'All' ? 'Work' : (v === 'Casting' ? 'Originals' : v);
       title.innerHTML = '<span>' + label + '</span>';
