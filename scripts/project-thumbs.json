@@ -7,7 +7,7 @@
     { "id": "i-am-ava", "layout": "cover", "y": 50, "src": ["assets/work/i-am-ava.jpg"] },
     { "id": "ava-brand-guide", "layout": "cover", "y": 50, "src": ["assets/docs/ava-brand-guide/p-1.jpg"] },
     { "id": "dupixent", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/PORTFOLIO/DUPIXENT%20-%20IT%20ALL%20COMES%20TOGETHER%202%20-%20ANIMATIC%20-%20NOV%202026.png"] },
-    { "id": "asics", "layout": "region", "box": [0.083, 0.496, 0.917, 0.912], "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KAI/ASICS%20SUPERBLAS%203%20SPEC%20AD%20by%20ADS%20ft.%20KAI/KAI%20AQUA%20ENERGY%206.png"] },
+    { "id": "asics", "layout": "cover", "y": 72, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KAI%20AQUA%20ENERGY%202.png"] },
     { "id": "raven-rise", "layout": "cover", "y": 15, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20RISE%20SPEC%20AD%20COVER%201.jpeg"] },
     { "id": "raven-brand-kit", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/1%20RAVEN%20BRAND%20KIT%20COVER.png"] },
     { "id": "raven-editorial", "layout": "row", "y": 30, "src": ["assets/raven-editorial/raven-01.jpg", "assets/raven-editorial/raven-02.jpg", "assets/raven-editorial/raven-03.jpg"] },
