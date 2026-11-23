@@ -362,8 +362,9 @@ var MODELS = [
         src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%203.png' },
       { title: 'Strength Training 02', kind: 'Still', cat: 'Stills',
         src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%205.png' },
-      { title: 'Brand Guide · Cover', kind: 'Brand guide', cat: 'Editorial',
-        src: 'https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20BRAND%20GUIDE%20COVER%20PAGE%20SCREEN%20GRAB.png' }
+      { title: 'Brand Guide', kind: 'Brand guide', cat: 'Editorial',
+        src: 'assets/kia-brand-guide/kia-bg-01.jpg',
+        more: ['assets/kia-brand-guide/kia-bg-02.jpg', 'assets/kia-brand-guide/kia-bg-03.jpg', 'assets/kia-brand-guide/kia-bg-04.jpg', 'assets/kia-brand-guide/kia-bg-05.jpg'] }
     ],
     magazine: { label: 'Avatar Editorial · No.01', pages: [
       'assets/kia-editorial/kia-01.jpg', 'assets/kia-editorial/kia-02.jpg',
@@ -745,7 +746,7 @@ function renderWorks() {
   var lightSeq = shown.filter(function (w) { return (w.src || w.video) && !w.href; }).map(function (w) {
     var r = String(w.ar || '4 / 5').split('/');
     return { id: 'work-' + w.no, title: w.title, sub: w.kind, types: [w.kind], w: parseFloat(r[0]) || 4, h: parseFloat(r[1]) || 5,
-      src: w.video ? undefined : w.src, video: w.video, poster: w.poster };
+      src: w.video ? undefined : w.src, more: w.more, video: w.video, poster: w.poster };
   });
   shown.forEach(function (w) {
     var ratio = document.createElement('span');
