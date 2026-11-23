@@ -43,6 +43,25 @@
   if ('requestIdleCallback' in window) requestIdleCallback(loadAgent, { timeout: 4000 });
   else setTimeout(loadAgent, 2500);
 
+  /* selected clients — the About page's scrolling list, above every closing band
+     (the About page shows its own, so it is skipped there) */
+  var CLIENTS = ['Lucky Energy', 'Sequel', 'Kyle Kuzma', 'Sony Music', 'Warner Music', 'Universal Music', 'Justin Bieber', 'MuchMusic', 'CBC', 'Cineplex', 'LCBO', 'Wrigley', 'Winners', 'Jim Beam', 'Red Bull', 'MSN', 'Tourism Toronto'];
+  var closing = document.querySelector('.band-cta');
+  closing = closing && closing.closest('.band');
+  if (closing && !document.getElementById('marquee')) {
+    var strip = document.createElement('section');
+    strip.className = 'cl-strip'; strip.setAttribute('aria-label', 'Selected clients');
+    var eb = document.createElement('div'); eb.className = 'eyebrow mono';
+    eb.innerHTML = '<span class="dot">Selected clients</span>';
+    var mq = document.createElement('div'); mq.className = 'cl-marquee';
+    var tr = document.createElement('div'); tr.className = 'cl-track display';
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var names = CLIENTS.map(function (n) { return '<span>' + n + '</span>'; }).join('<i></i>') + '<i></i>';
+    tr.innerHTML = still ? names : names + names;   /* twice, so the loop has no seam */
+    mq.appendChild(tr); strip.appendChild(eb); strip.appendChild(mq);
+    closing.parentNode.insertBefore(strip, closing);
+  }
+
   /* back to top — a small solid arrow, bottom-right; it shows once the page has scrolled a screen.
      When the chat widget is on (its pill sits bottom-right on desktop) the arrow rides just above it. */
   var top = document.createElement('button');
