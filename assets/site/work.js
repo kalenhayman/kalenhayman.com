@@ -214,13 +214,13 @@
     'demo-reel': ['Kalen Hayman', 'Reel'],
     'the-studio': ['The Studio', 'Pilot'],
     'aurora': ['Aurora × Kuz', 'Film'],
-    'virtual-affair': ['Virtual Affair', 'Casting'],
+    'virtual-affair': ['Virtual Affair', 'Duo'],
     'dupixent': ['Dupixent', 'Animatic'],
     'dupixent-jeff': ['Dupixent Jeff', 'Animatic'],
     'asics': ['Asics', 'Campaign'],
     'raven-rise': ['Rise FC', 'Campaign'],
     'kia-oura': ['Oura', 'Ad'],
-    'i-am-ava': ['I Am AVA', 'Casting'],
+    'i-am-ava': ['I Am AVA', 'Outtakes'],
     'ava-brand-guide': ['AVA', 'Brand guide'],
     'raven-brand-kit': ['Raven Red', 'Brand guide'],
     'kia-brand-guide': ['KIA', 'Brand guide'],
@@ -230,11 +230,11 @@
     'raven-campaigns': ['Raven Red', 'Editorial'],
     'kia-campaigns': ['KIA', 'Campaign'],
     'danny-air-jordan': ['Air Jordan', 'Ad'],
-    'face-kia': ['KIA', 'Original'],
-    'face-raven': ['Raven', 'Original'],
-    'face-globalist': ['Globalist', 'Original'],
-    'face-danny': ['Danny', 'Original'],
-    'face-laura': ['Laura', 'Original']
+    'face-kia': ['KIA', 'Model'],
+    'face-raven': ['Raven', 'Model'],
+    'face-globalist': ['Globalist', 'Model'],
+    'face-danny': ['Danny', 'Model'],
+    'face-laura': ['Laura', 'Model']
   };
 
 
