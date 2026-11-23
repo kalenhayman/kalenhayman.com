@@ -73,7 +73,7 @@
     { id: 'asics', title: 'Asics', types: ['Video'], w: 9, h: 16,
       poster: 'assets/img/asics-cover.jpg',
       video: 'assets/video/asics-spec-ad.mp4' },
-    { id: 'i-am-ava', title: 'I Am AVA', types: ['Video'], w: 16, h: 9,
+    { id: 'i-am-ava', title: 'Full Cast', types: ['Video'], w: 16, h: 9,
       video: B + 'I%20AM%20AVA%20-%20FULL%20-%20compressed.mp4' },
     { id: 'ava-brand-guide', text: true, title: 'AVA · Brand Guide', types: ['Branding'], w: 1600, h: 1131,
       src: 'assets/docs/ava-brand-guide/p-1.jpg', href: '/brand-guide' },
@@ -182,7 +182,7 @@
     { id: 'asics', name: 'Asics', kind: 'Spec campaign · Video & stills', types: ['Spec'], href: '/asics' },
     { id: 'raven-rise', name: 'Vancouver Rise FC', kind: 'Spec campaign · Video & stills', types: ['Spec'], media: mediaOf(['raven-rise-film', 'raven-rise-stills']) },
     { id: 'kia-oura', name: 'Oura', kind: 'Spec ad', types: ['Spec'], media: mediaOf(['kia-oura']) },
-    { id: 'i-am-ava', name: 'I Am AVA', kind: 'Casting outtakes', types: ['Casting'], media: mediaOf(['i-am-ava']) },
+    { id: 'i-am-ava', name: 'Full Cast', kind: 'Casting outtakes', types: ['Casting'], media: mediaOf(['i-am-ava']) },
     { id: 'ava-brand-guide', name: 'AVA', kind: 'Brand guide', types: ['Branding'], href: '/brand-guide' },
     /* Raven Red brand guide now sits under her editorial, on /raven-red */
     /* KIA brand guide now sits under her editorial, on /kia-editorial */
@@ -220,7 +220,7 @@
     'asics': ['Asics', 'Campaign'],
     'raven-rise': ['Rise FC', 'Campaign'],
     'kia-oura': ['Oura', 'Ad'],
-    'i-am-ava': ['I Am AVA', 'Outtakes'],
+    'i-am-ava': ['Full Cast', 'Outtakes'],
     'ava-brand-guide': ['AVA', 'Brand guide'],
     'raven-brand-kit': ['Raven Red', 'Brand guide'],
     'kia-brand-guide': ['KIA', 'Brand guide'],
