@@ -14,7 +14,7 @@
     { "id": "raven-campaigns", "layout": "cover", "y": 30, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20HEAD%20SHOT%20HERO.jpeg"] },
     { "id": "kia-oura", "layout": "row", "y": 35, "video": "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20OURA%20RING.mp4", "frames": [0.3, 0.55, 0.8] },
     { "id": "kia-brand-guide", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20BRAND%20GUIDE%20COVER%20PAGE%20SCREEN%20GRAB.png"] },
-    { "id": "kia-editorial", "layout": "cover", "y": 44, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/6%20KIA%20RAW%20NATURAL%20OCT%2020_2026.%20-%20compressedjpg.jpg"] },
+    { "id": "kia-editorial", "layout": "cover", "y": 18, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20EDITORIAL%20THUMB%201.png"] },
     { "id": "kia-campaigns", "layout": "row", "y": 30, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%203.png", "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%205.png"] },
     { "id": "danny-air-jordan", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/DANNY/PRESS%20RELEASE%201.png"] },
     { "id": "dupixent-jeff", "layout": "cover", "y": 50, "src": ["assets/img/dupixent-jeff-cover.jpg"] },
