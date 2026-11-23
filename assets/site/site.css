@@ -350,3 +350,18 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 @media (max-width: 900px) { .band-cta .btn { height: 58px; font-size: 16px; padding-left: 24px; } .band-cta .btn .arr { width: 42px; height: 42px; } }
 .band-cta .btn:not(.btn--ghost):hover { background: var(--neon); color: #000; border-color: var(--neon); }
 .band-cta .btn .arr { padding-bottom: 2px; }
+
+/* header Start the intake: the closing band's pill at half size */
+.nav .btn, .menu-foot .btn {
+  height: 38px; padding: 0 5px 0 16px; gap: 10px; border-radius: 999px;
+  font-family: var(--body); font-weight: 600; font-size: 13px; letter-spacing: -0.005em; text-transform: none;
+  transition: transform .3s var(--ease);
+}
+.nav .btn .arr, .menu-foot .btn .arr {
+  width: 28px; height: 28px; border-radius: 50%; display: inline-grid; place-items: center; flex: none; padding-bottom: 1px;
+  font-family: var(--body); font-size: 14px; line-height: 1; background: #000; color: var(--neon); transition: transform .35s var(--ease);
+}
+.nav .btn:hover, .menu-foot .btn:hover { background: var(--neon); color: #000; border-color: var(--neon); transform: translateY(-1px); }
+.nav .btn:hover .arr, .menu-foot .btn:hover .arr { transform: rotate(-45deg); }
+.menu-foot .btn { height: 48px; font-size: 15px; padding-left: 20px; }
+.menu-foot .btn .arr { width: 36px; height: 36px; }
