@@ -116,6 +116,9 @@
     { id: 'globalist-editorial', text: true, title: 'Globalist · Editorial', types: ['Deck'], w: 0.707, h: 1,
       src: 'assets/globalist-editorial/globalist-01.jpg',
       more: ['assets/globalist-editorial/globalist-02.jpg', 'assets/globalist-editorial/globalist-03.jpg', 'assets/globalist-editorial/globalist-04.jpg', 'assets/globalist-editorial/globalist-05.jpg', 'assets/globalist-editorial/globalist-06.jpg'] },
+    { id: 'globalist-brand-kit', text: true, title: 'The Globalist · Brand Kit', types: ['Branding'], w: 2000, h: 1414,
+      src: 'assets/globalist-brand-kit/gbk-01.jpg',
+      more: ['assets/globalist-brand-kit/gbk-02.jpg', 'assets/globalist-brand-kit/gbk-03.jpg', 'assets/globalist-brand-kit/gbk-04.jpg', 'assets/globalist-brand-kit/gbk-05.jpg'] },
 
     /* Originals — the casting view */
     { id: 'virtual-affair', title: 'The Virtual Affair', sub: 'Danny & Laura', types: ['Casting'], w: 1200, h: 630, src: 'assets/og/the-virtual-affair.jpg', href: '/the-virtual-affair' },
@@ -183,8 +186,7 @@
     /* Raven Red · In Search of My Hero (editorial) is removed — files kept; to bring it back, restore:
        { id: 'raven-editorial', name: 'Raven Red · In Search of My Hero', kind: 'Editorial', types: ['Deck'], media: mediaOf(['raven-editorial']) }, */
     { id: 'kia-editorial', name: 'KIA · Avatar Editorial No.01', kind: 'Editorial', types: ['Deck'], media: mediaOf(['kia-editorial']) },
-    { id: 'globalist', name: 'The Globalist', kind: 'Editorial · Brand kit', types: ['Deck', 'Branding'],
-      media: mediaOf(['globalist-editorial']).concat([1, 2, 3, 4, 5].map(function (n) { return { src: 'assets/docs/globalist-brand-kit/p-' + n + '.jpg' }; })) },
+    { id: 'globalist', name: 'The Globalist', kind: 'Editorial · Brand kit', types: ['Deck', 'Branding'], href: '/the-globalist' },
     { id: 'raven-campaigns', name: 'Raven Red', kind: 'Editorial stills', types: ['Image'], media: mediaOf(['raven-hero', 'raven-out-of-sound', 'raven-battle-cry', 'raven-team-canada']) },
     /* KIA campaign stills merged into the Asics spec campaign page (/asics) */
     { id: 'danny-air-jordan', name: 'Danny × Air Jordan', kind: 'Spec ad', types: ['Image'], media: mediaOf(['danny-air-jordan']) },
