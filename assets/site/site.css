@@ -273,9 +273,9 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 .lb .card-types { color: rgba(235,235,234,.7); }
 
 /* project cards: a single bold line — brand left, format right */
-.card--project .card-cap { flex: 0 0 auto; flex-direction: row !important; align-items: baseline; justify-content: space-between; gap: 14px; padding: 14px 16px 15px; }
-.card--project .card-title { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: clamp(20px, 1.9vw, 28px); line-height: 1; }
-.card--project .card-fmt { flex: none; font-family: var(--display); font-size: clamp(20px, 1.9vw, 28px); line-height: 1; text-transform: uppercase; letter-spacing: -0.01em; color: rgba(0,0,0,.42); white-space: nowrap; }
+.card--project .card-cap { flex: 0 0 auto; flex-direction: row !important; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 10px; padding: 14px 14px 15px; }
+.card--project .card-title { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: clamp(20px, 1.9vw, 28px); line-height: 1; letter-spacing: -0.02em; }
+.card--project .card-fmt { flex: none; font-family: var(--mono); font-weight: 500; font-size: clamp(20px, 1.9vw, 28px); line-height: 1; text-transform: uppercase; letter-spacing: -0.06em; color: rgba(0,0,0,.42); white-space: nowrap; }
 @media (max-width: 600px) { .card--project .card-title, .card--project .card-fmt { font-size: 22px; } }
 
 /* back to top: a solid square arrow, bottom-right, easy to find on light or dark; under the nav, menu and lightbox.
