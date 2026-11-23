@@ -162,9 +162,9 @@
   }
   /* Newest first: the home page always shows the top three. */
   var PROJECTS = [
-    { id: 'lucky', name: 'Lucky Energy', kind: 'Concept promo · Delivered', types: ['Video', 'Image'], href: '/lucky' },
-    { id: 'oshi-nori', name: 'Oshi Nori', kind: 'Concept site', types: ['Web'], href: '/oshi-nori' },
-    { id: 'craffles', name: 'Craffles', kind: 'Concept site', types: ['Web'], href: '/craffles' },
+    { id: 'lucky', name: 'Lucky Energy', kind: 'Concept promo · Delivered', types: ['Commercial'], href: '/lucky' },
+    { id: 'oshi-nori', name: 'Oshi Nori', kind: 'Concept site', types: ['Sites'], href: '/oshi-nori' },
+    { id: 'craffles', name: 'Craffles', kind: 'Concept site', types: ['Sites'], href: '/craffles' },
     /* Tavola (concept site, /tavola) is removed — files kept; to bring it back, restore:
        { id: 'tavola', name: 'Tavola', kind: 'Concept site', types: ['Web'], href: '/tavola' }, */
     /* España (concept site, /espana) is decommissioned — files kept; to bring it back, restore:
@@ -173,26 +173,26 @@
        { id: 'red-accordion', name: 'The Red Accordion', kind: 'Concept site', types: ['Web'], href: '/red-accordion' }, */
     /* No Bad Days (website, /no-bad-days) is parked for now — to bring it back, restore:
        { id: 'no-bad-days', name: 'No Bad Days', kind: 'Website', types: ['Web'], href: '/no-bad-days' }, */
-    { id: 'demo-reel', name: 'Demo Reel', kind: 'Demo reel · 60s', types: ['Video'], media: mediaOf(['demo-reel']) },
-    { id: 'the-studio', name: 'The STUDIO', kind: 'Pilot web series', types: ['Series', 'Video'], href: '/the-studio' },
-    { id: 'aurora', name: 'Aurora × KUZ', kind: 'Brand film', types: ['Video', 'Image', 'Web'], href: '/aurora' },
-    { id: 'virtual-affair', name: 'The Virtual Affair', kind: 'Casting', types: ['Image', 'Casting'], href: '/the-virtual-affair' },
-    { id: 'dupixent', name: 'Dupixent', kind: 'Animatic ad · It All Adds Up', types: ['Video'], href: '/dupixent' },
-    { id: 'dupixent-jeff', name: 'Dupixent', kind: 'Animatic ad · Jeff', types: ['Video'], href: '/dupixent#jeff' },
-    { id: 'asics', name: 'Asics', kind: 'Spec campaign · Video & stills', types: ['Video', 'Image'], href: '/asics' },
-    { id: 'raven-rise', name: 'Vancouver Rise FC', kind: 'Spec campaign · Video & stills', types: ['Video', 'Image'], media: mediaOf(['raven-rise-film', 'raven-rise-stills']) },
-    { id: 'kia-oura', name: 'Oura', kind: 'Spec ad', types: ['Video'], media: mediaOf(['kia-oura']) },
-    { id: 'i-am-ava', name: 'I Am AVA', kind: 'Casting outtakes', types: ['Video', 'Casting'], media: mediaOf(['i-am-ava']) },
-    { id: 'ava-brand-guide', name: 'AVA', kind: 'Brand guide', types: ['Branding', 'Deck'], href: '/brand-guide' },
+    { id: 'demo-reel', name: 'Demo Reel', kind: 'Demo reel · 60s', types: ['Film'], media: mediaOf(['demo-reel']) },
+    { id: 'the-studio', name: 'The STUDIO', kind: 'Pilot web series', types: ['Series'], href: '/the-studio' },
+    { id: 'aurora', name: 'Aurora × KUZ', kind: 'Brand film', types: ['Film'], href: '/aurora' },
+    { id: 'virtual-affair', name: 'The Virtual Affair', kind: 'Casting', types: ['Casting'], href: '/the-virtual-affair' },
+    { id: 'dupixent', name: 'Dupixent', kind: 'Animatic ad · It All Adds Up', types: ['Commercial'], href: '/dupixent' },
+    { id: 'dupixent-jeff', name: 'Dupixent', kind: 'Animatic ad · Jeff', types: ['Commercial'], href: '/dupixent#jeff' },
+    { id: 'asics', name: 'Asics', kind: 'Spec campaign · Video & stills', types: ['Commercial'], href: '/asics' },
+    { id: 'raven-rise', name: 'Vancouver Rise FC', kind: 'Spec campaign · Video & stills', types: ['Commercial'], media: mediaOf(['raven-rise-film', 'raven-rise-stills']) },
+    { id: 'kia-oura', name: 'Oura', kind: 'Spec ad', types: ['Commercial'], media: mediaOf(['kia-oura']) },
+    { id: 'i-am-ava', name: 'I Am AVA', kind: 'Casting outtakes', types: ['Casting'], media: mediaOf(['i-am-ava']) },
+    { id: 'ava-brand-guide', name: 'AVA', kind: 'Brand guide', types: ['Branding'], href: '/brand-guide' },
     /* Raven Red brand guide now sits under her editorial, on /raven-red */
     /* KIA brand guide now sits under her editorial, on /kia-editorial */
     /* Raven Red · In Search of My Hero (editorial) is removed — files kept; to bring it back, restore:
        { id: 'raven-editorial', name: 'Raven Red · In Search of My Hero', kind: 'Editorial', types: ['Deck'], media: mediaOf(['raven-editorial']) }, */
-    { id: 'kia-editorial', name: 'KIA · Avatar Editorial No.01', kind: 'Editorial · Brand guide', types: ['Deck', 'Branding'], href: '/kia-editorial' },
-    { id: 'globalist', name: 'The Globalist', kind: 'Editorial · Brand kit', types: ['Deck', 'Branding'], href: '/the-globalist' },
-    { id: 'raven-campaigns', name: 'Raven Red', kind: 'Editorial · Brand guide', types: ['Image', 'Branding'], href: '/raven-red' },
+    { id: 'kia-editorial', name: 'KIA · Avatar Editorial No.01', kind: 'Editorial · Brand guide', types: ['Editorial', 'Branding'], href: '/kia-editorial' },
+    { id: 'globalist', name: 'The Globalist', kind: 'Editorial · Brand kit', types: ['Editorial', 'Branding'], href: '/the-globalist' },
+    { id: 'raven-campaigns', name: 'Raven Red', kind: 'Editorial · Brand guide', types: ['Editorial', 'Branding'], href: '/raven-red' },
     /* KIA campaign stills merged into the Asics spec campaign page (/asics) */
-    { id: 'danny-air-jordan', name: 'Danny × Air Jordan', kind: 'Spec ad', types: ['Image'], media: mediaOf(['danny-air-jordan']) },
+    { id: 'danny-air-jordan', name: 'Danny × Air Jordan', kind: 'Spec ad', types: ['Commercial'], media: mediaOf(['danny-air-jordan']) },
 
     /* Originals — the faces, under Casting */
     { id: 'face-kia', name: 'KIA', kind: 'Original · Fitness', types: ['Casting'], face: true, href: '/model?m=kia' },
@@ -238,7 +238,7 @@
   };
 
 
-  var VIEWS = ['All', 'Branding', 'Web', 'Deck', 'Image', 'Video', 'Series', 'Casting'];
+  var VIEWS = ['All', 'Commercial', 'Film', 'Series', 'Branding', 'Editorial', 'Sites', 'Casting'];
   var INTAKE = '/start-intake';
 
   /* views count projects: All is every project, Casting the faces and casting work */
@@ -246,7 +246,7 @@
   function count(view) {
     return PROJECTS.filter(function (p) { return inView(p, view); }).length;
   }
-  function liveViews() { return VIEWS.filter(function (v) { return count(v) >= 2; }); }
+  function liveViews() { return VIEWS.filter(function (v) { return count(v) >= 1; }); }   /* a category shows once it has one project */
 
   function el(tag, cls, html) {
     var e = document.createElement(tag);
