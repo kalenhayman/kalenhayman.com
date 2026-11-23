@@ -146,6 +146,8 @@ body.has-cast-hero .page-work { padding-top: clamp(28px, 4vw, 56px); }
     cta: true, view: want, ids: AVA.pinnedOrder(),
     onView: function (v) {
       showCast(v === 'Casting');
+      /* on a phone the filters are one swipeable row: keep the chosen chip in view */
+      requestAnimationFrame(function () { var on = document.querySelector('.views [aria-pressed="true"]'); if (!on) return; var row = on.closest('.views'); var d = on.getBoundingClientRect().left - row.getBoundingClientRect().left; if (d < 0 || d + on.offsetWidth > row.clientWidth) row.scrollLeft += d - 16; });
       /* The view you pick becomes the page's title. */
       var label = v === 'All' ? 'Work' : (v === 'Casting' ? 'Casting' : v);
       title.innerHTML = '<span>' + label + '</span>';

@@ -365,3 +365,13 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 .nav .btn:hover .arr, .menu-foot .btn:hover .arr { transform: rotate(-45deg); }
 .menu-foot .btn { height: 48px; font-size: 15px; padding-left: 20px; }
 .menu-foot .btn .arr { width: 36px; height: 36px; }
+
+/* Work filters on phones: one swipeable row of compact chips, edge to edge, fading out on the right */
+@media (max-width: 900px) {
+  .views { flex-wrap: nowrap; gap: 6px; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); padding: 2px calc(var(--gutter) + 40px) 4px var(--gutter);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent); }
+  .views::-webkit-scrollbar { display: none; }
+  .views > * { flex: none; }
+  .views button { font-size: 11px; padding: 9px 13px; letter-spacing: .14em; white-space: nowrap; }
+}
