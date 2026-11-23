@@ -103,7 +103,7 @@
 }
 .h1 .kick .x { color: var(--sand); }
 .h1 .rotor { position: relative; display: inline-block; vertical-align: top; height: 1.04em; margin-bottom: -.1em; line-height: 1; overflow: hidden; color: var(--neon-text); white-space: nowrap; }
-.h1 .measure { position: absolute; visibility: hidden; white-space: nowrap; pointer-events: none; }
+.h1 .measure { position: fixed; left: 0; top: 0; visibility: hidden; white-space: nowrap; pointer-events: none; }   /* fixed, so measuring never widens the page */
 .h1 .rw { position: absolute; left: 0; top: -.05em; line-height: 1; white-space: nowrap; will-change: transform; animation: wordIn .55s var(--ease) both; }
 .h1 .rw.is-out { animation: wordOut .45s var(--ease) both; }
 @keyframes wordIn { from { transform: translate3d(0, 105%, 0); } to { transform: translate3d(0, 0, 0); } }
