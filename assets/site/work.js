@@ -196,6 +196,41 @@
     { id: 'face-laura', name: 'LAURA', kind: 'Original · Luxury', types: ['Casting'], face: true, href: '/model?m=laura' }
   ];
   PROJECTS.forEach(function (p) { p.thumb = '/assets/projects/' + p.id + '.jpg'; });
+  /* Card labels: one bold line — a 1–2 word brand and a 1–2 word format. */
+  var LABELS = {
+    'lucky': ['Lucky Energy', 'Commercial'],
+    'oshi-nori': ['Oshi Nori', 'Site'],
+    'craffles': ['Craffles', 'Site'],
+    'tavola': ['Tavola', 'Site'],
+    'espana': ['España', 'Site'],
+    'red-accordion': ['Red Accordion', 'Site'],
+    'no-bad-days': ['No Bad Days', 'Site'],
+    'demo-reel': ['Kalen Hayman', 'Reel'],
+    'the-studio': ['The Studio', 'Pilot'],
+    'aurora': ['Aurora × Kuz', 'Film'],
+    'virtual-affair': ['Virtual Affair', 'Casting'],
+    'dupixent': ['Dupixent', 'Animatic'],
+    'dupixent-jeff': ['Dupixent Jeff', 'Animatic'],
+    'asics': ['Asics', 'Ad'],
+    'raven-rise': ['Rise FC', 'Campaign'],
+    'kia-oura': ['Oura', 'Ad'],
+    'i-am-ava': ['I Am AVA', 'Casting'],
+    'ava-brand-guide': ['AVA', 'Brand guide'],
+    'raven-brand-kit': ['Raven Red', 'Brand kit'],
+    'kia-brand-guide': ['KIA', 'Brand guide'],
+    'raven-editorial': ['Raven Red', 'Editorial'],
+    'kia-editorial': ['KIA', 'Editorial'],
+    'globalist': ['Globalist', 'Editorial'],
+    'raven-campaigns': ['Raven Red', 'Campaign'],
+    'kia-campaigns': ['KIA', 'Campaign'],
+    'danny-air-jordan': ['Air Jordan', 'Ad'],
+    'face-kia': ['KIA', 'Original'],
+    'face-raven': ['Raven', 'Original'],
+    'face-globalist': ['Globalist', 'Original'],
+    'face-danny': ['Danny', 'Original'],
+    'face-laura': ['Laura', 'Original']
+  };
+
 
   var VIEWS = ['All', 'Branding', 'Web', 'Deck', 'Image', 'Video', 'Series', 'Casting'];
   var INTAKE = '/start-intake';
@@ -376,14 +411,10 @@
     a.appendChild(el('span', 'card-slash'));
     a.appendChild(m);
     var cap = el('div', 'card-cap');
-    /* brand on top; format (bright, wide-tracked) and the action share the line below */
-    cap.appendChild(el('span', 'card-title', p.name));
-    var n = p.media ? p.media.length : 0;
-    var meta = p.href ? (p.face ? 'Profile →' : 'Project page →') : (n > 1 ? n + ' pieces' : (n && p.media[0].video ? 'Video' : ''));
-    var row = el('span', 'card-row');
-    row.appendChild(el('span', 'card-kind mono', p.kind));
-    if (meta) row.appendChild(el('span', 'card-meta mono', meta));
-    cap.appendChild(row);
+    /* one bold line: brand left, format right in a second colour */
+    var lab = LABELS[p.id] || [p.name, p.kind.split(' · ')[0]];
+    cap.appendChild(el('span', 'card-title', lab[0]));
+    cap.appendChild(el('span', 'card-fmt', lab[1]));
     a.appendChild(cap);
     return a;
   }
