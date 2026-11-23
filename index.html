@@ -79,12 +79,15 @@
 /* one film: the play button sits right beside the title, big */
 .hero.is-single .slide-title { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 40px); right: auto; bottom: clamp(30px, 4.4vw, 64px) !important; }
 .hero.is-single .slide-title .t.big { flex: none; }
-.slide-title .hero-watch { pointer-events: auto; gap: 18px; }
-.hero-watch .b { width: clamp(76px, 7.6vw, 116px); height: clamp(76px, 7.6vw, 116px); }
+.slide-title .hero-watch { pointer-events: auto; gap: 14px; }
+.hero-watch .b { width: clamp(38px, 3.8vw, 58px); height: clamp(38px, 3.8vw, 58px); animation: heroPulse 2.8s ease-in-out infinite; }
+.hero-watch:hover .b { animation-play-state: paused; }
+@keyframes heroPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(216,254,0,.32); } 50% { transform: scale(1.06); box-shadow: 0 0 0 9px rgba(216,254,0,0); } }
+@media (prefers-reduced-motion: reduce) { .hero-watch .b { animation: none; } }
 .hero-watch .l { font-size: 12px; letter-spacing: .24em; }
 .hero.is-single .slide-title .t { display: none; }   /* one film: no title, just Play */
 .hero-watch .l { font-size: 14px; letter-spacing: .3em; }
-@media (max-width: 900px) { .hero-watch .b { width: 68px; height: 68px; } }
+@media (max-width: 900px) { .hero-watch .b { width: 34px; height: 34px; } }
 /* one film: the title sits clear above the Play button, and "Video" goes — the button says it */
 .hero.is-single .slide-title { bottom: 92px; }
 .hero.is-single .slide-title .kind { display: none; }
