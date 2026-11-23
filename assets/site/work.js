@@ -226,7 +226,7 @@
     'kia-brand-guide': ['KIA', 'Brand guide'],
     'raven-editorial': ['Raven Red', 'Editorial'],
     'kia-editorial': ['KIA', 'Editorial'],
-    'globalist': ['Globalist', 'Editorial'],
+    'globalist': ['The GLOBALIST', 'Editorial'],
     'raven-campaigns': ['Raven Red', 'Editorial'],
     'kia-campaigns': ['KIA', 'Campaign'],
     'danny-air-jordan': ['Air Jordan', 'Spec'],
