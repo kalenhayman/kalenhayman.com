@@ -45,7 +45,7 @@
 
   /* selected clients — the About page's scrolling list, above every closing band
      (the About page shows its own, so it is skipped there) */
-  var CLIENTS = ['Lucky Energy', 'Sequel', 'Kyle Kuzma', 'Sony Music', 'Warner Music', 'Universal Music', 'Justin Bieber', 'MuchMusic', 'CBC', 'Cineplex', 'LCBO', 'Wrigley', 'Winners', 'Jim Beam', 'Red Bull', 'MSN', 'Tourism Toronto'];
+  var CLIENTS = ['Lucky Energy', 'Sequel', 'Kyle Kuzma', 'Aurora', 'Sony Music', 'Warner Music', 'Universal Music', 'Justin Bieber', 'MuchMusic', 'CBC', 'Cineplex', 'LCBO', 'Wrigley', 'Winners', 'Jim Beam', 'Red Bull', 'MSN', 'Tourism Toronto'];
   var closing = document.querySelector('.band-cta');
   closing = closing && closing.closest('.band');
   if (closing && !document.getElementById('marquee')) {
