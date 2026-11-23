@@ -18,7 +18,7 @@
     { "id": "kia-campaigns", "layout": "row", "y": 30, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%203.png", "https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/KIA%20STRENGHT%20TRAINING%205.png"] },
     { "id": "danny-air-jordan", "layout": "cover", "y": 50, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/DANNY/PRESS%20RELEASE%201.png"] },
     { "id": "globalist", "layout": "row", "y": 30, "src": ["assets/globalist-editorial/globalist-01.jpg", "assets/globalist-editorial/globalist-02.jpg", "assets/globalist-editorial/globalist-03.jpg"] },
-    { "id": "face-kia", "layout": "cover", "y": 22, "src": ["assets/model-kia.png"] },
+    { "id": "face-kia", "layout": "cover", "y": 44, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/6%20KIA%20RAW%20NATURAL%20OCT%2020_2026.%20-%20compressedjpg.jpg"] },
     { "id": "face-raven", "layout": "cover", "y": 28, "src": ["assets/model-raven.jpg"] },
     { "id": "face-globalist", "layout": "cover", "y": 28, "src": ["assets/model-globalist.jpg"] },
     { "id": "face-danny", "layout": "cover", "y": 30, "src": ["assets/model-danny.jpg"] },
