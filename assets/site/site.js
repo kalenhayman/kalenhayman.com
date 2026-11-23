@@ -43,6 +43,41 @@
   if ('requestIdleCallback' in window) requestIdleCallback(loadAgent, { timeout: 4000 });
   else setTimeout(loadAgent, 2500);
 
+  /* previous / next project — on every portfolio page, above the client strip; the order loops */
+  var CASES = [
+    ['/lucky', 'lucky', 'Lucky Energy', 'Commercial'],
+    ['/aurora', 'aurora', 'Aurora × Kuz', 'Film'],
+    ['/the-studio', 'the-studio', 'The STUDIO', 'Series'],
+    ['/dupixent', 'dupixent', 'Dupixent', 'Commercial'],
+    ['/asics', 'asics', 'Asics', 'Spec'],
+    ['/kia-editorial', 'kia-editorial', 'KIA', 'Editorial'],
+    ['/the-globalist', 'globalist', 'The GLOBALIST', 'Editorial'],
+    ['/raven-red', 'raven-campaigns', 'Raven Red', 'Editorial'],
+    ['/brand-guide', 'ava-brand-guide', 'AVA', 'Brand guide'],
+    ['/the-virtual-affair', 'virtual-affair', 'Virtual Affair', 'Casting'],
+    ['/oshi-nori', 'oshi-nori', 'Oshi Nori', 'Site'],
+    ['/craffles', 'craffles', 'Craffles', 'Site']
+  ];
+  var path = location.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+  var at = CASES.map(function (c) { return c[0]; }).indexOf(path);
+  var bandEl = document.querySelector('.band-cta');
+  bandEl = bandEl && bandEl.closest('.band');
+  if (at > -1 && bandEl) {
+    var tile = function (c, dir) {
+      var a = document.createElement('a');
+      a.className = 'pnav-' + dir; a.href = c[0];
+      a.setAttribute('aria-label', (dir === 'prev' ? 'Previous project: ' : 'Next project: ') + c[2]);
+      a.innerHTML = '<span class="th"><img src="/assets/projects/' + c[1] + '.jpg" alt="" loading="lazy" decoding="async"></span>' +
+        '<span class="tx"><span class="k mono">' + (dir === 'prev' ? '<b>←</b> Previous project' : 'Next project <b>→</b>') + '</span>' +
+        '<span class="n display">' + c[2] + '</span><span class="f mono">' + c[3] + '</span></span>';
+      return a;
+    };
+    var pn = document.createElement('nav'); pn.className = 'pnav'; pn.setAttribute('aria-label', 'More projects');
+    pn.appendChild(tile(CASES[(at - 1 + CASES.length) % CASES.length], 'prev'));
+    pn.appendChild(tile(CASES[(at + 1) % CASES.length], 'next'));
+    bandEl.parentNode.insertBefore(pn, bandEl);
+  }
+
   /* selected clients — the About page's scrolling list, above every closing band
      (the About page shows its own, so it is skipped there) */
   var CLIENTS = ['Lucky Energy', 'Sequel', 'Kyle Kuzma', 'Aurora', 'Sony Music', 'Warner Music', 'Universal Music', 'Justin Bieber', 'MuchMusic', 'CBC', 'Cineplex', 'LCBO', 'Wrigley', 'Winners', 'Jim Beam', 'Red Bull', 'MSN', 'Tourism Toronto'];

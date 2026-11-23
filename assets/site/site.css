@@ -375,3 +375,29 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
   .views > * { flex: none; }
   .views button { font-size: 11px; padding: 9px 13px; letter-spacing: .14em; white-space: nowrap; }
 }
+
+/* previous / next project: two wide tiles, thumbnail and name, a neon line drawn on hover (built in site.js) */
+.pnav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(var(--bone-rgb, 235,235,234), .12); }
+.pnav a { position: relative; display: flex; align-items: center; gap: clamp(16px, 2.2vw, 32px); padding: clamp(28px, 3.4vw, 48px) var(--gutter); color: var(--bone); text-decoration: none; overflow: hidden; transition: background .35s var(--ease); }
+.pnav a + a { flex-direction: row-reverse; text-align: right; border-left: 1px solid rgba(var(--bone-rgb, 235,235,234), .12); }
+.pnav a::after { content: ""; position: absolute; left: var(--gutter); right: var(--gutter); bottom: 0; height: 2px; background: var(--neon); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease); }
+.pnav a + a::after { transform-origin: right; }
+.pnav a:hover { background: rgba(var(--bone-rgb, 235,235,234), .035); }
+.pnav a:hover::after { transform: scaleX(1); }
+.pnav .th { flex: none; width: clamp(110px, 12vw, 190px); aspect-ratio: 16 / 10; overflow: hidden; background: rgba(var(--bone-rgb, 235,235,234), .06); }
+.pnav .th img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s var(--ease); }
+.pnav a:hover .th img { transform: scale(1.06); }
+.pnav .tx { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.pnav .k { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); }
+.pnav .k b { display: inline-block; font-weight: 500; color: var(--bone); transition: transform .35s var(--ease); }
+.pnav-prev:hover .k b { transform: translateX(-5px); }
+.pnav-next:hover .k b { transform: translateX(5px); }
+.pnav .n { font-size: clamp(26px, 3.2vw, 52px); line-height: .92; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pnav .f { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); }
+@media (max-width: 700px) {
+  .pnav a { flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px var(--gutter) 26px; }
+  .pnav a + a { flex-direction: column; align-items: flex-end; }
+  .pnav .th { width: 100%; }
+  .pnav .n { font-size: 24px; white-space: normal; }
+  .pnav .k { font-size: 10px; letter-spacing: .16em; }
+}
