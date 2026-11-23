@@ -34,6 +34,7 @@
     /* the full pill (avatar, call button, chat, "powered by") covers a third of a phone screen; a phone gets the tiny bubble */
     if (phone) w.setAttribute('variant', 'tiny');
     body.appendChild(w);
+    body.classList.add('has-agent');
     var sc = document.createElement('script');
     sc.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@0.20.0';
     sc.async = true;
@@ -42,12 +43,12 @@
   if ('requestIdleCallback' in window) requestIdleCallback(loadAgent, { timeout: 4000 });
   else setTimeout(loadAgent, 2500);
 
-  /* back to top — a small arrow, bottom-left (the chat widget has the bottom-right
-     on desktop and bottom-centre on phones); it shows once the page has scrolled a screen */
+  /* back to top — a small solid arrow, bottom-right; it shows once the page has scrolled a screen.
+     When the chat widget is on (its pill sits bottom-right on desktop) the arrow rides just above it. */
   var top = document.createElement('button');
   top.type = 'button'; top.className = 'to-top';
   top.setAttribute('aria-label', 'Back to top');
-  top.innerHTML = '<span aria-hidden="true">\u2191</span>';
+  top.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>';
   top.addEventListener('click', function () {
     var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
