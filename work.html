@@ -147,7 +147,7 @@ body.has-cast-hero .page-work { padding-top: clamp(28px, 4vw, 56px); }
     onView: function (v) {
       showCast(v === 'Casting');
       /* The view you pick becomes the page's title. */
-      var label = v === 'All' ? 'Work' : (v === 'Casting' ? 'Originals' : v);
+      var label = v === 'All' ? 'Work' : (v === 'Casting' ? 'Casting' : v);
       title.innerHTML = '<span>' + label + '</span>';
       count.textContent = pad(AVA.count(v)) + (v === 'All' ? ' projects' : (v === 'Casting' ? ' originals' : ' / ' + pad(AVA.count('All')) + ' projects'));
       var u = new URL(location.href);
