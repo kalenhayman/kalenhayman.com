@@ -312,3 +312,8 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 /* Build your own (end of the Casting view): a grey field with the words in acid neon */
 .card--project.card--build .card-media { background: #3A3A38 !important; }
 .card--project.card--build .build-t { color: #D8FE00 !important; }
+
+/* the closing band: two ways in, the intake and a plain contact */
+.band-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+.band-cta .btn { justify-content: center; }
+@media (max-width: 900px) { .band-cta { justify-content: flex-start; } }
