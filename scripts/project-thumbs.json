@@ -20,7 +20,7 @@
     { "id": "dupixent-jeff", "layout": "cover", "y": 50, "src": ["assets/img/dupixent-jeff-cover.jpg"] },
     { "id": "globalist", "layout": "cover", "y": 40, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/The%20Globalist/globalist-02-origin.png"] },
     { "id": "face-kia", "layout": "cover", "y": 44, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/KIA/6%20KIA%20RAW%20NATURAL%20OCT%2020_2026.%20-%20compressedjpg.jpg"] },
-    { "id": "face-raven", "layout": "cover", "y": 28, "src": ["assets/model-raven.jpg"] },
+    { "id": "face-raven", "layout": "cover", "y": 35, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/RAVEN/RAVEN%20HEAD%20SHOT%20HERO%202.jpeg"] },
     { "id": "face-globalist", "layout": "cover", "y": 28, "src": ["assets/model-globalist.jpg"] },
     { "id": "face-danny", "layout": "cover", "y": 30, "src": ["assets/model-danny.jpg"] },
     { "id": "face-laura", "layout": "cover", "y": 35, "src": ["https://ogpmpr3qmyfpwkqr.public.blob.vercel-storage.com/LAURA/Gemini_Generated_Image_ddumuuddumuuddum.jpg"] }
