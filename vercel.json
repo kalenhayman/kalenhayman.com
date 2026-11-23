@@ -97,6 +97,11 @@
   ],
   "redirects": [
     {
+      "source": "/raven-brand-kit",
+      "destination": "/raven-red",
+      "permanent": true
+    },
+    {
       "source": "/espana",
       "destination": "/work",
       "permanent": false

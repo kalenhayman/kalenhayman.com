@@ -107,6 +107,9 @@
       more: [B + 'KIA/KIA%20STRENGHT%20TRAINING%205.png'] },
     { id: 'raven-team-canada', title: 'Raven Red · Team Canada', types: ['Image'], w: 880, h: 1168,
       src: B + 'RAVEN/RAVEN%20FITNESS%20EDITORIAL%20TEAM%20CANADA.png' },
+    { id: 'raven-editorial-stills', title: 'Raven Red · Editorial', types: ['Image'], w: 4, h: 5,
+      src: B + 'RAVEN/05%20_%20The%20Hero.png',
+      more: [B + 'RAVEN/04%20_%20Out%20of%20Sound.png', B + 'RAVEN/BATTLE%20CRY%20-%20Ni%CC%82pisi%CC%82y%20Red%20CAMPAIGN%20.jpeg', B + 'RAVEN/RAVEN%20FITNESS%20EDITORIAL%20TEAM%20CANADA.png'] },
     { id: 'kia-editorial', text: true, title: 'KIA · Avatar Editorial No.01', types: ['Deck'], w: 0.707, h: 1,
       src: 'assets/kia-editorial/kia-01.jpg',
       more: ['assets/kia-editorial/kia-02.jpg', 'assets/kia-editorial/kia-03.jpg', 'assets/kia-editorial/kia-04.jpg', 'assets/kia-editorial/kia-05.jpg', 'assets/kia-editorial/kia-06.jpg', 'assets/kia-editorial/kia-07.jpg', 'assets/kia-editorial/kia-08.jpg'] },
@@ -181,13 +184,13 @@
     { id: 'kia-oura', name: 'Oura', kind: 'Spec ad', types: ['Video'], media: mediaOf(['kia-oura']) },
     { id: 'i-am-ava', name: 'I Am AVA', kind: 'Casting outtakes', types: ['Video', 'Casting'], media: mediaOf(['i-am-ava']) },
     { id: 'ava-brand-guide', name: 'AVA', kind: 'Brand guide', types: ['Branding', 'Deck'], href: '/brand-guide' },
-    { id: 'raven-brand-kit', name: 'Raven Red', kind: 'Brand guide', types: ['Branding'], href: '/raven-brand-kit' },
-    { id: 'kia-brand-guide', name: 'KIA', kind: 'Brand guide', types: ['Branding'], media: mediaOf(['kia-brand-guide']) },
+    /* Raven Red brand guide now sits under her editorial, on /raven-red */
+    /* KIA brand guide now sits under her editorial, on /kia-editorial */
     /* Raven Red · In Search of My Hero (editorial) is removed — files kept; to bring it back, restore:
        { id: 'raven-editorial', name: 'Raven Red · In Search of My Hero', kind: 'Editorial', types: ['Deck'], media: mediaOf(['raven-editorial']) }, */
-    { id: 'kia-editorial', name: 'KIA · Avatar Editorial No.01', kind: 'Editorial', types: ['Deck'], media: mediaOf(['kia-editorial']) },
+    { id: 'kia-editorial', name: 'KIA · Avatar Editorial No.01', kind: 'Editorial · Brand guide', types: ['Deck', 'Branding'], href: '/kia-editorial' },
     { id: 'globalist', name: 'The Globalist', kind: 'Editorial · Brand kit', types: ['Deck', 'Branding'], href: '/the-globalist' },
-    { id: 'raven-campaigns', name: 'Raven Red', kind: 'Editorial stills', types: ['Image'], media: mediaOf(['raven-hero', 'raven-out-of-sound', 'raven-battle-cry', 'raven-team-canada']) },
+    { id: 'raven-campaigns', name: 'Raven Red', kind: 'Editorial · Brand guide', types: ['Image', 'Branding'], href: '/raven-red' },
     /* KIA campaign stills merged into the Asics spec campaign page (/asics) */
     { id: 'danny-air-jordan', name: 'Danny × Air Jordan', kind: 'Spec ad', types: ['Image'], media: mediaOf(['danny-air-jordan']) },
 
