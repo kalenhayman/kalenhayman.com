@@ -279,19 +279,19 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 .card--project:hover .card-fmt { background: var(--neon); color: #000; box-shadow: 0 0 0 4px var(--neon); }
 @media (max-width: 600px) { .card--project .card-title { font-size: 22px; } }
 
-/* back to top: a solid square arrow, bottom-right, easy to find on light or dark; under the nav, menu and lightbox.
-   With the chat widget on, a desktop keeps its pill in that corner, so the arrow sits above it. */
+/* back to top: a slim outlined arrow, bottom-right — quiet on light or dark, under the nav, menu and lightbox */
 .to-top {
   position: fixed; right: var(--gutter); bottom: max(18px, env(safe-area-inset-bottom)); z-index: 45;
-  width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center;
-  color: var(--ink); background: var(--bone);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 45%, transparent), 0 8px 24px rgba(0,0,0,.28);
-  opacity: 0; visibility: hidden; transform: translateY(10px);
-  transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s, box-shadow .25s var(--ease);
+  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  color: var(--bone); background: color-mix(in srgb, var(--ink) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bone) 45%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s, border-color .25s var(--ease), background .25s var(--ease);
 }
-.to-top svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: square; }
+.to-top svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; }
 .to-top.is-on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
-.to-top.is-on:hover { transform: translateY(-3px); box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 45%, transparent), 0 12px 30px rgba(0,0,0,.36); }
+.to-top.is-on:hover { border-color: var(--bone); background: color-mix(in srgb, var(--ink) 80%, transparent); transform: translateY(-2px); }
 @media (min-width: 901px) { .has-agent .to-top { bottom: 120px; } }
 .menu-open .to-top { opacity: 0; visibility: hidden; }
 
