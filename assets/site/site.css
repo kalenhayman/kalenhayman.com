@@ -319,11 +319,11 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 @media (max-width: 900px) { .band-cta { justify-content: flex-start; } }
 
 /* selected clients strip above the closing band (built in site.js) */
-.cl-strip { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234), .12); padding: clamp(32px, 4vw, 56px) 0 clamp(40px, 6vw, 88px); overflow: hidden; }
+.cl-strip { border-top: 1px solid rgba(var(--bone-rgb, 235,235,234), .12); padding: clamp(28px, 3.4vw, 48px) 0 clamp(32px, 4vw, 56px); overflow: hidden; }
 .cl-strip .eyebrow { padding: 0 var(--gutter); margin-bottom: clamp(18px, 2.4vw, 32px); }
 .cl-marquee { overflow: hidden; white-space: nowrap; }
-.cl-track { display: inline-flex; align-items: center; font-size: clamp(56px, 11vw, 160px); line-height: 1; color: var(--bone); padding-left: var(--gutter); animation: clSlide 44s linear infinite; }
-.cl-track i { display: inline-block; width: 14px; height: 14px; background: var(--neon); margin: 0 clamp(24px, 3vw, 56px); transform: skewX(-18deg); }
+.cl-track { display: inline-flex; align-items: center; font-size: clamp(20px, 4.75vw, 75px); line-height: 1; color: var(--bone); padding-left: var(--gutter); animation: clSlide 44s linear infinite; }
+.cl-track i { display: inline-block; width: 8px; height: 8px; background: var(--neon); margin: 0 clamp(14px, 1.6vw, 30px); transform: skewX(-18deg); }   /* names at half the closing headline */
 @keyframes clSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .cl-track { animation: none; flex-wrap: wrap; white-space: normal; padding-right: var(--gutter); line-height: 1.02; font-size: clamp(36px, 6vw, 72px); } .cl-track i { margin: 0 18px; } }
 
