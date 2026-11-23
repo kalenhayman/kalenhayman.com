@@ -63,7 +63,7 @@
     /* the home page hero: the demo reel, from its own title card (startAt 0) */
     { id: 'demo-reel', title: 'Demo Reel', types: ['Video'], w: 16, h: 9, startAt: 0,
       poster: B + 'PORTFOLIO/AVA-Demo-Reel-Cover.png',
-      video: '/assets/video/ava-demo-reel.mp4' },   /* faststart copy of DEMO REELS/AVA DEMO REEL 11_2026 */
+      video: '/assets/video/ava-demo-reel-60.mp4' },   /* faststart copy of DEMO REELS/AVA DEMO REEL 60s 11_22_2026 */
     { id: 'dupixent', title: 'Dupixent · It All Adds Up', types: ['Video'], w: 16, h: 9,
       poster: 'assets/img/dupixent-cover.jpg',
       video: B + 'PORTFOLIO/DUPIXENT%20-%20animatic%20.mp4' },
@@ -166,6 +166,7 @@
        { id: 'red-accordion', name: 'The Red Accordion', kind: 'Concept site', types: ['Web'], href: '/red-accordion' }, */
     /* No Bad Days (website, /no-bad-days) is parked for now — to bring it back, restore:
        { id: 'no-bad-days', name: 'No Bad Days', kind: 'Website', types: ['Web'], href: '/no-bad-days' }, */
+    { id: 'demo-reel', name: 'Demo Reel', kind: 'Demo reel · 60s', types: ['Video'], media: mediaOf(['demo-reel']) },
     { id: 'the-studio', name: 'The STUDIO', kind: 'Pilot web series', types: ['Series', 'Video'], href: '/the-studio' },
     { id: 'aurora', name: 'Aurora × KUZ', kind: 'Brand film', types: ['Video', 'Image', 'Web'], href: '/aurora' },
     { id: 'virtual-affair', name: 'The Virtual Affair', kind: 'Casting', types: ['Image', 'Casting'], href: '/the-virtual-affair' },
