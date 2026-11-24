@@ -404,3 +404,18 @@ body.cur-hot .cur { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
 
 /* nothing can push the page sideways: a trackpad swipe never slides the layout off its edges */
 html, body { overflow-x: clip; }
+
+/* editorial sets on phones: one full-width image at a time, swiped, with a counter and dots (built in site.js) */
+.sl-meta { display: none; }
+@media (max-width: 900px) {
+  .gl-grid.is-slider { display: flex !important; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); padding: 0 var(--gutter); scroll-padding: 0 var(--gutter); }
+  .gl-grid.is-slider::-webkit-scrollbar { display: none; }
+  .gl-grid.is-slider > .gl-page { flex: 0 0 100%; scroll-snap-align: center; scroll-snap-stop: always; }
+  .sl-meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; }
+  .sl-count { font-size: 11px; letter-spacing: .22em; color: var(--sand); }
+  .sl-count b { font-weight: 500; color: var(--bone); }
+  .sl-dots { display: flex; gap: 6px; }
+  .sl-dots i { width: 18px; height: 2px; background: rgba(var(--bone-rgb, 235,235,234), .22); transition: background .3s var(--ease), width .3s var(--ease); }
+  .sl-dots i.on { width: 30px; background: var(--neon); }
+}

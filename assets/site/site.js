@@ -43,6 +43,26 @@
   if ('requestIdleCallback' in window) requestIdleCallback(loadAgent, { timeout: 4000 });
   else setTimeout(loadAgent, 2500);
 
+  /* editorial sliders (phones): a counter and dots that follow the swipe */
+  Array.prototype.forEach.call(document.querySelectorAll('.gl-grid.is-slider'), function (row) {
+    var slides = row.children, n = slides.length;
+    if (n < 2) return;
+    var meta = document.createElement('div'); meta.className = 'sl-meta';
+    var pad = function (k) { return (k < 10 ? '0' : '') + k; };
+    meta.innerHTML = '<span class="sl-count mono"><b>01</b> / ' + pad(n) + '</span><span class="sl-dots">' + new Array(n + 1).join('<i></i>') + '</span>';
+    row.parentNode.insertBefore(meta, row.nextSibling);
+    var dots = meta.querySelectorAll('i'), num = meta.querySelector('b'), cur = -1;
+    var sync = function () {
+      var i = Math.round(row.scrollLeft / Math.max(1, slides[0].offsetWidth + 12));
+      i = Math.max(0, Math.min(n - 1, i));
+      if (i === cur) return; cur = i;
+      num.textContent = pad(i + 1);
+      Array.prototype.forEach.call(dots, function (d, k) { d.classList.toggle('on', k === i); });
+    };
+    row.addEventListener('scroll', function () { requestAnimationFrame(sync); }, { passive: true });
+    sync();
+  });
+
   /* previous / next project — on every portfolio page, above the client strip; the order loops */
   var CASES = [
     ['/lucky', 'lucky', 'Lucky Energy', 'Commercial'],
